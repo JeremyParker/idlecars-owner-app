@@ -9,10 +9,17 @@ var $ = require('gulp-load-plugins')({
 });
 
 gulp.task('partials', ['markups'], function () {
-  return gulp.src([
-    paths.src + '/{app,components}/**/*.html',
-    paths.tmp + '/{app,components}/**/*.html'
-  ])
+  function renameToHtml(path) {
+    path.extname = '.html';
+  }
+
+  return gulp.src(paths.src + '/{app,components}/**/*.jade')
+    .pipe($.consolidate('jade', { pretty: '  ' }))
+    .on('error', function handleError(err) {
+      console.error(err.toString());
+      this.emit('end');
+    })
+    .pipe($.rename(renameToHtml))
     .pipe($.minifyHtml({
       empty: true,
       spare: true,
