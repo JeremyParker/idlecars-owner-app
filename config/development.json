@@ -1,0 +1,4 @@
+{
+  "env": "development",
+  "api_base_url": "//localhost:8000"
+}

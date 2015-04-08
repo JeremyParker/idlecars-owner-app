@@ -6,6 +6,7 @@ gulp.paths = {
   src: 'src',
   dist: 'dist',
   tmp: '.tmp',
+  config: 'config',
   e2e: 'e2e'
 };
 
