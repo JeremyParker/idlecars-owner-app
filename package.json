@@ -17,6 +17,7 @@
     "gulp-uglify": "~1.0.1",
     "gulp-useref": "~1.0.2",
     "gulp-ng-annotate": "~0.3.6",
+    "gulp-ng-constant": "0.3.0",
     "gulp-replace": "~0.5.0",
     "gulp-rename": "~1.2.0",
     "gulp-rev": "~2.0.1",
@@ -38,7 +39,8 @@
     "http-proxy": "~1.7.0",
     "chalk": "~0.5.1",
     "protractor": "~1.4.0",
-    "uglify-save-license": "~0.4.1"
+    "uglify-save-license": "~0.4.1",
+    "yargs": "~3.5.4"
   },
   "engines": {
     "node": ">=0.10.0"
