@@ -10,5 +10,7 @@ An angularjs single page application
 ### Running a dev server
 `gulp serve`
 
-### Build for production
+### Build & Deploy
+Use direnv and get `.envrc` from another developer
 `gulp clean && gulp build --env=production`
+`gulp publish`

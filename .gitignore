@@ -4,3 +4,6 @@ bower_components/
 .tmp/
 dist/
 src/app/config.js
+
+.awspublish-app.idlecars.com
+.envrc
