@@ -9,3 +9,6 @@ An angularjs single page application
 
 ### Running a dev server
 `gulp serve`
+
+### Build for production
+`gulp clean && gulp build --env=production`
