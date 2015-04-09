@@ -10,7 +10,6 @@ var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*']
 });
 
-
 var environment = argv.env || 'development';
 
 gulp.task('config', function () {
