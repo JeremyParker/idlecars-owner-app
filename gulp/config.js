@@ -7,13 +7,13 @@ var ngConstant = require('gulp-ng-constant');
 var paths = gulp.paths;
 
 var environment = argv.env || 'development';
-// var ENV = JSON.parse(fs.readFileSync('./src/app/config-' + environment + '.json', 'utf8')).ENV;
 
 gulp.task('config', function () {
+  // TODO: don't use dest key, it is deprecated
   gulp.src(paths.config + '/' + environment + '.json')
     .pipe(ngConstant({
-      name: 'AppConfig',
-      dest: 'zconfig.js'
+      name: 'ic.appConfig',
+      dest: 'config.js'
     }))
     .pipe(gulp.dest('src/app'));
 });
