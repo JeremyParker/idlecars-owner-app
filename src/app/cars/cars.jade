@@ -1,5 +1,4 @@
-div(layout="vertical" layout-fill)
-
-  header(ng-include="'components/navbar/navbar.html'")
-
-  p content goes here
+h2 Listings
+.car-list
+  .car(ng-repeat="car in cars")
+    {{car.year}} - {{car.make}} - {{car.model}}
