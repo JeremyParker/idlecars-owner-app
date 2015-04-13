@@ -1,5 +1,5 @@
 h2 Listings
 .car-list
-  car(ng-repeat="car in cars")
-    a(ui-sref="carDetail({carId: car.id})").
+  a(ng-repeat="car in cars", ui-sref="carDetail({carId: car.id, car: car})")
+    .car.
       {{car.year}} - {{car.make}} - {{car.model}}

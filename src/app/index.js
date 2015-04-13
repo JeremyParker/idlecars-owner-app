@@ -13,8 +13,9 @@ angular.module('idlecars', ['ngAnimate', 'ngCookies', 'ui.router', 'ic.appConfig
       .state('carDetail', {
         url: 'car/:carId',
         templateUrl: 'app/cars/show.html',
+        params: {car: null},
         controller: function ($scope, $stateParams) {
-          $scope.carId = $stateParams.carId;
+          $scope.car = $stateParams.car;
         }
       });
 
