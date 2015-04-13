@@ -6,7 +6,7 @@
 'use strict';
 
 var CarsIndex = function() {
-  this.header = element(by.css('h2'))
+  this.header = element(by.css('h2'));
   this.carEls = element(by.css('body')).all(by.repeater('car in cars'));
 };
 

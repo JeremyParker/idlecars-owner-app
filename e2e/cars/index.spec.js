@@ -1,6 +1,6 @@
 'use strict';
 
-describe('The car index page', function () {
+describe('Listing cars', function () {
   var page;
 
   beforeEach(function () {
