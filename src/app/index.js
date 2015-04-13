@@ -20,8 +20,8 @@ angular.module('idlecars', ['ngAnimate', 'ngCookies', 'ui.router', 'ic.appConfig
     })
 
     .state('carsRequest', {
-      url: 'cars/:carId/request',
-      templateUrl: 'app/cars/request.html',
+      url: 'cars/:carId/booking',
+      templateUrl: 'app/cars/booking.html',
       params: {car: null},
       controller: 'cars.showCtrl'
     });
