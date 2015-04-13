@@ -1,22 +1,22 @@
 'use strict';
 
 angular.module('idlecars', ['ngAnimate', 'ngCookies', 'ui.router', 'ic.appConfig'])
+
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+
   $stateProvider
 
-    .state('carIndex', {
+    .state('cars', {
       url: '/',
       templateUrl: 'app/cars/index.html',
-      controller: 'CarsCtrl'
+      controller: 'cars.indexCtrl'
     })
 
-    .state('carDetail', {
-      url: 'car/:carId',
+    .state('carsShow', {
+      url: 'cars/:carId',
       templateUrl: 'app/cars/show.html',
       params: {car: null},
-      controller: function ($scope, $stateParams) {
-        $scope.car = $stateParams.car;
-      }
+      controller: 'cars.showCtrl'
     });
 
   $urlRouterProvider.otherwise('/');
