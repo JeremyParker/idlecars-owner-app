@@ -17,6 +17,14 @@ angular.module('idlecars', ['ngAnimate', 'ngCookies', 'ui.router', 'ic.appConfig
       templateUrl: 'app/cars/show.html',
       params: {car: null},
       controller: 'cars.showCtrl'
+    })
+
+    .state('carsShow.request', {
+      url: 'cars/:carId/request',
+      parent: 'carsShow',
+      templateUrl: 'app/cars/request.html',
+      params: {car: null},
+      // controller: 'cars.showCtrl'
     });
 
   $urlRouterProvider.otherwise('/');
