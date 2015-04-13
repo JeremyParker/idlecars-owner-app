@@ -1,0 +1,9 @@
+'use strict';
+
+angular.module('idlecars')
+.controller('cars.indexCtrl', function ($scope, $http) {
+  $scope.cars = [
+    {id: 5, make: 'Lincoln', model: 'MKT', year: '2013'},
+    {id: 23, make: 'GMC', model: 'Yukon', year: '2014'},
+  ];
+});
