@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var argv = require('yargs').argv;
 
 gulp.paths = {
   src: 'src',
@@ -19,7 +20,7 @@ gulp.task('default', ['clean'], function () {
 var environment = {};
 var envArg = argv.env || 'staging';
 if (envArg === 'production') {
-  environment.bucket = 'app.idlecars.com';
+  environment.deploy_bucket = 'app.idlecars.com';
 } else {
-  environment.bucket = 'staging.app.idlecars.com';
+  environment.deploy_bucket = 'staging.app.idlecars.com';
 }
