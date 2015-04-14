@@ -1,4 +1,4 @@
-a(ui-sref='cars') Listings
-h2 Car detail
-p {{car.year}} - {{car.make}} - {{car.model}}
+h2(hidden) {{car.name}} for rent
+car-image
+p {{car.name}}
 a(ui-sref="carsBooking({carId: car.id, car: car})") Request this car
