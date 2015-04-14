@@ -7,8 +7,9 @@ gulp.task('publish', function() {
 
   var publisher = awspublish.create({ bucket: 'app.idlecars.com' });
 
+  // TODO(jefk): figure out what the right cache-control is, this max age is 1 day
   var headers = {
-    'Cache-Control': 'max-age=315360000, no-transform, public'
+    'Cache-Control': 'max-age=86400, no-transform, public'
   };
 
   return gulp.src('./dist/**')
