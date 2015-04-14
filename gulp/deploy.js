@@ -5,7 +5,9 @@ var awspublish = require('gulp-awspublish');
 
 gulp.task('publish', function() {
 
-  var publisher = awspublish.create({ bucket: environment.deploy_bucket });
+  console.log('DEPLOYING TO: ' + gulp.environment.deploy_bucket);
+
+  var publisher = awspublish.create({ bucket: gulp.environment.deploy_bucket });
 
   // TODO(jefk): figure out what the right cache-control is, this max age is 1 day
   var headers = {

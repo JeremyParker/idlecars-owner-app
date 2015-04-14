@@ -17,10 +17,10 @@ gulp.task('default', ['clean'], function () {
   gulp.start('build');
 });
 
-var environment = {};
+gulp.environment = {};
 var envArg = argv.env || 'staging';
 if (envArg === 'production') {
-  environment.deploy_bucket = 'app.idlecars.com';
+  gulp.environment.deploy_bucket = 'app.idlecars.com';
 } else {
-  environment.deploy_bucket = 'staging.app.idlecars.com';
+  gulp.environment.deploy_bucket = 'staging.app.idlecars.com';
 }
