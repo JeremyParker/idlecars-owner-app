@@ -1,4 +1,11 @@
-h2 Listings
-.car-list
-  a(ng-repeat="car in cars", ui-sref="carsShow({carId: car.id, car: car})")
-    .car {{car.year}} - {{car.make}} - {{car.model}}
+h2(hidden) Cars for rent
+a.car(ng-repeat='car in cars', ui-sref='carsShow({carId: car.id, car: car})')
+  .image
+    img(ng-src='{{car.image_src}}')
+    .cost
+      span.currency $
+      span {{car.cost}}
+      span.per {{car.cost_time}}
+  .info
+    h3 {{car.name}}
+    p {{car.listing_features}}
