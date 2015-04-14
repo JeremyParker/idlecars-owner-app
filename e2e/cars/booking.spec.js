@@ -3,7 +3,7 @@
 describe('Getting to a car booking page', function () {
   var page;
 
-  beforeEach(function ($state) {
+  beforeEach(function () {
     browser.get('http://localhost:3000/index.html');
     var index = require('./index.po');
     index.carEls.get(0).click();
