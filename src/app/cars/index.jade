@@ -1,4 +1,4 @@
-h2 Cars for rent
+h2(hidden) Cars for rent
 a.car(ng-repeat='car in cars', ui-sref='carsShow({carId: car.id, car: car})')
   .image
     img(ng-src='{{car.image_src}}')
