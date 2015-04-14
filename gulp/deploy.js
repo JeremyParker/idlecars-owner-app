@@ -2,8 +2,19 @@
 
 var gulp = require('gulp');
 var awspublish = require('gulp-awspublish');
+var argv = require('yargs').argv;
 
-gulp.task('publish', function() {
+gulp.task('environment', function() {
+  gulp.environment = {};
+  var envArg = argv.env || 'staging';
+  if (envArg === 'production') {
+    gulp.environment.deploy_bucket = 'app.idlecars.com';
+  } else {
+    gulp.environment.deploy_bucket = 'staging.app.idlecars.com';
+  }
+})
+
+gulp.task('publish', ['environment'], function() {
 
   console.log('DEPLOYING TO: ' + gulp.environment.deploy_bucket);
 
