@@ -1,8 +1,8 @@
-h2 Listings
+h2 Cars for rent
 .car-list
-  a.car-item(ng-repeat="car in cars", ui-sref="carsShow({carId: car.id, car: car})")
+  a.car(ng-repeat='car in cars', ui-sref='carsShow({carId: car.id, car: car})')
     .image
-      img(src='')
+      img(ng-src='{{car.image_src}}')
       .cost
         span.currency $
         span {{car.cost}}
