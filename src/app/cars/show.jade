@@ -1,6 +1,5 @@
 h1(hidden) {{car.name}} for rent
 
-
 .car-detail
   car-image
 
@@ -27,4 +26,4 @@ h1(hidden) {{car.name}} for rent
     h2 {{car.name}}
     p(ng-repeat='subhead in car.subheads') {{subhead}}
 
-a.request(ui-sref="carsBooking({carId: car.id, car: car})") Request this car
+a.button.request(ui-sref="carsBooking({carId: car.id, car: car})") Request this car
