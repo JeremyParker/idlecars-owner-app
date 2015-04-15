@@ -1,6 +1,6 @@
 {
   "config": {
     "env": "development",
-    "api_base_url": "//localhost:8000"
+    "api_base_url": "//localhost:8000/api/"
   }
 }
