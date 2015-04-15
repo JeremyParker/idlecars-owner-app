@@ -7,23 +7,7 @@ h1(hidden) {{car.name}} for rent
     h2 {{car.name}}
     p(ng-repeat='subhead in car.subheads') {{subhead}}
 
-  section
-    h2 {{car.name}}
-    p(ng-repeat='subhead in car.subheads') {{subhead}}
-  section
-    h2 {{car.name}}
-    p(ng-repeat='subhead in car.subheads') {{subhead}}
-  section
-    h2 {{car.name}}
-    p(ng-repeat='subhead in car.subheads') {{subhead}}
-  section
-    h2 {{car.name}}
-    p(ng-repeat='subhead in car.subheads') {{subhead}}
-  section
-    h2 {{car.name}}
-    p(ng-repeat='subhead in car.subheads') {{subhead}}
-  section
-    h2 {{car.name}}
-    p(ng-repeat='subhead in car.subheads') {{subhead}}
+  section.certifications
+    p certifications
 
 a.button.request(ui-sref="carsBooking({carId: car.id, car: car})") Request this car
