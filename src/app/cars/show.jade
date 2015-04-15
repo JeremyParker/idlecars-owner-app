@@ -1,4 +1,29 @@
-h2(hidden) {{car.name}} for rent
-car-image
-p {{car.name}}
-a(ui-sref="carsBooking({carId: car.id, car: car})") Request this car
+h1(hidden) {{car.name}} for rent
+
+.car-detail
+  car-image
+
+  section
+    h2 {{car.name}}
+    p(ng-repeat='subhead in car.subheads') {{subhead}}
+
+  section
+    h2 {{car.name}}
+    p(ng-repeat='subhead in car.subheads') {{subhead}}
+  section
+    h2 {{car.name}}
+    p(ng-repeat='subhead in car.subheads') {{subhead}}
+  section
+    h2 {{car.name}}
+    p(ng-repeat='subhead in car.subheads') {{subhead}}
+  section
+    h2 {{car.name}}
+    p(ng-repeat='subhead in car.subheads') {{subhead}}
+  section
+    h2 {{car.name}}
+    p(ng-repeat='subhead in car.subheads') {{subhead}}
+  section
+    h2 {{car.name}}
+    p(ng-repeat='subhead in car.subheads') {{subhead}}
+
+a.button.request(ui-sref="carsBooking({carId: car.id, car: car})") Request this car
