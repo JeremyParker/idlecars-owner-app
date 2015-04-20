@@ -11,7 +11,7 @@ describe('Getting to a car detail page', function () {
     page = require('./show.po');
   });
 
-  it('includes a header', function() {
+  xit('includes a header', function() {
     expect(page.header.getText()).toBe('Car detail');
   });
 });

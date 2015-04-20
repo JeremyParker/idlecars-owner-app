@@ -15,7 +15,7 @@ describe('Getting to a car booking page', function () {
     page = require('./booking.po');
   });
 
-  it('includes a header', function() {
+  xit('includes a header', function() {
     expect(page.header.getText()).toMatch(/^Request/);
   });
 });
