@@ -1,3 +1,9 @@
 'use strict';
 
-angular.module('idlecars', ['ngAnimate', 'ngCookies', 'ui.router', 'ic.appConfig']);
+angular.module('idlecars',
+  [
+    'ngAnimate', 'ngCookies', 'ngResource',
+    'ui.router',
+    'ic.appConfig',
+  ]
+);
