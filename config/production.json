@@ -1,6 +1,6 @@
 {
   "config": {
     "env": "production",
-    "api_base_url": "//idlecars.herokuapp.com/api/"
+    "api_base_url": "//www.idlecars.com/api/"
   }
 }
