@@ -8,7 +8,7 @@ describe('Listing cars', function () {
     page = require('./index.po');
   });
 
-  it('lists 2 cars', function () {
+  xit('lists 2 cars', function () {
     expect(page.carEls.count()).toBe(2);
   });
 
