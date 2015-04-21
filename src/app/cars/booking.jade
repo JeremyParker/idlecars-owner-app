@@ -1,24 +1,25 @@
 a(ui-sref="carsShow({carId: car.id, car: car})") cancel
 h2 Request for {{car.year}} {{car.make}} {{car.model}}
 
-form(ng-submit='')
+form(ng-submit='createBooking(user_account)')
 
   div
     label(for='first_name') First Name
-    input(id='first_name', ng-model='booking.first_name')
+    input(id='first_name', ng-model='user_account.first_name')
 
   div
     label(for='last_name') Last Name
-    input(id='last_name', ng-model='booking.last_name')
+    input(id='last_name', ng-model='user_account.last_name')
 
   div
     label(for='email') Email Address
-    input(id='email', ng-model='booking.email')
+    input(id='email', ng-model='user_account.email')
 
   div
     label(for='phone') Phone Number
-    input(id='phone', ng-model='booking.phone')
+    input(id='phone', ng-model='user_account.phone')
 
   input(type='submit')
 
-div {{booking}}
+div(ng-repeat='(key, value) in user_account')
+  p {{key}} - {{value}}
