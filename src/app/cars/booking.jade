@@ -1,7 +1,7 @@
 a(ui-sref="carsShow({carId: car.id, car: car})") cancel
 h2 Request for {{car.year}} {{car.make}} {{car.model}}
 
-form(ng-submit='createBooking(user_account)')
+form(name='bookingForm', ng-submit='createBooking(user_account)')
 
   div
     label(for='first_name') First Name
@@ -13,7 +13,7 @@ form(ng-submit='createBooking(user_account)')
 
   div
     label(for='email') Email Address
-    input(id='email', ng-model='user_account.email')
+    input(type='email', name='email', id='email', ng-model='user_account.email', ng-blur="bookingForm.email.$invalid && showAlert('enter a valid email')")
 
   div
     label(for='phone') Phone Number
