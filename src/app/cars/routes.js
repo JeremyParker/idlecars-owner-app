@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $resourceProvider) {
 
   $stateProvider
 
@@ -26,4 +26,6 @@ angular.module('idlecars')
     });
 
   $urlRouterProvider.otherwise('/');
+
+  $resourceProvider.defaults.stripTrailingSlashes = false;
 });
