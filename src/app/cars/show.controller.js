@@ -14,6 +14,7 @@ angular.module('idlecars')
   }
 
   var _saveDidComplete = function() {
-    console.log('this needs to be implemented');
+    // TODO: implement this for reals
+    alert('you submitted: ' + JSON.stringify($scope.user_account));
   }
 });
