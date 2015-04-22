@@ -13,6 +13,10 @@ angular.module('idlecars')
     newBooking.$save().then(_saveDidComplete);
   }
 
+  $scope.showAlert = function(message) {
+    alert(message);
+  }
+
   var _saveDidComplete = function() {
     // TODO: implement this for reals
     alert('you submitted: ' + JSON.stringify($scope.user_account));
