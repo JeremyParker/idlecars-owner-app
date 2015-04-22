@@ -42,16 +42,16 @@ form(name='bookingForm', ng-submit='createBooking(user_account)')
     )
 
   div
-    label(for='phone') Phone Number
+    label(for='phone_number') Phone Number
     input(
-      id='phone',
-      name='phone',
+      id='phone_number',
+      name='phone_number',
       type='text',
       required,
       minlength='2',
       novalidate,
-      ng-model='user_account.phone',
-      ng-blur="bookingForm.phone.$invalid && showAlert('Please enter your area code and phone number')"
+      ng-model='user_account.phone_number',
+      ng-blur="bookingForm.phone_number.$invalid && showAlert('Please enter your area code and phone number')",
       //- this matches three/three/four digit patterns
       ng-pattern="/[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$/"
     )
