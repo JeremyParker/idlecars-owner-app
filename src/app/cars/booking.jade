@@ -8,6 +8,7 @@ form(name='bookingForm', ng-submit='createBooking(user_account)')
     input(
       id='first_name',
       name='first_name',
+      type='text',
       required,
       minlength='2',
       novalidate,
@@ -20,6 +21,7 @@ form(name='bookingForm', ng-submit='createBooking(user_account)')
     input(
       id='last_name',
       name='last_name',
+      type='text',
       required,
       minlength='2',
       novalidate,
@@ -44,11 +46,14 @@ form(name='bookingForm', ng-submit='createBooking(user_account)')
     input(
       id='phone',
       name='phone',
+      type='text',
       required,
       minlength='2',
       novalidate,
       ng-model='user_account.phone',
-      ng-blur="bookingForm.phone.$invalid && showAlert('Please enter your phone number')"
+      ng-blur="bookingForm.phone.$invalid && showAlert('Please enter your area code and phone number')"
+      //- this matches three/three/four digit patterns
+      ng-pattern="/[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$/"
     )
 
   input(type='submit')
