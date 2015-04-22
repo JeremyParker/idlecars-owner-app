@@ -51,7 +51,7 @@ form(name='bookingForm', ng-submit='createBooking(user_account)')
       minlength='2',
       novalidate,
       ng-model='user_account.phone',
-      ng-blur="bookingForm.phone.$invalid && showAlert('Please enter your area code and phone number')"
+      ng-blur="bookingForm.phone.$invalid && showAlert('Please enter your area code and phone number')",
       //- this matches three/three/four digit patterns
       ng-pattern="/[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$/"
     )
