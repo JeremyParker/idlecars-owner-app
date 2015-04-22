@@ -5,18 +5,50 @@ form(name='bookingForm', ng-submit='createBooking(user_account)')
 
   div
     label(for='first_name') First Name
-    input(id='first_name', ng-model='user_account.first_name')
+    input(
+      id='first_name',
+      name='first_name',
+      required,
+      minlength='2',
+      novalidate,
+      ng-model='user_account.first_name',
+      ng-blur="bookingForm.first_name.$invalid && showAlert('Please enter your first name')"
+    )
 
   div
     label(for='last_name') Last Name
-    input(id='last_name', ng-model='user_account.last_name')
+    input(
+      id='last_name',
+      name='last_name',
+      required,
+      minlength='2',
+      novalidate,
+      ng-model='user_account.last_name',
+      ng-blur="bookingForm.last_name.$invalid && showAlert('Please enter your last name')"
+    )
 
   div
     label(for='email') Email Address
-    input(type='email', name='email', id='email', ng-model='user_account.email', ng-blur="bookingForm.email.$invalid && showAlert('enter a valid email')")
+    input(
+      type='email',
+      name='email',
+      id='email',
+      ng-model='user_account.email',
+      novalidate,
+      required,
+      ng-blur="bookingForm.email.$invalid && showAlert('Please enter a valid email')"
+    )
 
   div
     label(for='phone') Phone Number
-    input(id='phone', ng-model='user_account.phone')
+    input(
+      id='phone',
+      name='phone',
+      required,
+      minlength='2',
+      novalidate,
+      ng-model='user_account.phone',
+      ng-blur="bookingForm.phone.$invalid && showAlert('Please enter your phone number')"
+    )
 
   input(type='submit')
