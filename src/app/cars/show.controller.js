@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.showCtrl', function ($scope, $stateParams, BookingService) {
+.controller('cars.showCtrl', function ($scope, $state, $stateParams, BookingService) {
   $scope.car = $stateParams.car;
 
   $scope.createBooking = function(accountParams) {
@@ -17,8 +17,7 @@ angular.module('idlecars')
     alert(message);
   }
 
-  var _saveDidComplete = function() {
-    // TODO: implement this for reals
-    alert('you submitted: ' + JSON.stringify($scope.user_account));
+  var _saveDidComplete = function(data) {
+    $state.go('bookingsShow', {bookingId: 4});
   }
 });

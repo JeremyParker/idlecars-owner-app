@@ -6,4 +6,8 @@ angular.module('idlecars',
     'ui.router',
     'ic.appConfig',
   ]
-);
+)
+.config(function ($urlRouterProvider, $resourceProvider) {
+  $urlRouterProvider.otherwise('/');
+  $resourceProvider.defaults.stripTrailingSlashes = false;
+});
