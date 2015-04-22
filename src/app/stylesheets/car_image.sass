@@ -1,4 +1,24 @@
 car-image
+  position: relative
+
   .image
     background: #ddd
     min-height: 10rem
+
+  .price-tag
+    top: 1rem
+    position: absolute
+
+.price-tag
+  @extend %black_theme
+  font-weight: $bold_font_weight
+  padding: 0.5rem
+
+  display: flex
+
+  .cost
+    font-size: $medium_font_size
+
+  .per
+    align-self: flex-end
+    margin-left: 0.25rem
