@@ -5,9 +5,13 @@ h1(hidden) {{car.name}} for rent
 
   section
     h2 {{car.name}}
-    p(ng-repeat='subhead in car.subheads') {{subhead}}
+    div(ng-repeat='subhead in car.headline_features') {{subhead}}
 
   section.certifications
-    p certifications
+    li(ng-repeat='cert in car.certifications') {{cert}}
+
+  section
+    div(ng-repeat='deet in car.details')
+        {{deet[0]}} {{deet[1]}}
 
 a.button(ui-sref="carsBooking({carId: car.id, car: car})") Request this car
