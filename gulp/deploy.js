@@ -20,9 +20,9 @@ gulp.task('publish', ['environment'], function() {
 
   var publisher = awspublish.create({ bucket: gulp.environment.deploy_bucket });
 
-  // TODO(jefk): figure out what the right cache-control is, this max age is 1 day
+  // TODO(jefk): figure out what the right cache-control is, this max age is 1 min
   var headers = {
-    'Cache-Control': 'max-age=86400, no-transform, public'
+    'Cache-Control': 'max-age=60, no-transform, public'
   };
 
   return gulp.src('./dist/**')
