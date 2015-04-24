@@ -3,7 +3,7 @@
 
   p Fill in your information, and an idlecars representative will help you arrange your booking.
 
-  form(name='bookingForm', ng-submit='createBooking(user_account)')
+  form(name='bookingForm', ng-submit='createBooking($event)')
 
     div
       label(for='first_name') First Name
@@ -15,7 +15,6 @@
         minlength='2',
         novalidate,
         ng-model='user_account.first_name',
-        ng-blur="bookingForm.first_name.$invalid && showAlert('Please enter your first name')"
       )
 
     div
@@ -28,7 +27,6 @@
         minlength='2',
         novalidate,
         ng-model='user_account.last_name',
-        ng-blur="bookingForm.last_name.$invalid && showAlert('Please enter your last name')"
       )
 
     div
@@ -40,7 +38,6 @@
         ng-model='user_account.email',
         novalidate,
         required,
-        ng-blur="bookingForm.email.$invalid && showAlert('Please enter a valid email')"
       )
 
     div
@@ -53,9 +50,8 @@
         minlength='2',
         novalidate,
         ng-model='user_account.phone_number',
-        ng-blur="bookingForm.phone_number.$invalid && showAlert('Please enter your area code and phone number')",
         //- this matches three/three/four digit patterns
-        ng-pattern="/[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$/"
+        pattern="[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$"
       )
 
     input.button.ledged(type='submit', value="Sign Up")
