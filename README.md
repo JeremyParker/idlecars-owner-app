@@ -15,5 +15,5 @@ An angularjs single page application
 
 ### Build & Deploy
 Use direnv and get `.envrc` from another developer
-`gulp clean && gulp build --env=production`
-`gulp publish`
+TODO: make this deploy better
+`gulp clean && gulp build --env=production && gulp publish --env=production && gulp config`
