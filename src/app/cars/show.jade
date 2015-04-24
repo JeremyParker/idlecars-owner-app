@@ -3,15 +3,18 @@ h1(hidden) {{car.name}} for rent
 .car-detail
   car-image
 
-  section
+  section.headline-features
     h2 {{car.name}}
-    div(ng-repeat='subhead in car.headline_features') {{subhead}}
+    p(ng-repeat='subhead in car.headline_features') {{subhead}}
 
   section.certifications
-    li(ng-repeat='cert in car.certifications') {{cert}}
+    ul
+      li(ng-repeat='cert in car.certifications') {{cert}}
 
-  section
-    div(ng-repeat='deet in car.details')
-        {{deet[0]}} {{deet[1]}}
+  section.detail-table
+    h3 Car Details
+    .flex-row(ng-repeat='deet in car.details')
+      .flex-cell {{deet[0]}}
+      .flex-cell.value {{deet[1]}}
 
 a.button(ui-sref="carsBooking({carId: car.id, car: car})") Request this car
