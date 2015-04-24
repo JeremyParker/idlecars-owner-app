@@ -3,7 +3,7 @@
     margin-bottom: 0
 
   section
-    padding: 2rem 2rem
+    padding: 2rem 3rem
 
   li
     margin-bottom: 1rem
@@ -17,8 +17,14 @@
   .value
     font-weight: $bold_font_weight
 
-  .detail-table
-    padding: 2rem 3rem
-
 .certifications
   @extend %gray_theme
+
+  ul
+    list-style-type: none
+    position: relative
+
+  li::before
+    position: absolute
+    left: -0.5rem
+    content: url(/assets/images/certified_bullet.png)
