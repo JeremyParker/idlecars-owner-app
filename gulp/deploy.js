@@ -10,7 +10,7 @@ gulp.task('environment', function() {
   if (envArg === 'production') {
     gulp.environment.deploy_bucket = 'app.idlecars.com';
   } else {
-    gulp.environment.deploy_bucket = 'staging.app.idlecars.com';
+    gulp.environment.deploy_bucket = 'app.staging.idlecars.com';
   }
 })
 
