@@ -6,6 +6,11 @@ angular.module('idlecars')
     $scope.cars = cars;
   });
 
+  // colse button
+  $scope.closeModal = function() {
+    $scope.modal_show = false;
+  }
+
   // check the browser cookies, show welcome text at first visit
   var first_time = $cookieStore.get('first_time');
 
