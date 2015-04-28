@@ -1,12 +1,21 @@
+$_image_min_height: 8rem
+
 car-image
+  @extend %gray_theme
   position: relative
 
   img
     width: 100%
 
+  .no-image
+    @extend %flex_centered
+    min-height: $_image_min_height
+    align-items: flex-end
+    font-size: $small_font_size
+    background: $gray_gradient
+
   .image
-    background: $light_gray
-    min-height: 7rem
+    min-height: $_image_min_height
 
   .price-tag
     top: 1rem
