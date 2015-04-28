@@ -1,5 +1,5 @@
-.modalDialog
-  position: fixed
+.modal-dialog
+  position: absolute
   top: 0
   bottom: 0
   right: 0
@@ -7,18 +7,19 @@
   background: rgba(0,0,0,0.95)
   z-index: 99999
   opacity:0.9
-  -webkit-transition: opacity 400ms ease-in
-  -moz-transition: opacity 400ms ease-in
-  transition: opacity 400ms ease-in
   overflow-y: scroll
   color: white
 
-.modalDialog div
-  max-width: 32rem
+.modal-content
   position: relative
-  margin: 10% auto
+  margin-top: 8rem
   padding: 13px 20px 13px 20px
-  border-radius: 10px
+
+.modal-logo
+  position: absolute
+  right: 0.5rem
+  top: 1.5rem
+  height: 2rem
 
 .close
   background: none
@@ -26,7 +27,7 @@
   position: absolute
   right: 1rem
   text-align: center
-  top: 550px
+  top: 35rem
   text-decoration: none
   font-weight: bold
 
