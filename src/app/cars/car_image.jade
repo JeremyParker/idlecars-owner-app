@@ -1,5 +1,7 @@
 .image
-  img(ng-src='{{car.image_url}}')
+  img(ng-if="car.image_url" ng-src="{{car.image_url}}")
+  .no-image(ng-if="!car.image_url")
+    p no image available
   .price-tag
     span.currency $
     span.cost {{car.cost}}
