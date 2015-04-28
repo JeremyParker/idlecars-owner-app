@@ -1,5 +1,5 @@
 .modal-dialog
-  position: absolute
+  position: fixed
   top: 0
   bottom: 0
   right: 0
@@ -7,29 +7,43 @@
   background: rgba(0,0,0,0.95)
   z-index: 99999
   opacity:0.9
-  overflow-y: scroll
   color: white
 
 .modal-content
-  position: relative
-  margin-top: 8rem
+  position: absolute
+  top: 0
+  bottom: 0
+  margin-top: 15%
+  margin-bottom: 20%
   padding: 13px 20px 13px 20px
+  overflow-y: scroll
 
 .modal-logo
   position: absolute
-  right: 0.5rem
-  top: 1.5rem
+  right: 5%
+  top: 3%
   height: 2rem
 
 .close
   background: none
-  line-height: 25px
+  border: none
   position: absolute
-  right: 1rem
-  text-align: center
-  top: 35rem
-  text-decoration: none
-  font-weight: bold
+  bottom: 5%
+  left: 85%
 
-.close:hover
-  color: #00d9ff
+.arrow_img
+  height: 1rem
+
+.disable_scroll
+  overflow: hidden
+
+.scroller
+  max-width: 32rem
+  margin: 0 auto
+  position: relative
+  height: 100%
+
+
+
+
+

@@ -22,8 +22,9 @@
     <!-- endinject -->
     <!-- endbuild -->
   </head>
-  <body>
+  <body ng-class="{'disable_scroll': toDisable}">
     <div id="content" ui-view></div>
+    <modal></modal>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

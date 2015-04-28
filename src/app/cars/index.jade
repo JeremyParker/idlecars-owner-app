@@ -1,18 +1,3 @@
-div.modal(ng-show='true')
-  div.modal-dialog
-      img.modal-logo(ng-src='/assets/images/idlecars_logo_white.png')
-      div.modal-content
-        button(class='close', ng-click='closeModal()') --->
-        h2 Modal View
-        p This is a sample modal box that can be created using the powers of CSS3.
-        p You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.
-        p This is a sample modal box that can be created using the powers of CSS3.
-        p You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.
-        p This is a sample modal box that can be created using the powers of CSS3.
-        p You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.
-        p This is a sample modal box that can be created using the powers of CSS3.
-        p You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.
-
 h1(hidden) Rent cars for rideshare
 a.car(ng-repeat='car in cars', ui-sref='carsShow({carId: car.id, car: car})')
   car-image
