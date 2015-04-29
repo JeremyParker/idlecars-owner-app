@@ -6,7 +6,7 @@ angular.module('idlecars')
   $stateProvider
 
     .state('bookingsShow', {
-      url: 'bookings/:bookingId',
+      url: '/bookings/:bookingId',
       templateUrl: 'app/bookings/show.html',
     })
 

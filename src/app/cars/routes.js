@@ -12,14 +12,14 @@ angular.module('idlecars')
     })
 
     .state('carsShow', {
-      url: 'cars/:carId',
+      url: '/cars/:carId',
       templateUrl: 'app/cars/show.html',
       params: {car: null},
       controller: 'cars.showCtrl'
     })
 
     .state('carsBooking', {
-      url: 'cars/:carId/booking',
+      url: '/cars/:carId/booking',
       templateUrl: 'app/cars/booking.html',
       params: {car: null},
       controller: 'cars.showCtrl'
