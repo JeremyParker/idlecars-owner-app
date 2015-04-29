@@ -23,8 +23,9 @@ gulp.task('publish', ['environment'], function() {
     // If not specified it will set x-amz-acl to public-read by default
     .pipe(publisher.publish(headers))
 
+    // NOTE(jefk): for simplicity, don't worry about caching for now
     // create a cache file to speed up consecutive uploads
-    .pipe(publisher.cache())
+    // .pipe(publisher.cache())
 
      // print upload updates to console
     .pipe(awspublish.reporter());
