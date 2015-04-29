@@ -8,7 +8,7 @@ var $ = require('gulp-load-plugins')();
 
 var wiredep = require('wiredep').stream;
 
-gulp.task('inject', ['styles'], function () {
+gulp.task('inject', ['styles', 'environment'], function () {
 
   var injectStyles = gulp.src([
     paths.tmp + '/serve/{app,components}/**/*.css',
@@ -32,6 +32,7 @@ gulp.task('inject', ['styles'], function () {
   };
 
   return gulp.src(paths.src + '/*.html')
+    .pipe($.template(gulp.environment.template_vars))
     .pipe($.inject(injectStyles, injectOptions))
     .pipe($.inject(injectScripts, injectOptions))
     .pipe(wiredep(wiredepOptions))
