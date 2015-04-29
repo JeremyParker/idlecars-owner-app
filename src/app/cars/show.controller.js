@@ -2,6 +2,10 @@
 
 angular.module('idlecars')
 .controller('cars.showCtrl', function ($scope, $state, $stateParams, BookingService) {
+  if (!$stateParams.car) {
+    $state.go('cars');
+  }
+
   $scope.car = $stateParams.car;
 
   $scope.createBooking = function(event) {
