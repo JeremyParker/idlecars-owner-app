@@ -3,6 +3,7 @@
 angular.module('idlecars')
 .controller('cars.showCtrl', function ($scope, $state, $stateParams, BookingService) {
   if (!$stateParams.car) {
+    // TODO(jefk): add a car endpoint to allow deep linking
     $state.go('cars');
   }
 
