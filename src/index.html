@@ -27,8 +27,11 @@
       heap.load("<%= heap_app_id %>");
     </script>
 
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+
   </head>
   <body ng-class="{'disable_scroll': toDisable}">
+    <ui-gmap-google-map center='{ latitude: 45, longitude: -73 }' zoom='4'></ui-gmap-google-map>
     <div id="content" ui-view></div>
     <modal></modal>
 

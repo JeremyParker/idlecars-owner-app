@@ -11,6 +11,9 @@ h1(hidden) {{car.name}} for rent
     ul
       li(ng-repeat='cert in car.certifications') {{cert}}
 
+  section.map
+    <ui-gmap-google-map center='{ latitude: 45, longitude: -73 }' zoom='13'></ui-gmap-google-map>
+
   section.detail-table
     h3 Car Details
     .flex-row(ng-repeat='deet in car.details')
