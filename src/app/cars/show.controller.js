@@ -24,39 +24,4 @@ angular.module('idlecars')
     $state.go('bookingsShow', {bookingId: 4});
   }
 
-  $scope.map = {
-    center: {
-      latitude: 40.6949943,
-      longitude: -73.9880248
-    },
-    zoom: 14,
-    options: {
-      scrollwheel: false
-    }
-  }
-
-  $scope.marker = {
-    coords: {
-      latitude: 40.6949943,
-      longitude: -73.9880248
-    },
-    options: {
-      animation: google.maps.Animation.DROP
-    }
-  }
-
-  $scope.circle = {
-    center: $scope.marker.coords,
-    radius: 500,
-    stroke: {
-      color: '#08B21F',
-      weight: 2,
-      opacity: 1
-    },
-    fill: {
-      color: '#08B21F',
-      opacity: 0.5
-    }
-  }
-
 });

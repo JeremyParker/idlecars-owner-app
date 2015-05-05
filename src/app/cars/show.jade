@@ -11,10 +11,7 @@ h1(hidden) {{car.name}} for rent
     ul
       li(ng-repeat='cert in car.certifications') {{cert}}
 
-  section.map
-    ui-gmap-google-map(center='map.center', zoom='map.zoom', options='map.options')
-      ui-gmap-marker(coords='marker.coords', idKey='1', options='marker.options')
-      ui-gmap-circle(center='circle.center', radius='circle.radius', stroke='circle.stroke', fill='circle.fill')
+  map(address='11222')
 
   section.detail-table
     h3 Car Details
