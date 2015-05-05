@@ -6,7 +6,7 @@ angular.module('idlecars')
     templateUrl: 'app/cars/map.html',
     controller: 'map.controller',
     scope: {
-      address: "="
+      address: "@"
     }
   }
 });

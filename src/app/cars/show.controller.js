@@ -7,6 +7,7 @@ angular.module('idlecars')
     $state.go('cars');
   }
 
+  $scope.zipcode = 'jay street metro tech';
   $scope.car = $stateParams.car;
 
   $scope.createBooking = function(event) {
@@ -23,5 +24,4 @@ angular.module('idlecars')
   var _saveDidComplete = function(data) {
     $state.go('bookingsShow', {bookingId: 4});
   }
-
 });

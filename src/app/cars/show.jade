@@ -11,7 +11,7 @@ h1(hidden) {{car.name}} for rent
     ul
       li(ng-repeat='cert in car.certifications') {{cert}}
 
-  map(address='11222')
+  map(address='{{zipcode}}')
 
   section.detail-table
     h3 Car Details
