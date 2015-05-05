@@ -26,7 +26,7 @@ angular.module('idlecars')
       latitude: 0,
       longitude: 0
     },
-    zoom: 12,
+    zoom: 11,
     options: {
       scrollwheel: false,
     }
@@ -37,7 +37,7 @@ angular.module('idlecars')
       latitude: 0,
       longitude: 0
     },
-    radius: 700,
+    radius: 1500,
     stroke: {
       color: '#08B21F',
       weight: 2,

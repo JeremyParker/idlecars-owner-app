@@ -7,7 +7,7 @@ angular.module('idlecars')
     $state.go('cars');
   }
 
-  $scope.zipcode = 'jay street metro tech';
+  $scope.zipcode = '11222';
   $scope.car = $stateParams.car;
 
   $scope.createBooking = function(event) {
