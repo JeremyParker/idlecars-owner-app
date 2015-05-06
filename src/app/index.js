@@ -2,9 +2,12 @@
 
 angular.module('idlecars',
   [
-    'ngAnimate', 'ngCookies', 'ngResource',
+    'ngAnimate',
+    'ngCookies',
+    'ngResource',
     'ui.router',
     'ic.appConfig',
+    'uiGmapgoogle-maps',
   ]
 )
 .config(function ($urlRouterProvider, $resourceProvider) {
