@@ -20,7 +20,7 @@ function runConfig (environment) {
     }))
     .pipe($.rename('config.js'))
     .pipe(gulp.dest('src/app'));
-}
+};
 
 gulp.task('config', runConfig);
 gulp.task('config:e2e', function() { runConfig('e2e') });
