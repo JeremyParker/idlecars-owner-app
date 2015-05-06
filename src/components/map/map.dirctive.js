@@ -3,7 +3,7 @@
 angular.module('idlecars')
 .directive('map', function () {
   return {
-    templateUrl: 'app/cars/map.html',
+    templateUrl: 'components/map/map.html',
     controller: 'map.controller',
     scope: {
       address: "@"
