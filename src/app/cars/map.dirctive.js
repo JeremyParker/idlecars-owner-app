@@ -8,5 +8,5 @@ angular.module('idlecars')
     scope: {
       address: "@"
     }
-  }
+  };
 });

@@ -6,18 +6,17 @@ angular.module('idlecars')
 
   var markAdressToMap = function () {
     geocoder = new google.maps.Geocoder();
-    console.log($scope.address)
     geocoder.geocode({ 'address': $scope.address}, function (results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-          $scope.map.center.latitude = results[0].geometry.location.lat();
-          $scope.map.center.longitude = results[0].geometry.location.lng();
-          $scope.circle.center.latitude = results[0].geometry.location.lat();
-          $scope.circle.center.longitude = results[0].geometry.location.lng();
-          $scope.mapIsVisable = true;
-          $scope.$apply();
+        $scope.map.center.latitude = results[0].geometry.location.lat();
+        $scope.map.center.longitude = results[0].geometry.location.lng();
+        $scope.circle.center.latitude = results[0].geometry.location.lat();
+        $scope.circle.center.longitude = results[0].geometry.location.lng();
+        $scope.mapIsVisable = true;
+        $scope.$apply();
       }
-    })
-  }
+    });
+  };
 
   markAdressToMap();
 
@@ -30,7 +29,7 @@ angular.module('idlecars')
     options: {
       scrollwheel: false,
     }
-  }
+  };
 
   $scope.circle = {
     center: {
@@ -47,5 +46,5 @@ angular.module('idlecars')
       color: '#08B21F',
       opacity: 0.5
     }
-  }
-})
+  };
+});
