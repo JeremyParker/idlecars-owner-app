@@ -22,6 +22,6 @@ function runConfig (environment) {
     .pipe(gulp.dest('src/app'));
 };
 
-gulp.task('config', runConfig);
+gulp.task('config', function() { runConfig() });
 gulp.task('config:e2e', function() { runConfig('e2e') });
 gulp.task('config:reset', function() { runConfig('development') });
