@@ -5,5 +5,5 @@ angular.module('idlecars')
   return {
     templateUrl: 'app/cars/modal.html',
     controller: 'modal.controller',
-  }
+  };
 });
