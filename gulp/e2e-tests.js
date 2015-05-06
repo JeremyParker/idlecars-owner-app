@@ -30,6 +30,6 @@ function runProtractor (done) {
     });
 }
 
-gulp.task('protractor', ['protractor:src']);
+gulp.task('protractor', ['config:e2e', 'protractor:src']);
 gulp.task('protractor:src', ['serve:e2e', 'webdriver-update'], runProtractor);
 gulp.task('protractor:dist', ['serve:e2e-dist', 'webdriver-update'], runProtractor);

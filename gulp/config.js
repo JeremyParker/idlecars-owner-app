@@ -12,11 +12,16 @@ var $ = require('gulp-load-plugins')({
 
 var environment = argv.env || 'development';
 
-gulp.task('config', function () {
+function runConfig (environment) {
+  environment = environment || argv.env || 'development';
   gulp.src(paths.config + '/' + environment + '.json')
     .pipe(ngConstant({
       name: 'ic.appConfig'
     }))
     .pipe($.rename('config.js'))
     .pipe(gulp.dest('src/app'));
-});
+};
+
+gulp.task('config', runConfig);
+gulp.task('config:e2e', function() { runConfig('e2e') });
+gulp.task('config:reset', function() { runConfig('development') });

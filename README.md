@@ -13,7 +13,7 @@ Run `npm install -g gulp`
 `gulp serve`
 
 ### Running end-to-end tests
-`gulp protractor`
+`gulp protractor && gulp config:reset`
 
 ### Build & Deploy
 Use direnv and get `.envrc` from another developer
