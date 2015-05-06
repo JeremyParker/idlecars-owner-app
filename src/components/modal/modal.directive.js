@@ -3,7 +3,7 @@
 angular.module('idlecars')
 .directive('modal', function () {
   return {
-    templateUrl: 'app/cars/modal.html',
+    templateUrl: 'components/modal/modal.html',
     controller: 'modal.controller',
   };
 });
