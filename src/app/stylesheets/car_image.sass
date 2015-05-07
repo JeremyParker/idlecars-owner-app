@@ -1,4 +1,6 @@
-$_image_min_height: 8rem
+%_fixed_aspect_ratio
+  height: 42vw
+  max-height: 14rem
 
 car-image
   @extend %gray_theme
@@ -9,13 +11,13 @@ car-image
 
   .no-image
     @extend %flex_centered
-    min-height: $_image_min_height
+    @extend %_fixed_aspect_ratio
     align-items: flex-end
     font-size: $small_font_size
     background: $gray_gradient
 
   .image
-    min-height: $_image_min_height
+    @extend %_fixed_aspect_ratio
 
   .price-tag
     top: 1rem
