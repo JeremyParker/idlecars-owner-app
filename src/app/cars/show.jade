@@ -1,6 +1,6 @@
 h1(hidden) {{car.name}} for rent
 
-.car-detail
+.car-detail.has-floater
   car-image
 
   section.headline-features
@@ -20,4 +20,4 @@ h1(hidden) {{car.name}} for rent
       .flex-cell {{deet[0]}}
       .flex-cell.value {{deet[1]}}
 
-a.button(ui-sref="carsBooking({carId: car.id, car: car})") Request this car
+a.floater.button(ui-sref="carsBooking({carId: car.id, car: car})") Request this car
