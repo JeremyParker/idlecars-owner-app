@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.showCtrl', function ($scope, $state, $stateParams, BookingService) {
+.controller('cars.showCtrl', function ($scope, $state, $stateParams, BookingService, CarService) {
   if (!$stateParams.car) {
-    // TODO(jefk): add a car endpoint to allow deep linking
-    $state.go('cars');
+    CarService.get({carId: $stateParams.carId}).$promise.then(function(car) {
+      $scope.car = car;
+    });
   }
 
   $scope.car = $stateParams.car;
