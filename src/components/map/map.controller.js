@@ -18,7 +18,37 @@ angular.module('idlecars')
     });
   };
 
+  var handleNoGeolocation = function(errorFlag) {
+    if (errorFlag) {
+      var content = 'Error: The Geolocation service failed.';
+    } else {
+      var content = 'Error: Your browser doesn\'t support geolocation.';
+    }
+    console.log(content);
+  }
+
+  var getCurrentLocation = function() {
+    if(!!navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          $scope.marker.coords.latitude = position.coords.latitude;
+          $scope.marker.coords.longitude = position.coords.longitude;
+          $scope.$apply();
+        },
+        function() {
+          handleNoGeolocation(true);
+        }
+      )}
+    else {
+      // Browser doesn't support Geolocation
+      handleNoGeolocation(false);
+    }
+  }
+
   markAdressToMap();
+  getCurrentLocation();
+
+
 
   $scope.map = {
     center: {
@@ -30,6 +60,14 @@ angular.module('idlecars')
       scrollwheel: false,
     }
   };
+
+  $scope.marker = {
+    id: 0,
+    coords: {
+      latitude: 0,
+      longitude: 0
+    }
+  }
 
   $scope.circle = {
     center: {
