@@ -68,11 +68,10 @@ angular.module('idlecars')
     options:{
       icon: {
         url: '/assets/images/location.png',
-        anchor: new google.maps.Point(20, 20)
+        anchor: new google.maps.Point(7.5, 7.5)
       }
     }
   }
-
 
   $scope.circle = {
     center: {
