@@ -33,7 +33,6 @@ angular.module('idlecars')
         function(position) {
           $scope.marker.coords.latitude = position.coords.latitude;
           $scope.marker.coords.longitude = position.coords.longitude;
-          console.log('load')
           $scope.$apply();
         },
         function() {
