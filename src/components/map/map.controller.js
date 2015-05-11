@@ -33,6 +33,7 @@ angular.module('idlecars')
         function(position) {
           $scope.marker.coords.latitude = position.coords.latitude;
           $scope.marker.coords.longitude = position.coords.longitude;
+          console.log('load')
           $scope.$apply();
         },
         function() {
@@ -47,8 +48,6 @@ angular.module('idlecars')
 
   markAdressToMap();
   getCurrentLocation();
-
-
 
   $scope.map = {
     center: {
@@ -66,8 +65,15 @@ angular.module('idlecars')
     coords: {
       latitude: 0,
       longitude: 0
+    },
+    options:{
+      icon: {
+        url: '/assets/images/location.png',
+        anchor: new google.maps.Point(20, 20)
+      }
     }
   }
+
 
   $scope.circle = {
     center: {
