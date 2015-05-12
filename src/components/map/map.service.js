@@ -3,6 +3,8 @@
 angular.module('idlecars')
 .service('mapService', function(){
 
+  this.googleMap;
+
   this.map = {
     center: {
       latitude: 0,
@@ -50,9 +52,11 @@ angular.module('idlecars')
   };
 
   this.car = {
-    center: {
+    coords: {
       latitude: 0,
       longitude: 0
     }
   };
+
+  this.markers = [];
 });
