@@ -1,3 +1,13 @@
-ui-gmap-google-map(ng-if='mapIsVisable', center='map.center', zoom='map.zoom', options='map.options', refresh=true)
+ui-gmap-google-map(ng-init='startmap()', center='map.center', zoom='map.zoom', options='map.options', refresh=true, control='map.control')
   ui-gmap-circle(center='circle.center', radius='circle.radius', stroke='circle.stroke', fill='circle.fill')
   ui-gmap-marker(coords='marker.coords', idkey='marker.id', options='marker.options')
+  ui-gmap-map-control(ng-if='carLocOff', template='carLoc.tpl.html', position='right-bottom', controller='map.control.controller', index='-1')
+  ui-gmap-map-control(ng-if='myLocOff', template='myLoc.tpl.html', position='right-bottom', controller='map.control.controller', index='-1')
+
+script(type='text/ng-template', id='carLoc.tpl.html')
+  button(ng-click='centerCarLoc()') car
+script(type='text/ng-template', id='myLoc.tpl.html')
+  button(ng-click='centerMyLoc()') me
+
+
+
