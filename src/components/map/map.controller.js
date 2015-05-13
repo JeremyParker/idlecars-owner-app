@@ -13,10 +13,8 @@ angular.module('idlecars')
 
     var geocoder;
 
-    var setBounds = function(fromWhere) {
-      console.log(fromWhere);
-      console.log($scope.carLocOff, $scope.myLocOff)
-
+    var setBounds = function() {
+      // only when two locations are both ready
       if($scope.carLocOff && $scope.myLocOff) {
         if (mapService.markers.length > 1) {
 
@@ -66,7 +64,7 @@ angular.module('idlecars')
           $scope.$apply();
 
           // try to run set-boundary any way
-          setBounds('from markAdress');
+          setBounds();
         }
       });
     };
@@ -90,7 +88,7 @@ angular.module('idlecars')
             $scope.myLocOff = true;
 
             // try to run set-boundary any way
-            setBounds('from get location');
+            setBounds();
           }
       )}
     };
@@ -115,7 +113,7 @@ angular.module('idlecars')
       $scope.myLocOff = true;
 
       // try to run set-boundary any way
-      setBounds('from else');
+      setBounds();
 
     }
 
