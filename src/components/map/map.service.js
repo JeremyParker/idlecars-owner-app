@@ -3,6 +3,7 @@
 angular.module('idlecars')
 .service('mapService', function(){
 
+  this.isMobileDevice = false;
   this.currentLoc = {};
   this.markers = [];
 
@@ -15,9 +16,15 @@ angular.module('idlecars')
     control: {},
     options: {
       scrollwheel: false,
-      mapTypeControlOptions: {
-        style:google.maps.MapTypeControlStyle.DROPDOWN_MENU
-      },
+      mapTypeControl: false,
+      streetViewControl: false,
+      panControl: false,
+      rotateControl: false,
+      overviewMapControl: false,
+      zoomControl: false,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.LEFT_CENTER
+    },
     }
   };
 

@@ -37,6 +37,10 @@ angular.module('idlecars')
           if (map.getZoom() > 11) {
               map.setZoom(11);
           }
+
+          if (!mapService.isMobileDevice) {
+            map.setOptions({zoomControl: true});
+          }
         }
       }
     };
