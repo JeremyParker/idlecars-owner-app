@@ -3,8 +3,6 @@
 angular.module('idlecars')
 .service('mapService', function(){
 
-  this.googleMap;
-
   this.currentLoc = {};
   this.markers = [];
 

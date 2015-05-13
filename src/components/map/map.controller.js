@@ -4,7 +4,7 @@ angular.module('idlecars')
 .controller('map.controller', function ($scope, mapService) {
   $scope.startmap = function() {
 
-    // initiate two buttons off
+    // initiate two flags off
     $scope.carLocOff = false
     $scope.myLocOff = false
 
@@ -18,9 +18,8 @@ angular.module('idlecars')
       if($scope.carLocOff && $scope.myLocOff) {
         if (mapService.markers.length > 1) {
 
-          // get map object and send it to map.Service so that control button can access it
+          // get map object
           var map = $scope.map.control.getGMap();
-          mapService.googleMap = map;
 
           // creat a bound object
           var bounds = new google.maps.LatLngBounds();
