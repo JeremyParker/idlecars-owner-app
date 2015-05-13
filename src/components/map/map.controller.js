@@ -24,7 +24,7 @@ angular.module('idlecars')
           // creat a bound object
           var bounds = new google.maps.LatLngBounds();
 
-          // add myLocation and carLocation to markers array
+          // add myLocation and carLocation to bounds
           for (var i = 0; i < mapService.markers.length; i++) {
             var latlng = new google.maps.LatLng(mapService.markers[i].coords.latitude, mapService.markers[i].coords.longitude);
             bounds.extend(latlng);
@@ -38,6 +38,7 @@ angular.module('idlecars')
               map.setZoom(11);
           }
 
+          // show zoom control if device is desktop
           if (!mapService.isMobileDevice) {
             map.setOptions({zoomControl: true});
           }
@@ -117,7 +118,6 @@ angular.module('idlecars')
 
       // try to run set-boundary any way
       setBounds();
-
     }
 
   }
