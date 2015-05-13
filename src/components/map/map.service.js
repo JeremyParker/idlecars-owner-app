@@ -5,6 +5,9 @@ angular.module('idlecars')
 
   this.googleMap;
 
+  this.currentLoc = {};
+  this.markers = [];
+
   this.map = {
     center: {
       latitude: 0,
@@ -57,6 +60,4 @@ angular.module('idlecars')
       longitude: 0
     }
   };
-
-  this.markers = [];
 });
