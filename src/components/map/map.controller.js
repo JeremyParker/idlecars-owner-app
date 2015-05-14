@@ -2,18 +2,8 @@
 
 angular.module('idlecars')
 .controller('map.controller', function ($scope, mapService) {
-  $scope.startmap = function() {
 
-    // initiate two flags off
-    $scope.carLocOff = false
-    $scope.myLocOff = false
-
-    // clear markers every time loading map
-    mapService.markers = [];
-
-    var geocoder;
-
-    var setBounds = function() {
+  var setBounds = function() {
       // only when two locations are both ready
       if($scope.carLocOff && $scope.myLocOff) {
         if (mapService.markers.length > 1) {
@@ -45,6 +35,17 @@ angular.module('idlecars')
         }
       }
     };
+
+  $scope.startmap = function() {
+
+    // initiate two flags off
+    $scope.carLocOff = false
+    $scope.myLocOff = false
+
+    // clear markers every time loading map
+    mapService.markers = [];
+
+    var geocoder;
 
     var markAdressToMap = function () {
       geocoder = new google.maps.Geocoder();
