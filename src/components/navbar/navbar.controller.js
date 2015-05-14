@@ -2,5 +2,7 @@
 
 angular.module('idlecars')
   .controller('navbar.controller', function ($scope) {
-    console.log($scope.back)
+    $scope.goBack = function() {
+      window.history.back();
+    }
   });

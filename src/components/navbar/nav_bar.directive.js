@@ -6,7 +6,7 @@ angular.module('idlecars')
     templateUrl: 'components/navbar/navbar.html',
     controller: 'navbar.controller',
     scope: {
-      back: "@"
+      showBack: "=back"
     }
   };
 });
