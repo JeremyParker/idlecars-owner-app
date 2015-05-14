@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('idlecars')
-  .controller('NavbarCtrl', function ($scope) {
-    $scope.date = new Date();
+  .controller('navbar.controller', function ($scope) {
+    console.log($scope.back)
   });
