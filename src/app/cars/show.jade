@@ -12,7 +12,7 @@ h1(hidden) {{car.name}} for rent
       li(ng-repeat='cert in car.certifications') {{cert}}
 
   section.map
-    map(address='{{car.zipcode}}')
+    map(address='{{car.zipcode}}', ng-if='car')
 
   section.detail-table
     h3 Car Details
