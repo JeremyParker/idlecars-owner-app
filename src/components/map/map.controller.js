@@ -4,37 +4,35 @@ angular.module('idlecars')
 .controller('map.controller', function ($scope, mapService) {
 
   var setBounds = function() {
-      // only when two locations are both ready
-      if($scope.carLocOff && $scope.myLocOff) {
-        if (mapService.markers.length > 1) {
+    // only when two locations are both ready
+    if(!($scope.carLocOff && $scope.myLocOff)) { return; }
+    if(mapService.markers.length < 2) { return; }
 
-          // get map object
-          var map = $scope.map.control.getGMap();
+    // get map object
+    var map = $scope.map.control.getGMap();
 
-          // creat a bound object
-          var bounds = new google.maps.LatLngBounds();
+    // creat a bound object
+    var bounds = new google.maps.LatLngBounds();
 
-          // add myLocation and carLocation to bounds
-          for (var i = 0; i < mapService.markers.length; i++) {
-            var latlng = new google.maps.LatLng(mapService.markers[i].coords.latitude, mapService.markers[i].coords.longitude);
-            bounds.extend(latlng);
-          };
-
-          // zoom to fit markers automatically
-          map.fitBounds(bounds);
-
-          // contrain the initial zoom, not too zoom in
-          if (map.getZoom() > 11) {
-              map.setZoom(11);
-          }
-
-          // show zoom control if device is desktop
-          if (!mapService.isMobileDevice) {
-            map.setOptions({zoomControl: true});
-          }
-        }
-      }
+    // add myLocation and carLocation to bounds
+    for (var i = 0; i < mapService.markers.length; i++) {
+      var latlng = new google.maps.LatLng(mapService.markers[i].coords.latitude, mapService.markers[i].coords.longitude);
+      bounds.extend(latlng);
     };
+
+    // zoom to fit markers automatically
+    map.fitBounds(bounds);
+
+    // contrain the initial zoom, not too zoom in
+    if (map.getZoom() > 11) {
+        map.setZoom(11);
+    }
+
+    // show zoom control if device is desktop
+    if (!mapService.isMobileDevice) {
+      map.setOptions({zoomControl: true});
+    }
+  };
 
   $scope.startmap = function() {
 
