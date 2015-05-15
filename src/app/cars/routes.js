@@ -18,6 +18,12 @@ angular.module('idlecars')
       controller: 'cars.showCtrl'
     })
 
+    .state('carsShow.renewal', {
+      url: '/renewals/:renewalId',
+      controller: 'renewal.showCtrl',
+      templateUrl: 'app/cars/renewal.html'
+    })
+
     .state('carsBooking', {
       url: '/cars/:carId/booking',
       templateUrl: 'app/cars/booking.html',
