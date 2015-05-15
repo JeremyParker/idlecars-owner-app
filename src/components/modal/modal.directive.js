@@ -5,5 +5,6 @@ angular.module('idlecars')
   return {
     templateUrl: 'components/modal/modal.html',
     controller: 'modal.controller',
+    transclude: true,
   };
 });
