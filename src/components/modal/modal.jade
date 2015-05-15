@@ -1,6 +1,6 @@
 .modal-background
   .modal-container
     img.modal-logo(ng-src='/assets/images/idlecars_logo_white.png')
-    button.close(ng-click='closeModal()')
-      img.arrow_img(ng-src='/assets/images/Arrow_Next.png')
     .modal-content(ng-transclude)
+    button.clear-button.close(ng-click='closeModal()')
+      img(ng-src='/assets/images/Arrow_Next.png')

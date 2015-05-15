@@ -3,31 +3,34 @@
   position: fixed
   display: flex
   justify-content: center
+  align-items: center
   top: 0
   bottom: 0
   right: 0
   left: 0
 
+.modal-container
+  max-width: $page_max_width
+  max-height: $page_max_width
+  height: 100%
+  flex: 1
+  display: flex
+  flex-direction: column
+
+  padding: 0 2rem
+
+  .close
+    align-self: flex-end
+
+  .close img
+    width: 2rem
+
 .modal-content
+  flex: 1
+  margin: 3rem 0 1rem
+  overflow-y: auto
   color: white
 
 .modal-logo
-  position: absolute
-  right: 5%
-  top: 3%
-  height: 2rem
-
-.close
-  background: none
-  border: none
-  position: absolute
-  bottom: 5%
-  left: 85%
-
-.arrow_img
-  height: 1rem
-
-.modal-container
-  max-width: $page_max_width
-  position: relative
-  flex: 1
+  width: 5rem
+  align-self: flex-end
