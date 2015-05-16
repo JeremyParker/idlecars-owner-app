@@ -30,10 +30,9 @@
     <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
 
   </head>
-  <body>
-
-    <div class="navbar-wrapper">
-      <nav-bar back='true'></nav-bar>
+  <body ng-controller="main.controller">
+    <div class="navbar-wrapper" ng-if="done">
+      <nav-bar back="showBack"></nav-bar>
     </div>
 
     <div class="main-wrapper">
