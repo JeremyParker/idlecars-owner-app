@@ -5,8 +5,5 @@ angular.module('idlecars')
   return {
     templateUrl: 'components/navbar/navbar.html',
     controller: 'navbar.controller',
-    scope: {
-      showBack: "=back"
-    }
   };
 });
