@@ -1,6 +1,7 @@
 {
   "config": {
     "env": "production",
+    "landing_page_url": "https://www.idlecars.com/",
     "api_base_url": "https://www.idlecars.com/api/"
   }
 }

@@ -1,6 +1,7 @@
 {
   "config": {
     "env": "staging",
+    "landing_page_url": "http://staging.idlecars.com/",
     "api_base_url": "http://staging.idlecars.com/api/"
   }
 }

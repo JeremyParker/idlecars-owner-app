@@ -1,21 +1,19 @@
 'use strict';
 
 angular.module('idlecars')
-  .controller('navbar.controller', function ($scope, $location, $stateParams) {
-    $scope.goBack = function() {
+.controller('navbar.controller', function ($scope, $location, $state) {
 
-      var currentPath = $location.path();
-      var last = currentPath[currentPath.length - 1];
-
-      if (last == 'g') {
-        var destination = '/cars/' + $stateParams.carId;
-        $location.path(destination);
-      }
-      else if (!isNaN(last)) {
-        $location.path('/');
-      }
-      else {
-        window.location.replace('http://localhost:8000');
-      };
+  $scope.goBack = function() {
+    if (_isAtRoot()) {
+      window.location.replace('http://localhost:8000');
+    } else {
+      // TODO: replace with a history service that goes to the last state
+      $state.go('cars');
     }
-  });
+  };
+
+  var _isAtRoot = function() {
+    var currentPath = $location.path();
+    return currentPath === '/';
+  };
+});
