@@ -2,7 +2,7 @@
 
 angular.module('idlecars')
 .controller('renewal.showCtrl', function ($scope, $stateParams, RewnewalService) {
-  $scope.message = "Requesting your renewal."
+  $scope.message = "One moment while we update your listing..."
 
   RewnewalService
     .renew({renewalId: $stateParams.renewalId, state: 2})
