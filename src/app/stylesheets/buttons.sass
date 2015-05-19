@@ -1,16 +1,18 @@
-.clear-button
+%_base_button
   border: 0
   padding: 0
   outline: 0
   border-radius: 0
   cursor: pointer
 
+.clear-button
+  @extend %_base_button
   background: transparent
 
 .button
   @extend %blue_theme
   @extend %flex_centered
-  @extend .clear-button
+  @extend %_base_button
 
   width: 100%
 
