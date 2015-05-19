@@ -20,4 +20,7 @@ Use direnv and get `.envrc` from another developer
 In the root dir of this project run `direnv allow`
 
 TODO: make this deploy better
+
+`gulp clean && gulp build --env=staging && gulp publish --env=staging && gulp config`
+
 `gulp clean && gulp build --env=production && gulp publish --env=production && gulp config`
