@@ -8,6 +8,7 @@ angular.module('idlecars',
     'ui.router',
     'ic.appConfig',
     'uiGmapgoogle-maps',
+    'ct.ui.router.extras.previous',
   ]
 )
 .config(function ($urlRouterProvider, $resourceProvider) {
