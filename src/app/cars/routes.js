@@ -23,6 +23,7 @@ angular.module('idlecars')
       controller: 'renewal.showCtrl',
       templateUrl: 'app/cars/renewal.html',
       onExit: function($previousState) {
+        // prevent showing modal again when you hit back
         $previousState.forget();
       },
     })
