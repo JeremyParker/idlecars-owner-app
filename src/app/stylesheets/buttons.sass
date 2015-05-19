@@ -1,17 +1,23 @@
+.clear-button
+  border: 0
+  padding: 0
+  outline: 0
+  border-radius: 0
+  cursor: pointer
+
+  background: transparent
+
 .button
   @extend %blue_theme
   @extend %flex_centered
+  @extend .clear-button
 
   width: 100%
 
   padding: 1.5rem 1rem
-  border: 0
-  border-radius: 0
 
   text-transform: uppercase
   font-weight: $bold_font_weight
-
-  cursor: pointer
 
   span
     flex: 1

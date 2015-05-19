@@ -31,8 +31,13 @@
 
   </head>
   <body>
-    <div id="content" ui-view></div>
-    <!-- <modal></modal> -->
+    <nav-bar></nav-bar>
+
+    <div class="main-wrapper">
+      <div class="main-scroller">
+        <div class="main-content" ui-view></div>
+      </div>
+    </div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

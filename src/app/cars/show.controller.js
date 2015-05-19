@@ -27,6 +27,6 @@ angular.module('idlecars')
   }
 
   var _saveDidComplete = function(data) {
-    $state.go('bookingsShow', {bookingId: 4});
+    $state.go('bookingsShow', {bookingId: 4242});
   }
 });
