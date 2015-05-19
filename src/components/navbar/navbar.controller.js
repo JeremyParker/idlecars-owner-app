@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('navbar.controller', function ($scope, $location, $state) {
+.controller('navbar.controller', function ($scope, $location, $state, $previousState, config) {
 
   $scope.goBack = function() {
     if (_isAtRoot()) {
-      window.location.replace('http://localhost:8000');
+      window.location.replace(config.landing_page_url);
+    } else if (_hasPrevState()) {
+      $previousState.go()
     } else {
-      // TODO: replace with a history service that goes to the last state
       $state.go('cars');
     }
   };
@@ -15,5 +16,9 @@ angular.module('idlecars')
   var _isAtRoot = function() {
     var currentPath = $location.path();
     return currentPath === '/';
+  };
+
+  var _hasPrevState = function() {
+    return !!$previousState.get();
   };
 });
