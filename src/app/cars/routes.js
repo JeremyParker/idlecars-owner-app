@@ -21,7 +21,10 @@ angular.module('idlecars')
     .state('carsShow.renewal', {
       url: '/renewals/:renewalId',
       controller: 'renewal.showCtrl',
-      templateUrl: 'app/cars/renewal.html'
+      templateUrl: 'app/cars/renewal.html',
+      onExit: function($previousState) {
+        $previousState.forget();
+      },
     })
 
     .state('carsBooking', {
