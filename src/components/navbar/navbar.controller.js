@@ -2,15 +2,20 @@
 
 angular.module('idlecars')
 .controller('navbar.controller', function ($scope, $location, $state, $previousState, config) {
-
   $scope.goBack = function() {
     if (_isAtRoot()) {
       window.location.replace(config.landing_page_url);
-    } else if (_hasPrevState()) {
-      $previousState.go()
-    } else {
-      $state.go('cars');
+      return;
     }
+
+    _popState();
+  };
+
+  var _popState = function() {
+    var popped = _prevOrDefault();
+    $state.go(popped.state, popped.params).then(function() {
+      $previousState.forget();
+    });
   };
 
   var _isAtRoot = function() {
@@ -18,7 +23,7 @@ angular.module('idlecars')
     return currentPath === '/';
   };
 
-  var _hasPrevState = function() {
-    return !!$previousState.get();
+  var _prevOrDefault = function() {
+    return $previousState.get() || {state: 'cars'};
   };
 });
