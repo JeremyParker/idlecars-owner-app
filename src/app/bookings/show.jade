@@ -3,6 +3,10 @@
   .black-hero
     h1 Success!
 
+  section
+    form(multipart=true)
+      input(type="file", accept="image/*", capture="camera", ng-model="image")
+
   section.please-email
     p Please email us pictures of these documents within <span>24 hours</span>.
     a(href="mailto:support@idlecars") support@idlecars.com
