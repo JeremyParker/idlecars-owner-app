@@ -32,7 +32,7 @@ angular.module('idlecars')
       url: '/cars/:carId/booking',
       templateUrl: 'app/cars/field_forms.html',
       params: {car: null},
-      controller: 'cars.showCtrl'
+      controller: 'fieldForm.controller'
     });
 
 });

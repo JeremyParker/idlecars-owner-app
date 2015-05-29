@@ -1,5 +1,7 @@
 .field-form
   .text-wrapper
-    p Your email address
-    input(placeholder='Email address' type='email' name='email' id='email' novalidate required)
+    p {{label}}
+    input(placeholder='{{placeholder}}' type='{{type}}' name='{{name}}' id='{{name}}' novalidate required)
     hr
+    input(placeholder='Last name' type='text' name='lastName' id='lastName' novalidate ng-if='showLastName')
+    hr(ng-if='showLastName')
