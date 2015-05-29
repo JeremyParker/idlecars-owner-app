@@ -4,8 +4,7 @@
     h1 Success!
 
   section
-    form(multipart=true)
-      input(type="file", accept="image/*", capture="camera", ng-model="image")
+    div.button(ngf-select ngf-change="upload($files)") Upload
 
   section.please-email
     p Please email us pictures of these documents within <span>24 hours</span>.
