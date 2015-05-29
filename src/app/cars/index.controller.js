@@ -8,4 +8,6 @@ angular.module('idlecars')
 
   // check the browser cookies, show welcome text at first visit
   isRepeatVisitor.checkNow();
+
+  $rootScope.$broadcast('navListing');
 });

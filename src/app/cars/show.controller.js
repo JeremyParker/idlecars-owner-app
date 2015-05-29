@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.showCtrl', function ($scope, $state, $stateParams, BookingService, CarService) {
+.controller('cars.showCtrl', function ($scope, $rootScope, $state, $stateParams, BookingService, CarService) {
+
+  $rootScope.$broadcast('navListing');
+
   if (!$stateParams.car) {
     CarService.get({carId: $stateParams.carId}).$promise.then(
       function(car) {

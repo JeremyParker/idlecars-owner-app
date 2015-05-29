@@ -1,4 +1,9 @@
-button.clear-button.back-button(ng-click='goBack()')
+button.clear-button.back-button(ng-click='goBack()' ng-if='showBack')
   img(src='/assets/images/Arrow_Back.png')
-.logo
+.logo(ng-if='showLogo')
   img(src='/assets/images/navbar.png')
+
+button.back-sign(ng-if='showBackSign' ng-click='back()') <
+.title(ng-if='showTitle')
+  h2 Title
+button.next(ng-if='showNext' ng-click='goNext()') next>
