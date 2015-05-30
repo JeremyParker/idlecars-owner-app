@@ -4,7 +4,10 @@
     h1 Success!
 
   section
-    div.button(ngf-select ngf-change="upload($files)") Upload
+    div.button(ngf-select, ngf-change="upload($files)") Upload
+
+  section
+    img(ng-src="{{uploadUrl}}")
 
   section.please-email
     p Please email us pictures of these documents within <span>24 hours</span>.
