@@ -4,7 +4,7 @@
     h1 Success!
 
   section
-    div.button(ngf-select, ngf-change="upload($files)") Upload
+    div.button(ngf-select, ngf-change="upload($files)", ngf-capture="'camera'", ngf-accept="'image/*'") Upload
 
   section
     img(ng-src="{{uploadUrl}}", style="width: 100%")
