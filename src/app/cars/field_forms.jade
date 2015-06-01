@@ -1,7 +1,14 @@
 .field-form
-  .text-wrapper
-    p {{label}}
-    input(placeholder='{{placeholder}}' type='{{type}}' name='{{name}}' id='{{name}}' novalidate required)
-    hr
-    input(placeholder='Last name' type='text' name='lastName' id='lastName' novalidate ng-if='showLastName')
-    hr(ng-if='showLastName')
+  .field-container
+    .nav-bar-field
+      button.back-sign(ng-click='back()') <
+      .title
+        h2 Information
+      button.next(ng-click='goNext()') next>
+
+    .text-wrapper
+      p {{label}}
+      input(placeholder='{{placeholder}}' type='{{type}}' name='{{name}}' id='{{name}}' novalidate required)
+      hr
+      input(placeholder='Last name' type='text' name='lastName' id='lastName' novalidate ng-if='showLastName')
+      hr(ng-if='showLastName')

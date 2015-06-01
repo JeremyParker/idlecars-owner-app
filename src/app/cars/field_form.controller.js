@@ -1,14 +1,34 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('fieldForm.controller', function ($scope, $rootScope, navService) {
+.controller('fieldForm.controller', function ($scope) {
 
-  $rootScope.$broadcast('navFieldForm');
-  navService.index = 0;
+  $scope.index = 0;
 
-  $scope.$watch(function() { return navService.index; }, function() {
+  // next> button
+  $scope.goNext = function() {
+    if ($scope.index != field.length-1) {
+      $scope.index = $scope.index + 1;
+    }
+    else {
+
+    }
+  }
+
+  // < button
+  $scope.back = function() {
+    if ($scope.index != 0) {
+      $scope.index = $scope.index - 1;
+    }
+    else {
+
+    }
+  }
+
+  // watch the change of index then change the form field
+  $scope.$watch(function(){return $scope.index}, function() {
     setForm();
-    if (navService.index == '1') {
+    if ($scope.index == '1') {
       $scope.showLastName = true;
     }
     else {
@@ -16,12 +36,37 @@ angular.module('idlecars')
     }
   })
 
+  // set default not to show lastname
   $scope.showLastName = false;
 
+  var field0 = {
+    label: 'Your email address',
+    placeholder: 'Email address',
+    name: 'email',
+    type: 'email',
+  };
+
+  var field1 = {
+    label: 'What\'s your name?',
+    placeholder: 'First name',
+    name: 'firstName',
+    type: 'text',
+  };
+
+  var field2 = {
+    label: 'Your phone number',
+    placeholder: '(222)-555-1234',
+    name: 'phone',
+    type: 'tel',
+  };
+
+  // default field setting
+  var field = [field0, field1, field2];
+
   var setForm = function() {
-    $scope.placeholder = navService.placeholderPool[navService.index];
-    $scope.name = navService.namePool[navService.index];
-    $scope.type = navService.typePool[navService.index];
-    $scope.label = navService.labelPool[navService.index];
+    $scope.label = field[$scope.index].label;
+    $scope.placeholder = field[$scope.index].placeholder;
+    $scope.name = field[$scope.index].name;
+    $scope.type = field[$scope.index].type;
   }
 })
