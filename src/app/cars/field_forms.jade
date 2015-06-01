@@ -8,7 +8,7 @@
 
     .text-wrapper
       p {{label}}
-      input(placeholder='{{placeholder}}' type='{{type}}' name='{{name}}' id='{{name}}' novalidate required)
+      input(placeholder='{{placeholder}}' type='{{type}}' name='{{name}}' id='{{name}}' ng-model='value' novalidate required)
       hr
-      input(placeholder='Last name' type='text' name='lastName' id='lastName' novalidate ng-if='showLastName')
+      input(placeholder='Last name' type='text' name='lastName' id='lastName' ng-model='lastname' novalidate ng-if='showLastName')
       hr(ng-if='showLastName')

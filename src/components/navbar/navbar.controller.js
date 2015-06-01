@@ -2,7 +2,6 @@
 
 angular.module('idlecars')
 .controller('navbar.controller', function ($scope, $location, $state, $previousState, config) {
-
  $scope.goBack = function() {
     if (_isAtRoot()) {
       window.location.replace(config.landing_page_url);
