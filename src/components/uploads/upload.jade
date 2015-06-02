@@ -5,6 +5,5 @@ div(ng-if="fileUrl")
   img(ng-src="{{fileUrl}}", style="width: 100%")
 
 button.button(ngf-select, ngf-change="upload($files)", ngf-capture="'camera'", ngf-accept="'image/*'", ng-disabled="isBusy")
-  span(ng-show="isBusy")
-    ic-loading
+  ic-loading(ng-show="isBusy")
   span(ng-hide="isBusy") Upload
