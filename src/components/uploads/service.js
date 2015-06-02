@@ -13,7 +13,7 @@ angular.module('idlecars')
     return $q(function(resolve, reject) {
       parseFile.save().then(function() {
         getUsersUploads(options).then(function(usersUploads) {
-          usersUploads.set("driver_license_image", parseFile);
+          usersUploads.set(options.fileKey, parseFile);
           resolve(usersUploads.save());
         });
       });

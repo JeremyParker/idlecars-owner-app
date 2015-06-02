@@ -1,14 +1,18 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('bookings.showCtrl', function ($scope, $timeout, Upload, UserUploadService) {
+.controller('upload.controller', function($scope, $timeout, Upload, UserUploadService) {
   var user = {parse_id: 'Fmcb73mqWY'};
+  $scope.fileUrl = false;
+  $scope.isBusy = false;
 
   var _setImageUrl = function(usersUploads) {
     // NOTE: $timeout makes sure that this "runs on the next digest cycle"
     // I don't really know what that means, but this works
     $timeout(function() {
-      $scope.uploadUrl = usersUploads.get('driver_license_image').url();
+      var file = usersUploads.get($scope.fileKey);
+      if (file) { $scope.fileUrl = file.url(); }
+      $scope.isBusy = false;
     });
   };
 
@@ -20,9 +24,12 @@ angular.module('idlecars')
     var file = files[0];
     if (!file) { return; }
 
+    $scope.isBusy = true;
+
     UserUploadService.upload({
       user: user,
       file: file,
+      fileKey: $scope.fileKey,
     }).then(_setImageUrl);
   };
 });

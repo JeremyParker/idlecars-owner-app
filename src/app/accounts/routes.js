@@ -1,0 +1,29 @@
+'use strict';
+
+angular.module('idlecars')
+.config(function ($stateProvider) {
+
+  $stateProvider
+
+    .state('accountDetail', {
+      url: '/account',
+      templateUrl: 'app/accounts/detail.html',
+    })
+
+    .state('driverLicenseUpload', {
+      url: '/account/driver-license',
+      templateUrl: 'app/accounts/upload.html',
+      controller: function($scope) {
+        $scope.fileKey = 'driver_license_image';
+      },
+    })
+
+    .state('hackLicenseUpload', {
+      url: '/account/hack-license',
+      templateUrl: 'app/accounts/upload.html',
+      controller: function($scope) {
+        $scope.fileKey = 'hack_license_image';
+      },
+    });
+
+});
