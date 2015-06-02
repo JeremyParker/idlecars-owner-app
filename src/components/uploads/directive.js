@@ -5,5 +5,8 @@ angular.module('idlecars')
   return {
     templateUrl: 'components/uploads/upload.html',
     controller: 'upload.controller',
+    scope: {
+      fileKey: "@"
+    },
   };
 });

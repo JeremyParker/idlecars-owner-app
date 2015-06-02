@@ -14,7 +14,7 @@ angular.module('idlecars')
       url: '/account/driver-license',
       templateUrl: 'app/accounts/upload.html',
       controller: function($scope) {
-        $scope.fileCategory = 'driver_license_image';
+        $scope.fileKey = 'driver_license_image';
       },
     });
 
