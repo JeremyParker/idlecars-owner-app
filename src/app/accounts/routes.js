@@ -16,6 +16,14 @@ angular.module('idlecars')
       controller: function($scope) {
         $scope.fileKey = 'driver_license_image';
       },
+    })
+
+    .state('hackLicenseUpload', {
+      url: '/account/hack-license',
+      templateUrl: 'app/accounts/upload.html',
+      controller: function($scope) {
+        $scope.fileKey = 'hack_license_image';
+      },
     });
 
 });

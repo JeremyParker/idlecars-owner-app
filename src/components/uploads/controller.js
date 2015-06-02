@@ -9,7 +9,8 @@ angular.module('idlecars')
     // NOTE: $timeout makes sure that this "runs on the next digest cycle"
     // I don't really know what that means, but this works
     $timeout(function() {
-      $scope.fileUrl = usersUploads.get($scope.fileKey).url();
+      var file = usersUploads.get($scope.fileKey);
+      if (file) { $scope.fileUrl = file.url(); }
     });
   };
 

@@ -1,5 +1,7 @@
 p(ng-hide="fileUrl") no file
 p file key: {{fileKey}}
+
 div(ng-if="fileUrl")
   img(ng-src="{{fileUrl}}", style="width: 100%")
+
 div.button(ngf-select, ngf-change="upload($files)", ngf-capture="'camera'", ngf-accept="'image/*'") Upload
