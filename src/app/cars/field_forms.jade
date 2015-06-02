@@ -1,14 +1,15 @@
-.field-form
+form.field-form(name='bookingForm' novalidate)
   .field-container
     .nav-bar-field
       button.back-sign(ng-click='back()') <
       .title
         h2 Information
-      button.next(ng-click='goNext()') next>
+      button.next(ng-click='goNext()' ng-disabled='isInvalid' ng-class="{disabledNext: isInvalid}") next>
 
     .text-wrapper
       p {{label}}
-      input(placeholder='{{placeholder}}' type='{{type}}' name='{{name}}' id='{{name}}' ng-model='value' novalidate required)
+      p {{bookingForm.email.$valid}}
+      input(placeholder='{{placeholder}}' type='{{type}}' name='{{name}}' id='{{name}}' ng-model='value' required)
       hr
-      input(placeholder='Last name' type='text' name='lastName' id='lastName' ng-model='lastname' novalidate ng-if='showLastName')
+      input(placeholder='Last name' type='text' name='last_name' id='last_name' ng-model='lastname' ng-if='showLastName')
       hr(ng-if='showLastName')
