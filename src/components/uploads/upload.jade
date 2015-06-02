@@ -4,4 +4,7 @@ p file key: {{fileKey}}
 div(ng-if="fileUrl")
   img(ng-src="{{fileUrl}}", style="width: 100%")
 
-div.button(ngf-select, ngf-change="upload($files)", ngf-capture="'camera'", ngf-accept="'image/*'") Upload
+button.button(ngf-select, ngf-change="upload($files)", ngf-capture="'camera'", ngf-accept="'image/*'", ng-disabled="isBusy")
+  span(ng-show="isBusy")
+    ic-loading
+  span(ng-hide="isBusy") Upload
