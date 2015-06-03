@@ -17,26 +17,14 @@ angular.module('idlecars')
         return currentPath === '/';
       }
 
-      factory.save =  function(name, value, success) {
+      factory.save =  function(driverInfo) {
         var bookingParams = {
-          name: value,
-          car_id: factory.carId(),
+          user_account: driverInfo,
+          car_id: $stateParams.car.id,
         }
-        console.log(name, value, factory.carId());
 
         var newBooking = new BookingService(bookingParams);
-        if (success) {
-          console.log(success, 'is true')
-          newBooking.$save().then(_saveDidComplete);
-        }
-        else {
-          console.log(success)
-          newBooking.$save();
-        }
-      }
-
-      factory.carId = function() {
-        return $stateParams.car.id;
+        newBooking.$save().then(factory._saveDidComplete());
       }
 
       factory._saveDidComplete = function(data) {

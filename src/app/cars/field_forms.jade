@@ -1,15 +1,24 @@
-form.field-form(name='bookingForm' novalidate)
+.field-form
   .field-container
     .nav-bar-field
-      button.back-sign(ng-click='back()') <
+      button.back-sign(ng-click='goBack()') <
       .title
         h2 Information
-      button.next(ng-click='goNext()' ng-disabled='isInvalid' ng-class="{disabledNext: isInvalid}") next>
+      button.next(ng-click='goNext()', ng-disabled="isInvalid", ng-class="{disabledNext: isInvalid}") next>
 
     .text-wrapper
-      p {{label}}
-      p {{bookingForm.email.$valid}}
-      input(placeholder='{{placeholder}}' type='{{type}}' name='{{name}}' id='{{name}}' ng-model='value' required)
-      hr
-      input(placeholder='Last name' type='text' name='last_name' id='last_name' ng-model='lastname' ng-if='showLastName')
-      hr(ng-if='showLastName')
+      ng-form(name='fieldForm', novalidate)
+        div(ng-repeat='fields in fieldset', ng-show='isField{{$index}}')
+          p {{fields[0].label}}
+          div(ng-repeat='field in fields')
+            input(type='{{field.type}}',
+                  name='{{field.name}}',
+                  id='{{field.name}}',
+                  placeholder='{{field.placeholder}}',
+                  maxlength='{{field.maxlength}}',
+                  ng-pattern='field.pattern',
+                  ng-model="field.val",
+                  ng-change='validateForm()',
+                  required,
+                  autocomplete="off")
+            hr
