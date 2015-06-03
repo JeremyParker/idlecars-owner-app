@@ -1,16 +1,17 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('fieldForm.controller', function ($scope, $state, $timeout, navbarFunction) {
+.controller('fieldForm.controller', function ($scope, navbarFunction) {
 
+  // index -> which field in fields to show up
+  // isInvalid -> whether or not to disable the next> button
   $scope.index = 0;
   $scope.isInvalid = true;
 
   // next> button
   $scope.goNext = function() {
-    if ($scope.index != $scope.fieldset.length-1) {
-      $scope.index = $scope.index + 1;
-      $scope.validateForm();
+    if ($scope.index != $scope.fields.length-1) {
+      $scope.index++;
       return
     }
     navbarFunction.save(getDriverInfo())
@@ -19,48 +20,26 @@ angular.module('idlecars')
   // < button
   $scope.goBack = function() {
     if ($scope.index != 0) {
-      $scope.index = $scope.index - 1;
-      $scope.validateForm();
+      $scope.index--;
       return
     }
     navbarFunction._popState();
   }
 
+  // validates when current input's validation status changes or when Next, Back button is triggered
   $scope.validateForm = function() {
+    // enable next> button initially and disable it if any of the input is invalid
     $scope.isInvalid = false;
-    var fileds = $scope.fieldset[$scope.index];
+    var field = $scope.fields[$scope.index];
 
-    for (var i = 0; i < fileds.length; i++) {
-      var field_name = fileds[i].name;
+    for (var i = 0; i < field.length; i++) {
+      var field_name = field[i].name;
 
       if ($scope['fieldForm'][field_name]['$invalid']) {
         $scope.isInvalid = true;
       }
     }
   }
-
-  // change of index -> change the form field
-  $scope.$watch(function(){return $scope.index}, function() {
-
-    // decide which field need to be shown by index
-    switch ($scope.index) {
-      case 0:
-        $scope.isField0 = true;
-        $scope.isField1 = false;
-        $scope.isField2 = false;
-        break;
-      case 1:
-        $scope.isField0 = false;
-        $scope.isField1 = true;
-        $scope.isField2 = false;
-        break;
-      case 2:
-        $scope.isField0 = false;
-        $scope.isField1 = false;
-        $scope.isField2 = true;
-        break;
-    }
-  })
 
   var field0 = [{
     label: 'Your email address',
@@ -82,7 +61,6 @@ angular.module('idlecars')
   },
   {
     id: 'last_name',
-    label: 'What\'s your name?',
     placeholder: 'Last name',
     name: 'last_name',
     type: 'text',
@@ -101,7 +79,7 @@ angular.module('idlecars')
   }];
 
   // default field setting
-  $scope.fieldset = [field0, field1, field2];
+  $scope.fields = [field0, field1, field2];
 
   var getDriverInfo = function() {
     var driverInfo = {};

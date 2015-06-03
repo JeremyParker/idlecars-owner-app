@@ -8,9 +8,8 @@
 
     .text-wrapper
       ng-form(name='fieldForm', novalidate)
-        div(ng-repeat='fields in fieldset', ng-show='isField{{$index}}')
-          p {{fields[0].label}}
-          div(ng-repeat='field in fields')
+          div(ng-repeat='field in fields[index]')
+            p {{field.label}}
             input(type='{{field.type}}',
                   name='{{field.name}}',
                   id='{{field.name}}',
