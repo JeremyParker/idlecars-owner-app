@@ -10,9 +10,13 @@ angular.module('idlecars')
     // NOTE: $timeout makes sure that this "runs on the next digest cycle"
     // I don't really know what that means, but this works
     $timeout(function() {
-      var file = usersUploads.get($scope.fileKey);
-      if (file) { $scope.fileUrl = file.url(); }
       $scope.isBusy = false;
+
+      var file = usersUploads.get($scope.fileKey);
+      if (!file) { return; }
+
+      var secureUrl = file.url().replace(/^http:\/\//, 'https://s3.amazonaws.com/');
+      $scope.fileUrl = secureUrl;
     });
   };
 
