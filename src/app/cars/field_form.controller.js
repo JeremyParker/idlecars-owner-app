@@ -1,20 +1,22 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('fieldForm.controller', function ($scope, navbarFunction) {
+.controller('fieldForm.controller', function ($scope, $state, $stateParams, $timeout, navbarFunction, BookingService) {
 
   // index -> which field in fields to show up
   // isInvalid -> whether or not to disable the next> button
   $scope.index = 0;
   $scope.isInvalid = true;
+  $scope.user_account = {};
 
   // next> button
   $scope.goNext = function() {
     if ($scope.index != $scope.fields.length-1) {
       $scope.index++;
+      $scope.validateForm()
       return
     }
-    navbarFunction.save(getDriverInfo())
+    saveData()
   }
 
   // < button
@@ -23,7 +25,7 @@ angular.module('idlecars')
       $scope.index--;
       return
     }
-    navbarFunction._popState();
+    navbarFunction.popState();
   }
 
   // validates when current input's validation status changes or when Next, Back button is triggered
@@ -35,9 +37,12 @@ angular.module('idlecars')
     for (var i = 0; i < field.length; i++) {
       var field_name = field[i].name;
 
-      if ($scope['fieldForm'][field_name]['$invalid']) {
-        $scope.isInvalid = true;
+      if (!$scope['fieldForm'][field_name]) {
+        $timeout(function() {toDoValidate(field_name)}, 1)
+        return;
       }
+
+      toDoValidate(field_name);
     }
   }
 
@@ -46,7 +51,6 @@ angular.module('idlecars')
     placeholder: 'Email address',
     name: 'email',
     type: 'email',
-    val: '',
     maxlength: '50'
   }];
 
@@ -56,7 +60,6 @@ angular.module('idlecars')
     placeholder: 'First name',
     name: 'first_name',
     type: 'text',
-    val: '',
     maxlength: '20'
   },
   {
@@ -64,7 +67,6 @@ angular.module('idlecars')
     placeholder: 'Last name',
     name: 'last_name',
     type: 'text',
-    val: '',
     maxlength: '20'
   }];
 
@@ -73,7 +75,6 @@ angular.module('idlecars')
     placeholder: '(222)-555-1234',
     name: 'phone_number',
     type: 'tel',
-    val: '',
     pattern: '[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
     maxlength: '14',
   }];
@@ -81,13 +82,23 @@ angular.module('idlecars')
   // default field setting
   $scope.fields = [field0, field1, field2];
 
-  var getDriverInfo = function() {
-    var driverInfo = {};
-    driverInfo.first_name = field1[0].val;
-    driverInfo.last_name = field1[1].val;
-    driverInfo.email = field0[0].val;
-    driverInfo.phone_number = field2[0].val;
-    return driverInfo;
+  var toDoValidate = function(field_name) {
+    if ($scope['fieldForm'][field_name]['$invalid']) {
+      $scope.isInvalid = true;
+    }
   }
 
+  var saveData =  function() {
+    var bookingParams = {
+      user_account: $scope.user_account,
+      car_id: $stateParams.car.id,
+    }
+
+    var newBooking = new BookingService(bookingParams);
+    newBooking.$save().then(_saveDidComplete());
+  }
+
+  var _saveDidComplete = function(data) {
+    $state.go('bookingsShow', {bookingId: 4242});
+  }
 })

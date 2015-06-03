@@ -16,7 +16,7 @@
                   placeholder='{{field.placeholder}}',
                   maxlength='{{field.maxlength}}',
                   ng-pattern='field.pattern',
-                  ng-model="field.val",
+                  ng-model="user_account[field.name]",
                   ng-change='validateForm()',
                   required,
                   autocomplete="off")
