@@ -6,7 +6,7 @@ describe('Getting to a car detail page from the car index', function () {
   beforeEach(function () {
     browser.get('http://localhost:3000/index.html');
     var index = require('./index.po');
-    index.carEls.get(0).click();
+    index.delorean.click();
 
     page = require('./show.po');
   });
