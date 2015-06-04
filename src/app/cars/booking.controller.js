@@ -7,6 +7,7 @@ angular.module('idlecars')
   // isValid -> whether or not to disable the next> button
   $scope.index = 0;
   $scope.isValid = false;
+  $scope.user_account = {};
 
   // next> button
   $scope.goNext = function() {
@@ -40,13 +41,13 @@ angular.module('idlecars')
     for (var i = 0; i < field.length; i++) {
       var field_name = field[i].name;
 
-      if ($scope['fieldForm'][field_name]['$invalid']) {
-      $scope.isValid = false;
+      if ($scope.fieldForm[field_name].$invalid) {
+        $scope.isValid = false;
       }
     }
   }
 
-  var field0 = [{
+  var emailFields = [{
     label: 'Your email address',
     placeholder: 'Email address',
     name: 'email',
@@ -54,7 +55,7 @@ angular.module('idlecars')
     maxlength: '50'
   }];
 
-  var field1 = [{
+  var nameFields = [{
     id: 'first_name',
     label: 'What\'s your name?',
     placeholder: 'First name',
@@ -70,7 +71,7 @@ angular.module('idlecars')
     maxlength: '20'
   }];
 
-  var field2 = [{
+  var phoneFields = [{
     label: 'Your phone number',
     placeholder: '(222)-555-1234',
     name: 'phone_number',
@@ -80,7 +81,7 @@ angular.module('idlecars')
   }];
 
   // default field setting
-  $scope.fields = [field0, field1, field2];
+  $scope.fields = [emailFields, nameFields, phoneFields];
 
   var saveData =  function() {
     var bookingParams = {
@@ -89,7 +90,7 @@ angular.module('idlecars')
     }
 
     var newBooking = new BookingService(bookingParams);
-    newBooking.$save().then(_saveDidComplete());
+    newBooking.$save().then(_saveDidComplete);
   }
 
   var _saveDidComplete = function(data) {
