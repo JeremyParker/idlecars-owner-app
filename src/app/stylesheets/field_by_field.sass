@@ -18,10 +18,13 @@
   text-align: center
   color: white
 
-  input
+  input[type=text], input[type=email], input[type=tel]
     font-weight: $bold_font_weight
     font-size: $large_font_size
     border-bottom: 1px solid $light_gray
+
+  label
+    margin-bottom: 1rem
 
   .form-container
     @extend %app_width
