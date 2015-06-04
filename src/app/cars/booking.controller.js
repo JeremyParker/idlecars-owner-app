@@ -29,7 +29,7 @@ angular.module('idlecars')
 
   // validate forms whenever index changes, wait 1ms for asynchronization
   $scope.$watch(function() {return $scope.index}, function() {
-    $timeout(function() {$scope.validateForm()}, 1)
+    $timeout(function() {$scope.validateForm()});
   })
 
   // validates when current input's validation status changes or when Next, Back button is triggered
