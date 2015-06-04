@@ -1,19 +1,27 @@
-.next-pointer::after
-  content: "›"
+%_arrow
   font-size: 2em
   line-height: 0
   vertical-align: sub
 
+.next-pointer::after
+  @extend %_arrow
+  content: "›"
+  margin-left: 0.1em
+
 .prev-pointer::before
+  @extend %_arrow
   content: "‹"
-  font-size: 2em
-  line-height: 0
-  vertical-align: sub
+  margin-right: 0.1em
 
 .field-by-field
   @extend %fixed_background
   text-align: center
   color: white
+
+  input
+    font-weight: $bold_font_weight
+    font-size: $large_font_size
+    border-bottom: 1px solid $light_gray
 
   .form-container
     @extend %app_width
@@ -42,13 +50,3 @@
   .text-wrapper
     width: 70%
     margin: 20% auto 0% auto
-
-    input
-      background: none
-      border: 0 solid
-      text-align: center
-    textarea:focus, input:focus
-      outline: 0
-
-  .disabledNext
-    color: gray

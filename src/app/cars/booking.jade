@@ -4,13 +4,13 @@
       button.prev-pointer.clear-button(ng-click='goBack()')
       h3 Request Car
       //- TODO dont use ng-class
-      button.next-pointer.clear-button(ng-click='goNext()', ng-disabled="!isValid", ng-class="{disabledNext: !isValid}") next
+      button.next-pointer.clear-button(ng-click='goNext()', ng-disabled="!isValid", ng-class="{disabledNext: !isValid}") Next
 
     .text-wrapper
       ng-form(name='fieldForm', novalidate)
         div(ng-repeat='field in fields[index]')
           label(for="{{field.name}}") {{field.label}}
-          input(
+          input.no-box(
             type='{{field.type}}',
             name='{{field.name}}',
             id='{{field.name}}',
@@ -21,4 +21,3 @@
             ng-change='validateForm()',
             required,
             autocomplete="off")
-          hr
