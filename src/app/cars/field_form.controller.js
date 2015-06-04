@@ -11,9 +11,8 @@ angular.module('idlecars')
 
   // next> button
   $scope.goNext = function() {
-    if ($scope.index != $scope.fields.length-1) {
+    if ($scope.index != $scope.fields.length - 1) {
       $scope.index++;
-      $scope.validateForm()
       return
     }
     saveData()
@@ -28,6 +27,11 @@ angular.module('idlecars')
     navbarFunction.popState();
   }
 
+  // validate forms whenever index changes, wait 1ms for asynchronization
+  $scope.$watch(function() {return $scope.index}, function() {
+    $timeout(function() {$scope.validateForm()}, 1)
+  })
+
   // validates when current input's validation status changes or when Next, Back button is triggered
   $scope.validateForm = function() {
     // enable next> button initially and disable it if any of the input is invalid
@@ -37,12 +41,9 @@ angular.module('idlecars')
     for (var i = 0; i < field.length; i++) {
       var field_name = field[i].name;
 
-      if (!$scope['fieldForm'][field_name]) {
-        $timeout(function() {toDoValidate(field_name)}, 1)
-        return;
+      if ($scope['fieldForm'][field_name]['$invalid']) {
+      $scope.isInvalid = true;
       }
-
-      toDoValidate(field_name);
     }
   }
 
@@ -81,12 +82,6 @@ angular.module('idlecars')
 
   // default field setting
   $scope.fields = [field0, field1, field2];
-
-  var toDoValidate = function(field_name) {
-    if ($scope['fieldForm'][field_name]['$invalid']) {
-      $scope.isInvalid = true;
-    }
-  }
 
   var saveData =  function() {
     var bookingParams = {

@@ -1,13 +1,16 @@
-.modal-background
+%fixed_background
   @extend %alpha_black_theme
   position: fixed
-  display: flex
-  justify-content: center
-  align-items: center
   top: 0
   bottom: 0
   right: 0
   left: 0
+
+.modal-background
+  @extend %fixed_background
+  display: flex
+  justify-content: center
+  align-items: center
 
 .modal-container
   max-width: $page_max_width
