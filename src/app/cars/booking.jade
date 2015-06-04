@@ -1,11 +1,10 @@
-.field-form
-  .field-container
-    .nav-bar-field
-      button.back-sign(ng-click='goBack()') <
-      .title
-        h2 Information
+.field-by-field
+  .form-container
+    .form-nav
+      button.prev-pointer.clear-button(ng-click='goBack()')
+      h3 Request Car
       //- TODO dont use ng-class
-      button.next(ng-click='goNext()', ng-disabled="!isValid", ng-class="{disabledNext: !isValid}") next>
+      button.next-pointer.clear-button(ng-click='goNext()', ng-disabled="!isValid", ng-class="{disabledNext: !isValid}") next
 
     .text-wrapper
       ng-form(name='fieldForm', novalidate)
