@@ -9,16 +9,17 @@
 
     .text-wrapper
       ng-form(name='fieldForm', novalidate)
-          div(ng-repeat='field in fields[index]')
-            p {{field.label}}
-            input(type='{{field.type}}',
-                  name='{{field.name}}',
-                  id='{{field.name}}',
-                  placeholder='{{field.placeholder}}',
-                  maxlength='{{field.maxlength}}',
-                  ng-pattern='field.pattern',
-                  ng-model="user_account[field.name]",
-                  ng-change='validateForm()',
-                  required,
-                  autocomplete="off")
-            hr
+        div(ng-repeat='field in fields[index]')
+          label(for="{{field.name}}") {{field.label}}
+          input(
+            type='{{field.type}}',
+            name='{{field.name}}',
+            id='{{field.name}}',
+            placeholder='{{field.placeholder}}',
+            maxlength='{{field.maxlength}}',
+            ng-pattern='field.pattern',
+            ng-model="user_account[field.name]",
+            ng-change='validateForm()',
+            required,
+            autocomplete="off")
+          hr

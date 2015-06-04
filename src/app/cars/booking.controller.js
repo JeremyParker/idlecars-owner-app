@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.booking.controller', function ($scope, $state, $stateParams, $timeout, navbarFunction, BookingService) {
+.controller('cars.booking.controller', function ($scope, $state, $stateParams, $timeout, NavbarService, BookingService) {
 
   // index -> which field in fields to show up
   // isValid -> whether or not to disable the next> button
@@ -24,7 +24,7 @@ angular.module('idlecars')
       $scope.index--;
       return
     }
-    navbarFunction.popState();
+    NavbarService.popState();
   }
 
   // validate forms whenever index changes, wait 1ms for asynchronization
