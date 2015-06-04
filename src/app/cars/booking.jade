@@ -4,7 +4,8 @@
       button.back-sign(ng-click='goBack()') <
       .title
         h2 Information
-      button.next(ng-click='goNext()', ng-disabled="isInvalid", ng-class="{disabledNext: isInvalid}") next>
+      //- TODO dont use ng-class
+      button.next(ng-click='goNext()', ng-disabled="!isValid", ng-class="{disabledNext: !isValid}") next>
 
     .text-wrapper
       ng-form(name='fieldForm', novalidate)

@@ -4,10 +4,9 @@ angular.module('idlecars')
 .controller('cars.booking.controller', function ($scope, $state, $stateParams, $timeout, navbarFunction, BookingService) {
 
   // index -> which field in fields to show up
-  // isInvalid -> whether or not to disable the next> button
+  // isValid -> whether or not to disable the next> button
   $scope.index = 0;
-  $scope.isInvalid = true;
-  $scope.user_account = {};
+  $scope.isValid = false;
 
   // next> button
   $scope.goNext = function() {
@@ -35,14 +34,14 @@ angular.module('idlecars')
   // validates when current input's validation status changes or when Next, Back button is triggered
   $scope.validateForm = function() {
     // enable next> button initially and disable it if any of the input is invalid
-    $scope.isInvalid = false;
+    $scope.isValid = true;
     var field = $scope.fields[$scope.index];
 
     for (var i = 0; i < field.length; i++) {
       var field_name = field[i].name;
 
       if ($scope['fieldForm'][field_name]['$invalid']) {
-      $scope.isInvalid = true;
+      $scope.isValid = false;
       }
     }
   }
