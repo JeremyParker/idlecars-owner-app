@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('fieldForm.controller', function ($scope, $state, $stateParams, $timeout, navbarFunction, BookingService) {
+.controller('cars.booking.controller', function ($scope, $state, $stateParams, $timeout, navbarFunction, BookingService) {
 
   // index -> which field in fields to show up
   // isInvalid -> whether or not to disable the next> button

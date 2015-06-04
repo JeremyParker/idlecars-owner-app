@@ -30,9 +30,9 @@ angular.module('idlecars')
 
     .state('carsBooking', {
       url: '/cars/:carId/booking',
-      templateUrl: 'app/cars/field_forms.html',
+      templateUrl: 'app/cars/booking.html',
       params: {car: null},
-      controller: 'fieldForm.controller'
+      controller: 'cars.booking.controller'
     });
 
 });
