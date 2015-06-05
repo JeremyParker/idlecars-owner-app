@@ -3,7 +3,10 @@
 angular.module('idlecars')
 .directive('navBar', function () {
   return {
-    templateUrl: 'components/navbar/navbar.html',
+    scope: {
+      template: '='
+    },
+    template: '<div class="navbar-wrapper" ng-include="template"></div>',
     controller: 'navbar.controller',
   };
-});
+})

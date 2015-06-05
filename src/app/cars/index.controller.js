@@ -5,4 +5,8 @@ angular.module('idlecars')
   CarService.query().$promise.then(function(cars) {
     $scope.cars = cars;
   });
-});
+})
+
+.controller('main.controller', function($scope, $rootScope) {
+  $scope.templateUrl = 'navbar_main.html'
+})
