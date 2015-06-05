@@ -15,4 +15,5 @@ angular.module('idlecars')
 
   $scope.car = $stateParams.car;
 
+  $scope.$emit('changeNavbar', 'main');
 });

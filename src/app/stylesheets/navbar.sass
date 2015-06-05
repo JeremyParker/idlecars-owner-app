@@ -1,3 +1,8 @@
+%_arrow
+  font-size: 2em
+  line-height: 0
+  vertical-align: sub
+
 nav-bar
   @extend %app_width
   @extend %black_theme
@@ -5,6 +10,7 @@ nav-bar
   .navbar-wrapper
     display: flex
     padding: 0.5rem 0.75rem
+    justify-content: space-between
 
     .back-button
       flex: 1
@@ -22,3 +28,27 @@ nav-bar
 
       img
         height: 2rem
+
+    .next-pointer::after
+      @extend %_arrow
+      content: "›"
+      margin-left: 0.1em
+
+    .prev-pointer::before
+      @extend %_arrow
+      content: "‹"
+      margin-right: 0.1em
+
+    .prev-pointer
+      flex: 1
+      text-align: left
+
+    .next-pointer
+      flex: 1
+      text-align: right
+
+    button[disabled]
+      color: $medium_gray
+
+    h3
+      margin: 0.5em auto 0.5em auto

@@ -1,58 +1,18 @@
-%_arrow
-  font-size: 2em
-  line-height: 0
-  vertical-align: sub
-
-.next-pointer::after
-  @extend %_arrow
-  content: "›"
-  margin-left: 0.1em
-
-.prev-pointer::before
-  @extend %_arrow
-  content: "‹"
-  margin-right: 0.1em
-
-.field-by-field
-  @extend %fixed_background
+.form-container
   @extend %dark_gray_theme
-  text-align: center
-
-  input[type=text], input[type=email], input[type=tel]
-    font-weight: $bold_font_weight
-    font-size: $large_font_size
-    border-bottom: 1px solid $light_gray
-
-  label
-    margin-bottom: 1rem
-
-  .form-container
-    @extend %app_width
-    height: 100%
-    margin: 0 auto
+  width: 100%
+  height: 100%
 
   .text-wrapper
+    background: none
+    text-align: center
     width: 70%
     margin: 20% auto 0% auto
 
-.field-by-field-nav
-  @extend %black_theme
-  padding: 0.75rem
-  display: flex
-  justify-content: space-between
-  align-items: center
+    input[type=text], input[type=email], input[type=tel]
+      font-weight: $bold_font_weight
+      font-size: $large_font_size
+      border-bottom: 1px solid $light_gray
 
-  .prev-pointer
-    flex: 1
-    text-align: left
-
-  .next-pointer
-    flex: 1
-    text-align: right
-
-  h3
-    flex: 3
-    margin: 0
-
-  button[disabled]
-    color: $medium_gray
+    label
+      margin-bottom: 1rem
