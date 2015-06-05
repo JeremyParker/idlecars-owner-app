@@ -15,16 +15,12 @@ angular.module('idlecars')
     FieldService.index++;
   }
 
+  $scope.backward = function() {
+    FieldService.index--;
+  }
+
   $scope.$watch(function() {return FieldService.isValid}, function() {
     $scope.isValid = FieldService.isValid;
   })
 
-  $scope.backward = function() {
-    if (!FieldService.index) {
-      $scope.goBack();
-      return;
-    };
-
-    FieldService.index--;
-  }
 });

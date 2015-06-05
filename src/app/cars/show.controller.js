@@ -2,6 +2,9 @@
 
 angular.module('idlecars')
 .controller('cars.showCtrl', function ($scope, $state, $stateParams, CarService) {
+
+  $scope.$emit('changeNavbar', 'main');
+
   if (!$stateParams.car) {
     CarService.get({carId: $stateParams.carId}).$promise.then(
       function(car) {
@@ -14,6 +17,4 @@ angular.module('idlecars')
   }
 
   $scope.car = $stateParams.car;
-
-  $scope.$emit('changeNavbar', 'main');
 });

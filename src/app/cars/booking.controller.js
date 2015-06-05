@@ -16,6 +16,12 @@ angular.module('idlecars')
       saveData();
       return;
     };
+
+    if (FieldService.index < 0) {
+      NavbarService.popState();
+      return;
+    };
+
     $scope.index = FieldService.index;
     $timeout(function() {$scope.validateForm()});
   })
