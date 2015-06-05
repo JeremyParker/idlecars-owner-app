@@ -1,49 +1,37 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.booking.controller', function ($scope, $state, $stateParams, $timeout, NavbarService, BookingService) {
+.controller('cars.booking.controller', function ($scope, $state, $stateParams, $timeout, NavbarService, BookingService, FieldService) {
 
   $scope.$emit('changeNavbar', 'field');
+
   // index -> which field in fields to show up
-  // isValid -> whether or not to disable the next> button
+  FieldService.index = 0;
   $scope.index = 0;
-  $scope.isValid = false;
   $scope.user_account = {};
 
-  // next> button
-  $scope.goNext = function() {
-    if ($scope.index != $scope.fields.length - 1) {
-      $scope.index++;
-      return
-    }
-    saveData()
-  }
-
-  // < button
-  $scope.goBack = function() {
-    if ($scope.index != 0) {
-      $scope.index--;
-      return
-    }
-    NavbarService.popState();
-  }
-
   // validate forms whenever index changes, wait 1ms for asynchronization
-  $scope.$watch(function() {return $scope.index}, function() {
+  $scope.$watch(function() {return FieldService.index}, function() {
+    if (FieldService.index >= $scope.fields.length) {
+      saveData();
+      return;
+    };
+    $scope.index = FieldService.index;
     $timeout(function() {$scope.validateForm()});
   })
 
+  // isValid -> whether or not to disable the next> button
   // validates when current input's validation status changes or when Next, Back button is triggered
   $scope.validateForm = function() {
     // enable next> button initially and disable it if any of the input is invalid
-    $scope.isValid = true;
+    FieldService.isValid = true;
     var field = $scope.fields[$scope.index];
 
     for (var i = 0; i < field.length; i++) {
       var field_name = field[i].name;
 
       if ($scope.fieldForm[field_name].$invalid) {
-        $scope.isValid = false;
+        FieldService.isValid = false;
       }
     }
   }
@@ -95,6 +83,7 @@ angular.module('idlecars')
   }
 
   var _saveDidComplete = function(data) {
+    $scope.$emit('changeNavbar', 'main');
     $state.go('bookingsShow', {bookingId: 4242});
   }
 })

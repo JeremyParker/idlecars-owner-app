@@ -13,7 +13,6 @@ angular.module('idlecars')
   $scope.templateUrl = 'navbar_main.html'
 
   $scope.$on('changeNavbar', function(event, data) {
-    console.log(data)
     switch (data) {
       case 'field':
         $scope.templateUrl = 'navbar_field_by_field.html';
