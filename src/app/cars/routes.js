@@ -7,32 +7,60 @@ angular.module('idlecars')
 
     .state('cars', {
       url: '/',
-      templateUrl: 'app/cars/index.html',
-      controller: 'cars.indexCtrl'
+      views: {
+        'navbar': {
+          templateUrl: 'components/navbar/navbar_main.html',
+          controller: 'navbar_main.controller',
+        },
+        'content': {
+          templateUrl: 'app/cars/index.html',
+          controller: 'cars.indexCtrl',
+        },
+      },
     })
 
-    .state('carsShow', {
-      url: '/cars/:carId',
-      templateUrl: 'app/cars/show.html',
-      params: {car: null},
-      controller: 'cars.showCtrl'
+    .state('cars.carsShow', {
+      url: 'cars/:carId',
+      views: {
+        'content@': {
+          templateUrl: 'app/cars/show.html',
+          params: {car: null},
+          controller: 'cars.showCtrl',
+        },
+      },
     })
 
     .state('carsShow.renewal', {
       url: '/renewals/:renewalId',
-      controller: 'renewal.showCtrl',
-      templateUrl: 'app/cars/renewal.html',
-      onExit: function($previousState) {
-        // prevent showing modal again when you hit back
-        $previousState.forget();
+      views: {
+        'navbar': {
+          templateUrl: 'components/navbar/navbar_main.html',
+          controller: 'navbar_main.controller',
+        },
+        'content': {
+          templateUrl: 'app/cars/renewal.html',
+          controller: 'renewal.showCtrl',
+          onExit: function($previousState) {
+            // prevent showing modal again when you hit back
+            $previousState.forget();
+          },
+        },
       },
     })
 
-    .state('carsBooking', {
-      url: '/cars/:carId/booking',
-      templateUrl: 'app/cars/booking.html',
-      params: {car: null},
-      controller: 'cars.booking.controller'
+    .state('cars.carsShow.carsBooking', {
+      url: '/booking',
+      views: {
+        'navbar@': {
+          templateUrl: 'components/navbar/navbar_field.html',
+          controller: 'navbar_field.controller',
+        },
+        'content@': {
+          templateUrl: 'app/cars/booking.html',
+          params: {car: null},
+          controller: 'cars.booking.controller'
+        },
+      },
     });
 
 });

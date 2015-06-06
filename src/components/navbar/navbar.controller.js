@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('navbar.controller', function ($scope, NavbarService, config, FieldService) {
+.controller('navbar_main.controller', function ($scope, NavbarService, config) {
   $scope.goBack = function() {
     if (NavbarService.isAtRoot()) {
       window.location.replace(config.landing_page_url);
@@ -10,7 +10,9 @@ angular.module('idlecars')
 
     NavbarService.popState();
   };
+})
 
+.controller('navbar_field.controller', function ($scope, FieldService) {
   $scope.forward = function() {
     FieldService.index++;
   }
@@ -22,5 +24,4 @@ angular.module('idlecars')
   $scope.$watch(function() {return FieldService.isValid}, function() {
     $scope.isValid = FieldService.isValid;
   })
-
-});
+})
