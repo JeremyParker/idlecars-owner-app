@@ -2,8 +2,9 @@ nav-bar
   @extend %app_width
   @extend %black_theme
 
-  display: flex
+.bar-wrapper
   padding: 0.5rem 0.75rem
+  display: flex
 
   .back-button
     flex: 1
@@ -13,11 +14,21 @@ nav-bar
     img
       width: 2rem
 
-  .logo
+  .menu-button
     flex: 1
     display: flex
+    font-size: 1.25rem
     flex-direction: row-reverse
     align-items: center
 
-    img
-      height: 2rem
+    &.menu-open
+      color: $ic_blue
+
+.menu
+  padding: 0 0.75rem 0.25rem
+  text-align: right
+
+  a
+    display: block
+    padding: 0.5rem 0
+    font-size: $large_font_size

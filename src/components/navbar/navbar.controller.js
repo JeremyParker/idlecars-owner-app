@@ -1,7 +1,11 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('navbar.controller', function ($scope, $location, $state, $previousState, config) {
+.controller('navbar.controller', function ($scope, $rootScope, $location, $state, $previousState, config) {
+  $rootScope.$on('$stateChangeStart', function() {
+    $scope.menuOpen = false;
+  });
+
   $scope.goBack = function() {
     if (_isAtRoot()) {
       window.location.replace(config.landing_page_url);
