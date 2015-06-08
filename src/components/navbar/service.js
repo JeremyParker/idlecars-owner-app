@@ -6,6 +6,7 @@ angular.module('idlecars')
 
   factory.popState = function() {
     var popped = _prevOrDefault();
+
     $state.go(popped.state, popped.params).then(function() {
       $previousState.forget();
     });

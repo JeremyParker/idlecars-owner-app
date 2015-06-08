@@ -12,8 +12,9 @@ angular.module('idlecars')
   };
 })
 
-.controller('navbar_field.controller', function ($scope, FieldService) {
+.controller('navbar_field.controller', function ($scope, FieldService, NavbarService) {
 
   $scope.Field = FieldService;
 
+  $scope.Navbar = NavbarService;
 })
