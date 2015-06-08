@@ -2,7 +2,7 @@
 
 var CarsBooking = function() {
   this.header = element(by.css('h2'));
-  this.nextButton = element(by.cssContainingText('button', 'next>'));
+  this.nextButton = element(by.cssContainingText('button', 'Next'));
 
   this.emailInput = element(by.css('input[name=email]'));
   this.firstNameInput = element(by.css('input[name=first_name]'));
