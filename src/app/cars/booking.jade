@@ -1,7 +1,7 @@
 .form-container
   .text-wrapper
     ng-form(name='fieldForm', novalidate)
-      div(ng-repeat='field in fields[index]')
+      div(ng-repeat='field in Field.fields[Field.index]')
         label(for="{{field.name}}") {{field.label}}
         input.no-box(
           type='{{field.type}}',
@@ -10,7 +10,7 @@
           placeholder='{{field.placeholder}}',
           maxlength='{{field.maxlength}}',
           ng-pattern='field.pattern',
-          ng-model="user_account[field.name]",
+          ng-model="Field.user_account[field.name]",
           ng-change='validateForm()',
           required,
           autocomplete="off")

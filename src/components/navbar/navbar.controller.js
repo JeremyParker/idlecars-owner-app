@@ -13,15 +13,7 @@ angular.module('idlecars')
 })
 
 .controller('navbar_field.controller', function ($scope, FieldService) {
-  $scope.forward = function() {
-    FieldService.index++;
-  }
 
-  $scope.backward = function() {
-    FieldService.index--;
-  }
+  $scope.Field = FieldService;
 
-  $scope.$watch(function() {return FieldService.isValid}, function() {
-    $scope.isValid = FieldService.isValid;
-  })
 })

@@ -1,20 +1,19 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.booking.controller', function ($scope, $state, $stateParams, $timeout, NavbarService, BookingService, FieldService) {
-
-  $scope.$emit('changeNavbar', 'field');
+.controller('cars.booking.controller', function ($scope, $timeout, NavbarService, FieldService) {
 
   // index -> which field in fields to show up
   FieldService.index = 0;
-  $scope.index = 0;
-  $scope.user_account = {};
+  FieldService.user_account = {};
+  $scope.Field = FieldService;
+
 
   // validate forms whenever index changes, wait 1ms for asynchronization
   $scope.$watch(function() {return FieldService.index}, function() {
 
-    if (FieldService.index >= $scope.fields.length) {
-      saveData();
+    if (FieldService.index >= FieldService.fields.length) {
+      FieldService.saveData();
       return;
     };
 
@@ -32,7 +31,7 @@ angular.module('idlecars')
   $scope.validateForm = function() {
     // enable next> button initially and disable it if any of the input is invalid
     FieldService.isValid = true;
-    var field = $scope.fields[$scope.index];
+    var field = FieldService.fields[FieldService.index];
 
     for (var i = 0; i < field.length; i++) {
       var field_name = field[i].name;
@@ -43,53 +42,4 @@ angular.module('idlecars')
     }
   }
 
-  var emailFields = [{
-    label: 'Your email address',
-    placeholder: 'Email address',
-    name: 'email',
-    type: 'email',
-    maxlength: '50'
-  }];
-
-  var nameFields = [{
-    id: 'first_name',
-    label: 'What\'s your name?',
-    placeholder: 'First name',
-    name: 'first_name',
-    type: 'text',
-    maxlength: '20'
-  },
-  {
-    id: 'last_name',
-    placeholder: 'Last name',
-    name: 'last_name',
-    type: 'text',
-    maxlength: '20'
-  }];
-
-  var phoneFields = [{
-    label: 'Your phone number',
-    placeholder: '(222)-555-1234',
-    name: 'phone_number',
-    type: 'tel',
-    pattern: '[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
-    maxlength: '14',
-  }];
-
-  // default field setting
-  $scope.fields = [emailFields, nameFields, phoneFields];
-
-  var saveData =  function() {
-    var bookingParams = {
-      user_account: $scope.user_account,
-      car_id: $stateParams.carId,
-    }
-
-    var newBooking = new BookingService(bookingParams);
-    newBooking.$save().then(_saveDidComplete);
-  }
-
-  var _saveDidComplete = function(data) {
-    $state.go('cars.bookingsShow', {bookingId: 4242});
-  }
 })
