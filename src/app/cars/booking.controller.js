@@ -12,6 +12,7 @@ angular.module('idlecars')
 
   // validate forms whenever index changes, wait 1ms for asynchronization
   $scope.$watch(function() {return FieldService.index}, function() {
+
     if (FieldService.index >= $scope.fields.length) {
       saveData();
       return;
@@ -81,7 +82,7 @@ angular.module('idlecars')
   var saveData =  function() {
     var bookingParams = {
       user_account: $scope.user_account,
-      car_id: $stateParams.car.id,
+      car_id: $stateParams.carId,
     }
 
     var newBooking = new BookingService(bookingParams);
@@ -89,7 +90,6 @@ angular.module('idlecars')
   }
 
   var _saveDidComplete = function(data) {
-    $scope.$emit('changeNavbar', 'main');
-    $state.go('bookingsShow', {bookingId: 4242});
+    $state.go('cars.bookingsShow', {bookingId: 4242});
   }
 })

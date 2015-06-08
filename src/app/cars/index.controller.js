@@ -6,7 +6,3 @@ angular.module('idlecars')
     $scope.cars = cars;
   });
 })
-
-.controller('main.controller', function($scope) {
-
-})

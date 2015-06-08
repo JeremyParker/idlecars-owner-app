@@ -30,14 +30,10 @@ angular.module('idlecars')
       },
     })
 
-    .state('carsShow.renewal', {
+    .state('cars.carsShow.renewal', {
       url: '/renewals/:renewalId',
       views: {
-        'navbar': {
-          templateUrl: 'components/navbar/navbar_main.html',
-          controller: 'navbar_main.controller',
-        },
-        'content': {
+        'content@': {
           templateUrl: 'app/cars/renewal.html',
           controller: 'renewal.showCtrl',
           onExit: function($previousState) {
