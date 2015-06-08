@@ -52,7 +52,7 @@ angular.module('idlecars')
           controller: 'navbar_field.controller',
         },
         'content@': {
-          template: '<div ui-view = "form"></div>',
+          template: '<ui-view />',
           params: {car: null},
           controller: 'cars.booking.controller'
         },
@@ -60,36 +60,24 @@ angular.module('idlecars')
     })
 
     .state('cars.detail.booking.email', {
-      views: {
-        'form@cars.detail.booking': {
-          templateUrl: 'app/cars/booking_form.html',
-          controller: 'booking.email.controller',
-        },
-      },
+      templateUrl: 'app/cars/booking_form.html',
+      controller: 'booking.email.controller',
       onEnter: function (FieldService) {
         FieldService.index = 0;
       },
     })
 
     .state('cars.detail.booking.name', {
-      views: {
-        'form@cars.detail.booking': {
-          templateUrl: 'app/cars/booking_form.html',
-          controller: 'booking.name.controller',
-        },
-      },
+      templateUrl: 'app/cars/booking_form.html',
+      controller: 'booking.name.controller',
       onEnter: function (FieldService) {
         FieldService.index = 1;
       },
     })
 
     .state('cars.detail.booking.phone_number', {
-      views: {
-        'form@cars.detail.booking': {
-          templateUrl: 'app/cars/booking_form.html',
-          controller: 'booking.phone_number.controller',
-        },
-      },
+      templateUrl: 'app/cars/booking_form.html',
+      controller: 'booking.phone_number.controller',
       onEnter: function (FieldService) {
         FieldService.index = 2;
       },
