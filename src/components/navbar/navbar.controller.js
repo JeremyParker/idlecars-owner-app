@@ -2,7 +2,7 @@
 
 angular.module('idlecars')
 .controller('navbar.controller', function ($scope, $rootScope, $location, $state, $previousState, config) {
-  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+  $rootScope.$on('$stateChangeStart', function() {
     $scope.menuOpen = false;
   });
 
