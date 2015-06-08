@@ -19,7 +19,7 @@ angular.module('idlecars')
       },
     })
 
-    .state('cars.carsShow', {
+    .state('cars.detail', {
       url: 'cars/:carId',
       views: {
         'content@': {
@@ -30,7 +30,7 @@ angular.module('idlecars')
       },
     })
 
-    .state('cars.carsShow.renewal', {
+    .state('cars.detail.renewal', {
       url: '/renewals/:renewalId',
       views: {
         'content@': {
@@ -44,7 +44,7 @@ angular.module('idlecars')
       },
     })
 
-    .state('cars.carsShow.carsBooking', {
+    .state('cars.detail.booking', {
       url: '/booking',
       views: {
         'navbar@': {
@@ -59,9 +59,9 @@ angular.module('idlecars')
       },
     })
 
-    .state('cars.carsShow.carsBooking.email', {
+    .state('cars.detail.booking.email', {
       views: {
-        'form@cars.carsShow.carsBooking': {
+        'form@cars.detail.booking': {
           templateUrl: 'app/cars/booking_form.html',
           controller: 'booking.email.controller',
         },
@@ -71,9 +71,9 @@ angular.module('idlecars')
       },
     })
 
-    .state('cars.carsShow.carsBooking.name', {
+    .state('cars.detail.booking.name', {
       views: {
-        'form@cars.carsShow.carsBooking': {
+        'form@cars.detail.booking': {
           templateUrl: 'app/cars/booking_form.html',
           controller: 'booking.name.controller',
         },
@@ -83,9 +83,9 @@ angular.module('idlecars')
       },
     })
 
-    .state('cars.carsShow.carsBooking.phone_number', {
+    .state('cars.detail.booking.phone_number', {
       views: {
-        'form@cars.carsShow.carsBooking': {
+        'form@cars.detail.booking': {
           templateUrl: 'app/cars/booking_form.html',
           controller: 'booking.phone_number.controller',
         },
