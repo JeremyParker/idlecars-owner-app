@@ -8,7 +8,7 @@ angular.module('idlecars')
     return states[states.length - 2] || {state: 'cars'};
   };
 
-  history.Listen = function () {
+  history.listen = function () {
     $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
       if (goBackTriggered) {
         states.pop();

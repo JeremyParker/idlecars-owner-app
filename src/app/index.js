@@ -17,5 +17,5 @@ angular.module('idlecars',
 })
 
 .run(function (HistoryService) {
-  HistoryService.Listen();
+  HistoryService.listen();
 })
