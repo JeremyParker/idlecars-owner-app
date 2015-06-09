@@ -62,25 +62,16 @@ angular.module('idlecars')
     .state('cars.detail.booking.email', {
       templateUrl: 'app/cars/booking_form.html',
       controller: 'booking.email.controller',
-      onEnter: function (FieldService) {
-        FieldService.index = 0;
-      },
     })
 
     .state('cars.detail.booking.name', {
       templateUrl: 'app/cars/booking_form.html',
       controller: 'booking.name.controller',
-      onEnter: function (FieldService) {
-        FieldService.index = 1;
-      },
     })
 
     .state('cars.detail.booking.phone_number', {
       templateUrl: 'app/cars/booking_form.html',
       controller: 'booking.phone_number.controller',
-      onEnter: function (FieldService) {
-        FieldService.index = 2;
-      },
     })
 
 

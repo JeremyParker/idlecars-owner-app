@@ -87,27 +87,12 @@ angular.module('idlecars')
     $state.go(nextState);
   }
 
-  this.validateForm = function(fieldForm, formType) {
-
+  this.validateForm = function(fieldForm) {
     this.isValid = true;
-    var index = this._getFieldIndex(formType);
-    var field = this.fields[index];
 
-    for (var i = 0; i < field.length; i++) {
-      var field_name = field[i].name;
-
-      if (fieldForm[field_name].$invalid) {
-        this.isValid = false;
-      }
+    if (fieldForm.$invalid) {
+      this.isValid = false;
     }
-  }
-
-  this._getFieldIndex = function (formType) {
-    for (var i = 0; i < this.fields.length; i++) {
-      if (formType == this.fields[i][0].state) {
-        return i;
-      };
-    };
   }
 
 })

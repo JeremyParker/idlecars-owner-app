@@ -10,23 +10,29 @@ angular.module('idlecars')
 
 })
 
-.controller('booking.email.controller', function ($scope, $timeout) {
+.controller('booking.email.controller', function ($scope, $timeout, FieldService) {
+  FieldService.index = 0;
+
   $scope.validateForm = function () {
-    $timeout(function () {$scope.Field.validateForm($scope.fieldForm, 'email')});
+    $timeout(function () {$scope.Field.validateForm($scope.fieldForm)});
   };
   $scope.validateForm();
 })
 
-.controller('booking.name.controller', function ($scope, $timeout) {
+.controller('booking.name.controller', function ($scope, $timeout, FieldService) {
+  FieldService.index = 1;
+
   $scope.validateForm = function () {
-    $timeout(function () {$scope.Field.validateForm($scope.fieldForm, 'name')});
+    $timeout(function () {$scope.Field.validateForm($scope.fieldForm)});
   };
   $scope.validateForm();
 })
 
-.controller('booking.phone_number.controller', function ($scope, $timeout) {
+.controller('booking.phone_number.controller', function ($scope, $timeout, FieldService) {
+  FieldService.index = 2;
+
   $scope.validateForm = function () {
-    $timeout(function () {$scope.Field.validateForm($scope.fieldForm, 'phone_number')});
+    $timeout(function () {$scope.Field.validateForm($scope.fieldForm)});
   };
   $scope.validateForm();
 })
