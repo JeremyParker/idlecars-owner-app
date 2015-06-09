@@ -17,10 +17,6 @@ angular.module('idlecars')
           controller: 'cars.indexCtrl',
         },
       },
-      onEnter: function (historyState) {
-        historyState.Listen();
-      }
-
     })
 
     .state('cars.detail', {
@@ -40,10 +36,6 @@ angular.module('idlecars')
         'content@': {
           templateUrl: 'app/cars/renewal.html',
           controller: 'renewal.showCtrl',
-          onExit: function($previousState) {
-            // prevent showing modal again when you hit back
-            $previousState.forget();
-          },
         },
       },
     })
@@ -77,6 +69,5 @@ angular.module('idlecars')
       templateUrl: 'app/cars/booking_form.html',
       controller: 'booking.phone_number.controller',
     })
-
 
 });

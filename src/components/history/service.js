@@ -1,5 +1,5 @@
 angular.module('idlecars')
-.factory('historyState', function ($rootScope, $state) {
+.factory('HistoryService', function ($rootScope, $state) {
   var history = {};
   var states = [];
   var goBackTriggered = false;

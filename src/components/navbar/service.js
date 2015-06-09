@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('idlecars')
-.factory('NavbarService', function ($location, historyState) {
+.factory('NavbarService', function ($location, HistoryService) {
   var factory = {};
 
   factory.popState = function() {
-    historyState.goPreviousState();
+    HistoryService.goPreviousState();
   };
 
   factory.isAtRoot = function() {
