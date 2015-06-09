@@ -17,6 +17,10 @@ angular.module('idlecars')
           controller: 'cars.indexCtrl',
         },
       },
+      onEnter: function (historyState) {
+        historyState.Listen();
+      }
+
     })
 
     .state('cars.detail', {
