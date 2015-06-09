@@ -36,12 +36,11 @@ angular.module('idlecars')
         'content@': {
           templateUrl: 'app/cars/renewal.html',
           controller: 'renewal.showCtrl',
-          onExit: function($previousState) {
-            // prevent showing modal again when you hit back
-            $previousState.forget();
-          },
         },
       },
+      onExit: function (HistoryService) {
+        HistoryService.forget();
+      }
     })
 
     .state('cars.detail.booking', {
@@ -73,6 +72,5 @@ angular.module('idlecars')
       templateUrl: 'app/cars/booking_form.html',
       controller: 'booking.phone_number.controller',
     })
-
 
 });

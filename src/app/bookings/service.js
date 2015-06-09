@@ -60,10 +60,6 @@ angular.module('idlecars')
     newBooking.$save().then(_saveDidComplete);
   }
 
-  this.showForm = function () {
-    $state.go('cars.detail.booking.email')
-  }
-
   this.goNextState = function () {
     var currentState = $state.current.name;
     var fieldLength = this.fields.length;
