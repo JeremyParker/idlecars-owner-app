@@ -1,7 +1,6 @@
 .bar-wrapper
-  button.clear-button.back-button(ng-click='goBack()')
-    img(src='/assets/images/Arrow_Back.png')
+  button.clear-button.prev-pointer(ng-click='goBack()')
   .menu-button(ng-click='menuOpen = !menuOpen', ng-class="{'menu-open': menuOpen}") ☰
 
 .menu(ng-show="menuOpen")
-  a(ui-sref='cars') Listings
+  a(ui-sref='cars') Home
