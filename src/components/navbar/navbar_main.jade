@@ -4,4 +4,4 @@
   .menu-button(ng-click='menuOpen = !menuOpen', ng-class="{'menu-open': menuOpen}") ☰
 
 .menu(ng-show="menuOpen")
-  a(ui-sref='cars') Listings
+  a(ui-sref='cars', ng-click='menuOpen = false') Listings
