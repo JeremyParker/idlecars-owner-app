@@ -61,13 +61,13 @@ angular.module('idlecars')
   }
 
   this.showForm = function () {
-    $state.go('cars.carsShow.carsBooking.email')
+    $state.go('cars.detail.booking.email')
   }
 
   this.goNextState = function () {
     var currentState = $state.current.name;
     var fieldLength = this.fields.length;
-    var parentState = 'cars.carsShow.carsBooking.';
+    var parentState = 'cars.detail.booking.';
     var nextState =  parentState + this.fields[0][0].state;
 
     for (var i = 0; i < fieldLength; i++) {

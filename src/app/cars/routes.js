@@ -19,7 +19,7 @@ angular.module('idlecars')
       },
     })
 
-    .state('cars.carsShow', {
+    .state('cars.detail', {
       url: 'cars/:carId',
       views: {
         'content@': {
@@ -30,7 +30,7 @@ angular.module('idlecars')
       },
     })
 
-    .state('cars.carsShow.renewal', {
+    .state('cars.detail.renewal', {
       url: '/renewals/:renewalId',
       views: {
         'content@': {
@@ -44,7 +44,7 @@ angular.module('idlecars')
       },
     })
 
-    .state('cars.carsShow.carsBooking', {
+    .state('cars.detail.booking', {
       url: '/booking',
       views: {
         'navbar@': {
@@ -52,44 +52,32 @@ angular.module('idlecars')
           controller: 'navbar_field.controller',
         },
         'content@': {
-          template: '<div ui-view = "form"></div>',
+          template: '<ui-view />',
           params: {car: null},
           controller: 'cars.booking.controller'
         },
       },
     })
 
-    .state('cars.carsShow.carsBooking.email', {
-      views: {
-        'form@cars.carsShow.carsBooking': {
-          templateUrl: 'app/cars/booking_form.html',
-          controller: 'booking.email.controller',
-        },
-      },
+    .state('cars.detail.booking.email', {
+      templateUrl: 'app/cars/booking_form.html',
+      controller: 'booking.email.controller',
       onEnter: function (FieldService) {
         FieldService.index = 0;
       },
     })
 
-    .state('cars.carsShow.carsBooking.name', {
-      views: {
-        'form@cars.carsShow.carsBooking': {
-          templateUrl: 'app/cars/booking_form.html',
-          controller: 'booking.name.controller',
-        },
-      },
+    .state('cars.detail.booking.name', {
+      templateUrl: 'app/cars/booking_form.html',
+      controller: 'booking.name.controller',
       onEnter: function (FieldService) {
         FieldService.index = 1;
       },
     })
 
-    .state('cars.carsShow.carsBooking.phone_number', {
-      views: {
-        'form@cars.carsShow.carsBooking': {
-          templateUrl: 'app/cars/booking_form.html',
-          controller: 'booking.phone_number.controller',
-        },
-      },
+    .state('cars.detail.booking.phone_number', {
+      templateUrl: 'app/cars/booking_form.html',
+      controller: 'booking.phone_number.controller',
       onEnter: function (FieldService) {
         FieldService.index = 2;
       },
