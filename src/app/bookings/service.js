@@ -87,12 +87,4 @@ angular.module('idlecars')
     $state.go(nextState);
   }
 
-  this.validateForm = function(fieldForm) {
-    this.isValid = true;
-
-    if (fieldForm.$invalid) {
-      this.isValid = false;
-    }
-  }
-
 })

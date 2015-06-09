@@ -14,7 +14,7 @@ angular.module('idlecars')
   FieldService.index = 0;
 
   $scope.validateForm = function () {
-    $timeout(function () {$scope.Field.validateForm($scope.fieldForm)});
+    $timeout(function () { FieldService.isValid = $scope.fieldForm.$valid });
   };
   $scope.validateForm();
 })
@@ -23,7 +23,7 @@ angular.module('idlecars')
   FieldService.index = 1;
 
   $scope.validateForm = function () {
-    $timeout(function () {$scope.Field.validateForm($scope.fieldForm)});
+    $timeout(function () { FieldService.isValid = $scope.fieldForm.$valid });
   };
   $scope.validateForm();
 })
@@ -32,7 +32,7 @@ angular.module('idlecars')
   FieldService.index = 2;
 
   $scope.validateForm = function () {
-    $timeout(function () {$scope.Field.validateForm($scope.fieldForm)});
+    $timeout(function () { FieldService.isValid = $scope.fieldForm.$valid });
   };
   $scope.validateForm();
 })
