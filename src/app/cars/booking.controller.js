@@ -6,8 +6,6 @@ angular.module('idlecars')
   FieldService.user_account = {};
   $scope.Field = FieldService;
 
-  FieldService.showForm();
-
 })
 
 .controller('booking.email.controller', function ($scope, $timeout, FieldService) {
