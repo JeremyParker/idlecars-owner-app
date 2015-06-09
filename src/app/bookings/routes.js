@@ -5,9 +5,17 @@ angular.module('idlecars')
 
   $stateProvider
 
-    .state('bookingsShow', {
-      url: '/bookings/:bookingId',
-      templateUrl: 'app/bookings/show.html',
+    .state('cars.bookingsShow', {
+      url: 'bookings/:bookingId',
+      views: {
+        'navbar@': {
+          templateUrl: 'components/navbar/navbar_main.html',
+          controller: 'navbar_main.controller',
+        },
+        'content@': {
+          templateUrl: 'app/bookings/show.html',
+        },
+      },
     })
 
 });

@@ -1,4 +1,20 @@
-nav-bar
+%_arrow
+  font-size: 2em
+  line-height: 0
+  vertical-align: sub
+
+.next-pointer::after
+  @extend %_arrow
+  content: "›"
+  margin-left: 0.1em
+
+.prev-pointer::before
+  @extend %_arrow
+  content: "‹"
+  margin-right: 0.1em
+
+
+.navbar-wrapper
   @extend %app_width
   @extend %black_theme
 
@@ -8,11 +24,23 @@ nav-bar
 
   .back-button
     flex: 1
-    display: flex
-    align-items: center
 
     img
       width: 2rem
+
+  .prev-pointer
+    flex: 1
+    text-align: left
+
+  .next-pointer
+    flex: 1
+    text-align: right
+
+  button[disabled]
+    color: $medium_gray
+
+  h3
+    margin: 0.5rem 0
 
   .menu-button
     flex: 1

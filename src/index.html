@@ -31,11 +31,14 @@
 
   </head>
   <body>
-    <nav-bar></nav-bar>
+
+    <div class="navbar-wrapper">
+      <div class="navbar" ui-view="navbar"></div>
+    </div>
 
     <div class="main-wrapper">
       <div class="main-scroller">
-        <div class="main-content" ui-view></div>
+        <div class="main-content" ui-view="content"></div>
       </div>
     </div>
 
@@ -55,5 +58,10 @@
     <!-- endinject -->
     <!-- endbuild -->
 
+    <script type="text/ng-template" id="navbar_field_by_field.html">
+        <button class="prev-pointer clear-button" ng-click="backward()"></button>
+        <h3> Request Car </h3>
+        <button class="next-pointer clear-button" ng-click="forward()" ng-disabled="!isValid"> Next </button>
+    </script>
   </body>
 </html>
