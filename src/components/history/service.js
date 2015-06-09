@@ -9,9 +9,9 @@ angular.module('idlecars')
     return states[states.length - 2] || {state: 'cars'};
   };
 
-  var _isSkipState = function (state) {
+  var _isSkipState = function (stateName) {
     for (var i = 0; i < skipStates.length; i++) {
-      if (skipStates[i] == state) {
+      if (skipStates[i] == stateName) {
         return true;
       }
     };
@@ -20,13 +20,14 @@ angular.module('idlecars')
 
   history.listen = function () {
     $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+      var stateName = toState.name;
+
       if (goBackTriggered) {
         states.pop();
         goBackTriggered = false;
       }
-      else if (!_isSkipState(toState.name)) {
-        var state = {state: toState.name, params: toParams}
-        states.push(state);
+      else if (!_isSkipState(stateName)) {
+        states.push({state: stateName, params: toParams});
       };
     })
   }
