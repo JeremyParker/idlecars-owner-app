@@ -18,7 +18,6 @@ angular.module('idlecars')
         var state = {state: toState.name, params: toParams}
         states.push(state);
       };
-      console.log(states)
     })
   }
 
