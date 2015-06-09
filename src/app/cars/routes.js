@@ -38,6 +38,9 @@ angular.module('idlecars')
           controller: 'renewal.showCtrl',
         },
       },
+      onExit: function (HistoryService) {
+        HistoryService.forget();
+      }
     })
 
     .state('cars.detail.booking', {

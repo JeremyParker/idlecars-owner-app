@@ -2,20 +2,14 @@ angular.module('idlecars')
 .factory('HistoryService', function ($rootScope, $state) {
   var history = {};
   var states = [];
-  var skipStates = ['cars.detail.renewal'];
   var goBackTriggered = false;
 
   var _prevOrDefault = function() {
     return states[states.length - 2] || {state: 'cars'};
-  };
+  }
 
-  var _isSkipState = function (stateName) {
-    for (var i = 0; i < skipStates.length; i++) {
-      if (skipStates[i] == stateName) {
-        return true;
-      }
-    };
-    return false;
+  history.forget = function () {
+    states.pop();
   }
 
   history.listen = function () {
@@ -26,7 +20,7 @@ angular.module('idlecars')
         states.pop();
         goBackTriggered = false;
       }
-      else if (!_isSkipState(stateName)) {
+      else {
         states.push({state: stateName, params: toParams});
       };
     })
