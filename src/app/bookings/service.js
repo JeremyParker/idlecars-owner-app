@@ -13,6 +13,7 @@ angular.module('idlecars')
     name: 'email',
     type: 'email',
     maxlength: '50',
+    autoFocus: true,
   }];
 
   var nameFields = [{
@@ -22,12 +23,14 @@ angular.module('idlecars')
     name: 'first_name',
     type: 'text',
     maxlength: '20',
+    autoFocus: true,
   },
   {
     placeholder: 'Last name',
     name: 'last_name',
     type: 'text',
     maxlength: '20',
+    autoFocus: false,
   }];
 
   var phoneFields = [{
@@ -38,6 +41,7 @@ angular.module('idlecars')
     type: 'tel',
     pattern: '[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
     maxlength: '14',
+    autoFocus: true,
   }];
 
   var _saveDidComplete = function (data) {
