@@ -61,7 +61,7 @@ angular.module('idlecars')
   }
 
   this.keyPressed = function ($event) {
-    if ($event.which == 13 && this.isValid) {
+    if ($event.which === 13 && this.isValid) {
       this.goNextState();
     };
   }
@@ -75,7 +75,7 @@ angular.module('idlecars')
     for (var i = 0; i < fieldLength; i++) {
       var stateInField = parentState + this.fields[i][0].state;
 
-      if (stateInField == currentState) {
+      if (stateInField === currentState) {
         if (i < fieldLength - 1) {
           nextState = parentState + this.fields[i+1][0].state;
         }
