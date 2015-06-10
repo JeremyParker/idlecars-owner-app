@@ -60,6 +60,12 @@ angular.module('idlecars')
     newBooking.$save().then(_saveDidComplete);
   }
 
+  this.keyPressed = function ($event) {
+    if ($event.which == 13 && this.isValid) {
+      this.goNextState();
+    };
+  }
+
   this.goNextState = function () {
     var currentState = $state.current.name;
     var fieldLength = this.fields.length;

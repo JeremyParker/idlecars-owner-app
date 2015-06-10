@@ -11,5 +11,6 @@
           ng-pattern='field.pattern',
           ng-model="Field.user_account[field.name]",
           ng-change='validateForm()',
+          ng-keypress='Field.keyPressed($event)',
           required,
           autocomplete="off")
