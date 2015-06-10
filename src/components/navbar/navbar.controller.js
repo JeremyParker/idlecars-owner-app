@@ -21,3 +21,7 @@ angular.module('idlecars')
 
   $scope.Navbar = NavbarService;
 })
+
+.controller('navbar_settings.controller', function () {
+
+})

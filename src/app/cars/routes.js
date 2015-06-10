@@ -30,6 +30,20 @@ angular.module('idlecars')
       },
     })
 
+    .state('cars.settings', {
+      url: 'settings',
+      views: {
+        'navbar@': {
+          templateUrl: 'components/navbar/navbar_settings.html',
+          controller: 'navbar_settings.controller',
+        },
+        'content@': {
+          templateUrl: 'app/cars/settings.html',
+          controller: 'settings.controller',
+        }
+      }
+    })
+
     .state('cars.detail.renewal', {
       url: '/renewals/:renewalId',
       views: {

@@ -1,0 +1,24 @@
+.settings-wrapper
+
+  section.account-info
+    .section-row(ng-repeat='item in accountInfo')
+      .row-content(ng-class='{"has-bar": item.hasBar}')
+        label {{item.label}}
+        button.clear-button(ng-class='{"next-pointer": item.nextPointer}') {{item.button}}
+
+  .requirement
+    p(style='font-weight: 500') All driver documents are required
+    p(style='color: gray') to complete your booking
+
+  section.driver-documents
+    .section-row
+      p Driver Documents
+    .section-row(ng-repeat='item in driverDocuments')
+      .row-content(ng-class='{"has-bar": item.hasBar}')
+        .label-img
+          label {{item.label}}
+          img(ng-src='{{item.image}}')
+        button.clear-button.next-pointer
+
+  .terms-of-service
+    button.clear-button(ng-click='') Terms of Service
