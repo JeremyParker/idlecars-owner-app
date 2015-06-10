@@ -13,6 +13,7 @@ angular.module('idlecars')
     name: 'email',
     type: 'email',
     maxlength: '50',
+    autoFocus: true,
   }];
 
   var nameFields = [{
@@ -22,12 +23,14 @@ angular.module('idlecars')
     name: 'first_name',
     type: 'text',
     maxlength: '20',
+    autoFocus: true,
   },
   {
     placeholder: 'Last name',
     name: 'last_name',
     type: 'text',
     maxlength: '20',
+    autoFocus: false,
   }];
 
   var phoneFields = [{
@@ -38,6 +41,7 @@ angular.module('idlecars')
     type: 'tel',
     pattern: '[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
     maxlength: '14',
+    autoFocus: true,
   }];
 
   var _saveDidComplete = function (data) {
@@ -60,6 +64,12 @@ angular.module('idlecars')
     newBooking.$save().then(_saveDidComplete);
   }
 
+  this.keyPressed = function ($event) {
+    if ($event.which === 13 && this.isValid) {
+      this.goNextState();
+    };
+  }
+
   this.goNextState = function () {
     var currentState = $state.current.name;
     var fieldLength = this.fields.length;
@@ -69,7 +79,7 @@ angular.module('idlecars')
     for (var i = 0; i < fieldLength; i++) {
       var stateInField = parentState + this.fields[i][0].state;
 
-      if (stateInField == currentState) {
+      if (stateInField === currentState) {
         if (i < fieldLength - 1) {
           nextState = parentState + this.fields[i+1][0].state;
         }
