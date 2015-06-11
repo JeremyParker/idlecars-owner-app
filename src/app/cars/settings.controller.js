@@ -5,7 +5,8 @@ angular.module('idlecars')
 
 
   $scope.accountInfo = [
-    {label: 'Name', button: 'Chengxing Zhang', hasBar: true},
+    {label: 'First Name', button: 'Chengxing', hasBar: true},
+    {label: 'Last Name', button: 'Zhang', hasBar: true},
     {label: 'Email', button: 'craigstar@gmail.com', hasBar: true},
     {label: 'Phone', button: '917-376-8864', hasBar: true},
     {label: 'Change Password', nextPointer: true},
