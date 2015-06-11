@@ -1,23 +1,56 @@
-nav-bar
+%_arrow
+  font-size: 2em
+  line-height: 0
+  vertical-align: sub
+
+.next-pointer::after
+  @extend %_arrow
+  content: "›"
+  margin-left: 0.1em
+
+.prev-pointer::before
+  @extend %_arrow
+  content: "‹"
+  margin-right: 0.1em
+
+
+.navbar-wrapper
   @extend %app_width
   @extend %black_theme
 
-  display: flex
+.bar-wrapper
   padding: 0.5rem 0.75rem
+  display: flex
 
-  .back-button
+  .prev-pointer
+    flex: 1
+    text-align: left
+
+  .next-pointer
+    flex: 1
+    text-align: right
+
+  button[disabled]
+    color: $medium_gray
+
+  h3
+    margin: 0.5rem 0
+
+  .menu-button
     flex: 1
     display: flex
-    align-items: center
-
-    img
-      width: 2rem
-
-  .logo
-    flex: 1
-    display: flex
+    font-size: 1.25rem
     flex-direction: row-reverse
     align-items: center
 
-    img
-      height: 2rem
+    &.menu-open
+      color: $ic_blue
+
+.menu
+  margin: 0 1.5rem 1rem
+  text-align: right
+
+  a
+    display: block
+    padding: 0.5rem 0
+    font-size: $large_font_size

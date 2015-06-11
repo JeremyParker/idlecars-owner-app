@@ -15,4 +15,8 @@ angular.module('idlecars',
 .config(function ($urlRouterProvider, $resourceProvider) {
   $urlRouterProvider.otherwise('/');
   $resourceProvider.defaults.stripTrailingSlashes = false;
-});
+})
+
+.run(function (HistoryService) {
+  HistoryService.listen();
+})

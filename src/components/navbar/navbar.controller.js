@@ -1,29 +1,23 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('navbar.controller', function ($scope, $location, $state, $previousState, config) {
+.controller('navbar_main.controller', function ($scope, $rootScope, NavbarService, config) {
+  $rootScope.$on('$stateChangeStart', function() {
+    $scope.menuOpen = false;
+  });
+
   $scope.goBack = function() {
-    if (_isAtRoot()) {
+    if (NavbarService.isAtRoot()) {
       window.location.replace(config.landing_page_url);
       return;
     }
 
-    _popState();
+    NavbarService.popState();
   };
+})
 
-  var _popState = function() {
-    var popped = _prevOrDefault();
-    $state.go(popped.state, popped.params).then(function() {
-      $previousState.forget();
-    });
-  };
+.controller('navbar_field.controller', function ($scope, FieldService, NavbarService) {
+  $scope.Field = FieldService;
 
-  var _isAtRoot = function() {
-    var currentPath = $location.path();
-    return currentPath === '/';
-  };
-
-  var _prevOrDefault = function() {
-    return $previousState.get() || {state: 'cars'};
-  };
-});
+  $scope.Navbar = NavbarService;
+})
