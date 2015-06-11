@@ -9,13 +9,9 @@ angular.module('idlecars')
     var file = options.file;
     var parseFile = new Parse.File(file.name, file, file.type);
 
-    // NOTE: gross
     return $q(function(resolve, reject) {
-      parseFile.save().then(function() {
-        getUsersUploads(options).then(function(usersUploads) {
-          usersUploads.set(options.fileKey, parseFile);
-          resolve(usersUploads.save());
-        });
+      parseFile.save().then(function(remoteFile) {
+        resolve(remoteFile.url());
       });
     });
   };
