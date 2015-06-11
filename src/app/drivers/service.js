@@ -1,4 +1,5 @@
 angular.module('idlecars')
 .factory('DriverService', function($resource, config) {
-  return $resource(config.api_base_url + 'drivers/:id/');
+  // NOTE: not tested, hopefully it is something this simple
+  return $resource(config.api_base_url + 'drivers/me/');
 })
