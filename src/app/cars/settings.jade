@@ -2,9 +2,9 @@
 
   section.account-info
     .section-row(ng-repeat='item in accountInfo')
-      .row-content(ng-class='{"has-bar": item.hasBar}')
+      .row-content(ng-class='{"has-bar": !$last}')
         label {{item.label}}
-        button.clear-button(ng-class='{"next-pointer": item.nextPointer}') {{item.button}}
+        button.clear-button(ng-class='{"next-pointer": $last}') {{item.button}}
 
   .requirement
     p(style='color: black') All driver documents are required
@@ -14,7 +14,7 @@
     .section-row
       p Driver Documents
     .section-row(ng-repeat='item in driverDocuments')
-      a.row-content(ng-class='{"has-bar": item.hasBar}', ui-sref='cars')
+      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='cars')
         .label-img
           label {{item.label}}
           img(ng-src='{{item.image}}')
