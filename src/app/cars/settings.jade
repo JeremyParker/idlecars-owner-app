@@ -7,18 +7,20 @@
         button.clear-button(ng-class='{"next-pointer": item.nextPointer}') {{item.button}}
 
   .requirement
-    p(style='font-weight: 500') All driver documents are required
-    p(style='color: gray') to complete your booking
+    p(style='color: black') All driver documents are required
+    p(style='font-weight: 100') to complete your booking
 
   section.driver-documents
     .section-row
       p Driver Documents
     .section-row(ng-repeat='item in driverDocuments')
-      .row-content(ng-class='{"has-bar": item.hasBar}')
+      a.row-content(ng-class='{"has-bar": item.hasBar}', ui-sref='cars')
         .label-img
           label {{item.label}}
           img(ng-src='{{item.image}}')
-        button.clear-button.next-pointer
+        .upload-change
+          p.next-pointer(ng-if='item.isUploaded') Change
+          p.next-pointer(ng-if='!item.isUploaded', style='color: red') Upload
 
   .terms-of-service
-    button.clear-button(ng-click='') Terms of Service
+    a.clear-button(href='http://www.google.com') Terms of Service

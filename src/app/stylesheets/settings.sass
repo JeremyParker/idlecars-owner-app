@@ -1,34 +1,36 @@
+%pull_right
+  flex: 1
+  text-align: right
+
 .has-bar
   border-bottom: 0.125rem solid $light_gray
   border-radius: 0
 
-.upload-button
+.has-uploaded
   color: $ic_blue
 
 .settings-wrapper
   @extend %gray_theme
-  padding: 0.1rem 2rem
+  padding: 1rem 2rem
+  text-align: center
+  font-weight: 500
 
   section
     background: white
     margin: 1rem auto
+    text-align: left
 
     .section-row
       padding: 0 1rem
-      font-weight: 500
+      color: $medium_gray
 
       p
-        color: $medium_gray
         padding-top: 1rem
         margin: 0
 
       .row-content
         padding: 1rem 0
         display: flex
-
-        label
-          text-align: left
-          color: $medium_gray
 
         .label-img
           display: flex
@@ -42,20 +44,23 @@
             width: 7rem
             height: 4rem
 
+        .upload-change
+          @extend %pull_right
+          padding-top: 1rem
+          color: $ic_blue
+
         button
-          flex: 1
-          text-align: right
+          @extend %pull_right
+          color: black
 
   .requirement p
-    text-align: center
     margin: 0
+    color: $medium_gray
 
   .terms-of-service
-    text-align: center
-    font-weight: 500
     margin-bottom: 1rem
 
-    button
+    a
       text-decoration: underline
 
 
