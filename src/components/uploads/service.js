@@ -11,19 +11,18 @@ angular.module('idlecars')
 
     return $q(function(resolve, reject) {
       parseFile.save().then(function(remoteFile) {
-        resolve(remoteFile.url());
+        resolve(_secureUrl(remoteFile.url()));
       });
     });
   };
 
-  var getUsersUploads = function(options) {
-    // TODO: cache this value, but how when it's async?
-    var query = new Parse.Query(UserUploads);
-    return query.get(options.user.parse_id);
-  };
+  var _secureUrl = function(insecureUrl) {
+    if (!insecureUrl) { return; }
+
+    return insecureUrl.replace(/^http:\/\//, 'https://s3.amazonaws.com/');
+  }
 
   return {
     upload: upload,
-    get: getUsersUploads,
   };
 });
