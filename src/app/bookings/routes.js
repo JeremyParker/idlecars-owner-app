@@ -14,6 +14,7 @@ angular.module('idlecars')
         },
         'content@': {
           templateUrl: 'app/bookings/show.html',
+          controller: 'show.controller',
         },
       },
     })

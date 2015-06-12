@@ -1,17 +1,20 @@
-.booking-success
+.settings-wrapper
 
-  .black-hero
-    h1 Success!
-
-  section.please-email
-    p Please email us pictures of these documents within <span>24 hours</span>.
-    a(href="mailto:support@idlecars") support@idlecars.com
+  .top-interlude
+    p.s-inter-content.font-size-1 Your account has been created
 
   section
-    ol
-      li FHV / Hack License
-      li Driver License
-      li Proof of Address
-      li Defensive Driving Certificate
+    .section-row
+      p.section-title.gray-title Driver Documents
+    .section-row(ng-repeat='item in driverDocuments')
+      .row-content(ng-class='{"has-bar": !$last}')
+        label.left-flex-title {{item.label}}
+        img.check-mark(ng-if='item.isUploaded', src='/assets/images/Mark_Check.png')
+        img.check-mark(ng-if='!item.isUploaded', src='/assets/images/Mark_X.png')
 
-a.button(href="tel:1-844-idlecar") Questions? Call us.
+  .section-interlude
+    p.b-inter-content Driver Documents are required to complete your booking.
+      span.s-inter-content.gray-title you can upload/change your documents in Account Settings page.
+
+  .button-section
+    a.button Go to Account

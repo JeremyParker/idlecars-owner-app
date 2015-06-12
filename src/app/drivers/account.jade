@@ -7,11 +7,11 @@
 
   .section-interlude
     p.b-inter-content All driver documents are required
-    p.s-inter-content to complete your booking
+    p.s-inter-content.gray-title to complete your booking
 
   section
     .section-row
-      p.section-title.left-title Driver Documents
+      p.section-title.left-title.gray-title Driver Documents
     .section-row(ng-repeat='item in driverDocuments')
       a.row-content(ng-class='{"has-bar": !$last}', ui-sref='cars')
         .label-img
