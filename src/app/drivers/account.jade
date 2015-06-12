@@ -2,7 +2,7 @@
   section
     .section-row(ng-repeat='item in accountInfo')
       .row-content(ng-class='{"has-bar": !$last}')
-        label.left-title {{item.label}}
+        label.left-title.gray-title {{item.label}}
         label.content-main {{item.content}}
 
   .section-interlude
