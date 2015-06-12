@@ -9,8 +9,9 @@
     .section-row(ng-repeat='item in driverDocuments')
       .row-content(ng-class='{"has-bar": !$last}')
         label.left-flex-title {{item.label}}
-        img.check-mark(ng-if='item.isUploaded', src='/assets/images/Mark_Check.png')
-        img.check-mark(ng-if='!item.isUploaded', src='/assets/images/Mark_X.png')
+        .img-wrapper
+          img.check-mark(ng-if='item.isUploaded', src='/assets/images/Mark_Check.png')
+          img.check-mark(ng-if='!item.isUploaded', src='/assets/images/Mark_X.png')
 
   .section-interlude
     p.b-inter-content Driver Documents are required to complete your booking.
