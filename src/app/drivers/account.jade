@@ -4,7 +4,7 @@
     .section-row(ng-repeat='item in accountInfo')
       .row-content(ng-class='{"has-bar": !$last}')
         label {{item.label}}
-        button.clear-button(ng-class='{"next-pointer": $last}') {{item.button}}
+        button.clear-button {{item.button}}
 
   .requirement
     p(style='color: black') All driver documents are required

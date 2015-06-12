@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('settings.controller', function ($scope) {
-
+.controller('account.controller', function ($scope) {
 
   $scope.accountInfo = [
     {label: 'First Name', button: 'Chengxing'},
