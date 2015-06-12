@@ -5,7 +5,8 @@ h1(hidden) {{car.name}} for rent
 
   section.headline-features
     h2 {{car.name}}
-    p(ng-repeat='subhead in car.headline_features', ng-class='{"font-weight-400": $last}') {{subhead}}
+    .feature-content
+      p(ng-repeat='subhead in car.headline_features', ng-class='{"font-weight-400": $last}') {{subhead}}
 
   section.certifications
     .text-wrapper
