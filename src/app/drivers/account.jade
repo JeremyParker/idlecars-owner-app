@@ -16,10 +16,11 @@
       a.row-content(ng-class='{"has-bar": !$last}', ui-sref='cars')
         .label-img
           label(style='padding: 0.5rem 0') {{item.label}}
-          img(ng-src='{{item.image}}')
+          img(ng-if='item.image', ng-src='{{item.image}}')
+          img(ng-if='!item.image', src='/assets/images/UploadNow.png')
         .upload-change
-          p.next-pointer(ng-if='item.isUploaded') Change
-          p.next-pointer(ng-if='!item.isUploaded', style='color: red') Upload Now
+          p.next-pointer(ng-if='item.image') Change
+          p.next-pointer(ng-if='!item.image', style='color: red') Upload
 
   .terms-of-service
     a.underline(href='http://www.google.com') Terms of Service

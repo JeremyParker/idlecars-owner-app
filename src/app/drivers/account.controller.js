@@ -11,9 +11,9 @@ angular.module('idlecars')
   ];
 
   $scope.driverDocuments = [
-    {label: 'Driver License', image: '/assets/images/DriverLicense.png', isUploaded: true},
-    {label: 'FHV License', image: '/assets/images/FHVLicense.png', isUploaded: true},
-    {label: 'Defensive Driving', image: '/assets/images/DefensiveDriving.png', isUploaded: false},
-    {label: 'Proof of Address', image: '/assets/images/ProofAddress.png', isUploaded: false},
+    {label: 'Driver License', image: '/assets/images/DriverLicense.png'},
+    {label: 'FHV License', image: '/assets/images/FHVLicense.png'},
+    {label: 'Defensive Driving'},
+    {label: 'Proof of Address'},
   ];
 })
