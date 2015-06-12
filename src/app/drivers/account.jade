@@ -1,18 +1,17 @@
 .settings-wrapper
-
-  section.account-info
+  section
     .section-row(ng-repeat='item in accountInfo')
       .row-content(ng-class='{"has-bar": !$last}')
-        label {{item.label}}
-        button.clear-button {{item.button}}
+        label.left-title {{item.label}}
+        label.content-main {{item.content}}
 
-  .requirement
-    p(style='color: black') All driver documents are required
-    p(style='font-weight: 100') to complete your booking
+  .section-interlude
+    p.b-inter-content All driver documents are required
+    p.s-inter-content to complete your booking
 
-  section.driver-documents
+  section
     .section-row
-      p Driver Documents
+      p.section-title.left-title Driver Documents
     .section-row(ng-repeat='item in driverDocuments')
       a.row-content(ng-class='{"has-bar": !$last}', ui-sref='cars')
         .label-img
@@ -23,4 +22,4 @@
           p.next-pointer(ng-if='!item.isUploaded', style='color: red') Upload
 
   .terms-of-service
-    a.clear-button(href='http://www.google.com') Terms of Service
+    a.underline(href='http://www.google.com') Terms of Service

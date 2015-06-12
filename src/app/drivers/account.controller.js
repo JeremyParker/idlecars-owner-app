@@ -4,11 +4,10 @@ angular.module('idlecars')
 .controller('account.controller', function ($scope) {
 
   $scope.accountInfo = [
-    {label: 'First Name', button: 'Chengxing'},
-    {label: 'Last Name', button: 'Zhang'},
-    {label: 'Email', button: 'craigstar@gmail.com'},
-    {label: 'Phone', button: '917-376-8864'},
-    {label: 'Change Password'},
+    {label: 'First Name', content: 'Chengxing'},
+    {label: 'Last Name', content: 'Zhang'},
+    {label: 'Email', content: 'craigstar@gmail.com'},
+    {label: 'Phone', content: '917-376-8864'},
   ];
 
   $scope.driverDocuments = [
