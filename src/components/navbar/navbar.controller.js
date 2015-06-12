@@ -27,3 +27,13 @@ angular.module('idlecars')
     NavbarService.popState();
   }
 })
+
+.controller('navbar_documents.controller', function ($scope, NavbarService, preDefine) {
+
+  $scope.title = preDefine.title;
+  $scope.enableBack = preDefine.enableBack;
+
+  $scope.goBack = function () {
+    NavbarService.popState();
+  }
+})
