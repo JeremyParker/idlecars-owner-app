@@ -2,25 +2,26 @@
   section
     .section-row(ng-repeat='item in accountInfo')
       .row-content(ng-class='{"has-bar": !$last}')
-        .left-title.gray-title {{item.label}}
+        .pull-left.medium-gray {{item.label}}
         .content-main {{item.content}}
 
   .section-interlude
-    p.b-inter-content All driver documents are required
-    p.s-inter-content.gray-title to complete your booking
+    .b-inter-content All driver documents are required
+    .s-inter-content.medium-gray to complete your booking
 
   section
     .section-row
-      .section-title.left-title.gray-title Driver Documents
+      .section-title.pull-left.medium-gray Driver Documents
     .section-row(ng-repeat='item in driverDocuments')
       a.row-content(ng-class='{"has-bar": !$last}', ui-sref='cars')
-        .label-img
-          label(style='padding: 0.5rem 0') {{item.label}}
-          img(ng-if='item.image', ng-src='{{item.image}}')
-          img(ng-if='!item.image', src='/assets/images/UploadNow.png')
-        .upload-change
-          p.next-pointer(ng-if='item.image') Change
-          p.next-pointer(ng-if='!item.image', style='color: red') Upload
+        .column-content
+          label.pull-left.label-padding {{item.label}}
+          .img-upload
+            .image-wrapper
+              img(ng-if='item.image', ng-src='{{item.image}}')
+              img(ng-if='!item.image', src='/assets/images/UploadNow.png')
+            p.ic-blue.next-pointer(ng-if='item.image') Change
+            p.color-red.next-pointer(ng-if='!item.image') Upload
 
   .terms-of-service
     a.underline(href='http://www.google.com') Terms of Service

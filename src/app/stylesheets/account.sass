@@ -5,30 +5,33 @@
 .has-bar
   border-bottom: 0.1rem solid $light_gray
 
-.left-title
+.pull-left
   text-align: left
 
-.gray-title
+.medium-gray
   color: $medium_gray
 
-.label-img
+.ic-blue
+  color: $ic_blue
+
+.color-red
+  color: red
+
+.column-content
   flex: 1
   display: flex
   flex-direction: column
 
-  label
-    text-align: left
-    color: black
-
-  img
-    flex: 1
-    width: 7rem
-
-.upload-change
+.img-upload
+  flex: 1
   display: flex
   align-items: center
-  color: $ic_blue
-  padding-top: 2.5rem
+
+  .image-wrapper
+    flex: 1
+
+    img
+      height: 4rem
 
 .content-main
   @extend %pull_right
@@ -36,12 +39,11 @@
 .section-interlude
   padding: 0.75rem 1rem
 
-.b-inter-content
-  margin: 0
-
 .s-inter-content
   font-weight: 100
-  margin: 0
+
+.label-padding
+  padding: 0.5rem 0
 
 .settings-wrapper
   @extend %gray_theme
@@ -67,6 +69,7 @@
 
 .terms-of-service
   margin-bottom: 1rem
+  font-size: 0.5rem
 
 .underline
   text-decoration: underline
