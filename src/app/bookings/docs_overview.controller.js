@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('show.controller', function ($scope) {
+.controller('docs_overview.controller', function ($scope) {
   $scope.driverDocuments = [
     {label: 'Driver License', isUploaded: true},
     {label: 'FHV License', isUploaded: true},

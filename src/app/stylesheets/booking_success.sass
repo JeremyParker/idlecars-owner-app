@@ -1,21 +1,25 @@
-.left-flex-title
-  flex: 1
-  text-align: left
+%_section_padding
+  padding: 2.5rem 1rem
 
-.check-mark
-  margin: 0 auto
-  height: 1rem
+.booking-success
+  section
+    @extend %_section_padding
 
-.font-size-1
-  font-size: 1rem
+  section *:last-child
+    margin-bottom: 0
 
-.top-interlude
-  margin-top: 15%
-  margin-bottom: 2rem
+  li
+    margin-bottom: 2rem
 
-.button-section
-  margin-top: 2rem
-  margin-bottom: 1rem
+  .please-email
+    @extend %gray_theme
 
-.img-wrapper
-  width: 2rem
+    span
+      color: $ic_blue
+      font-weight: $bold_font_weight
+
+    a
+      font-weight: $bold_font_weight
+
+  .docs
+    @extend %_section_padding
