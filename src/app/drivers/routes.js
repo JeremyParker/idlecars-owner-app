@@ -23,4 +23,17 @@ angular.module('idlecars')
       }
     })
 
+    .state('drivers.login', {
+      url: '/login',
+      views: {
+        'navbar@': {
+          templateUrl: 'components/navbar/navbar_account.html',
+          controller: 'navbar_account.controller',
+        },
+        'content@': {
+          templateUrl: 'app/drivers/login.html',
+        }
+      }
+    })
+
 })
