@@ -1,11 +1,13 @@
 .log-in
   .login-content
-    .input-wrapper
-      input.input-form(type='tel', name='phone', placeholder='Phone number', auto-focus='true')
-      input.input-form(type='password', name='password', placeholder='Password')
-    .forgot-wrapper
-     a.forgot-password Forgot my Password
+    .input-forgot
+      .input-wrapper
+        input.input-form(type='tel', name='phone', placeholder='Phone number', auto-focus='true')
+        input.input-form(type='password', name='password', placeholder='Password')
+        .forgot-wrapper
+          a.forgot-password Forgot my Password
 
     .button-wrapper
-      button.button-login Log in
-      button.button-create-account Create an account
+      .buttons
+        button.button-login Log in
+        button.button-create-account Create an account

@@ -1,22 +1,37 @@
+%_flex_column_reverse
+  display: flex
+  flex-direction: column-reverse
+
 .log-in
   @extend %dark_gray_theme
 
   .login-content
-    width: 80%
-    margin: 20% auto 0 auto
+    margin: 0 auto
+    height: calc(100vh - 3rem)
+    padding: 10% 10%
+    display: flex
+    flex-direction: column
 
-    .forgot-wrapper
-      padding: 1rem 0
-      text-align: right
+    .input-forgot
+      flex: 2
+      @extend %_flex_column_reverse
 
     .button-wrapper
-      margin-top: 8rem
+      flex: 3
+      @extend %_flex_column_reverse
+      font-size: 1rem
 
-.forgot-password
-  color: $ic_blue
+.forgot-wrapper
+  padding: 0.5rem 0
+  text-align: right
+
+  .forgot-password
+    color: $ic_blue
+    font-weight: $bold_font_weight
 
 .input-form
   width: 100%
   height: 2rem
   padding: 0.5rem
   color: black
+  margin: 0.5rem 0
