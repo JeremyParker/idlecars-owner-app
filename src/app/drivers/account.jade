@@ -19,7 +19,9 @@
           .img-upload
             .image-wrapper
               img(ng-if='item.image', ng-src='{{item.image}}')
-              img(ng-if='!item.image', src='/assets/images/UploadNow.png')
+              .upload-image-border(ng-if='!item.image')
+                .upload-image-content
+                  .upload-image-text.medium-gray Upload now
             p.ic-blue.next-pointer(ng-if='item.image') Change
             p.color-red.next-pointer(ng-if='!item.image') Upload
 
