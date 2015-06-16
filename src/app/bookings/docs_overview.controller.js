@@ -3,10 +3,10 @@
 angular.module('idlecars')
 .controller('docsOverview.controller', function ($scope) {
   $scope.driverDocuments = [
-    {label: 'Driver License', isUploaded: true},
-    {label: 'FHV License', isUploaded: true},
-    {label: 'Defensive Driving', isUploaded: false},
-    {label: 'Proof of Address', isUploaded: false},
+    {title: 'Driver License', isUploaded: true},
+    {title: 'FHV License', isUploaded: true},
+    {title: 'Defensive Driving', isUploaded: false},
+    {title: 'Proof of Address', isUploaded: false},
   ];
 
 })
