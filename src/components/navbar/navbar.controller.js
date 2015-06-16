@@ -6,12 +6,17 @@ angular.module('idlecars')
     $scope.menuOpen = false;
   });
 
+  var navbarInfo = NavbarService.getNavbarInfo();
+
+  $scope.title = navbarInfo.title;
+  $scope.enableBack = navbarInfo.enableBack;
+  $scope.enableNext = navbarInfo.enableNext;
+
   $scope.goBack = function() {
     if (NavbarService.isAtRoot()) {
       window.location.replace(config.landing_page_url);
       return;
     }
-
     NavbarService.popState();
   };
 })
@@ -23,16 +28,6 @@ angular.module('idlecars')
 })
 
 .controller('navbarAccount.controller', function ($scope, NavbarService) {
-  $scope.goBack = function () {
-    NavbarService.popState();
-  }
-})
-
-.controller('navbarDocuments.controller', function ($scope, NavbarService, preDefine) {
-
-  $scope.title = preDefine.title;
-  $scope.enableBack = preDefine.enableBack;
-
   $scope.goBack = function () {
     NavbarService.popState();
   }
