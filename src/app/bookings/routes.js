@@ -10,11 +10,11 @@ angular.module('idlecars')
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_documents.html',
-          controller: 'navbar_documents.controller',
+          controller: 'navbarDocuments.controller',
         },
         'content@': {
           templateUrl: 'app/bookings/docs_overview.html',
-          controller: 'docs_overview.controller',
+          controller: 'docsOverview.controller',
         },
       },
       resolve: { preDefine: function() { return {title: 'Driver Documents', enableBack: false} }},
@@ -25,7 +25,7 @@ angular.module('idlecars')
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_documents.html',
-          controller: 'navbar_documents.controller',
+          controller: 'navbarDocuments.controller',
         },
         'content@': {
           templateUrl: 'app/bookings/success.html',

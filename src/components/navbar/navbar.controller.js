@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('navbar_main.controller', function ($scope, $rootScope, NavbarService, config) {
+.controller('navbarMain.controller', function ($scope, $rootScope, NavbarService, config) {
   $rootScope.$on('$stateChangeStart', function() {
     $scope.menuOpen = false;
   });
@@ -16,19 +16,19 @@ angular.module('idlecars')
   };
 })
 
-.controller('navbar_field.controller', function ($scope, FieldService, NavbarService) {
+.controller('navbarField.controller', function ($scope, FieldService, NavbarService) {
   $scope.Field = FieldService;
 
   $scope.Navbar = NavbarService;
 })
 
-.controller('navbar_account.controller', function ($scope, NavbarService) {
+.controller('navbarAccount.controller', function ($scope, NavbarService) {
   $scope.goBack = function () {
     NavbarService.popState();
   }
 })
 
-.controller('navbar_documents.controller', function ($scope, NavbarService, preDefine) {
+.controller('navbarDocuments.controller', function ($scope, NavbarService, preDefine) {
 
   $scope.title = preDefine.title;
   $scope.enableBack = preDefine.enableBack;
