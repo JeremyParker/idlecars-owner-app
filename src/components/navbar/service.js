@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.factory('NavbarService', function ($location, $state, $rootScope, $timeout, HistoryService) {
+.factory('NavbarService', function ($location, $state, HistoryService) {
   var factory = {};
 
   var navbarInfo = [
