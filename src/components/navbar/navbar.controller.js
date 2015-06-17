@@ -4,18 +4,10 @@ angular.module('idlecars')
 .controller('navbarMain.controller', function ($scope, $rootScope, NavbarService, config) {
   $rootScope.$on('$stateChangeSuccess', function() {
     $scope.menuOpen = false;
-    initialize();
+    $scope.navbarInfo = NavbarService.getNavbarInfo();
   });
 
-  var initialize = function () {
-    var navbarInfo = NavbarService.getNavbarInfo();
-
-    $scope.title = navbarInfo.title;
-    $scope.enableBack = navbarInfo.enableBack;
-    $scope.enableNext = navbarInfo.enableNext;
-  };
-
-  initialize();
+  $scope.navbarInfo = NavbarService.getNavbarInfo();
 
   $scope.goBack = function() {
     if (NavbarService.isAtRoot()) {

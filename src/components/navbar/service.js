@@ -4,9 +4,9 @@ angular.module('idlecars')
 .factory('NavbarService', function ($location, $state, HistoryService) {
   var factory = {};
 
-  var navbarInfo = [
-    {state: 'cars.bookingsShow', title: 'Driver Documents', enableBack: false, enableNext: true}
-  ];
+  var navbarInfo = {
+    'cars.bookingsShow': {title: 'Driver Documents', enableBack: false, enableNext: true}
+  };
 
   factory.popState = function() {
     HistoryService.goPreviousState();
@@ -18,12 +18,7 @@ angular.module('idlecars')
   };
 
   factory.getNavbarInfo = function () {
-    for (var i = 0; i < navbarInfo.length; i++) {
-      if (navbarInfo[i].state === $state.current.name) {
-        return navbarInfo[i];
-      }
-    };
-    return {title: '', enableBack: true, enableNext: true};
+    return navbarInfo[$state.current.name] || {title: '', enableBack: true, enableNext: true};
   }
 
   return factory;

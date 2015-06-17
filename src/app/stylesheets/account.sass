@@ -8,19 +8,10 @@
   justify-content: center
 
 .has-bar
-  border-bottom: 0.1rem solid $light_gray
+  border-bottom: 1px solid $light_gray
 
 .pull-left
   text-align: left
-
-.medium-gray
-  color: $medium_gray
-
-.ic-blue
-  color: $ic_blue
-
-.color-red
-  color: red
 
 .column-content
   flex: 1
@@ -38,21 +29,6 @@
     img
       height: 4rem
 
-    .upload-image-border
-      @extend %flex_center
-      border: 0.1rem dashed $medium_gray
-      height: 4rem
-      width: 7rem
-
-      .upload-image-content
-        @extend %gray_theme
-        @extend %flex_center
-        height: 3.5rem
-        width: 6.5rem
-
-        .upload-image-text
-          font-size: 0.75rem
-
 .content-main
   @extend %pull_right
 
@@ -67,7 +43,7 @@
 
 .settings-wrapper
   @extend %gray_theme
-  padding: 1rem 5%
+  padding: 1rem $page_gutter
   text-align: center
   font-weight: 500
 
@@ -80,7 +56,7 @@
 
       .section-title
         padding-top: 1rem
-        font-size: 1rem
+        font-size: $large_font_size
 
       .row-content
         padding: 1rem 0
@@ -89,7 +65,7 @@
 
 .terms-of-service
   margin-bottom: 1rem
-  font-size: 0.5rem
+  font-size: $tiny_font_size
 
 .underline
   text-decoration: underline

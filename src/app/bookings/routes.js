@@ -19,8 +19,8 @@ angular.module('idlecars')
       },
     })
 
-    .state('cars.bookingSuccess', {
-      url: 'booking/success',
+    .state('bookingSuccess', {
+      url: '/booking_success',
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',
