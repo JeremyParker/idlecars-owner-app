@@ -44,7 +44,7 @@ angular.module('idlecars')
         password: user_account.password,
       }
       AuthService.login(loginParams).then(function() {
-        var newBooking = new BookingService({car_id: $stateParams.carId});
+        var newBooking = new BookingService({car: $stateParams.carId});
         newBooking.$save().then(function(data) {
           $state.go('cars.bookingsShow', {bookingId: data.id});
         })
