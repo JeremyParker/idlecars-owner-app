@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.booking.controller', function ($scope, $state, HistoryService, FieldService) {
+.controller('cars.booking.controller', function ($scope, FieldService) {
   FieldService.user_account = {};
   $scope.Field = FieldService;
 })
