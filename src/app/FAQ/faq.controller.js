@@ -9,7 +9,7 @@ angular.module('idlecars')
     },
     {
       Ask: 'How do I sign up?',
-      AnswerP1: 'It’s easy. Click “Find a car”, request your car and then follow the steps to create an account.',
+      AnswerP1: 'It’s easy. Click “Find YOUR CAR”, request your car and then follow the steps to create an account.',
       AnswerP2: 'Once you create an account and upload the 4 required documents, we’ll get you on the insurance (usually takes 24-48 hours) and you’ll be ready to drive.'
     },
     {

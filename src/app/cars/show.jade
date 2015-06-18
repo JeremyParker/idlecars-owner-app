@@ -23,6 +23,8 @@ h1(hidden) {{car.name}} for rent
       .flex-cell {{deet[0]}}
       .flex-cell.value {{deet[1]}}
 
-a.floater.button(ui-sref=".booking.email") Request this car
+  .floater
+    a.button.help(ui-sref='drivers.faq') Help
+    a.button.request(ui-sref=".booking.email") Request this car
 
 ui-view
