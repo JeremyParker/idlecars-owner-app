@@ -43,12 +43,12 @@ angular.module('idlecars')
         username: user_account.phone_number,
         password: user_account.password,
       }
-      AuthService.login(loginParams).then(function() {
-        var newBooking = new BookingService({car: $stateParams.carId});
-        newBooking.$save().then(function(data) {
-          $state.go('cars.bookingsShow', {bookingId: data.id});
-        })
-      })
+      return AuthService.login(loginParams);
+    }).then(function() {
+      var newBooking = new BookingService({car: $stateParams.carId});
+      return newBooking.$save();
+    }).then(function(data) {
+      $state.go('cars.bookingsShow', {bookingId: data.id});
     })
   }
 
