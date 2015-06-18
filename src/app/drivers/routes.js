@@ -9,16 +9,6 @@ angular.module('idlecars')
       url: '/drivers',
     })
 
-    .state('drivers.new', {
-      url: '/new',
-      views: {
-        'content@': {
-          templateUrl: 'app/drivers/new.html',
-          controller: 'drivers.new.controller'
-        }
-      }
-    })
-
     .state('drivers.account', {
       url: '/account',
       views: {
