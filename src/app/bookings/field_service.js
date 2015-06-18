@@ -3,7 +3,6 @@
 angular.module('idlecars')
 .service('FieldService', function ($stateParams, $state, BookingService) {
   var phoneFields = [{
-    state: 'phone_number',
     label: 'Your phone number',
     placeholder: '(222)-555-1234',
     name: 'phone_number',
@@ -13,15 +12,27 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  var _saveDidComplete = function (data) {
-    $state.go('cars.bookingsShow', {bookingId: 4242});
+  var passwordFields = [{
+    label: 'Your password',
+    placeholder: '',
+    name: 'password',
+    type: 'password',
+    minlength: '6',
+    autoFocus: true,
+  }]
+
+  this.formParts = {
+    'cars.detail.booking.phone_number': {
+      fields: phoneFields,
+      nextState: '^.password'
+    },
+    'cars.detail.booking.password': {
+      fields: passwordFields,
+      saveOnExit: true,
+    }
   }
 
-  // default field setting
-  this.fields = [phoneFields];
-  this.index = 0;
   this.isValid = false;
-  this.user_account = {};
 
   this.saveData =  function () {
     var bookingParams = {
@@ -33,6 +44,7 @@ angular.module('idlecars')
     newBooking.$save().then(_saveDidComplete);
   }
 
+  // TODO: move this to the navbar controller
   this.keyPressed = function ($event) {
     if ($event.which === 13 && this.isValid) {
       this.goNextState();
@@ -40,25 +52,17 @@ angular.module('idlecars')
   }
 
   this.goNextState = function () {
-    var currentState = $state.current.name;
-    var fieldLength = this.fields.length;
-    var nextState =  '^.' + this.fields[0][0].state;
+    var currentPart = this.formParts[$state.current.name];
 
-    for (var i = 0; i < fieldLength; i++) {
-      var stateInField = parentState + this.fields[i][0].state;
-
-      if (stateInField === currentState) {
-        if (i < fieldLength - 1) {
-          nextState = parentState + this.fields[i+1][0].state;
-        }
-        else {
-          this.saveData();
-          return;
-        }
-      };
+    if (currentPart.saveOnExit) {
+      this.saveData();
+    } else {
+      $state.go(currentPart.nextState);
     };
+  }
 
-    $state.go(nextState);
+  var _saveDidComplete = function (data) {
+    $state.go('cars.bookingsShow', {bookingId: 4242});
   }
 
 })
