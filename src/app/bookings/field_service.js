@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('idlecars')
-.service('FieldService', function ($stateParams, $state, DriverService) {
+.service('FieldService', function ($stateParams, $state, DriverService, AuthService, BookingService) {
   var phoneFields = [{
     label: 'Your phone number',
     placeholder: '(222)-555-1234',
@@ -35,11 +35,21 @@ angular.module('idlecars')
   this.isValid = false;
 
   this.saveData =  function () {
-    var newDriver = new DriverService(this.user_account);
+    var user_account = this.user_account;
+
+    var newDriver = new DriverService(user_account);
     newDriver.$save().then(function() {
-      console.log('driver created');
-      $state.go('cars.bookingsShow', {bookingId: 4242});
-    });
+      var loginParams = {
+        username: user_account.phone_number,
+        password: user_account.password,
+      }
+      AuthService.login(loginParams).then(function() {
+        var newBooking = new BookingService({car_id: $stateParams.carId});
+        newBooking.$save().then(function(data) {
+          $state.go('cars.bookingsShow', {bookingId: data.id});
+        })
+      })
+    })
   }
 
   // TODO: move this to the navbar controller
