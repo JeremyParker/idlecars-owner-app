@@ -1,11 +1,10 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('auth.new.controller', function ($scope, TokenService) {
+.controller('auth.new.controller', function ($scope, AuthService, HistoryService) {
   $scope.login = function() {
-    var newToken = new TokenService($scope.user);
-    newToken.$save().then(function(data) {
-      console.log(data.token);
+    AuthService.login($scope.user).then(function() {
+      HistoryService.goPreviousState();
     });
   };
 });
