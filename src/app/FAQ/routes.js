@@ -10,10 +10,10 @@ angular.module('idlecars')
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',
-          controller: 'navbar_main.controller',
+          controller: 'navbarMain.controller',
         },
         'content@': {
-          templateUrl: 'app/FAQ/faq.html',
+          templateUrl: 'app/FAQ/driver_faq.html',
           controller: 'faq.controller',
         },
       },
