@@ -40,5 +40,40 @@ angular.module('idlecars')
       Ask: 'Is this a lease or rental?',
       AnswerP1: 'They are rentals, they are not leases.'
     }
-  ]
+  ];
+
+  $scope.ownerFaqs = [
+    {
+      Ask: 'Why Idlecars?',
+      AnswerP1: 'It’s the easiest way to rent your car. We are the top marketplace for professional drivers and vehicle owners to connect. We strive to ensure the transactions are safe and secure. Through idlecars, you’ll be confident and at ease renting to a community of reliable and trustworthy drivers.'
+    },
+    {
+      Ask: 'What about insurance?',
+      AnswerP1: 'All vehicles on idlecars maintain commercial insurance coverage compliant with state and local regulatory requirements. Each driver is added to the existing commercial insurance policy and removed at the end of the rental.'
+    },
+    {
+      Ask: 'How do I sign up my car?',
+      AnswerP1: 'It’s easy. Fill out this form, and once it’s approved, it’s live on our marketplace!'
+    },
+    {
+      Ask: 'How do you screen drivers?',
+      AnswerP1: 'We take driver screening very seriously. All drivers are required to submit 4 pieces of documentation including their driver\'s license, professional license and evidence of completing defensive driving course. We also perform an independent review of the Motor Vehicle Record for each driver. Once the drivers have undergone our screening, they are allowed to complete their rental.'
+    },
+    {
+      Ask: 'How much can my car earn me?',
+      AnswerP1: 'An active idlecar can make up to $42,000 per year for a premium luxury SUV? The average weekly rate of vehicles listed on idlecars make $400 per week.'
+    },
+    {
+      Ask: 'What will I earn per rental?',
+      AnswerP1: 'Idlecar vehicle owners will receive 100% of price they set.'
+    },
+      {
+      Ask: 'What cars do you accept?',
+      AnswerP1: 'All vehicles must be registered and licensed as commercial vehicles. We accept all standard and luxury vehicles allowed to drive for Uber, Lyft, Via, Gett and the black car bases, etc. To get a sense of what is listed, you can visit our listing site here.'
+    },
+      {
+      Ask: 'How do I get paid?',
+      AnswerP1: 'You can either set up direct deposit with your bank account or receive checks on a weekly basis from our automated system.'
+    }
+  ];
 })

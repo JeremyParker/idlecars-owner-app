@@ -19,4 +19,18 @@ angular.module('idlecars')
       },
     })
 
+    .state('owner_faq', {
+      url: '/faq',
+      views: {
+        'navbar@': {
+          templateUrl: 'components/navbar/navbar_main.html',
+          controller: 'navbarMain.controller',
+        },
+        'content@': {
+          templateUrl: 'app/FAQ/owner_faq.html',
+          controller: 'faq.controller',
+        },
+      },
+    })
+
 })

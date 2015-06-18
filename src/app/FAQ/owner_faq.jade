@@ -1,0 +1,6 @@
+.faq-container
+  h2 OWNER FAQ
+  section(ng-repeat='faq in ownerFaqs')
+    h3 {{faq.Ask}}
+    p {{faq.AnswerP1}}
+    p(ng-if='faq.AnswerP2') {{faq.AnswerP2}}
