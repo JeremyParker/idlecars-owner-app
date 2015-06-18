@@ -22,11 +22,11 @@ angular.module('idlecars')
     },
     {
       Ask: 'What are my terms?',
-      AnswerP1: 'Yes. Every car on our marketplace is ready to drive for professional for-hire drivers.'
+      AnswerP1: 'No membership fee or weekly fee. You pay for what you use.'
     },
     {
       Ask: 'Are the cars registered with TLC/TCP/Other for-hire-vehicle regulators?',
-      AnswerP1: 'You can visit a site where our cars live and see all our cars. We guarantee that you’ll get a car for every shift, but at the moment we can’t guarantee which car you’ll get.'
+      AnswerP1: 'Yes. Every car on our marketplace is ready to drive for professional for-hire drivers.'
     },
       {
       Ask: 'What is the minimum rental period? Is this a lease?',
