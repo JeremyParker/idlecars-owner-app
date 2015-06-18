@@ -60,13 +60,12 @@ angular.module('idlecars')
 
     .state('cars.detail.booking.phone_number', {
       templateUrl: 'app/cars/booking_form.html',
-      controller: 'booking.phone_number.controller',
+      controller: 'booking.form.controller',
     })
 
     .state('cars.detail.booking.password', {
       templateUrl: 'app/cars/booking_form.html',
-      controller: 'booking.password.controller',
+      controller: 'booking.form.controller',
     })
-
 
 });
