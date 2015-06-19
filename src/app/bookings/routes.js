@@ -5,8 +5,7 @@ angular.module('idlecars')
 
   $stateProvider
 
-    // TODO: do not put this page under the cars route
-    .state('cars.bookingsShow', {
+    .state('bookingDetail', {
       url: '/bookings/:bookingId',
       views: {
         'navbar@': {
