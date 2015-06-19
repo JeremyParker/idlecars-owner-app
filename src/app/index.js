@@ -9,6 +9,7 @@ angular.module('idlecars',
     'ic.appConfig',
     'uiGmapgoogle-maps',
     'ct.ui.router.extras.previous',
+    'ngStorage',
   ]
 )
 .config(function ($urlRouterProvider, $resourceProvider) {
