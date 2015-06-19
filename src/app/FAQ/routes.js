@@ -14,7 +14,6 @@ angular.module('idlecars')
         },
         'content@': {
           templateUrl: 'app/FAQ/driver_faq.html',
-          controller: 'faq.controller',
         },
       },
     })
@@ -28,7 +27,6 @@ angular.module('idlecars')
         },
         'content@': {
           templateUrl: 'app/FAQ/owner_faq.html',
-          controller: 'faq.controller',
         },
       },
     })
