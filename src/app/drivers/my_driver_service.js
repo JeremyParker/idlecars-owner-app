@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.factory('MyDriverService', function($q, DriverService) {
+.factory('MyDriverService', function(DriverService) {
   var service = {};
 
   service.get = function() {
