@@ -9,6 +9,7 @@ angular.module('idlecars',
     'ic.appConfig',
     'uiGmapgoogle-maps',
     'ct.ui.router.extras.previous',
+    'ngStorage',
   ]
 )
 .config(function ($urlRouterProvider, $resourceProvider) {
@@ -16,6 +17,7 @@ angular.module('idlecars',
   $resourceProvider.defaults.stripTrailingSlashes = false;
 })
 
-.run(function (HistoryService) {
+.run(function (HistoryService, AuthService) {
   HistoryService.listen();
+  AuthService.initialize();
 })

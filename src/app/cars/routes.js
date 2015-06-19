@@ -23,7 +23,7 @@ angular.module('idlecars')
       url: 'cars/:carId',
       views: {
         'content@': {
-          templateUrl: 'app/cars/show.html',
+          templateUrl: 'app/cars/detail.html',
           params: {car: null},
           controller: 'cars.showCtrl',
         },
