@@ -17,6 +17,7 @@ angular.module('idlecars',
   $resourceProvider.defaults.stripTrailingSlashes = false;
 })
 
-.run(function (HistoryService) {
+.run(function (HistoryService, AuthService) {
   HistoryService.listen();
+  AuthService.initialize();
 })
