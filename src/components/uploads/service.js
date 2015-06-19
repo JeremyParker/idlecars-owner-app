@@ -1,9 +1,7 @@
 angular.module('idlecars')
 .factory('UserUploadService', function($q) {
-  // TODO: move this to app.run
   // TODO: get keys from config
   Parse.initialize("ltjv77iZ50v0g4Czpd6nbcxGgNb0McnPdJ5v5kcj", "zncD5UiutU0xRXbG9DCTYSHP6XmBGykSRYzxiq8K");
-  var UserUploads = Parse.Object.extend('UserUploads');
 
   var upload = function(options) {
     var file = options.file;
