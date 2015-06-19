@@ -10,6 +10,7 @@ angular.module('idlecars',
     'uiGmapgoogle-maps',
     'ct.ui.router.extras.previous',
     'ngStorage',
+    'ngFileUpload',
   ]
 )
 .config(function ($urlRouterProvider, $resourceProvider) {
