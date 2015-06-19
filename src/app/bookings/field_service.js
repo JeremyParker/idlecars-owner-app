@@ -44,12 +44,14 @@ angular.module('idlecars')
         password: user_account.password,
       }
       return AuthService.login(loginParams);
-    }).then(function() {
-      var newBooking = new BookingService({car: $stateParams.carId});
-      return newBooking.$save();
-    }).then(function(data) {
+    }).then(this.createBooking);
+  }
+
+  this.createBooking = function() {
+    var newBooking = new BookingService({car: $stateParams.carId});
+    return newBooking.$save().then(function(data) {
       $state.go('cars.bookingsShow', {bookingId: data.id});
-    })
+    });
   }
 
   // TODO: move this to the navbar controller

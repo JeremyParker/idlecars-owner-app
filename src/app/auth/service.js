@@ -17,13 +17,11 @@ angular.module('idlecars')
       $localStorage.authToken = data.token;
       _setAuthHeader();
     });
-  };
+  }
 
-  service.requireLogin = function() {
-    // TODO:
-    // check to see if we have a token
-    // if not, redirect to login page
-  };
+  service.isLoggedIn = function() {
+    return !!service.token;
+  }
 
   service.initialize = function() {
     service.token = $localStorage.authToken;
