@@ -5,11 +5,7 @@ angular.module('idlecars')
 
   $stateProvider
 
-    .state('drivers', {
-      url: '/drivers',
-    })
-
-    .state('drivers.account', {
+    .state('driverAccount', {
       url: '/account',
       views: {
         'navbar@': {
@@ -22,5 +18,30 @@ angular.module('idlecars')
         }
       }
     })
+
+    .state('driverAccount.uploadDriverLicense', {
+      url: '/driver-license',
+      views: {
+        'content@': {
+          templateUrl: 'app/accounts/upload.html',
+          controller: function($scope) {
+            $scope.fileKey = 'driver_license_image';
+          },
+        }
+      }
+    })
+
+    .state('driverAccount.uploadFhvLicense', {
+      url: '/fhv-license',
+      views: {
+        'content@': {
+          templateUrl: 'app/accounts/upload.html',
+          controller: function($scope) {
+            $scope.fileKey = 'fhv_license_image';
+          },
+        }
+      }
+    })
+
 
 })
