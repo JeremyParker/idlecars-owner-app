@@ -5,7 +5,7 @@ angular.module('idlecars')
   var factory = {};
 
   var navbarInfo = {
-    'cars.bookingsShow': {title: 'Driver Documents', enableBack: false, enableNext: true}
+    'bookingDetail': {title: 'Driver Documents', enableBack: false, enableNext: true}
   };
 
   factory.popState = function() {
