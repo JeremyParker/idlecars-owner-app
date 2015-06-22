@@ -43,4 +43,28 @@ angular.module('idlecars')
       }
     })
 
+    .state('driverAccount.uploadAddressProof', {
+      url: '/proof-of-address',
+      views: {
+        'content@': {
+          templateUrl: 'app/drivers/upload.html',
+          controller: function($scope) {
+            $scope.fieldName = 'address_proof_image';
+          },
+        }
+      }
+    })
+
+    .state('driverAccount.uploadDefensiveCert', {
+      url: '/defensive-driving-certificate',
+      views: {
+        'content@': {
+          templateUrl: 'app/drivers/upload.html',
+          controller: function($scope) {
+            $scope.fieldName = 'defensive_cert_image';
+          },
+        }
+      }
+    })
+
 })
