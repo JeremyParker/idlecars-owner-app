@@ -2,6 +2,9 @@
 
 angular.module('idlecars')
 .service('FieldService', function ($stateParams, $state, DriverService, AuthService, BookingService) {
+
+  var self = this;
+
   var phoneFields = [{
     label: 'Your phone number',
     placeholder: '(222)-555-1234',
@@ -21,7 +24,7 @@ angular.module('idlecars')
     autoFocus: true,
   }]
 
-  this.formParts = {
+  self.formParts = {
     'cars.detail.booking.phone_number': {
       fields: phoneFields,
       nextState: '^.password'
@@ -32,10 +35,10 @@ angular.module('idlecars')
     }
   }
 
-  this.isValid = false;
+  self.isValid = false;
 
-  this.saveData =  function () {
-    var user_account = this.user_account;
+  self.saveData =  function () {
+    var user_account = self.user_account;
 
     var newDriver = new DriverService(user_account);
     newDriver.$save().then(function() {
@@ -44,28 +47,28 @@ angular.module('idlecars')
         password: user_account.password,
       }
       return AuthService.login(loginParams);
-    }).then(this.createBooking);
+    }).then(self.createBooking);
   }
 
-  this.createBooking = function() {
+  self.createBooking = function() {
     var newBooking = new BookingService({car: $stateParams.carId});
     return newBooking.$save().then(function(data) {
       $state.go('bookingDetail', {bookingId: data.id});
     });
   }
 
-  // TODO: move this to the navbar controller
-  this.keyPressed = function ($event) {
-    if ($event.which === 13 && this.isValid) {
-      this.goNextState();
+  // TODO: move self to the navbar controller
+  self.keyPressed = function ($event) {
+    if ($event.which === 13 && self.isValid) {
+      self.goNextState();
     };
   }
 
-  this.goNextState = function () {
-    var currentPart = this.formParts[$state.current.name];
+  self.goNextState = function () {
+    var currentPart = self.formParts[$state.current.name];
 
     if (currentPart.saveOnExit) {
-      this.saveData();
+      self.saveData();
     } else {
       $state.go(currentPart.nextState);
     };
