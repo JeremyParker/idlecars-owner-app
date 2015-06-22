@@ -4,7 +4,9 @@ angular.module('idlecars',
   [
     'ngAnimate',
     'ngCookies',
+    // TODO: remove ngResource
     'ngResource',
+    'restangular',
     'ui.router',
     'ic.appConfig',
     'uiGmapgoogle-maps',
@@ -18,7 +20,9 @@ angular.module('idlecars',
   $resourceProvider.defaults.stripTrailingSlashes = false;
 })
 
-.run(function (HistoryService, AuthService) {
+.run(function (HistoryService, AuthService, Restangular, config) {
   HistoryService.listen();
   AuthService.initialize();
+  Restangular.setBaseUrl(config.api_base_url);
+  Restangular.setRequestSuffix('/');
 })

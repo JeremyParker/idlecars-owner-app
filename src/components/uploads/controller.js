@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('upload.controller', function($scope, $timeout, Upload, UserUploadService, MyDriverService) {
+.controller('upload.controller', function($scope, $timeout, UserUploadService, MyDriverService, DocRouterService) {
   $scope.fileUrl = false;
   $scope.isBusy = false;
 
@@ -16,7 +16,7 @@ angular.module('idlecars')
     $timeout(function() {
       _associateToDriver(fileUrl).then(function () {
         $scope.isBusy = false;
-        $scope.fileUrl = fileUrl;
+        DocRouterService.goRequiredDoc();
       })
     });
   };
@@ -33,10 +33,11 @@ angular.module('idlecars')
   };
 
   var _associateToDriver = function(fileUrl) {
+    // TODO: implement a patch method on the service so it updates the cached driver
     return MyDriverService.get().then(function(me) {
-      me[$scope.fileKey] = fileUrl;
-      console.log(me);
-      return me.$save();
+      var patchData = {};
+      patchData[$scope.fileKey] = fileUrl;
+      return me.patch(patchData);
     });
   };
 });
