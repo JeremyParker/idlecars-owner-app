@@ -23,7 +23,7 @@ angular.module('idlecars')
       url: '/driver-license',
       views: {
         'content@': {
-          templateUrl: 'app/accounts/upload.html',
+          templateUrl: 'app/drivers/upload.html',
           controller: function($scope) {
             $scope.fileKey = 'driver_license_image';
           },
@@ -35,7 +35,7 @@ angular.module('idlecars')
       url: '/fhv-license',
       views: {
         'content@': {
-          templateUrl: 'app/accounts/upload.html',
+          templateUrl: 'app/drivers/upload.html',
           controller: function($scope) {
             $scope.fileKey = 'fhv_license_image';
           },
