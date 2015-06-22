@@ -6,6 +6,7 @@ angular.module('idlecars')
 
   var _setAuthHeader = function() {
     if (service.token) {
+      // TODO: don't use the token on external requests!
       $http.defaults.headers.common['Authorization']= 'Token ' + service.token;
     }
   }

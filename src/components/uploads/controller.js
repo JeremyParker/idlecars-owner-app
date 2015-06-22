@@ -1,9 +1,14 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('upload.controller', function($scope, $timeout, Upload, UserUploadService, DriverService, $q) {
+.controller('upload.controller', function($scope, $timeout, Upload, UserUploadService, MyDriverService) {
   $scope.fileUrl = false;
   $scope.isBusy = false;
+
+  MyDriverService.get().then(function(me) {
+    if (!me[$scope.fileKey]) { return; }
+    $scope.fileUrl = me[$scope.fileKey];
+  });
 
   var _setImageUrl = function(fileUrl) {
     // NOTE: $timeout makes sure that this "runs on the next digest cycle"
@@ -28,19 +33,10 @@ angular.module('idlecars')
   };
 
   var _associateToDriver = function(fileUrl) {
-    // TODO make request to update driver
-    // something like this
-    // DriverService.me().then(function(me) {
-    //   me[$fileKey] = fileUrl;
-    //   return me.save();
-    // });
-
-    return deleteMeWhenDriverUpdateWorks();
-  };
-
-  var deleteMeWhenDriverUpdateWorks = function() {
-    return $q(function(resolve, reject) {
-      resolve();
+    return MyDriverService.get().then(function(me) {
+      me[$scope.fileKey] = fileUrl;
+      console.log(me);
+      return me.$save();
     });
   };
 });
