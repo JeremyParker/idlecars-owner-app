@@ -3,7 +3,6 @@
 angular.module('idlecars',
   [
     'ngAnimate',
-    'ngCookies',
     // TODO: remove ngResource
     'ngResource',
     'restangular',
