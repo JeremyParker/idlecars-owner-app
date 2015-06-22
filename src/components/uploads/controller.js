@@ -6,11 +6,11 @@ angular.module('idlecars')
   $scope.isBusy = false;
 
   MyDriverService.get().then(function(me) {
-    if (!me[$scope.fileKey]) { return; }
-    $scope.fileUrl = me[$scope.fileKey];
+    if (!me[$scope.fieldName]) { return; }
+    $scope.fileUrl = me[$scope.fieldName];
   });
 
-  var _setImageUrl = function(fileUrl) {
+  var _uploadDidComplete = function(fileUrl) {
     // NOTE: $timeout makes sure that this "runs on the next digest cycle"
     // I don't really know what that means, but this works
     $timeout(function() {
@@ -29,14 +29,14 @@ angular.module('idlecars')
 
     UserUploadService.upload({
       file: file,
-    }).then(_setImageUrl);
+    }).then(_uploadDidComplete);
   };
 
   var _associateToDriver = function(fileUrl) {
     // TODO: implement a patch method on the service so it updates the cached driver
     return MyDriverService.get().then(function(me) {
       var patchData = {};
-      patchData[$scope.fileKey] = fileUrl;
+      patchData[$scope.fieldName] = fileUrl;
       return me.patch(patchData);
     });
   };

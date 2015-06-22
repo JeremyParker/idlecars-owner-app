@@ -6,7 +6,7 @@ angular.module('idlecars')
     templateUrl: 'components/uploads/upload.html',
     controller: 'upload.controller',
     scope: {
-      fileKey: "@"
+      fieldName: "@"
     },
   };
 });
