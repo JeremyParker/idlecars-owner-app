@@ -15,23 +15,42 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  var passwordFields = [{
-    label: 'Your password',
+  var createPasswordFields = [{
+    label: 'Create Your password',
     placeholder: '',
-    name: 'password',
+    name: 'create_password',
     type: 'password',
     minlength: '6',
     autoFocus: true,
-  }]
+  }];
+
+  var enterPasswordFields = [{
+    label: 'Enter Your password',
+    placeholder: '',
+    name: 'enter_password',
+    type: 'password',
+    minlength: '6',
+    autoFocus: true,
+  }];
 
   self.formParts = {
     'cars.detail.booking.phone_number': {
       fields: phoneFields,
-      nextState: '^.password'
+      goNext: function () {
+        $state.go('^.create_password')
+      },
     },
-    'cars.detail.booking.password': {
-      fields: passwordFields,
-      saveOnExit: true,
+    'cars.detail.booking.create_password': {
+      fields: createPasswordFields,
+      goNext: function () {
+        self.saveData();
+      },
+    },
+    'cars.detail.booking.enter_password': {
+      fields: enterPasswordFields,
+      goNext: function () {
+
+      },
     }
   }
 
@@ -67,11 +86,7 @@ angular.module('idlecars')
   self.goNextState = function () {
     var currentPart = self.formParts[$state.current.name];
 
-    if (currentPart.saveOnExit) {
-      self.saveData();
-    } else {
-      $state.go(currentPart.nextState);
-    };
+    currentPart.goNext();
   }
 
 })
