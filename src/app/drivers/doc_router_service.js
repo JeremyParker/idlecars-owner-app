@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('idlecars')
-.factory('DocRouterService', function(MyDriverService) {
+
+.factory('DocRouterService', function($state, MyDriverService) {
   var service = {};
 
   var _nextMissingDoc = function(me) {
@@ -26,5 +27,19 @@ angular.module('idlecars')
     });
   }
 
+  service.goRequiredDoc = function() {
+    service.requiredDocState().then(function(nextState) {
+      if (nextState) {
+        $state.go(nextState);
+      }
+    });
+  }
+
   return service;
 })
+
+.run(function($state, AuthService, DocRouterService) {
+  if (AuthService.isLoggedIn()) {
+    DocRouterService.goRequiredDoc();
+  }
+});

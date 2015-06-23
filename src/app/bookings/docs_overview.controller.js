@@ -2,12 +2,6 @@
 
 angular.module('idlecars')
 .controller('docsOverview.controller', function ($scope, $state, MyDriverService, DocRouterService) {
-  DocRouterService.requiredDocState().then(function(nextState) {
-    if (nextState) {
-      $state.go(nextState);
-    }
-  });
-
   MyDriverService.get().then(function(me) {
     $scope.driverDocuments = [
       {title: 'Driver License', isUploaded: me.driver_license_image},
