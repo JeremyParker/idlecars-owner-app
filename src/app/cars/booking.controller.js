@@ -7,7 +7,6 @@ angular.module('idlecars')
 
   if (AuthService.isLoggedIn()) {
     FieldService.createBooking().catch(function() {
-      AppNotificationService.push("You've already created a booking.");
       HistoryService.goPreviousState();
     });
   } else {
