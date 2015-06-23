@@ -18,7 +18,7 @@ angular.module('idlecars')
   var createPasswordFields = [{
     label: 'Create Your password',
     placeholder: '',
-    name: 'create_password',
+    name: 'password',
     type: 'password',
     minlength: '6',
     autoFocus: true,
@@ -27,7 +27,7 @@ angular.module('idlecars')
   var enterPasswordFields = [{
     label: 'Enter Your password',
     placeholder: '',
-    name: 'enter_password',
+    name: 'password',
     type: 'password',
     minlength: '6',
     autoFocus: true,
@@ -37,8 +37,8 @@ angular.module('idlecars')
     'cars.detail.booking.phone_number': {
       fields: phoneFields,
       goNext: function () {
-        var get_phone_number = Restangular.one('phone_numbers', self.user_account.phone_number).get();
-        get_phone_number.then(function (response) {
+        var phoneNumber = Restangular.one('phone_numbers', self.user_account.phone_number);
+        phoneNumber.get().then(function (response) {
           $state.go('^.enter_password');
         }, function (error) {
           $state.go('^.create_password');
