@@ -33,6 +33,7 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
+<<<<<<< HEAD
   var emailFields = [{
     label: 'Your email address',
     placeholder: 'someone@example.com',
@@ -43,10 +44,11 @@ angular.module('idlecars')
     maxlength: '254',
     autoFocus: true,
   }];
-
+=======
   var _createBooking = function() {
     NewBookingService.createBooking($stateParams.carId);
   }
+>>>>>>> origin/b/new-booking-flow
 
   self.getLoginParams = function () {
     var loginParams = {

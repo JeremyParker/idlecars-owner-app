@@ -1,10 +1,8 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('auth.new.controller', function ($scope, AuthService, HistoryService) {
+.controller('auth.new.controller', function ($scope, AuthService) {
   $scope.login = function() {
-    AuthService.login($scope.user).then(function() {
-      HistoryService.goPreviousState();
-    });
+    AuthService.login($scope.user);
   };
 });
