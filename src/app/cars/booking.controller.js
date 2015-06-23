@@ -8,9 +8,11 @@ angular.module('idlecars')
   if (AuthService.isLoggedIn()) {
     NewBookingService.createBooking($stateParams.carId);
   } else {
-    HistoryService.forget();
     $state.go('.phoneNumber');
   }
+
+  // NOTE: this state only routes to other states, so users shouldn't return
+  HistoryService.forget();
 })
 
 .controller('booking.form.controller', function ($scope, $state, $timeout, FieldService) {
