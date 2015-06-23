@@ -54,7 +54,11 @@ angular.module('idlecars')
     'cars.detail.booking.enter_password': {
       fields: enterPasswordFields,
       goNext: function () {
-
+        var params = {
+          username: self.user_account.phone_number,
+          password: self.user_account.password,
+        }
+        AuthService.login(params);
       },
     }
   }
