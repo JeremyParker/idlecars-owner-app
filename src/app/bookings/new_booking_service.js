@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('idlecars')
-.factory('NewBookingService', function ($state, BookingService, DocRouterService) {
+.factory('NewBookingService', function ($state, HistoryService, BookingService, DocRouterService) {
   var service = {};
 
   service.createBooking = function(carId) {
@@ -10,6 +10,7 @@ angular.module('idlecars')
       $state.go('bookingDetail', {bookingId: data.id});
     }).catch(function () {
       DocRouterService.requiredDocState().then(function(nextState) {
+        HistoryService.forget();
         if (nextState) {
           $state.go(nextState);
         } else {
