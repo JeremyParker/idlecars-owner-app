@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('idlecars')
-.service('FieldService', function ($stateParams, $state, $http, DriverService, AuthService, BookingService, Restangular) {
+.service('FieldService', function ($stateParams, $state, $http, DriverService, AuthService, NewBookingService, Restangular) {
 
   var self = this;
 
@@ -33,6 +33,10 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
+  var _createBooking = function() {
+    NewBookingService.createBooking($stateParams.carId);
+  }
+
   self.getLoginParams = function () {
     var loginParams = {
       username: self.user_account.phone_number,
@@ -62,7 +66,7 @@ angular.module('idlecars')
     'cars.detail.booking.enterPassword': {
       fields: enterPasswordFields,
       goNext: function () {
-        AuthService.login(self.getLoginParams()).then(self.createBooking);
+        AuthService.login(self.getLoginParams()).then(_createBooking);
       },
     }
   }
@@ -75,16 +79,7 @@ angular.module('idlecars')
     var newDriver = new DriverService(user_account);
     newDriver.$save().then(function() {
       return AuthService.login(self.getLoginParams());
-    }).then(self.createBooking);
-  }
-
-  self.createBooking = function() {
-    var newBooking = new BookingService({car: $stateParams.carId});
-    return newBooking.$save().then(function(data) {
-      $state.go('bookingDetail', {bookingId: data.id});
-    }).catch(function () {
-      $state.go('cars.detail', $stateParams);
-    });
+    }).then(_createBooking);
   }
 
   // TODO: move self to the navbar controller
