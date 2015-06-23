@@ -1,24 +1,32 @@
 .upload-wrapper
-  @extend %flex_container_column
   @extend %gray_theme
-  padding: 1rem $page_gutter
+  padding: 2rem $page_gutter 0
   height: calc(100vh - 3rem)
 
-  p
-    flex: 1
-    margin: 2rem auto
+  .title
     text-align: center
 
     span
       font-weight: $bold_font_weight
 
   .image-wrapper
-    flex: 4
     @extend %flex_container_center
+    margin: 1.5rem 0
 
     img
-      max-height: 6rem
+      max-height: 8rem
 
-  button
-    margin: 1rem auto
+  .skip-link
+    width: 100%
+    text-align: center
+    margin-top: 1.5rem
+
+    a
+      color: $medium_gray
+      font-weight: $bold_font_weight
+      text-decoration: underline
+
+
+
+
 
