@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.factory('DocRouterService', function($state, MyDriverService) {
+.factory('DocRouterService', function(MyDriverService) {
   var service = {};
 
   var _nextMissingDoc = function(me) {
@@ -10,6 +10,7 @@ angular.module('idlecars')
         return docOrder[key];
       }
     }
+    return null;
   }
 
   var docOrder = {
@@ -19,9 +20,9 @@ angular.module('idlecars')
     defensive_cert_image: 'driverAccount.uploadDefensiveCert',
   }
 
-  service.goRequiredDoc = function() {
+  service.requiredDocState = function() {
     MyDriverService.get().then(function(me) {
-      $state.go(_nextMissingDoc(me) || 'bookingSuccess');
+      return _nextMissingDoc(me);
     });
   }
 
