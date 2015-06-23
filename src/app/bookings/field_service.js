@@ -33,6 +33,17 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
+  var emailFields = [{
+    label: 'Your email address',
+    placeholder: 'someone@example.com',
+    name: 'email',
+    type: 'email',
+    // TODO - we must either validate as strictly as backend, or handle rejected email values.
+    pattern: '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$',
+    maxlength: '254',
+    autoFocus: true,
+  }];
+
   self.getLoginParams = function () {
     var loginParams = {
       username: self.user_account.phone_number,
@@ -56,6 +67,13 @@ angular.module('idlecars')
     'cars.detail.booking.createPassword': {
       fields: createPasswordFields,
       goNext: function () {
+        debugger;
+        self.createDriver();
+      },
+    },
+    'cars.detail.booking.email': {
+      fields: emailFields,
+      goNext: function () {
         self.saveData();
       },
     },
@@ -69,7 +87,7 @@ angular.module('idlecars')
 
   self.isValid = false;
 
-  self.saveData =  function () {
+  self.createDriver = function () {
     var user_account = self.user_account;
 
     var newDriver = new DriverService(user_account);
@@ -85,6 +103,15 @@ angular.module('idlecars')
     }).catch(function () {
       $state.go('cars.detail', $stateParams);
     });
+  }
+
+  self.saveData =  function () {
+    var user_account = self.user_account;
+
+    var newDriver = new DriverService(user_account);
+    newDriver.$save().then(function() {
+      $state.go('bookingDetail', {bookingId: data.id});
+    })
   }
 
   // TODO: move self to the navbar controller

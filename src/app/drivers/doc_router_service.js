@@ -5,6 +5,8 @@ angular.module('idlecars')
   var service = {};
 
   var _nextMissingDoc = function(me) {
+    if (!me['email'])
+      return '';
     for (var key in docOrder) {
       if (!me[key]) {
         return docOrder[key];
