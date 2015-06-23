@@ -82,6 +82,8 @@ angular.module('idlecars')
     var newBooking = new BookingService({car: $stateParams.carId});
     return newBooking.$save().then(function(data) {
       $state.go('bookingDetail', {bookingId: data.id});
+    }).catch(function () {
+      $state.go('cars.detail', $stateParams);
     });
   }
 

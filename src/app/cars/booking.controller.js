@@ -6,9 +6,7 @@ angular.module('idlecars')
   $scope.Field = FieldService;
 
   if (AuthService.isLoggedIn()) {
-    FieldService.createBooking().catch(function() {
-      HistoryService.goPreviousState();
-    });
+    FieldService.createBooking();
   } else {
     HistoryService.forget();
     $state.go('.phone_number');
