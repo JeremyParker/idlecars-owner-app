@@ -33,11 +33,8 @@ angular.module('idlecars')
   };
 
   var _associateToDriver = function(fileUrl) {
-    // TODO: implement a patch method on the service so it updates the cached driver
-    return MyDriverService.get().then(function(me) {
-      var patchData = {};
-      patchData[$scope.fieldName] = fileUrl;
-      return me.patch(patchData);
-    });
+    var patchData = {};
+    patchData[$scope.fieldName] = fileUrl;
+    return MyDriverService.patch(patchData);
   };
 });

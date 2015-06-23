@@ -14,14 +14,17 @@ angular.module('idlecars',
     'ngFileUpload',
   ]
 )
-.config(function ($urlRouterProvider, $resourceProvider) {
+
+.config(function($urlRouterProvider, $resourceProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/');
   $resourceProvider.defaults.stripTrailingSlashes = false;
+  $httpProvider.interceptors.push('appNotificationInterceptor');
 })
 
-.run(function (HistoryService, AuthService, Restangular, config) {
+.run(function(HistoryService, AuthService, Restangular, config) {
   HistoryService.listen();
   AuthService.initialize();
+
   Restangular.setBaseUrl(config.api_base_url);
   Restangular.setRequestSuffix('/');
 })
