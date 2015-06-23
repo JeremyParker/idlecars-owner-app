@@ -42,24 +42,24 @@ angular.module('idlecars')
   }
 
   self.formParts = {
-    'cars.detail.booking.phone_number': {
+    'cars.detail.booking.phoneNumber': {
       fields: phoneFields,
       goNext: function () {
         var phoneNumber = Restangular.one('phone_numbers', self.user_account.phone_number);
         phoneNumber.get().then(function (response) {
-          $state.go('^.enter_password');
+          $state.go('^.enterPassword');
         }, function (error) {
-          $state.go('^.create_password');
+          $state.go('^.createPassword');
         })
       },
     },
-    'cars.detail.booking.create_password': {
+    'cars.detail.booking.createPassword': {
       fields: createPasswordFields,
       goNext: function () {
         self.saveData();
       },
     },
-    'cars.detail.booking.enter_password': {
+    'cars.detail.booking.enterPassword': {
       fields: enterPasswordFields,
       goNext: function () {
         AuthService.login(self.getLoginParams()).then(self.createBooking);

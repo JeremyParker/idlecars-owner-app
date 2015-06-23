@@ -9,7 +9,7 @@ angular.module('idlecars')
     FieldService.createBooking();
   } else {
     HistoryService.forget();
-    $state.go('.phone_number');
+    $state.go('.phoneNumber');
   }
 })
 

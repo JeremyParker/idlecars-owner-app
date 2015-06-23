@@ -58,17 +58,17 @@ angular.module('idlecars')
       },
     })
 
-    .state('cars.detail.booking.phone_number', {
+    .state('cars.detail.booking.phoneNumber', {
       templateUrl: 'app/cars/booking_form.html',
       controller: 'booking.form.controller',
     })
 
-    .state('cars.detail.booking.create_password', {
+    .state('cars.detail.booking.createPassword', {
       templateUrl: 'app/cars/booking_form.html',
       controller: 'booking.form.controller',
     })
 
-    .state('cars.detail.booking.enter_password', {
+    .state('cars.detail.booking.enterPassword', {
       templateUrl: 'app/cars/booking_form.html',
       controller: 'booking.form.controller',
     })
