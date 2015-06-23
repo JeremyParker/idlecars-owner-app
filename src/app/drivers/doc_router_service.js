@@ -21,7 +21,7 @@ angular.module('idlecars')
   }
 
   service.requiredDocState = function() {
-    MyDriverService.get().then(function(me) {
+    return MyDriverService.get().then(function(me) {
       return _nextMissingDoc(me);
     });
   }

@@ -16,8 +16,10 @@ angular.module('idlecars')
     $timeout(function() {
       _associateToDriver(fileUrl).then(function () {
         $scope.isBusy = false;
-        $state.go(DocRouterService.requiredDocState() || 'bookingSuccess');
-      })
+        return DocRouterService.requiredDocState();
+      }).then(function(nextState) {
+        $state.go(nextState || 'bookingSuccess');
+      });
     });
   };
 
