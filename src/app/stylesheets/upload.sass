@@ -1,0 +1,24 @@
+.upload-wrapper
+  @extend %flex_container_column
+  @extend %gray_theme
+  padding: 1rem $page_gutter
+  height: calc(100vh - 3rem)
+
+  p
+    flex: 1
+    margin: 2rem auto
+    text-align: center
+
+    span
+      font-weight: $bold_font_weight
+
+  .image-wrapper
+    flex: 4
+    @extend %flex_container_center
+
+    img
+      max-height: 6rem
+
+  button
+    margin: 1rem auto
+

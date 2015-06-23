@@ -1,9 +1,11 @@
-p Please upload a photo of your&nbsp
-  span {{fieldName}}
+.upload-wrapper
+  p Please upload a photo of your&nbsp
+    span {{fieldName}}
 
-img(src="/assets/images/Camera_Focus.png")
-img(ng-src="{{fileUrl}}", style="width: 100%")
+  .image-wrapper
+    img(ng-src="/assets/images/FHVLicense.png")
 
-button.button(ngf-select, ngf-change="upload($files)", ngf-capture="'camera'", ngf-accept="'image/*'", ng-disabled="isBusy")
-  ic-loading(ng-show="isBusy")
-  span(ng-hide="isBusy") Upload
+  button.button(ngf-select, ngf-change="upload($files)", ngf-capture="'camera'", ngf-accept="'image/*'", ng-disabled="isBusy")
+    ic-loading(ng-show="isBusy")
+    span(ng-hide="isBusy") Upload
+
