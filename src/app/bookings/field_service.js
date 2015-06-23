@@ -33,6 +33,14 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
+  self.getLoginParams = function () {
+    var loginParams = {
+      username: self.user_account.phone_number,
+      password: self.user_account.password,
+    }
+    return loginParams;
+  }
+
   self.formParts = {
     'cars.detail.booking.phone_number': {
       fields: phoneFields,
@@ -54,11 +62,7 @@ angular.module('idlecars')
     'cars.detail.booking.enter_password': {
       fields: enterPasswordFields,
       goNext: function () {
-        var params = {
-          username: self.user_account.phone_number,
-          password: self.user_account.password,
-        }
-        AuthService.login(params);
+        AuthService.login(self.getLoginParams()).then(self.createBooking);
       },
     }
   }
@@ -70,11 +74,7 @@ angular.module('idlecars')
 
     var newDriver = new DriverService(user_account);
     newDriver.$save().then(function() {
-      var loginParams = {
-        username: user_account.phone_number,
-        password: user_account.password,
-      }
-      return AuthService.login(loginParams);
+      return AuthService.login(self.getLoginParams());
     }).then(self.createBooking);
   }
 
