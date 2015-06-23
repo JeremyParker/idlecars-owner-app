@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('idlecars')
-.service('FieldService', function ($stateParams, $state, DriverService, AuthService, BookingService) {
+.service('FieldService', function ($stateParams, $state, $http, DriverService, AuthService, BookingService, Restangular) {
 
   var self = this;
 
@@ -37,7 +37,12 @@ angular.module('idlecars')
     'cars.detail.booking.phone_number': {
       fields: phoneFields,
       goNext: function () {
-        $state.go('^.create_password')
+        var get_phone_number = Restangular.one('phone_numbers', self.user_account.phone_number).get();
+        get_phone_number.then(function (response) {
+          $state.go('^.enter_password');
+        }, function (error) {
+          $state.go('^.create_password');
+        })
       },
     },
     'cars.detail.booking.create_password': {
