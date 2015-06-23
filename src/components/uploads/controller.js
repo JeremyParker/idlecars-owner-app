@@ -2,7 +2,7 @@
 
 angular.module('idlecars')
 .controller('upload.controller', function($scope, $timeout, UserUploadService, MyDriverService, DocRouterService) {
-  $scope.fileUrl = false;
+  $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.isBusy = false;
 
   MyDriverService.get().then(function(me) {
