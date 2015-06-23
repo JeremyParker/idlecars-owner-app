@@ -1,8 +1,8 @@
-p(ng-hide="fileUrl") no file
-p file key: {{fieldName}}
+p Please upload a photo of your&nbsp
+  span {{fieldName}}
 
-div(ng-if="fileUrl")
-  img(ng-src="{{fileUrl}}", style="width: 100%")
+img(src="/assets/images/Camera_Focus.png")
+img(ng-src="{{fileUrl}}", style="width: 100%")
 
 button.button(ngf-select, ngf-change="upload($files)", ngf-capture="'camera'", ngf-accept="'image/*'", ng-disabled="isBusy")
   ic-loading(ng-show="isBusy")
