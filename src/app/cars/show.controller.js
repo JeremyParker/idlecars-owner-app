@@ -15,5 +15,4 @@ angular.module('idlecars')
   }
 
   $scope.car = $stateParams.car;
-  AppNotificationService.push('you got to the page');
 });
