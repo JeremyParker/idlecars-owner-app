@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.showCtrl', function ($scope, $state, $stateParams, CarService) {
+.controller('cars.showCtrl', function ($scope, $state, $stateParams, CarService, AppNotificationService) {
 
   if (!$stateParams.car) {
     CarService.get({carId: $stateParams.carId}).$promise.then(
@@ -15,4 +15,5 @@ angular.module('idlecars')
   }
 
   $scope.car = $stateParams.car;
+  AppNotificationService.push('you got to the page');
 });
