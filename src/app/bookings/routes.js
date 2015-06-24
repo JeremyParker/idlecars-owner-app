@@ -7,6 +7,7 @@ angular.module('idlecars')
 
     .state('bookingDetail', {
       url: '/bookings/:bookingId',
+      params: {goRequiredDoc: true},
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',
