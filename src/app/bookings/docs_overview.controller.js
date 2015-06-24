@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('docsOverview.controller', function ($scope, MyDriverService, DocRouterService) {
-  DocRouterService.goRequiredDoc();
+.controller('docsOverview.controller', function ($scope, $stateParams, MyDriverService, DocRouterService) {
+  if ($stateParams.goRequiredDoc) {
+    DocRouterService.goRequiredDoc();
+  };
 
   MyDriverService.get().then(function(me) {
     var docs = [
