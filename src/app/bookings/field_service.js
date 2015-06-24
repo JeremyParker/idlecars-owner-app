@@ -1,7 +1,17 @@
 'use strict'
 
 angular.module('idlecars')
-.service('FieldService', function ($stateParams, $state, $http, DriverService, MyDriverService, AuthService, NewBookingService, Restangular) {
+.service('FieldService', function
+  ( $stateParams,
+    $state,
+    $http,
+    DriverService,
+    MyDriverService,
+    AuthService,
+    DocRouterService,
+    NewBookingService,
+    Restangular
+  ) {
 
   var self = this;
 
@@ -38,8 +48,6 @@ angular.module('idlecars')
     placeholder: 'someone@example.com',
     name: 'email',
     type: 'email',
-    // TODO - we must either validate as strictly as backend, or handle rejected email values.
-    pattern: '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$',
     maxlength: '254',
     autoFocus: true,
   }];
@@ -102,8 +110,10 @@ angular.module('idlecars')
   self.saveEmail =  function () {
     var patchData = {};
     patchData['email'] = self.user_account.email;
-    return MyDriverService.patch(patchData).then(function() {
-      $state.go('driverAccount.uploadDriverLicense');
+    return MyDriverService.patch(patchData).then(function () {
+      return DocRouterService.requiredDocState();
+    }).then(function(nextState) {
+      $state.go(nextState || 'bookingSuccess');
     });
   }
 
