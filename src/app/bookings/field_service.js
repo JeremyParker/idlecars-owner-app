@@ -1,7 +1,17 @@
 'use strict'
 
 angular.module('idlecars')
-.service('FieldService', function ($stateParams, $state, $http, DriverService, AuthService, NewBookingService, Restangular) {
+.service('FieldService', function
+  ( $stateParams,
+    $state,
+    $http,
+    DriverService,
+    MyDriverService,
+    AuthService,
+    DocRouterService,
+    NewBookingService,
+    Restangular
+  ) {
 
   var self = this;
 
@@ -33,6 +43,15 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
+  var emailFields = [{
+    label: 'Your email address',
+    placeholder: 'someone@example.com',
+    name: 'email',
+    type: 'email',
+    maxlength: '254',
+    autoFocus: true,
+  }];
+
   var _createBooking = function() {
     NewBookingService.createBooking($stateParams.carId);
   }
@@ -60,7 +79,13 @@ angular.module('idlecars')
     'cars.detail.booking.createPassword': {
       fields: createPasswordFields,
       goNext: function () {
-        self.saveData();
+        self.createDriver();
+      },
+    },
+    'cars.detail.booking.email': {
+      fields: emailFields,
+      goNext: function () {
+        self.saveEmail();
       },
     },
     'cars.detail.booking.enterPassword': {
@@ -73,13 +98,23 @@ angular.module('idlecars')
 
   self.isValid = false;
 
-  self.saveData =  function () {
+  self.createDriver = function () {
     var user_account = self.user_account;
 
     var newDriver = new DriverService(user_account);
     newDriver.$save().then(function() {
       return AuthService.login(self.getLoginParams());
     }).then(_createBooking);
+  }
+
+  self.saveEmail =  function () {
+    var patchData = {};
+    patchData['email'] = self.user_account.email;
+    return MyDriverService.patch(patchData).then(function () {
+      return DocRouterService.requiredDocState();
+    }).then(function(nextState) {
+      $state.go(nextState || 'bookingSuccess');
+    });
   }
 
   // TODO: move self to the navbar controller
