@@ -18,8 +18,8 @@ angular.module('idlecars')
     email: 'cars.detail.booking.email',
     driver_license_image: 'driverAccount.uploadDriverLicense',
     fhv_license_image: 'driverAccount.uploadFhvLicense',
-    address_proof_image: 'driverAccount.uploadAddressProof',
     defensive_cert_image: 'driverAccount.uploadDefensiveCert',
+    address_proof_image: 'driverAccount.uploadAddressProof',
   }
 
   service.requiredDocState = function() {
