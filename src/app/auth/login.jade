@@ -1,12 +1,29 @@
 .log-in
   .upper-section
     .input-wrapper
-      input(type='tel', name='phone', placeholder='Phone number', auto-focus='true')
-      input(type='password', name='password', placeholder='Password')
+      form(name='userAccount', novalidate)
+        input(
+          type='tel',
+          name='phone',
+          placeholder='(222)-555-1234',
+          auto-focus='true',
+          ng-model='phone',
+          pattern='[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
+          maxlength='14',
+          required)
+
+        input(
+          type='password',
+          name='password',
+          placeholder='Password',
+          ng-model='password',
+          minlength='6',
+          required)
+
       .forgot-wrapper
         a(href="mailto:support@idlecars.com?subject=Forgot My Password&body=Please send me my password.") Forgot my Password
 
   .lower-section
     .button-wrapper
-      button.button Log in
-      button.white-boarder-button Create an account
+      button.button(ng-click='login()', ng-disabled='userAccount.$invalid', ng-class='{"disabled-button": userAccount.$invalid}') Log in
+      button.white-boarder-button(ng-click='createAccount()') Create an account

@@ -5,4 +5,8 @@ angular.module('idlecars')
   $scope.login = function() {
     AuthService.login($scope.user);
   };
+
+  $scope.createAccount = function () {
+
+  };
 });
