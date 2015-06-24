@@ -26,7 +26,7 @@ angular.module('idlecars')
           templateUrl: 'app/drivers/upload.html',
           controller: function($scope) {
             $scope.fieldName = 'driver_license_image';
-            $scope.uploadTitle = 'Driver License';
+            $scope.uploadTitle = 'your Driver License';
           },
         }
       }
@@ -39,7 +39,7 @@ angular.module('idlecars')
           templateUrl: 'app/drivers/upload.html',
           controller: function($scope) {
             $scope.fieldName = 'fhv_license_image';
-            $scope.uploadTitle = 'Hack License';
+            $scope.uploadTitle = 'your Hack License';
           },
         }
       }
@@ -52,7 +52,7 @@ angular.module('idlecars')
           templateUrl: 'app/drivers/upload.html',
           controller: function($scope) {
             $scope.fieldName = 'address_proof_image';
-            $scope.uploadTitle = 'Proof of Address';
+            $scope.uploadTitle = 'a bill with your address on it';
           },
         }
       }
@@ -65,7 +65,7 @@ angular.module('idlecars')
           templateUrl: 'app/drivers/upload.html',
           controller: function($scope) {
             $scope.fieldName = 'defensive_cert_image';
-            $scope.uploadTitle = 'Defensive Driving';
+            $scope.uploadTitle = 'your Defensive Driving certificate';
           },
         }
       }
