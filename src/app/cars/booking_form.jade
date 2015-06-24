@@ -1,6 +1,6 @@
 .form-container
   .text-wrapper
-    ng-form(name='fieldForm', novalidate)
+    ng-form(name='fieldForm', novalidate, ng-submit="Field.goNextState()")
       div(ng-repeat='field in fields')
         label(for="{{field.name}}") {{field.label}}
         input.no-box(
