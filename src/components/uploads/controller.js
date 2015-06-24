@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('upload.controller', function($scope, $timeout, UserUploadService, MyDriverService, DocRouterService) {
+.controller('upload.controller', function($scope, $timeout, $state, UserUploadService, MyDriverService, DocRouterService) {
+  // TODO: this component is not a component at all.. it needs to be generified
   $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.isBusy = false;
 
@@ -11,13 +12,13 @@ angular.module('idlecars')
   });
 
   var _uploadDidComplete = function(fileUrl) {
-    // NOTE: $timeout makes sure that this "runs on the next digest cycle"
-    // I don't really know what that means, but this works
     $timeout(function() {
       _associateToDriver(fileUrl).then(function () {
         $scope.isBusy = false;
-        DocRouterService.goRequiredDoc();
-      })
+        return DocRouterService.requiredDocState();
+      }).then(function(nextState) {
+        $state.go(nextState || 'bookingSuccess');
+      });
     });
   };
 

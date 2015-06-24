@@ -1,16 +1,18 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.booking.controller', function ($scope, $state, AuthService, HistoryService, FieldService, AppNotificationService) {
+.controller('cars.booking.controller', function ($scope, $state, $stateParams, AuthService, HistoryService, FieldService, NewBookingService) {
   FieldService.user_account = {};
   $scope.Field = FieldService;
 
   if (AuthService.isLoggedIn()) {
-    FieldService.createBooking();
+    NewBookingService.createBooking($stateParams.carId);
   } else {
-    HistoryService.forget();
     $state.go('.phoneNumber');
   }
+
+  // NOTE: this state only routes to other states, so users shouldn't return
+  HistoryService.forget();
 })
 
 .controller('booking.form.controller', function ($scope, $state, $timeout, FieldService) {

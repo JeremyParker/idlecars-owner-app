@@ -9,8 +9,8 @@ angular.module('idlecars')
       url: '/account',
       views: {
         'navbar@': {
-          templateUrl: 'components/navbar/navbar_account.html',
-          controller: 'navbarAccount.controller',
+          templateUrl: 'components/navbar/navbar_main.html',
+          controller: 'navbarMain.controller',
         },
         'content@': {
           templateUrl: 'app/drivers/account.html',
