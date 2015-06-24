@@ -52,8 +52,12 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  var _createBooking = function() {
+  var _createBooking = function () {
     NewBookingService.createBooking($stateParams.carId);
+  }
+
+  self.login = function (user) {
+    AuthService.login(user).then(_createBooking);
   }
 
   self.getLoginParams = function () {
@@ -91,7 +95,7 @@ angular.module('idlecars')
     'cars.detail.booking.enterPassword': {
       fields: enterPasswordFields,
       goNext: function () {
-        AuthService.login(self.getLoginParams()).then(_createBooking);
+        self.login(self.getLoginParams());
       },
     }
   }

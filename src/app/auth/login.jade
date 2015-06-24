@@ -7,7 +7,7 @@
           name='phone',
           placeholder='(222)-555-1234',
           auto-focus='true',
-          ng-model='phone',
+          ng-model='user.username',
           pattern='[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
           maxlength='14',
           required)
@@ -16,7 +16,7 @@
           type='password',
           name='password',
           placeholder='Password',
-          ng-model='password',
+          ng-model='user.password',
           minlength='6',
           required)
 
@@ -26,4 +26,4 @@
   .lower-section
     .button-wrapper
       button.button(ng-click='login()', ng-disabled='userAccount.$invalid', ng-class='{"disabled-button": userAccount.$invalid}') Log in
-      button.white-boarder-button(ng-click='createAccount()') Create an account
+      button.white-boarder-button(ui-sref='cars.detail.booking') Create an account
