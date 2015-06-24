@@ -5,11 +5,29 @@ angular.module('idlecars')
   DocRouterService.goRequiredDoc();
 
   MyDriverService.get().then(function(me) {
-    $scope.driverDocuments = [
-      {title: 'Driver License', isUploaded: me.driver_license_image},
-      {title: 'FHV License', isUploaded: me.fhv_license_image},
-      {title: 'Defensive Driving', isUploaded: me.defensive_cert_image},
-      {title: 'Proof of Address', isUploaded: me.address_proof_image},
-    ];
+    var docs = [
+      {
+        title: 'Driver License',
+        sref: 'driverAccount.uploadDriverLicense',
+        isUploaded: me.driver_license_image,
+      },
+      {
+        title: 'FHV License',
+        sref: 'driverAccount.uploadFhvLicense',
+        isUploaded: me.fhv_license_image,
+      },
+      {
+        title: 'Defensive Driving',
+        sref: 'driverAccount.uploadDefensiveCert',
+        isUploaded: me.defensive_cert_image,
+      },
+      {
+        title: 'Proof of Address',
+        sref: 'driverAccount.uploadAddressProof',
+        isUploaded: me.address_proof_image,
+      },
+    ]
+
+    $scope.driverDocuments = docs;
   })
 })
