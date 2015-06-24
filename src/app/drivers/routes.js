@@ -19,16 +19,6 @@ angular.module('idlecars')
       }
     })
 
-    .state('drivers.login', {
-      url: '/login',
-      views: {
-        'navbar@': {
-          templateUrl: 'components/navbar/navbar_account.html',
-          controller: 'navbarAccount.controller',
-        },
-        'content@': {
-          templateUrl: 'app/drivers/login.html',
-
     .state('driverAccount.uploadDriverLicense', {
       url: '/driver-license',
       views: {
