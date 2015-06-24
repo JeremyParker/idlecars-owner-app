@@ -17,14 +17,14 @@ angular.module('idlecars')
         isUploaded: me.fhv_license_image,
       },
       {
-        title: 'Defensive Driving',
-        sref: 'driverAccount.uploadDefensiveCert',
-        isUploaded: me.defensive_cert_image,
-      },
-      {
         title: 'Proof of Address',
         sref: 'driverAccount.uploadAddressProof',
         isUploaded: me.address_proof_image,
+      },
+      {
+        title: 'Defensive Driving',
+        sref: 'driverAccount.uploadDefensiveCert',
+        isUploaded: me.defensive_cert_image,
       },
     ]
 
