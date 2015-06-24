@@ -14,10 +14,17 @@ angular.module('idlecars')
   }
 
   service.patch = function(patchData) {
-    return service.get().then(function(me) {
-      service.driver = me.patch(patchData);
-      return service.driver;
+    var promise;
+
+    promise = service.get().then(function(me) {
+      return me.patch(patchData);
     });
+
+    promise.then(function() {
+      service.driver = promise;
+    });
+
+    return promise;
   }
 
   return service;
