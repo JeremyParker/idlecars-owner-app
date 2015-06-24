@@ -1,2 +1,9 @@
-h1 upload
-ic-upload(field-name="{{fieldName}}")
+.upload-wrapper
+  .title
+    div Please upload a photo of your
+    .upload-title {{uploadTitle}}
+
+  ic-upload(field-name="{{fieldName}}")
+
+  .skip-link
+    a skip for now

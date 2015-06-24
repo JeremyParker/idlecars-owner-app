@@ -3,8 +3,7 @@
 angular.module('idlecars')
 .controller('upload.controller', function($scope, $timeout, $state, UserUploadService, MyDriverService, DocRouterService) {
   // TODO: this component is not a component at all.. it needs to be generified
-
-  $scope.fileUrl = false;
+  $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.isBusy = false;
 
   MyDriverService.get().then(function(me) {
