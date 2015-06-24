@@ -14,9 +14,7 @@ angular.module('idlecars')
   }
 
   service.patch = function(patchData) {
-    var promise;
-
-    promise = service.get().then(function(me) {
+    var promise = service.get().then(function(me) {
       return me.patch(patchData);
     });
 
