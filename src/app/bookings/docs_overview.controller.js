@@ -7,6 +7,7 @@ angular.module('idlecars')
   };
 
   MyDriverService.get().then(function(me) {
+    // TODO: combine this data with the data stored in the DocRouterService
     var docs = [
       {
         title: 'Driver License',
