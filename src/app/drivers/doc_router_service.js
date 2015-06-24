@@ -6,8 +6,6 @@ angular.module('idlecars')
   var service = {};
 
   var _nextMissingDoc = function(me) {
-    if (!me['email'])
-      return '';
     for (var key in docOrder) {
       if (!me[key]) {
         return docOrder[key];
@@ -17,6 +15,7 @@ angular.module('idlecars')
   }
 
   var docOrder = {
+    email: 'cars.detail.booking.email',
     driver_license_image: 'driverAccount.uploadDriverLicense',
     fhv_license_image: 'driverAccount.uploadFhvLicense',
     address_proof_image: 'driverAccount.uploadAddressProof',

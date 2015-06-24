@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('idlecars')
-.service('FieldService', function ($stateParams, $state, $http, DriverService, AuthService, NewBookingService, Restangular) {
+.service('FieldService', function ($stateParams, $state, $http, DriverService, MyDriverService, AuthService, NewBookingService, Restangular) {
 
   var self = this;
 
@@ -71,14 +71,13 @@ angular.module('idlecars')
     'cars.detail.booking.createPassword': {
       fields: createPasswordFields,
       goNext: function () {
-        debugger;
         self.createDriver();
       },
     },
     'cars.detail.booking.email': {
       fields: emailFields,
       goNext: function () {
-        self.saveData();
+        self.saveEmail();
       },
     },
     'cars.detail.booking.enterPassword': {
@@ -100,13 +99,12 @@ angular.module('idlecars')
     }).then(_createBooking);
   }
 
-  self.saveData =  function () {
-    var user_account = self.user_account;
-
-    var newDriver = new DriverService(user_account);
-    newDriver.$save().then(function() {
-      $state.go('bookingDetail', {bookingId: data.id});
-    })
+  self.saveEmail =  function () {
+    var patchData = {};
+    patchData['email'] = self.user_account.email;
+    return MyDriverService.patch(patchData).then(function() {
+      $state.go('driverAccount.uploadDriverLicense');
+    });
   }
 
   // TODO: move self to the navbar controller
