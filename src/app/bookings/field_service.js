@@ -19,7 +19,7 @@ angular.module('idlecars')
     label: 'Enter your phone number to create an account',
     placeholder: '(222)-555-1234',
     name: 'phone_number',
-    type: 'tel',
+    type: 'text',
     pattern: '[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
     maxlength: '14',
     autoFocus: true,
