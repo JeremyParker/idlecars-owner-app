@@ -16,17 +16,17 @@ angular.module('idlecars')
   var self = this;
 
   var phoneFields = [{
-    label: 'Your phone number',
-    placeholder: '(222)-555-1234',
+    label: 'Enter your phone number to create an account',
+    placeholder: '(222) 555-1234',
     name: 'phone_number',
-    type: 'tel',
+    type: 'text',
     pattern: '[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
     maxlength: '14',
     autoFocus: true,
   }];
 
   var createPasswordFields = [{
-    label: 'Create Your password',
+    label: 'Add a password',
     placeholder: '',
     name: 'password',
     type: 'password',
@@ -44,8 +44,8 @@ angular.module('idlecars')
   }];
 
   var emailFields = [{
-    label: 'Your email address',
-    placeholder: 'someone@example.com',
+    label: 'Enter your email address',
+    placeholder: 'email@address.com',
     name: 'email',
     type: 'email',
     maxlength: '254',
