@@ -8,13 +8,13 @@ angular.module('idlecars')
   }
 
   $scope.login = function() {
-
     var phoneNumber = Restangular.one('phone_numbers', $scope.user.username);
     phoneNumber.get().then(function (response) {
-      FieldService.login($scope.user);
+      return FieldService.login($scope.user);
     }, function (error) {
-      AppNotificationService.push('Sorry, your account does not exist')
+      return AppNotificationService.push('Sorry, your account does not exist')
+    }).then(function () {
+      $scope.user.password = '';
     })
-    $scope.user.password = '';
   };
 });
