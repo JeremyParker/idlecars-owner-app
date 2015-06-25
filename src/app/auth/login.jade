@@ -1,7 +1,7 @@
 .log-in
   .upper-section
     .input-wrapper
-      form(name='userAccount', novalidate)
+      form(name='userForm', novalidate)
         input(
           type='tel',
           name='phone',
@@ -10,6 +10,7 @@
           ng-model='user.username',
           pattern='[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
           maxlength='14',
+          autocomplete='off',
           required)
 
         input(
@@ -18,6 +19,7 @@
           placeholder='Password',
           ng-model='user.password',
           minlength='6',
+          autocomplete='off',
           required)
 
       .forgot-wrapper
@@ -25,5 +27,5 @@
 
   .lower-section
     .button-wrapper
-      button.button(ng-click='login()', ng-disabled='userAccount.$invalid', ng-class='{"disabled-button": userAccount.$invalid}') Log in
+      button.button(ng-click='login()', ng-disabled='userForm.$invalid', ng-class='{"disabled-button": userForm.$invalid}') Log in
       button.white-boarder-button(ui-sref='cars.detail.booking') Create an account
