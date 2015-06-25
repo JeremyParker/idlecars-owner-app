@@ -14,6 +14,8 @@ angular.module('idlecars')
   var _cleanParams = function(params) {
     var clean = angular.copy(params);
     if (clean.username) {
+      // NOTE: usernames are always phonenumbers
+      // sending usernames with non digits isn't supported
       clean.username = clean.username.replace(/[^\d]/g, '');
     }
     return clean;
