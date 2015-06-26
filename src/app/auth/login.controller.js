@@ -12,7 +12,7 @@ angular.module('idlecars')
     phoneNumber.get().then(function (response) {
       return FieldService.login($scope.user);
     }, function (error) {
-      return AppNotificationService.push('Sorry, your account does not exist')
+      return AppNotificationService.push('Sorry, we couldn\'t find this phone number')
     }).then(function () {
       $scope.user.password = '';
     })
