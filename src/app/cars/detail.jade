@@ -23,7 +23,8 @@ h1(hidden) {{car.name}} for rent
       .flex-cell {{deet[0]}}
       .flex-cell.value {{deet[1]}}
 
-button.floater.button(ng-click="didTapRent()")
-  span Rent this car
+  .floater
+    a.button.request(ng-click="didTapRent()") Rent this car
+    a.button.help(ui-sref='driverAccount.faq') Help
 
 ui-view
