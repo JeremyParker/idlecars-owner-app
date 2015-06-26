@@ -24,7 +24,7 @@ h1(hidden) {{car.name}} for rent
       .flex-cell.value {{deet[1]}}
 
   .floater
-    a.button.request(ui-sref=".booking.email") Request this car
+    a.button.request(ng-click="didTapRent()") Rent this car
     a.button.help(ui-sref='drivers.faq') Help
 
 ui-view
