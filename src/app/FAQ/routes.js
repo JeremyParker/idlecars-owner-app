@@ -5,7 +5,7 @@ angular.module('idlecars')
 
   $stateProvider
 
-    .state('drivers.faq', {
+    .state('driverAccount.faq', {
       url: '/faq',
       views: {
         'navbar@': {
@@ -18,7 +18,7 @@ angular.module('idlecars')
       },
     })
 
-    .state('owner_faq', {
+    .state('ownerFaq', {
       url: '/faq',
       views: {
         'navbar@': {
