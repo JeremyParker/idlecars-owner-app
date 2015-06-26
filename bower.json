@@ -11,7 +11,6 @@
     "angular-google-maps": "~2.1.0",
     "ui-router-extras": "~0.0.13",
     "ngstorage": "~0.3.6",
-    "ng-file-upload": "~4.2.4",
     "parse-js-sdk": "~1.4.2",
     "restangular": "~1.5.1"
   },

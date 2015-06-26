@@ -1,6 +1,8 @@
 .image-wrapper
-  img(ng-src="{{fileUrl}}")
+  img(ng-src='{{fileUrl}}')
 
-button.button(ngf-select, ngf-change="upload($files)", ngf-capture="'camera'", ngf-accept="'image/*'", ng-disabled="isBusy")
+.button
   ic-loading(ng-show="isBusy")
   span(ng-hide="isBusy") Take a Photo
+  input.upload-button(type='file', name='upload', accept='image/*', onchange="angular.element(this).scope().upload(this.files)", ng-disabled='isBusy')
+
