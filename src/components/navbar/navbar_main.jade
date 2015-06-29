@@ -6,3 +6,5 @@
 .menu(ng-show="menuOpen")
   a(ui-sref='cars', ng-click='menuOpen = false') Home
   a(ui-sref='driverAccount.faq', ng-click='menuOpen = false') Questions
+  a(ng-if='isLoggedIn', ng-click='logout()') Log out
+  a(ng-if='!isLoggedIn') Log in
