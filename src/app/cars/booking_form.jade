@@ -17,5 +17,5 @@
           required,
           autocomplete="off")
 
-        .login-link Already have an account?&nbsp
-          a(ng-if='field.name === "phone_number"', ui-sref='login') Log in
+        .login-link(ng-if='field.name === "phone_number"') Already have an account?&nbsp
+          a(ui-sref='login') Log in
