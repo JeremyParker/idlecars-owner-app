@@ -11,6 +11,11 @@
   font-weight: $bold_font_weight
   width: 100%
 
+%_center_first_child
+  > *
+    text-align: center
+    flex: 1
+
 .clear-button
   @extend %_base_button
   background: transparent
@@ -22,6 +27,7 @@
   @extend %blue_theme
   @extend %flex_centered
   @extend %_base_button
+  @extend %_center_first_child
 
   width: 100%
 
@@ -30,12 +36,9 @@
   text-transform: uppercase
   font-weight: $bold_font_weight
 
-  > *
-    text-align: center
-    flex: 1
-
 .white-boarder-button
   @extend %_general_button
+  @extend %_center_first_child
   border: 1px solid white
   background: transparent
   padding: 1rem
