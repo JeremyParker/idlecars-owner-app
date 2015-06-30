@@ -27,18 +27,17 @@ angular.module('idlecars')
   }];
 
   var createPasswordFields = [{
-    label: 'Add a password',
-    placeholder: 'Password',
+    placeholder: 'Add a password',
     name: 'password',
     type: 'password',
-    minlength: '6',
+    minlength: '2',
     autoFocus: true,
   },
   {
     placeholder: 'Confirm password',
     name: 're_password',
     type: 'password',
-    minlength: '6',
+    minlength: '2',
   }];
 
   var emailFields = [{
