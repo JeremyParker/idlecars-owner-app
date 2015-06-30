@@ -10,10 +10,13 @@ angular.module('idlecars')
     AuthService,
     DocRouterService,
     NewBookingService,
-    Restangular
+    Restangular,
+    AppNotificationService
   ) {
 
   var self = this;
+
+  var min_password = 2;
 
   var phoneFields = [{
     label: 'Enter your phone number to create an account',
@@ -26,12 +29,17 @@ angular.module('idlecars')
   }];
 
   var createPasswordFields = [{
-    label: 'Add a password',
-    placeholder: '',
+    placeholder: 'Add a password',
     name: 'password',
     type: 'password',
-    minlength: '6',
+    minlength: min_password,
     autoFocus: true,
+  },
+  {
+    placeholder: 'Confirm password',
+    name: 're_password',
+    type: 'password',
+    minlength: min_password,
   }];
 
   var emailFields = [{
@@ -47,6 +55,10 @@ angular.module('idlecars')
     NewBookingService.createBooking($stateParams.carId);
   }
 
+  var _passwordConfirm = function () {
+    return self.user_account.password === self.user_account.re_password
+  }
+
   self.login = function (user) {
     AuthService.login(user).then(_createBooking);
   }
@@ -58,6 +70,10 @@ angular.module('idlecars')
     }
     return loginParams;
   }
+
+  self.getMinPassword = function () {
+    return min_password;
+  };
 
   self.formParts = {
     'cars.detail.booking.phoneNumber': {
@@ -74,7 +90,12 @@ angular.module('idlecars')
     'cars.detail.booking.createPassword': {
       fields: createPasswordFields,
       goNext: function () {
-        self.createDriver();
+        if (_passwordConfirm()) {
+          self.createDriver();
+        }
+        else {
+          AppNotificationService.push('Sorry, password did not match')
+        };
       },
     },
     'cars.detail.booking.email': {

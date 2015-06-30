@@ -3,6 +3,8 @@
 angular.module('idlecars')
 .controller('auth.login.controller', function ($scope, FieldService, Restangular, AppNotificationService) {
 
+  $scope.min_password = FieldService.getMinPassword();
+
   if (FieldService.user_account) {
     $scope.user = {username: FieldService.user_account.phone_number, password: ''};
   }
