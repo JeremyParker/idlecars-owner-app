@@ -35,6 +35,11 @@ angular.module('idlecars')
     });
   }
 
+  service.logout = function () {
+    delete $localStorage.authToken;
+    service.token = $localStorage.authToken;
+  }
+
   service.isLoggedIn = function() {
     return !!service.token;
   }
