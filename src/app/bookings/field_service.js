@@ -10,7 +10,8 @@ angular.module('idlecars')
     AuthService,
     DocRouterService,
     NewBookingService,
-    Restangular
+    Restangular,
+    AppNotificationService
   ) {
 
   var self = this;
@@ -27,11 +28,17 @@ angular.module('idlecars')
 
   var createPasswordFields = [{
     label: 'Add a password',
-    placeholder: '',
+    placeholder: 'Password',
     name: 'password',
     type: 'password',
     minlength: '6',
     autoFocus: true,
+  },
+  {
+    placeholder: 'Confirm password',
+    name: 're_password',
+    type: 'password',
+    minlength: '6',
   }];
 
   var emailFields = [{
@@ -45,6 +52,10 @@ angular.module('idlecars')
 
   var _createBooking = function () {
     NewBookingService.createBooking($stateParams.carId);
+  }
+
+  var _passwordConfirm = function () {
+    return self.user_account.password === self.user_account.re_password
   }
 
   self.login = function (user) {
@@ -74,7 +85,12 @@ angular.module('idlecars')
     'cars.detail.booking.createPassword': {
       fields: createPasswordFields,
       goNext: function () {
-        self.createDriver();
+        if (_passwordConfirm()) {
+          self.createDriver();
+        }
+        else {
+          AppNotificationService.push('Sorry, password did not match')
+        };
       },
     },
     'cars.detail.booking.email': {
