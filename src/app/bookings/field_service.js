@@ -20,7 +20,7 @@ angular.module('idlecars')
 
   var phoneFields = [{
     label: 'Enter your phone number to create an account',
-    placeholder: '(222) 555-1234',
+    placeholder: '(555) 555-5555',
     name: 'phone_number',
     type: 'text',
     pattern: '[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
