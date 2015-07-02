@@ -30,6 +30,10 @@ angular.module('idlecars')
       },
     })
 
+    .state('cars.detail.newBooking', {
+      controller: 'cars.newBooking.controller',
+    })
+
     .state('cars.detail.renewal', {
       url: '/renewals/:renewalId',
       views: {
