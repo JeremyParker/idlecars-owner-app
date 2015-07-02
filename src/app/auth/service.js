@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.factory('AuthService', function($http, $q, $localStorage, TokenService, AppNotificationService) {
+.factory('AuthService', function ($http, $q, $localStorage, TokenService, MyDriverService, AppNotificationService) {
   var service = {};
 
   var _setAuthHeader = function() {
@@ -33,6 +33,12 @@ angular.module('idlecars')
       AppNotificationService.push("The password is incorrect");
       return $q.reject(error);
     });
+  }
+
+  service.logout = function () {
+    delete $localStorage.authToken;
+    service.token = $localStorage.authToken;
+    MyDriverService.driver = null;
   }
 
   service.isLoggedIn = function() {
