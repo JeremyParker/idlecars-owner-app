@@ -60,7 +60,7 @@ angular.module('idlecars')
   }
 
   self.login = function (user) {
-    AuthService.login(user).then(_createBooking);
+    return AuthService.login(user).then(_createBooking);
   }
 
   self.getLoginParams = function () {
