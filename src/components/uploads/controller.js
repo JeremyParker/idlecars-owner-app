@@ -26,11 +26,13 @@ angular.module('idlecars')
     var file = files[0];
     if (!file) { return; }
 
-    $scope.isBusy = true;
+    $timeout(function () {
+      $scope.isBusy = true;
 
-    UserUploadService.upload({
-      file: file,
-    }).then(_uploadDidComplete);
+      UserUploadService.upload({
+        file: file,
+      }).then(_uploadDidComplete);
+    })
   };
 
   var _associateToDriver = function(fileUrl) {
