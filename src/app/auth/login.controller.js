@@ -12,10 +12,11 @@ angular.module('idlecars')
   $scope.login = function() {
     var phoneNumber = Restangular.one('phone_numbers', $scope.user.username);
     phoneNumber.get().then(function (response) {
-      return FieldService.login($scope.user);
+      FieldService.login($scope.user).catch(function (error) {
+        $scope.user.password = '';
+      });
     }, function (error) {
-      return AppNotificationService.push('Sorry, we couldn\'t find this phone number')
-    }).then(function () {
+      AppNotificationService.push('Sorry, we couldn\'t find this phone number')
       $scope.user.password = '';
     })
   };
