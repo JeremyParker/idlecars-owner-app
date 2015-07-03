@@ -19,8 +19,8 @@ angular.module('idlecars')
   var min_password = 2;
 
   var phoneFields = [{
-    label: 'Enter your phone number to create an account',
-    placeholder: '(222) 555-1234',
+    label: 'Your phone number',
+    placeholder: '(555) 555-5555',
     name: 'phone_number',
     type: 'text',
     pattern: '[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
@@ -29,6 +29,7 @@ angular.module('idlecars')
   }];
 
   var createPasswordFields = [{
+    label: 'Create a password',
     placeholder: 'Add a password',
     name: 'password',
     type: 'password',
@@ -36,6 +37,7 @@ angular.module('idlecars')
     autoFocus: true,
   },
   {
+    label: 'Confirm password',
     placeholder: 'Confirm password',
     name: 're_password',
     type: 'password',
