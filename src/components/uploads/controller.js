@@ -40,7 +40,7 @@ angular.module('idlecars')
   }
 
   var _dataUrlToData = function (dataURL) {
-    return dataURL.replace(/^data:image\/(png|jpeg);base64,/, "");
+    return dataURL.split(',')[1];
   }
 
   var _resizeImage = function (file) {
