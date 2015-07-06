@@ -7,6 +7,9 @@ angular.module('idlecars')
 })
 
 .controller('booking.form.controller', function ($scope, $state, $timeout, FieldService) {
+
+  heap.track('fieldByField', {field: $state.current.name});
+
   $scope.fields = FieldService.formParts[$state.current.name].fields;
 
   $scope.validateForm = function () {
