@@ -4,8 +4,7 @@ angular.module('idlecars')
   Parse.initialize("ltjv77iZ50v0g4Czpd6nbcxGgNb0McnPdJ5v5kcj", "zncD5UiutU0xRXbG9DCTYSHP6XmBGykSRYzxiq8K");
 
   var upload = function(options) {
-    var file = options.file;
-    var parseFile = new Parse.File(file.name, file, file.type);
+    var parseFile = new Parse.File(options.fileName, {base64: options.fileData});
 
     return $q(function(resolve, reject) {
       parseFile.save().then(function(remoteFile) {
