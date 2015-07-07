@@ -52,7 +52,7 @@ angular.module('idlecars')
       tempImg.src = reader.result;
       tempImg.onload = function() {
 
-        var MAX_WIDTH = 800;
+        var MAX_WIDTH = 600;
         var MAX_HEIGHT = 600;
         var tempW = tempImg.width;
         var tempH = tempImg.height;
