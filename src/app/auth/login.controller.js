@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('auth.login.controller', function ($scope, FieldService, Restangular, AppNotificationService) {
+.controller('auth.login.controller', function ($scope, FieldService, Restangular, AppNotificationService, RequireAuthService) {
 
+  // TODO: this should not reference the Field Service
   $scope.min_password = FieldService.getMinPassword();
 
+  // TODO: pass the phone number in as a route param
   if (FieldService.user_account) {
     $scope.user = {username: FieldService.user_account.phone_number, password: ''};
   }
@@ -16,8 +18,8 @@ angular.module('idlecars')
         $scope.user.password = '';
       });
     }, function (error) {
-      AppNotificationService.push('Sorry, we couldn\'t find this phone number')
-      $scope.user.password = '';
+      // TODO: return this error from the server
+      AppNotificationService.push("Sorry, we couldn't find this phone number");
     })
   };
 });
