@@ -22,7 +22,13 @@ angular.module('idlecars')
     },
     zoom: 11,
     control: {},
+    events: {
+      click: function() {
+        this.map.setOptions({draggable: true})
+      }
+    },
     options: {
+      draggable: false,
       scrollwheel: false,
       mapTypeControl: false,
       streetViewControl: false,
