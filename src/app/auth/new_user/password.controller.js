@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('newUser.password.controller', function ($scope, $rootScope, $state) {
+.controller('newUser.password.controller', function ($scope, $rootScope, $state, DriverService, AuthService, RequireAuthService) {
   var minPassword = 2;
 
   $scope.fields =  [{
@@ -21,7 +21,7 @@ angular.module('idlecars')
   }];
 
   $rootScope.navGoNext = function() {
-    $state.go('.');
+    _saveUser();
   }
 
   $scope.validateForm = function() {
@@ -30,5 +30,20 @@ angular.module('idlecars')
 
   var _passwordsMatch = function() {
     return $scope.newUser.password === $scope.newUser.re_password;
+  }
+
+  var _saveUser = function() {
+    var newDriver = new DriverService($scope.newUser);
+
+    newDriver.$save().then(function() {
+      return AuthService.login(_loginParams());
+    }).then(RequireAuthService.resolve);
+  }
+
+  var _loginParams = function() {
+    return {
+      username: $scope.newUser.phone_number,
+      password: $scope.newUser.password,
+    }
   }
 });
