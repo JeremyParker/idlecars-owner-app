@@ -13,13 +13,11 @@ body
   overflow: hidden
 
 .main-wrapper
-  flex: 1
-  display: flex
+  @extend %flex_content
   width: 100%
 
 .main-content
-  display: flex
-  flex: 1
+  @extend %flex_content
   overflow-y: scroll
   -webkit-overflow-scrolling: touch
   @extend %app_width
