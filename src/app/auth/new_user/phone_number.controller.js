@@ -12,9 +12,8 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  console.log($scope.newUser);
-
   $rootScope.navGoNext = function() {
+    // TODO: check if phone number already exists
     $state.go('^.password');
   }
 
