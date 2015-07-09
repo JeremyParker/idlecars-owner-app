@@ -5,15 +5,6 @@ angular.module('idlecars')
 
   $stateProvider
 
-    .state('auth', {
-      abstract: true,
-      controller: 'auth.controller',
-    })
-
-    .state('auth.require', {
-      controller: 'auth.require.controller',
-    })
-
     .state('login', {
       url: '/login',
       views: {
