@@ -8,25 +8,28 @@ angular.module('idlecars')
     .state('newUser', {
       abstract: true,
       url: '/users/new',
-      controller: function($scope, $rootScope) {
-        $scope.newUser = {};
-        $rootScope.navNextSref = 'login';
-      },
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_field.html',
           controller: 'navbarField.controller',
         },
+        'content@': {
+          controller: function($scope) {
+            $scope.newUser = {};
+          },
+          template: '<ui-view/>',
+        }
       },
     })
 
     .state('newUser.phoneNumber', {
-      views: {
-        'content@': {
-          templateUrl: 'app/auth/user_form.html',
-          controller: 'newUser.phoneNumber.controller',
-        },
-      },
+      templateUrl: 'app/auth/user_form.html',
+      controller: 'newUser.phoneNumber.controller',
+    })
+
+    .state('newUser.password', {
+      templateUrl: 'app/auth/user_form.html',
+      controller: 'newUser.password.controller',
     })
 
 })

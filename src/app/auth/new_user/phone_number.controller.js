@@ -12,8 +12,10 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
+  console.log($scope.newUser);
+
   $rootScope.navGoNext = function() {
-    $state.go('login');
+    $state.go('^.password');
   }
 
   $scope.validateForm = function() {
