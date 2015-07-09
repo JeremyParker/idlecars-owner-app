@@ -32,6 +32,7 @@ angular.module('idlecars')
 
     .state('cars.detail.newBooking', {
       controller: 'cars.newBooking.controller',
+      data: {requireAuth: true},
     })
 
     .state('cars.detail.renewal', {

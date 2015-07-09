@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('auth.login.controller', function ($scope, FieldService, Restangular, AppNotificationService, RequireAuthService) {
+.controller('auth.login.controller', function ($scope, FieldService, Restangular, AppNotificationService, RequireAuthService, AuthService) {
 
   // TODO: this should not reference the Field Service
   $scope.min_password = FieldService.getMinPassword();
@@ -12,6 +12,7 @@ angular.module('idlecars')
   }
 
   $scope.login = function() {
+    // TODO: Do we need to check phone number?
     var phoneNumber = Restangular.one('phone_numbers', $scope.user.username);
     phoneNumber.get()
     .then(_login)
