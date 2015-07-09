@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('upload.controller', function($scope, $timeout, $state, UserUploadService, MyDriverService, DocRouterService) {
+.controller('upload.controller', function($scope, $timeout, $q, $state, UserUploadService, MyDriverService, DocRouterService) {
   // TODO: this component is not a component at all.. it needs to be generified
   $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.isBusy = false;
@@ -26,12 +26,63 @@ angular.module('idlecars')
     var file = files[0];
     if (!file) { return; }
 
-    $scope.isBusy = true;
+    $timeout(function () {
+      $scope.isBusy = true;
+    })
 
-    UserUploadService.upload({
-      file: file,
-    }).then(_uploadDidComplete);
-  };
+    _resizeImage(file).then(function (fileData) {
+
+      UserUploadService.upload({
+        fileName: file.name,
+        fileData: fileData,
+      }).then(_uploadDidComplete);
+    })
+  }
+
+  var _dataUrlToData = function (dataURL) {
+    return dataURL.split(',')[1];
+  }
+
+  var _resizeImage = function (file) {
+    var deferred = $q.defer();
+    var reader = new FileReader();
+    reader.onloadend = function() {
+
+      var tempImg = new Image();
+      tempImg.src = reader.result;
+      tempImg.onload = function() {
+
+        var MAX_WIDTH = 600;
+        var MAX_HEIGHT = 600;
+        var tempW = tempImg.width;
+        var tempH = tempImg.height;
+        if (tempW > tempH) {
+          if (tempW > MAX_WIDTH) {
+             tempH *= MAX_WIDTH / tempW;
+             tempW = MAX_WIDTH;
+          }
+        }
+        else {
+          if (tempH > MAX_HEIGHT) {
+             tempW *= MAX_HEIGHT / tempH;
+             tempH = MAX_HEIGHT;
+          }
+        }
+
+        var canvas = document.createElement('canvas');
+        canvas.width = tempW;
+        canvas.height = tempH;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(this, 0, 0, tempW, tempH);
+        var dataURL = canvas.toDataURL("image/png");
+
+        var fileData = _dataUrlToData(dataURL);
+        deferred.resolve(fileData);
+      }
+    }
+    reader.readAsDataURL(file);
+    return deferred.promise;
+  }
 
   var _associateToDriver = function(fileUrl) {
     var patchData = {};

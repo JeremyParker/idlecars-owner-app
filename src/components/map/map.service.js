@@ -3,6 +3,8 @@
 angular.module('idlecars')
 .service('mapService', function(){
 
+  var self = this;
+
   // detect device is mobile or desktop
   var mobileAndTabletcheck = function() {
     var check = false;
@@ -10,19 +12,27 @@ angular.module('idlecars')
     return check;
   };
 
-  this.isMobileDevice = mobileAndTabletcheck();
+  self.isMobileDevice = mobileAndTabletcheck();
 
-  this.currentLoc = {};
-  this.markers = [];
+  self.currentLoc = {};
+  self.markers = [];
 
-  this.map = {
+  self.map = {
     center: {
       latitude: 0,
       longitude: 0
     },
     zoom: 11,
     control: {},
+    events: {
+      click: function() {
+        var url = 'https://www.google.com/maps/search/' + self.address;
+        var win = window.open(url, '_blank');
+        win.focus();
+      }
+    },
     options: {
+      draggable: false,
       scrollwheel: false,
       mapTypeControl: false,
       streetViewControl: false,
@@ -33,7 +43,7 @@ angular.module('idlecars')
     }
   };
 
-  this.marker = {
+  self.marker = {
     id: 0,
     coords: {
       latitude: 0,
@@ -47,7 +57,7 @@ angular.module('idlecars')
     }
   };
 
-  this.circle = {
+  self.circle = {
     center: {
       latitude: 0,
       longitude: 0
@@ -64,7 +74,7 @@ angular.module('idlecars')
     }
   };
 
-  this.car = {
+  self.car = {
     coords: {
       latitude: 0,
       longitude: 0

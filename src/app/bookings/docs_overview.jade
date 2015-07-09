@@ -1,11 +1,11 @@
 .settings-wrapper
 
   .top-interlude
-    .b-inter-content Upload all your documents to complete your rental.
+    .b-inter-content Come back and upload your missing documents to complete your rental.
 
   section
     .section-row
-      p.section-title.medium-gray Driver Documents
+      p.section-title.medium-gray Your Driver Documents
     .section-row(ng-repeat='item in driverDocuments')
       a.row-content(ng-class='{"has-bar": !$last}', ui-sref="{{item.sref}}")
         .left-flex-title {{item.title}}
