@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('newUser.phoneNumber.controller', function ($scope, $rootScope, $timeout) {
+.controller('newUser.phoneNumber.controller', function ($scope, $rootScope, $state) {
   $scope.fields = [{
     label: 'Your phone number',
     placeholder: '(555) 555-5555',
@@ -12,7 +12,10 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  $rootScope.navNextSref = 'login';
+  $rootScope.navGoNext = function() {
+    $state.go('login');
+  }
+
   $scope.validateForm = function() {
     $rootScope.navNextEnabled = $scope.fieldForm.$valid;
   }

@@ -1,4 +1,4 @@
 .bar-wrapper
   button.prev-pointer.clear-button(ng-click="Navbar.popState()")
   h3 Sign up
-  button.next-pointer.clear-button(ui-sref="{{navNextSref ? navNextSref : '.'}}", ng-disabled="!navNextEnabled") Next
+  button.next-pointer.clear-button(ng-click="navGoNext()", ng-disabled="!navNextEnabled") Next
