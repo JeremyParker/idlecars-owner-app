@@ -3,43 +3,36 @@
 angular.module('idlecars')
 .controller('account.controller', function ($scope, $state, MyDriverService) {
 
-  var accountInfoFields = [
-    {client: 'First Name', server: 'first_name', link: ''},
-    {client: 'Last Name', server: 'last_name', link: ''},
-    {client: 'Email', server: 'email', link: ''},
-    {client: 'Phone', server: 'phone_number', link: ''}
-  ];
-  var driverDocumentsFields = [
-    {client: 'Driver License', server: 'driver_license_image', link: '.uploadDriverLicense({goRequiredDocState: false})'},
-    {client: 'FHV License', server: 'fhv_license_image', link: '.uploadFhvLicense({goRequiredDocState: false})'},
-    {client: 'Defensive Driving', server: 'defensive_cert_image', link: '.uploadAddressProof({goRequiredDocState: false})'},
-    {client: 'Proof of Address', server: 'address_proof_image', link: '.uploadDefensiveCert({goRequiredDocState: false})'}
-  ];
+  var accountInfoFields = {
+    first_name: {title: 'First Name', link: ''},
+    last_name: {title: 'Last Name', link: ''},
+    email: {title: 'Email', link: ''},
+    phone_number: {title: 'Phone', link: ''}
+  };
+
+  var driverDocumentsFields = {
+    driver_license_image: {title: 'Driver License', link: '.uploadDriverLicense({goRequiredDocState: false})'},
+    fhv_license_image: {title: 'FHV License', link: '.uploadFhvLicense({goRequiredDocState: false})'},
+    defensive_cert_image: {title: 'Defensive Driving', link: '.uploadAddressProof({goRequiredDocState: false})'},
+    address_proof_image: {title: 'Proof of Address', link: '.uploadDefensiveCert({goRequiredDocState: false})'}
+  };
 
   $scope.driverDocuments = [];
   $scope.accountInfo = [];
 
   MyDriverService.get().then(
     function (me) {
+      for (var key in accountInfoFields) {
+        $scope.accountInfo.push({title: accountInfoFields[key].title, content: me[key], link: accountInfoFields[key].link});
+      }
 
-      for (var i = 0; i < accountInfoFields.length; i++) {
-        $scope.accountInfo.push({title: accountInfoFields[i].client});
-
-        var license = accountInfoFields[i].server;
-        if (me[license] && me[license] != '') {
-          $scope.accountInfo[i].content = me[license];
-        };
-      };
-
-      for (var i = 0; i < driverDocumentsFields.length; i++) {
-        $scope.driverDocuments.push({title: driverDocumentsFields[i].client, link: driverDocumentsFields[i].link});
-
-        var license = driverDocumentsFields[i].server;
-        if (me[license] && me[license] != '') {
-          $scope.driverDocuments[i].image = me[license];
-        };
-      };
-
+      for (var key in driverDocumentsFields) {
+        var image;
+        if (me[key] && me[key] != '') {
+          image = me[key];
+        }
+        $scope.driverDocuments.push({title: driverDocumentsFields[key].title, image: image, link: driverDocumentsFields[key].link});
+      }
     },
     function () {
       $state.go('cars');
