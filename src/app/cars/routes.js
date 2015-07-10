@@ -21,10 +21,10 @@ angular.module('idlecars')
 
     .state('cars.detail', {
       url: 'cars/:carId',
+      params: {car: null},
       views: {
         'content@': {
           templateUrl: 'app/cars/detail.html',
-          params: {car: null},
           controller: 'cars.detail.controller',
         },
       },
@@ -48,6 +48,7 @@ angular.module('idlecars')
       }
     })
 
+    // TODO: remove this state
     .state('cars.detail.booking', {
       url: '/booking',
       views: {
@@ -63,6 +64,7 @@ angular.module('idlecars')
       },
     })
 
+    // TODO: remove this state
     .state('cars.detail.booking.email', {
       templateUrl: 'app/cars/booking_form.html',
       controller: 'booking.form.controller',
