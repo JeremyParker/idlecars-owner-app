@@ -3,7 +3,7 @@
     .section-row(ng-repeat='item in accountInfo')
       .row-content(ng-class='{"has-bar": !$last}')
         .pull-left.medium-gray {{item.title}}
-        .content-main {{item.content}}
+        .content-main.next-pointer {{item.content}}
 
   .section-interlude
     .b-inter-content All driver documents are required
@@ -13,7 +13,7 @@
     .section-row
       .section-title.pull-left.medium-gray Driver Documents
     .section-row(ng-repeat='item in driverDocuments')
-      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='cars')
+      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
         .column-content
           .pull-left.title-padding {{item.title}}
           .img-upload
