@@ -10,10 +10,10 @@ angular.module('idlecars')
     {client: 'Phone', server: 'phone_number', link: ''}
   ];
   var driverDocumentsFields = [
-    {client: 'Driver License', server: 'driver_license_image', link: 'driverAccount.uploadDriverLicense'},
-    {client: 'FHV License', server: 'fhv_license_image', link: 'driverAccount.uploadFhvLicense'},
-    {client: 'Defensive Driving', server: 'defensive_cert_image', link: 'driverAccount.uploadAddressProof'},
-    {client: 'Proof of Address', server: 'address_proof_image', link: 'driverAccount.uploadDefensiveCert'}
+    {client: 'Driver License', server: 'driver_license_image', link: '.uploadDriverLicense({goRequiredDocState: false})'},
+    {client: 'FHV License', server: 'fhv_license_image', link: '.uploadFhvLicense({goRequiredDocState: false})'},
+    {client: 'Defensive Driving', server: 'defensive_cert_image', link: '.uploadAddressProof({goRequiredDocState: false})'},
+    {client: 'Proof of Address', server: 'address_proof_image', link: '.uploadDefensiveCert({goRequiredDocState: false})'}
   ];
 
   $scope.driverDocuments = [];
@@ -23,7 +23,7 @@ angular.module('idlecars')
     function (me) {
 
       for (var i = 0; i < accountInfoFields.length; i++) {
-        $scope.accountInfo.push({'title': accountInfoFields[i].client});
+        $scope.accountInfo.push({title: accountInfoFields[i].client});
 
         var license = accountInfoFields[i].server;
         if (me[license] && me[license] != '') {
@@ -32,7 +32,7 @@ angular.module('idlecars')
       };
 
       for (var i = 0; i < driverDocumentsFields.length; i++) {
-        $scope.driverDocuments.push({'title': driverDocumentsFields[i].client, link: driverDocumentsFields[i].link});
+        $scope.driverDocuments.push({title: driverDocumentsFields[i].client, link: driverDocumentsFields[i].link});
 
         var license = driverDocumentsFields[i].server;
         if (me[license] && me[license] != '') {

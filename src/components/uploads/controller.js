@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('upload.controller', function($scope, $timeout, $q, $state, UserUploadService, MyDriverService, DocRouterService) {
+.controller('upload.controller', function($scope, $stateParams, $timeout, $q, $state, UserUploadService, MyDriverService, DocRouterService) {
   // TODO: this component is not a component at all.. it needs to be generified
   $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.isBusy = false;
@@ -15,7 +15,7 @@ angular.module('idlecars')
     $timeout(function() {
       _associateToDriver(fileUrl).then(function () {
         $scope.isBusy = false;
-        return DocRouterService.requiredDocState();
+        return _getNextState();
       }).then(function(nextState) {
         $state.go(nextState || 'bookingSuccess');
       });
@@ -37,6 +37,13 @@ angular.module('idlecars')
         fileData: fileData,
       }).then(_uploadDidComplete);
     })
+  }
+
+  var _getNextState = function () {
+    if ($stateParams.goRequiredDocState) {
+      return DocRouterService.requiredDocState();
+    };
+    return 'driverAccount';
   }
 
   var _dataUrlToData = function (dataURL) {
