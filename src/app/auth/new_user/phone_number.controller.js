@@ -16,7 +16,7 @@ angular.module('idlecars')
     var phoneNumber = Restangular.one('phone_numbers', $scope.newUser.phone_number);
     phoneNumber.get()
     .then(function() {
-      $state.go('login').then(function() {
+      $state.go('login', {username: $scope.newUser.phone_number}).then(function() {
         AppNotificationService.push("Cool, you already have an account, enter your password.");
       });
     })

@@ -1,14 +1,13 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('auth.login.controller', function ($scope, FieldService, Restangular, AppNotificationService, RequireAuthService, AuthService) {
+.controller('auth.login.controller', function ($scope, $stateParams, $timeout, FieldService, Restangular, AppNotificationService, RequireAuthService, AuthService) {
 
   // TODO: this should not reference the Field Service
   $scope.min_password = FieldService.getMinPassword();
 
-  // TODO: pass the phone number in as a route param
-  if (FieldService.user_account) {
-    $scope.user = {username: FieldService.user_account.phone_number, password: ''};
+  if ($stateParams.username) {
+    $timeout(function() { $scope.user.username = $stateParams.username; });
   }
 
   $scope.login = function() {
