@@ -1,0 +1,18 @@
+.form-container
+  .text-wrapper
+    ng-form(name='fieldForm', novalidate)
+      div(ng-repeat='field in fields')
+        label(for="{{field.name}}") {{field.label}}
+        input.no-box(
+          type='{{field.type}}',
+          name='{{field.name}}',
+          placeholder='{{field.placeholder}}',
+          maxlength='{{field.maxlength}}',
+          ng-minlength='{{field.minlength}}',
+          ng-pattern='field.pattern',
+          ng-model="newUser[field.name]",
+          ng-change='validateForm()',
+          ng-keypress='Field.keyPressed($event)',
+          auto-focus='{{field.autoFocus}}',
+          required,
+          autocomplete="off")

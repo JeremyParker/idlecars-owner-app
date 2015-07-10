@@ -63,16 +63,6 @@ angular.module('idlecars')
       },
     })
 
-    .state('cars.detail.booking.phoneNumber', {
-      templateUrl: 'app/cars/booking_form.html',
-      controller: 'booking.form.controller',
-    })
-
-    .state('cars.detail.booking.createPassword', {
-      templateUrl: 'app/cars/booking_form.html',
-      controller: 'booking.form.controller',
-    })
-
     .state('cars.detail.booking.email', {
       templateUrl: 'app/cars/booking_form.html',
       controller: 'booking.form.controller',
