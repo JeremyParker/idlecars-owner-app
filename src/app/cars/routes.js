@@ -31,6 +31,7 @@ angular.module('idlecars')
     })
 
     .state('cars.detail.newBooking', {
+      // TODO: mark this state as notInHistory
       controller: 'cars.newBooking.controller',
       data: {requireAuth: true},
     })

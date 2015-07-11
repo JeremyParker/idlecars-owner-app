@@ -9,7 +9,6 @@ angular.module('idlecars')
     MyDriverService,
     AuthService,
     DocRouterService,
-    NewBookingService,
     Restangular,
     AppNotificationService
   ) {
@@ -53,10 +52,6 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  var _createBooking = function () {
-    NewBookingService.createBooking($stateParams.carId);
-  }
-
   var _passwordConfirm = function () {
     return self.user_account.password === self.user_account.re_password
   }
@@ -74,28 +69,6 @@ angular.module('idlecars')
   };
 
   self.formParts = {
-    'cars.detail.booking.phoneNumber': {
-      fields: phoneFields,
-      goNext: function () {
-        var phoneNumber = Restangular.one('phone_numbers', self.user_account.phone_number);
-        phoneNumber.get().then(function (response) {
-          $state.go('login');
-        }, function (error) {
-          $state.go('^.createPassword');
-        })
-      },
-    },
-    'cars.detail.booking.createPassword': {
-      fields: createPasswordFields,
-      goNext: function () {
-        if (_passwordConfirm()) {
-          self.createDriver();
-        }
-        else {
-          AppNotificationService.push('Sorry, password did not match')
-        };
-      },
-    },
     'cars.detail.booking.email': {
       fields: emailFields,
       goNext: function () {
@@ -105,15 +78,6 @@ angular.module('idlecars')
   }
 
   self.isValid = false;
-
-  self.createDriver = function () {
-    var user_account = self.user_account;
-
-    var newDriver = new DriverService(user_account);
-    newDriver.$save().then(function() {
-      return AuthService.login(self.getLoginParams());
-    }).then(_createBooking);
-  }
 
   self.saveEmail =  function () {
     var patchData = {};
