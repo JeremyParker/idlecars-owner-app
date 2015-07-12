@@ -17,7 +17,7 @@ angular.module('idlecars')
           controller: function($scope) {
             $scope.newUser = {};
           },
-          template: '<ui-view/>',
+          template: '<ui-view class="flex"/>',
         }
       },
     })
