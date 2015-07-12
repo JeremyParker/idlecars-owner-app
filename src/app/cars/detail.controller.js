@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.detail.controller', function ($scope, $state, $stateParams, CarService, AuthService, NewBookingService) {
-
+.controller('cars.detail.controller', function ($scope, $state, $stateParams, CarService) {
   if (!$stateParams.car) {
     CarService.get({carId: $stateParams.carId}).$promise.then(
       function(car) {
@@ -13,14 +12,6 @@ angular.module('idlecars')
         $state.go('cars');
       }
     );
-  }
-
-  $scope.didTapRent = function() {
-    if (AuthService.isLoggedIn()) {
-      NewBookingService.createBooking($stateParams.carId);
-    } else {
-      $state.go('.booking.phoneNumber');
-    }
   }
 
   $scope.car = $stateParams.car;
