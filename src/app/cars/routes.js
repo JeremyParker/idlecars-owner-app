@@ -58,7 +58,7 @@ angular.module('idlecars')
           controller: 'navbarField.controller',
         },
         'content@': {
-          template: '<ui-view />',
+          template: '<ui-view class="flex"/>',
           params: {car: null},
           controller: 'cars.booking.controller'
         },
