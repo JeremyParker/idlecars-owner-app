@@ -24,7 +24,7 @@ angular.module('idlecars')
   };
 
   factory.getNavbarInfo = function () {
-    return navbarInfo[$state.current.name] || {title: '', enableBack: true, enableNext: true};
+    return navbarInfo[$state.current.name] || {title: '', enableBack: true, enableMenu: true};
   }
 
   return factory;
