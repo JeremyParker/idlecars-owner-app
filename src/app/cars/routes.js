@@ -33,6 +33,7 @@ angular.module('idlecars')
     .state('cars.detail.newBooking', {
       // TODO: mark this state as notInHistory
       controller: 'cars.newBooking.controller',
+      templateUrl: 'components/loading/full_screen_loading.html',
       data: {requireAuth: true},
     })
 
