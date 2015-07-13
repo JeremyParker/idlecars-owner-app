@@ -27,7 +27,7 @@ angular.module('idlecars')
       }
 
       for (var key in driverDocumentsFields) {
-        var image;
+        var image = null;
         if (me[key] && me[key] != '') {
           image = me[key];
         }
