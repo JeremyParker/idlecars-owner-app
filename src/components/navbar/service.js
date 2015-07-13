@@ -13,10 +13,10 @@ angular.module('idlecars')
     'driverAccount.uploadDefensiveCert': {title: 'Driver Documents', enableBack: false, enableNext: false}
   };
 
-  var customNavbar = {};
+  var customNavbar;
 
   factory.setCustomNavbar = function (info) {
-    customNavbar['navbar'] = info;
+    customNavbar = info;
   };
 
   factory.popState = function() {
@@ -29,8 +29,8 @@ angular.module('idlecars')
   };
 
   factory.getNavbarInfo = function () {
-    var custom = customNavbar['navbar'];
-    customNavbar = {};
+    var custom = customNavbar;
+    customNavbar = null;
     return  custom || navbarInfo[$state.current.name] || {title: '', enableBack: true, enableNext: true};
   }
 
