@@ -83,4 +83,11 @@ angular.module('idlecars')
 
     .state('driverAccount.uploadAddressProof', paState)
 
+    .state('driverAccount.uploadDriverLicenseCopy', dlState)
+
+    .state('driverAccount.uploadFhvLicenseCopy', flState)
+
+    .state('driverAccount.uploadDefensiveCertCopy', ddState)
+
+    .state('driverAccount.uploadAddressProofCopy', paState)
 })
