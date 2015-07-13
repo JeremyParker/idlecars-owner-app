@@ -13,6 +13,12 @@ angular.module('idlecars')
     'driverAccount.uploadDefensiveCert': {title: 'Driver Documents', enableBack: false, enableNext: false}
   };
 
+  var customNavbar = {};
+
+  factory.setCustomNavbar = function (info) {
+    customNavbar['navbar'] = info;
+  };
+
   factory.popState = function() {
     HistoryService.goPreviousState();
   };
@@ -23,7 +29,9 @@ angular.module('idlecars')
   };
 
   factory.getNavbarInfo = function () {
-    return navbarInfo[$state.current.name] || {title: '', enableBack: true, enableNext: true};
+    var custom = customNavbar['navbar'];
+    customNavbar = {};
+    return  custom || navbarInfo[$state.current.name] || {title: '', enableBack: true, enableNext: true};
   }
 
   return factory;
