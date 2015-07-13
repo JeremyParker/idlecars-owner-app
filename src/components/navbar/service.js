@@ -19,7 +19,7 @@ angular.module('idlecars')
 
   factory.getNavbarInfo = function () {
     var navbarStateData = null;
-    if ($state.current.data && $state.current.data.navbarInfo){
+    if ($state.current.data){
       navbarStateData = $state.current.data.navbarInfo;
     };
     return navbarStateParams[$stateParams.navbarType] || navbarStateData || {title: '', enableBack: true, enableNext: true};
