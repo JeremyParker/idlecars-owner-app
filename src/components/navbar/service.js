@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.factory('NavbarService', function ($location, $state, HistoryService) {
+.factory('NavbarService', function ($location, $state, $stateParams, HistoryService) {
   var factory = {};
 
   var navbarInfo = {
@@ -13,10 +13,14 @@ angular.module('idlecars')
     'driverAccount.uploadDefensiveCert': {title: 'Driver Documents'}
   };
 
-  var customNavbar;
+  var navbarStateParams = {
+    navbar1: {title: 'Driver Documents', enableBack: true}
+  }
+
+  var setCustomNavbar;
 
   factory.setCustomNavbar = function (info) {
-    customNavbar = info;
+    setCustomNavbar = info;
   };
 
   factory.popState = function() {
@@ -29,9 +33,9 @@ angular.module('idlecars')
   };
 
   factory.getNavbarInfo = function () {
-    var custom = customNavbar;
-    customNavbar = null;
-    return  custom || navbarInfo[$state.current.name] || {title: '', enableBack: true, enableNext: true};
+    var setCustom = setCustomNavbar;
+    setCustomNavbar = null;
+    return  setCustom || navbarStateParams[$stateParams.navbarType] || navbarInfo[$state.current.name] || {title: '', enableBack: true, enableNext: true};
   }
 
   return factory;
