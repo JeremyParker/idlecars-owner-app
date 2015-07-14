@@ -81,7 +81,7 @@ angular.module('idlecars')
 
     .state('driverAccount.update.uploadDriverLicense', {
       url: '/driver-license',
-      data: {navbarInfo: {title: 'Driver Documents'}},
+      data: {navbarInfo: {title: 'Driver License', enableBack: true}},
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
@@ -92,7 +92,7 @@ angular.module('idlecars')
 
     .state('driverAccount.update.uploadFhvLicense', {
       url: '/fhv-license',
-      data: {navbarInfo: {title: 'Driver Documents'}},
+      data: {navbarInfo: {title: 'Hack License', enableBack: true}},
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
@@ -103,7 +103,7 @@ angular.module('idlecars')
 
     .state('driverAccount.update.uploadDefensiveCert', {
       url: '/defensive-driving-certificate',
-      data: {navbarInfo: {title: 'Driver Documents'}},
+      data: {navbarInfo: {title: 'Defensive Driving', enableBack: true}},
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
@@ -114,7 +114,7 @@ angular.module('idlecars')
 
     .state('driverAccount.update.uploadAddressProof', {
       url: '/proof-of-address',
-      data: {navbarInfo: {title: 'Driver Documents'}},
+      data: {navbarInfo: {title: 'Proof of Address', enableBack: true}},
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',

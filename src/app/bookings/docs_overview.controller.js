@@ -20,14 +20,14 @@ angular.module('idlecars')
         isUploaded: me.fhv_license_image,
       },
       {
-        title: 'Proof of Address',
-        sref: 'driverAccount.newBooking.uploadAddressProof',
-        isUploaded: me.address_proof_image,
-      },
-      {
         title: 'Defensive Driving',
         sref: 'driverAccount.newBooking.uploadDefensiveCert',
         isUploaded: me.defensive_cert_image,
+      },
+      {
+        title: 'Proof of Address',
+        sref: 'driverAccount.newBooking.uploadAddressProof',
+        isUploaded: me.address_proof_image,
       },
     ]
 
