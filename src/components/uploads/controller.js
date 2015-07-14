@@ -42,7 +42,7 @@ angular.module('idlecars')
   var _getNextState = function () {
     var stateName = $state.current.name;
 
-    if (stateName.includes('newBooking')) {
+    if (stateName.indexOf('newBooking') > -1) {
       return DocRouterService.requiredDocState();
     };
     return 'driverAccount';
