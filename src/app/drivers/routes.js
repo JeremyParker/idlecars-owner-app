@@ -29,9 +29,10 @@ angular.module('idlecars')
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
-          controller: function($scope) {
+          controller: function($scope, $stateParams) {
             $scope.fieldName = 'driver_license_image';
             $scope.uploadTitle = 'your Driver License';
+            $scope.skipShow = $stateParams.goRequiredDocState;
           },
         }
       }
@@ -43,9 +44,10 @@ angular.module('idlecars')
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
-          controller: function($scope) {
+          controller: function($scope, $stateParams) {
             $scope.fieldName = 'fhv_license_image';
             $scope.uploadTitle = 'your Hack License';
+            $scope.skipShow = $stateParams.goRequiredDocState;
           },
         }
       }
@@ -57,9 +59,10 @@ angular.module('idlecars')
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
-          controller: function($scope) {
+          controller: function($scope, $stateParams) {
             $scope.fieldName = 'address_proof_image';
             $scope.uploadTitle = 'a bill with your address on it';
+            $scope.skipShow = $stateParams.goRequiredDocState;
           },
         }
       }
@@ -70,9 +73,10 @@ angular.module('idlecars')
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
-          controller: function($scope) {
+          controller: function($scope, $stateParams) {
             $scope.fieldName = 'defensive_cert_image';
             $scope.uploadTitle = 'your Defensive Driving certificate';
+            $scope.skipShow = $stateParams.goRequiredDocState;
           },
         }
       }

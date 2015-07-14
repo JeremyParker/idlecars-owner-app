@@ -6,4 +6,4 @@
   ic-upload(field-name="{{fieldName}}")
 
   .skip-link
-    a(ui-sref="bookingDetail({goRequiredDoc: false})") skip for now
+    a(ng-if='skipShow', ui-sref="bookingDetail({goRequiredDoc: false})") skip for now
