@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('upload.controller', function($scope, $stateParams, $timeout, $q, $state, UserUploadService, MyDriverService, DocRouterService) {
+.controller('upload.controller', function($scope, $timeout, $q, $state, UserUploadService, MyDriverService, DocRouterService) {
   // TODO: this component is not a component at all.. it needs to be generified
   $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.isBusy = false;
