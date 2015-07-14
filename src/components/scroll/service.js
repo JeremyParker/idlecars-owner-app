@@ -1,13 +1,6 @@
 angular.module('idlecars')
-.factory('ScrollService', function() {
-  service = {};
+.service('ScrollService', function() {
 
-  service.scrollPosition = {};
-
-  service.getPosition = function () {
-
-  }
-
-  return service;
+  this.scrollPosition = {};
 
 })
