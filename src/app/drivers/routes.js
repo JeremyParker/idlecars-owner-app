@@ -63,6 +63,7 @@ angular.module('idlecars')
 
     .state('driverAccount.uploadDefensiveCert', {
       url: '/defensive-driving-certificate',
+      data: {navbarInfo: {title: 'Driver Documents'}},
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
