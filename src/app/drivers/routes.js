@@ -24,6 +24,7 @@ angular.module('idlecars')
 
     .state('driverAccount.uploadDriverLicense', {
       url: '/driver-license',
+      data: {navbarInfo: {title: 'Driver Documents'}},
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
@@ -37,6 +38,7 @@ angular.module('idlecars')
 
     .state('driverAccount.uploadFhvLicense', {
       url: '/fhv-license',
+      data: {navbarInfo: {title: 'Driver Documents'}},
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
@@ -50,6 +52,7 @@ angular.module('idlecars')
 
     .state('driverAccount.uploadAddressProof', {
       url: '/proof-of-address',
+      data: {navbarInfo: {title: 'Driver Documents'}},
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
