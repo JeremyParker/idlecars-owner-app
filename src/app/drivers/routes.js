@@ -8,7 +8,8 @@ angular.module('idlecars')
     .state('driverAccount', {
       url: '/account',
       params: {
-        goRequiredDocState: true
+        goRequiredDocState: true,
+        navbarType: null
       },
       views: {
         'navbar@': {
