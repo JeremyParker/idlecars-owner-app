@@ -7,6 +7,7 @@ angular.module('idlecars')
 
     .state('driverAccount', {
       url: '/account',
+      data: {requireAuth: true},
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',
