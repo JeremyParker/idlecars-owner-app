@@ -19,40 +19,40 @@ angular.module('idlecars')
       }
     })
 
-    .state('driverAccount.newBooking', {
+    .state('driverAccount.onboarding', {
       abstract: true,
-      url: '/new-booking',
+      url: '/onboarding',
       data: {navbarInfo: {title: 'Driver Documents'}},
       views: {
         'content@': {
           template: '<ui-view class="flex"/>',
-          controller: 'newbooking.upload.controller',
+          controller: 'onboarding.upload.controller',
         }
       }
     })
 
-    .state('driverAccount.newBooking.uploadDriverLicense', {
+    .state('driverAccount.onboarding.uploadDriverLicense', {
       url: '/driver-license',
       templateUrl: 'app/drivers/upload.html',
-      controller: 'newbooking.driverlicense.controller',
+      controller: 'onboarding.driverlicense.controller',
     })
 
-    .state('driverAccount.newBooking.uploadFhvLicense', {
+    .state('driverAccount.onboarding.uploadFhvLicense', {
       url: '/fhv-license',
       templateUrl: 'app/drivers/upload.html',
-      controller: 'newbooking.fhvlicense.controller',
+      controller: 'onboarding.fhvlicense.controller',
     })
 
-    .state('driverAccount.newBooking.uploadDefensiveCert', {
+    .state('driverAccount.onboarding.uploadDefensiveCert', {
       url: '/defensive-driving-certificate',
       templateUrl: 'app/drivers/upload.html',
-      controller: 'newbooking.defensivedriving.controller',
+      controller: 'onboarding.defensivedriving.controller',
     })
 
-    .state('driverAccount.newBooking.uploadAddressProof', {
+    .state('driverAccount.onboarding.uploadAddressProof', {
       url: '/proof-of-address',
       templateUrl: 'app/drivers/upload.html',
-      controller: 'newbooking.proofaddress.controller',
+      controller: 'onboarding.proofaddress.controller',
     })
 
     .state('driverAccount.update', {
