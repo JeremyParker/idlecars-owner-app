@@ -15,7 +15,7 @@ angular.module('idlecars')
     $timeout(function() {
       _associateToDriver(fileUrl).then(function () {
         $scope.isBusy = false;
-        return _getNextState();
+        return $scope.customNextState || DocRouterService.requiredDocState();
       }).then(function(nextState) {
         $state.go(nextState || 'bookingSuccess');
       });
@@ -37,15 +37,6 @@ angular.module('idlecars')
         fileData: fileData,
       }).then(_uploadDidComplete);
     })
-  }
-
-  var _getNextState = function () {
-    var stateName = $state.current.name;
-
-    if (stateName.indexOf('onboarding') > -1) {
-      return DocRouterService.requiredDocState();
-    };
-    return 'driverAccount';
   }
 
   var _dataUrlToData = function (dataURL) {
