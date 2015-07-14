@@ -2,7 +2,7 @@
 
 angular.module('idlecars')
 .controller('newbooking.upload.controller', function ($scope) {
-  $scope.skipShow = true;
+  $scope.showSkipLink = true;
 })
 
 .controller('newbooking.driverlicense.controller', function ($scope) {

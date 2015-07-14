@@ -3,6 +3,7 @@
 angular.module('idlecars')
 .controller('account.controller', function ($scope, $state, MyDriverService) {
 
+  // TODO: we should move it to a presenter.
   var accountInfoFields = {
     first_name: {title: 'First Name', link: ''},
     last_name: {title: 'Last Name', link: ''},
