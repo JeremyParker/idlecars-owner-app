@@ -23,7 +23,7 @@ angular.module('idlecars')
     })
 
     .state('driverAccount.uploadDriverLicense', {
-      url: '/driverlicense',
+      url: '/driver-license',
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
@@ -36,7 +36,7 @@ angular.module('idlecars')
     })
 
     .state('driverAccount.uploadFhvLicense', {
-      url: '/fhvlicense',
+      url: '/fhv-license',
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
@@ -49,7 +49,7 @@ angular.module('idlecars')
     })
 
     .state('driverAccount.uploadAddressProof', {
-      url: '/proofofaddress',
+      url: '/proof-of-address',
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
@@ -62,7 +62,7 @@ angular.module('idlecars')
     })
 
     .state('driverAccount.uploadDefensiveCert', {
-      url: '/defensivedrivingcertificate',
+      url: '/defensive-driving-certificate',
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
