@@ -33,9 +33,6 @@ angular.module('idlecars')
         }
         $scope.driverDocuments.push({title: driverDocumentsFields[key].title, image: image, link: driverDocumentsFields[key].link});
       }
-    },
-    function () {
-      $state.go('cars');
     }
   )
 
