@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.directive('scroll', function ($interval, $state, ScrollService) {
+.directive('saveScroll', function ($interval, $state, ScrollService) {
   return {
     restrict: 'A',
     link: function (scope, element, attrs) {
