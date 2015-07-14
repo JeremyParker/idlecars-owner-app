@@ -11,22 +11,22 @@ angular.module('idlecars')
     var docs = [
       {
         title: 'Driver License',
-        sref: 'driverAccount.uploadDriverLicense',
+        sref: 'driverAccount.newBooking.uploadDriverLicense',
         isUploaded: me.driver_license_image,
       },
       {
         title: 'FHV License',
-        sref: 'driverAccount.uploadFhvLicense',
+        sref: 'driverAccount.newBooking.uploadFhvLicense',
         isUploaded: me.fhv_license_image,
       },
       {
         title: 'Proof of Address',
-        sref: 'driverAccount.uploadAddressProof',
+        sref: 'driverAccount.newBooking.uploadAddressProof',
         isUploaded: me.address_proof_image,
       },
       {
         title: 'Defensive Driving',
-        sref: 'driverAccount.uploadDefensiveCert',
+        sref: 'driverAccount.newBooking.uploadDefensiveCert',
         isUploaded: me.defensive_cert_image,
       },
     ]

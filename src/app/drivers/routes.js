@@ -23,61 +23,102 @@ angular.module('idlecars')
       }
     })
 
-    .state('driverAccount.uploadDriverLicense', {
+    .state('driverAccount.newBooking', {
+      abstract: true,
+      url: '/new-booking',
+      controller: 'newbooking.upload.controller',
+    })
+
+    .state('driverAccount.newBooking.uploadDriverLicense', {
       url: '/driver-license',
       data: {navbarInfo: {title: 'Driver Documents'}},
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
-          controller: function($scope, $stateParams) {
-            $scope.fieldName = 'driver_license_image';
-            $scope.uploadTitle = 'your Driver License';
-            $scope.skipShow = $stateParams.goRequiredDocState;
-          },
+          controller: 'newbooking.driverlicense.controller',
         }
       }
     })
 
-    .state('driverAccount.uploadFhvLicense', {
+    .state('driverAccount.newBooking.uploadFhvLicense', {
       url: '/fhv-license',
       data: {navbarInfo: {title: 'Driver Documents'}},
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
-          controller: function($scope, $stateParams) {
-            $scope.fieldName = 'fhv_license_image';
-            $scope.uploadTitle = 'your Hack License';
-            $scope.skipShow = $stateParams.goRequiredDocState;
-          },
+          controller: 'newbooking.fhvlicense.controller',
         }
       }
     })
 
-    .state('driverAccount.uploadAddressProof', {
+    .state('driverAccount.newBooking.uploadDefensiveCert', {
+      url: '/defensive-driving-certificate',
+      data: {navbarInfo: {title: 'Driver Documents'}},
+      views: {
+        'content@': {
+          templateUrl: 'app/drivers/upload.html',
+          controller: 'newbooking.defensivedriving.controller',
+        }
+      }
+    })
+
+    .state('driverAccount.newBooking.uploadAddressProof', {
       url: '/proof-of-address',
       data: {navbarInfo: {title: 'Driver Documents'}},
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
-          controller: function($scope, $stateParams) {
-            $scope.fieldName = 'address_proof_image';
-            $scope.uploadTitle = 'a bill with your address on it';
-            $scope.skipShow = $stateParams.goRequiredDocState;
-          },
+          controller: 'newbooking.proofaddress.controller',
         }
       }
     })
 
-    .state('driverAccount.uploadDefensiveCert', {
-      url: '/defensive-driving-certificate',
+    .state('driverAccount.update', {
+      abstract: true,
+      url: '/update',
+      controller: 'update.upload.controller',
+    })
+
+    .state('driverAccount.update.uploadDriverLicense', {
+      url: '/driver-license',
+      data: {navbarInfo: {title: 'Driver Documents'}},
       views: {
         'content@': {
           templateUrl: 'app/drivers/upload.html',
-          controller: function($scope, $stateParams) {
-            $scope.fieldName = 'defensive_cert_image';
-            $scope.uploadTitle = 'your Defensive Driving certificate';
-            $scope.skipShow = $stateParams.goRequiredDocState;
-          },
+          controller: 'update.driverlicense.controller',
+        }
+      }
+    })
+
+    .state('driverAccount.update.uploadFhvLicense', {
+      url: '/fhv-license',
+      data: {navbarInfo: {title: 'Driver Documents'}},
+      views: {
+        'content@': {
+          templateUrl: 'app/drivers/upload.html',
+          controller: 'update.fhvlicense.controller',
+        }
+      }
+    })
+
+    .state('driverAccount.update.uploadDefensiveCert', {
+      url: '/defensive-driving-certificate',
+      data: {navbarInfo: {title: 'Driver Documents'}},
+      views: {
+        'content@': {
+          templateUrl: 'app/drivers/upload.html',
+          controller: 'update.defensivedriving.controller',
+        }
+      }
+    })
+
+    .state('driverAccount.update.uploadAddressProof', {
+      url: '/proof-of-address',
+      data: {navbarInfo: {title: 'Driver Documents'}},
+      views: {
+        'content@': {
+          templateUrl: 'app/drivers/upload.html',
+          controller: 'update.proofaddress.controller',
         }
       }
     })
