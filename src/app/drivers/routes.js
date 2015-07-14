@@ -7,10 +7,6 @@ angular.module('idlecars')
 
     .state('driverAccount', {
       url: '/account',
-      params: {
-        goRequiredDocState: true,
-        navbarType: null
-      },
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',

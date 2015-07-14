@@ -40,7 +40,9 @@ angular.module('idlecars')
   }
 
   var _getNextState = function () {
-    if ($stateParams.goRequiredDocState) {
+    var stateName = $state.current.name;
+
+    if (stateName.includes('newBooking')) {
       return DocRouterService.requiredDocState();
     };
     return 'driverAccount';
