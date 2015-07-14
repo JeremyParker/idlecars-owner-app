@@ -1,24 +1,21 @@
 'use strict';
 
 angular.module('idlecars')
-.directive('scroll', function ($interval, $timeout, $state, ScrollService) {
-
+.directive('scroll', function ($timeout, $state, ScrollService) {
   return {
     restrict: 'A',
     link: function (scope, element, attrs) {
-      scope.$watch(function () {return $state.current.name}, function () {
-        if (ScrollService.scrollPosition[$state.current.name]) {
-          $timeout(function () {
-            element[0].scrollTop = 480;
-            console.log('changed')
-          })
-        };
-      })
+      var position = ScrollService.scrollPosition[$state.current.name];
 
-      $interval(function () {
+      scope.$on('$viewContentLoaded', function(){
+        $timeout(function () {
+          element[0].scrollTop = position;
+        }, 500)
+      });
+
+      element[0].onscroll = function () {
         ScrollService.scrollPosition[$state.current.name] = element[0].scrollTop;
-        console.log(ScrollService.scrollPosition)
-      }, 500)
+      }
     },
   };
 });
