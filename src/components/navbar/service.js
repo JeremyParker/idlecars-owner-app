@@ -5,7 +5,10 @@ angular.module('idlecars')
   var factory = {};
 
   var navbarStateParams = {
-    accountUpdate: {title: 'Driver Documents', enableBack: true}
+    accountUpdateDriverLicense: {title: 'Driver License', enableBack: true},
+    accountUpdateFhvLicense: {title: 'Hack License', enableBack: true},
+    accountUpdateDefensiveCert: {title: 'Defensive Driving', enableBack: true},
+    accountUpdateAddressProof: {title: 'Proof of Address', enableBack: true}
   }
 
   factory.popState = function() {

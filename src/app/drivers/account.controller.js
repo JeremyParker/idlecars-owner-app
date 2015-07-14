@@ -11,10 +11,10 @@ angular.module('idlecars')
   };
 
   var driverDocumentsFields = {
-    driver_license_image: {title: 'Driver License', link: '.uploadDriverLicense({goRequiredDocState: false, navbarType: "accountUpdate"})'},
-    fhv_license_image: {title: 'FHV License', link: '.uploadFhvLicense({goRequiredDocState: false, navbarType: "accountUpdate"})'},
-    defensive_cert_image: {title: 'Defensive Driving', link: '.uploadDefensiveCert({goRequiredDocState: false, navbarType: "accountUpdate"})'},
-    address_proof_image: {title: 'Proof of Address', link: '.uploadAddressProof({goRequiredDocState: false, navbarType: "accountUpdate"})'}
+    driver_license_image: {title: 'Driver License', link: '.uploadDriverLicense({goRequiredDocState: false, navbarType: "accountUpdateDriverLicense"})'},
+    fhv_license_image: {title: 'FHV License', link: '.uploadFhvLicense({goRequiredDocState: false, navbarType: "accountUpdateFhvLicense"})'},
+    defensive_cert_image: {title: 'Defensive Driving', link: '.uploadDefensiveCert({goRequiredDocState: false, navbarType: "accountUpdateDefensiveCert"})'},
+    address_proof_image: {title: 'Proof of Address', link: '.uploadAddressProof({goRequiredDocState: false, navbarType: "accountUpdateAddressProof"})'}
   };
 
   $scope.driverDocuments = [];
