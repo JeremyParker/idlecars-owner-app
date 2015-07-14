@@ -11,11 +11,7 @@ angular.module('idlecars')
     'driverAccount.uploadDriverLicense': {title: 'Driver Documents', enableBack: false, enableNext: false},
     'driverAccount.uploadFhvLicense': {title: 'Driver Documents', enableBack: false, enableNext: false},
     'driverAccount.uploadAddressProof': {title: 'Driver Documents', enableBack: false, enableNext: false},
-    'driverAccount.uploadDefensiveCert': {title: 'Driver Documents', enableBack: false, enableNext: false},
-    'driverAccount.uploadDriverLicenseCopy': {title: 'Driver Documents', enableBack: true, enableNext: false},
-    'driverAccount.uploadFhvLicenseCopy': {title: 'Driver Documents', enableBack: true, enableNext: false},
-    'driverAccount.uploadAddressProofCopy': {title: 'Driver Documents', enableBack: true, enableNext: false},
-    'driverAccount.uploadDefensiveCertCopy': {title: 'Driver Documents', enableBack: true, enableNext: false}
+    'driverAccount.uploadDefensiveCert': {title: 'Driver Documents', enableBack: false, enableNext: false}
   };
 
   factory.popState = function() {
