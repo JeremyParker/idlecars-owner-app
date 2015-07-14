@@ -3,7 +3,7 @@
     div Please upload a photo of
     .upload-title {{uploadTitle}}
 
-  ic-upload(field-name="{{fieldName}}", next-state="{{nextState}}")
+  ic-upload(field-name="{{fieldName}}", upload-next-state="{{uploadNextState}}")
 
   .skip-link
     a(ng-if='showSkipLink', ui-sref="bookingDetail({goRequiredDoc: false})") skip for now
