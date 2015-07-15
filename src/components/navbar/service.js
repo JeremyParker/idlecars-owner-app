@@ -4,9 +4,7 @@ angular.module('idlecars')
 .factory('NavbarService', function ($location, $state, $stateParams, HistoryService) {
   var factory = {};
 
-  var navbarStateParams = {
-    accountUpdate: {title: 'Driver Documents', enableBack: true}
-  }
+  var navbarStateParams = {};
 
   factory.popState = function() {
     HistoryService.goPreviousState();

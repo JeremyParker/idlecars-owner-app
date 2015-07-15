@@ -19,60 +19,78 @@ angular.module('idlecars')
       }
     })
 
-    .state('driverAccount.uploadDriverLicense', {
+    .state('driverAccount.onboarding', {
+      abstract: true,
+      url: '/onboarding',
+      data: {navbarInfo: {title: 'Driver Documents'}},
+      views: {
+        'content@': {
+          template: '<ui-view class="flex"/>',
+          controller: 'onboarding.upload.controller',
+        }
+      }
+    })
+
+    .state('driverAccount.onboarding.uploadDriverLicense', {
       url: '/driver-license',
-      data: {navbarInfo: {title: 'Driver Documents'}},
-      views: {
-        'content@': {
-          templateUrl: 'app/drivers/upload.html',
-          controller: function($scope) {
-            $scope.fieldName = 'driver_license_image';
-            $scope.uploadTitle = 'your Driver License';
-          },
-        }
-      }
+      templateUrl: 'app/drivers/upload.html',
+      controller: 'onboarding.driverlicense.controller',
     })
 
-    .state('driverAccount.uploadFhvLicense', {
+    .state('driverAccount.onboarding.uploadFhvLicense', {
       url: '/fhv-license',
-      data: {navbarInfo: {title: 'Driver Documents'}},
-      views: {
-        'content@': {
-          templateUrl: 'app/drivers/upload.html',
-          controller: function($scope) {
-            $scope.fieldName = 'fhv_license_image';
-            $scope.uploadTitle = 'your Hack License';
-          },
-        }
-      }
+      templateUrl: 'app/drivers/upload.html',
+      controller: 'onboarding.fhvlicense.controller',
     })
 
-    .state('driverAccount.uploadAddressProof', {
-      url: '/proof-of-address',
-      data: {navbarInfo: {title: 'Driver Documents'}},
-      views: {
-        'content@': {
-          templateUrl: 'app/drivers/upload.html',
-          controller: function($scope) {
-            $scope.fieldName = 'address_proof_image';
-            $scope.uploadTitle = 'a bill with your address on it';
-          },
-        }
-      }
-    })
-
-    .state('driverAccount.uploadDefensiveCert', {
+    .state('driverAccount.onboarding.uploadDefensiveCert', {
       url: '/defensive-driving-certificate',
-      data: {navbarInfo: {title: 'Driver Documents'}},
+      templateUrl: 'app/drivers/upload.html',
+      controller: 'onboarding.defensivedriving.controller',
+    })
+
+    .state('driverAccount.onboarding.uploadAddressProof', {
+      url: '/proof-of-address',
+      templateUrl: 'app/drivers/upload.html',
+      controller: 'onboarding.proofaddress.controller',
+    })
+
+    .state('driverAccount.update', {
+      abstract: true,
+      url: '/update',
       views: {
         'content@': {
-          templateUrl: 'app/drivers/upload.html',
-          controller: function($scope) {
-            $scope.fieldName = 'defensive_cert_image';
-            $scope.uploadTitle = 'your Defensive Driving certificate';
-          },
+          template: '<ui-view class="flex"/>',
+          controller: 'update.upload.controller',
         }
       }
     })
 
+    .state('driverAccount.update.uploadDriverLicense', {
+      url: '/driver-license',
+      data: {navbarInfo: {title: 'Driver License', enableBack: true}},
+      templateUrl: 'app/drivers/upload.html',
+      controller: 'update.driverlicense.controller',
+    })
+
+    .state('driverAccount.update.uploadFhvLicense', {
+      url: '/fhv-license',
+      data: {navbarInfo: {title: 'Hack License', enableBack: true}},
+      templateUrl: 'app/drivers/upload.html',
+      controller: 'update.fhvlicense.controller',
+    })
+
+    .state('driverAccount.update.uploadDefensiveCert', {
+      url: '/defensive-driving-certificate',
+      data: {navbarInfo: {title: 'Defensive Driving', enableBack: true}},
+      templateUrl: 'app/drivers/upload.html',
+      controller: 'update.defensivedriving.controller',
+    })
+
+    .state('driverAccount.update.uploadAddressProof', {
+      url: '/proof-of-address',
+      data: {navbarInfo: {title: 'Proof of Address', enableBack: true}},
+      templateUrl: 'app/drivers/upload.html',
+      controller: 'update.proofaddress.controller',
+    })
 })
