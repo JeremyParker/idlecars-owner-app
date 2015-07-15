@@ -7,7 +7,7 @@ angular.module('idlecars')
     controller: 'upload.controller',
     scope: {
       fieldName: "@",
-      customNextState: "@uploadNextState"
+      afterUploadSref: "@"
     },
   };
 });

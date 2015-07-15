@@ -3,7 +3,7 @@
 angular.module('idlecars')
 .controller('update.upload.controller', function ($scope) {
   $scope.showSkipLink = false;
-  $scope.uploadNextState = 'driverAccount';
+  $scope.afterUploadSref = 'driverAccount';
 })
 
 .controller('update.driverlicense.controller', function ($scope) {
