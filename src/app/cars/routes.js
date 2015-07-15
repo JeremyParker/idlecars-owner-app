@@ -50,25 +50,4 @@ angular.module('idlecars')
       }
     })
 
-    // TODO: remove this state
-    .state('cars.detail.booking', {
-      url: '/booking',
-      views: {
-        'navbar@': {
-          templateUrl: 'components/navbar/navbar_field.html',
-          controller: 'navbarField.controller',
-        },
-        'content@': {
-          template: '<ui-view class="flex"/>',
-          params: {car: null},
-          controller: 'cars.booking.controller'
-        },
-      },
-    })
-
-    // TODO: remove this state
-    .state('cars.detail.booking.email', {
-      templateUrl: 'app/cars/booking_form.html',
-      controller: 'booking.form.controller',
-    })
 });
