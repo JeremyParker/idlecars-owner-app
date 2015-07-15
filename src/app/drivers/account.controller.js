@@ -1,19 +1,40 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('account.controller', function ($scope) {
+.controller('account.controller', function ($scope, $state, MyDriverService) {
 
-  $scope.accountInfo = [
-    {title: 'First Name', content: 'Chengxing'},
-    {title: 'Last Name', content: 'Zhang'},
-    {title: 'Email', content: 'craigstar@gmail.com'},
-    {title: 'Phone', content: '917-376-8864'},
-  ];
+  // TODO: we should move it to a presenter.
+  var accountInfoFields = {
+    first_name: {title: 'First Name', link: ''},
+    last_name: {title: 'Last Name', link: ''},
+    email: {title: 'Email', link: ''},
+    phone_number: {title: 'Phone', link: ''}
+  };
 
-  $scope.driverDocuments = [
-    {title: 'Driver License', image: '/assets/images/DriverLicense.png'},
-    {title: 'FHV License', image: '/assets/images/FHVLicense.png'},
-    {title: 'Defensive Driving'},
-    {title: 'Proof of Address'},
-  ];
+  var driverDocumentsFields = {
+    driver_license_image: {title: 'Driver License', link: '.update.uploadDriverLicense'},
+    fhv_license_image: {title: 'FHV License', link: '.update.uploadFhvLicense'},
+    defensive_cert_image: {title: 'Defensive Driving', link: '.update.uploadDefensiveCert'},
+    address_proof_image: {title: 'Proof of Address', link: '.update.uploadAddressProof'}
+  };
+
+  $scope.driverDocuments = [];
+  $scope.accountInfo = [];
+
+  MyDriverService.get().then(
+    function (me) {
+      for (var key in accountInfoFields) {
+        $scope.accountInfo.push({title: accountInfoFields[key].title, content: me[key], link: accountInfoFields[key].link});
+      }
+
+      for (var key in driverDocumentsFields) {
+        var image = null;
+        if (me[key] && me[key] != '') {
+          image = me[key];
+        }
+        $scope.driverDocuments.push({title: driverDocumentsFields[key].title, image: image, link: driverDocumentsFields[key].link});
+      }
+    }
+  )
+
 })

@@ -16,10 +16,10 @@ angular.module('idlecars')
 
   var docOrder = {
     email: 'cars.detail.booking.email',
-    driver_license_image: 'driverAccount.uploadDriverLicense',
-    fhv_license_image: 'driverAccount.uploadFhvLicense',
-    defensive_cert_image: 'driverAccount.uploadDefensiveCert',
-    address_proof_image: 'driverAccount.uploadAddressProof',
+    driver_license_image: 'driverAccount.onboarding.uploadDriverLicense',
+    fhv_license_image: 'driverAccount.onboarding.uploadFhvLicense',
+    defensive_cert_image: 'driverAccount.onboarding.uploadDefensiveCert',
+    address_proof_image: 'driverAccount.onboarding.uploadAddressProof',
   }
 
   service.requiredDocState = function() {

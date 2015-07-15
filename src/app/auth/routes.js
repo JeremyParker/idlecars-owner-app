@@ -8,6 +8,7 @@ angular.module('idlecars')
     .state('login', {
       url: '/login',
       params: {username: null},
+      data: {navbarInfo: {title: 'Log in', enableBack: true}},
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',
