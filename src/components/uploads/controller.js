@@ -15,7 +15,7 @@ angular.module('idlecars')
     $timeout(function() {
       _associateToDriver(fileUrl).then(function () {
         $scope.isBusy = false;
-        return $scope.customNextState || DocRouterService.requiredDocState();
+        return $scope.afterUploadSref || DocRouterService.requiredDocState();
       }).then(function(nextState) {
         $state.go(nextState || 'bookingSuccess');
       });

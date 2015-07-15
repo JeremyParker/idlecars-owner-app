@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('auth.login.controller', function ($scope, $stateParams, $timeout, FieldService, Restangular, AppNotificationService, RequireAuthService, AuthService) {
+.controller('auth.login.controller', function ($scope, $stateParams, $timeout, Restangular, AppNotificationService, RequireAuthService, AuthService) {
 
-  // TODO: this should not reference the Field Service
-  $scope.min_password = FieldService.getMinPassword();
+  // TODO: find a place to store stuff like this
+  $scope.min_password = 2;
 
   if ($stateParams.username) {
     $timeout(function() { $scope.user.username = $stateParams.username; });

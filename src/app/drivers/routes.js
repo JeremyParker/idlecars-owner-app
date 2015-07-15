@@ -32,6 +32,20 @@ angular.module('idlecars')
       }
     })
 
+    .state('driverAccount.onboarding.email', {
+      url: '/email',
+      views: {
+        'navbar@': {
+          templateUrl: 'components/navbar/navbar_field.html',
+          controller: 'navbarField.controller',
+        },
+        'content@': {
+          controller: 'driver.onboarding.email.controller',
+          templateUrl: 'app/users/form.html',
+        }
+      },
+    })
+
     .state('driverAccount.onboarding.uploadDriverLicense', {
       url: '/driver-license',
       templateUrl: 'app/drivers/upload.html',
