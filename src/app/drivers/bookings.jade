@@ -1,0 +1,26 @@
+.bookings-wrapper
+  .user-info
+    h2 {{username}}
+    button.clear-button Edit Account Settings
+
+  .bookings-container
+    h4 MY RENTAL
+    hr
+    .booking-content
+      car-image
+
+      section
+        h2 {{car.name}}
+        .light {{car.listing_features}}
+        .bold {{car.headline_features[2]}}
+
+      section
+        .bold
+          | Status
+          span(ng-if='state == 1', style='color: orange')  Awaiting Documents
+          span(ng-if='state == 2', style='color: green')  Awaiting Approval
+        .light
+          span(ng-if='state == 1') Blah blah
+          span(ng-if='state == 2') We'll notify you once you are approved.
+
+      button.clear-button Cancel Rental
