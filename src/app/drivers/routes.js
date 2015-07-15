@@ -27,7 +27,7 @@ angular.module('idlecars')
       views: {
         'content@': {
           template: '<ui-view class="flex"/>',
-          controller: 'onboarding.upload.controller',
+          controller: 'driver.onboarding.controller',
         }
       }
     })
@@ -35,25 +35,25 @@ angular.module('idlecars')
     .state('driverAccount.onboarding.uploadDriverLicense', {
       url: '/driver-license',
       templateUrl: 'app/drivers/upload.html',
-      controller: 'onboarding.driverlicense.controller',
+      controller: 'driver.onboarding.driverlicense.controller',
     })
 
     .state('driverAccount.onboarding.uploadFhvLicense', {
       url: '/fhv-license',
       templateUrl: 'app/drivers/upload.html',
-      controller: 'onboarding.fhvlicense.controller',
+      controller: 'driver.onboarding.fhvlicense.controller',
     })
 
     .state('driverAccount.onboarding.uploadDefensiveCert', {
       url: '/defensive-driving-certificate',
       templateUrl: 'app/drivers/upload.html',
-      controller: 'onboarding.defensivedriving.controller',
+      controller: 'driver.onboarding.defensivedriving.controller',
     })
 
     .state('driverAccount.onboarding.uploadAddressProof', {
       url: '/proof-of-address',
       templateUrl: 'app/drivers/upload.html',
-      controller: 'onboarding.proofaddress.controller',
+      controller: 'driver.onboarding.proofaddress.controller',
     })
 
     .state('driverAccount.update', {
@@ -62,7 +62,7 @@ angular.module('idlecars')
       views: {
         'content@': {
           template: '<ui-view class="flex"/>',
-          controller: 'update.upload.controller',
+          controller: 'driver.update.controller',
         }
       }
     })
@@ -71,27 +71,27 @@ angular.module('idlecars')
       url: '/driver-license',
       data: {navbarInfo: {title: 'Driver License', enableBack: true}},
       templateUrl: 'app/drivers/upload.html',
-      controller: 'update.driverlicense.controller',
+      controller: 'driver.update.driverlicense.controller',
     })
 
     .state('driverAccount.update.uploadFhvLicense', {
       url: '/fhv-license',
       data: {navbarInfo: {title: 'Hack License', enableBack: true}},
       templateUrl: 'app/drivers/upload.html',
-      controller: 'update.fhvlicense.controller',
+      controller: 'driver.update.fhvlicense.controller',
     })
 
     .state('driverAccount.update.uploadDefensiveCert', {
       url: '/defensive-driving-certificate',
       data: {navbarInfo: {title: 'Defensive Driving', enableBack: true}},
       templateUrl: 'app/drivers/upload.html',
-      controller: 'update.defensivedriving.controller',
+      controller: 'driver.update.defensivedriving.controller',
     })
 
     .state('driverAccount.update.uploadAddressProof', {
       url: '/proof-of-address',
       data: {navbarInfo: {title: 'Proof of Address', enableBack: true}},
       templateUrl: 'app/drivers/upload.html',
-      controller: 'update.proofaddress.controller',
+      controller: 'driver.update.proofaddress.controller',
     })
 })
