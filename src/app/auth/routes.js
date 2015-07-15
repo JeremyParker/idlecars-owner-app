@@ -7,6 +7,7 @@ angular.module('idlecars')
 
     .state('login', {
       url: '/login',
+      params: {username: null},
       data: {navbarInfo: {title: 'Log in', enableBack: true}},
       views: {
         'navbar@': {
@@ -15,7 +16,7 @@ angular.module('idlecars')
         },
         'content@': {
           templateUrl: 'app/auth/login.html',
-          controller: 'auth.login.controller'
+          controller: 'auth.login.controller',
         }
       }
     })

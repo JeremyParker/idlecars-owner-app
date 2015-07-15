@@ -27,8 +27,13 @@ angular.module('idlecars')
   };
 })
 
-.controller('navbarField.controller', function ($scope, FieldService, NavbarService) {
-  $scope.Field = FieldService;
-
+.controller('navbarField.controller', function ($scope, $rootScope, NavbarService) {
   $scope.Navbar = NavbarService;
+
+  $rootScope.navKeyPressed = function ($event) {
+    if ($event.which !== 13) { return; }
+    if ($rootScope.navNextEnabled && $rootScope.navGoNext) {
+      $rootScope.navGoNext();
+    }
+  }
 })

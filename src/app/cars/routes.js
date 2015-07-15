@@ -21,13 +21,20 @@ angular.module('idlecars')
 
     .state('cars.detail', {
       url: 'cars/:carId',
+      params: {car: null},
       views: {
         'content@': {
           templateUrl: 'app/cars/detail.html',
-          params: {car: null},
-          controller: 'cars.showCtrl',
+          controller: 'cars.detail.controller',
         },
       },
+    })
+
+    .state('cars.detail.newBooking', {
+      // TODO: mark this state as notInHistory
+      controller: 'cars.newBooking.controller',
+      templateUrl: 'components/loading/full_screen_loading.html',
+      data: {requireAuth: true},
     })
 
     .state('cars.detail.renewal', {
@@ -43,33 +50,4 @@ angular.module('idlecars')
       }
     })
 
-    .state('cars.detail.booking', {
-      url: '/booking',
-      views: {
-        'navbar@': {
-          templateUrl: 'components/navbar/navbar_field.html',
-          controller: 'navbarField.controller',
-        },
-        'content@': {
-          template: '<ui-view class="flex"/>',
-          params: {car: null},
-          controller: 'cars.booking.controller'
-        },
-      },
-    })
-
-    .state('cars.detail.booking.phoneNumber', {
-      templateUrl: 'app/cars/booking_form.html',
-      controller: 'booking.form.controller',
-    })
-
-    .state('cars.detail.booking.createPassword', {
-      templateUrl: 'app/cars/booking_form.html',
-      controller: 'booking.form.controller',
-    })
-
-    .state('cars.detail.booking.email', {
-      templateUrl: 'app/cars/booking_form.html',
-      controller: 'booking.form.controller',
-    })
 });
