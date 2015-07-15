@@ -3,6 +3,18 @@
   @extend %flex_scrollable
   text-align: center
 
+  hr
+    margin: 1rem 0
+    border: none
+    height: 1px
+    background: $medium_gray
+
+  .light
+    font-size: $small_font_size
+
+  .bold
+    font-weight: $bold_font_weight
+
   .user-info
     background: white
     padding: 2rem 0
@@ -12,4 +24,18 @@
       font-weight: $bold_font_weight
 
   .bookings-container
-    padding: 0 $page_gutter
+    padding: 1rem $page_gutter
+
+    h4
+      margin: 0
+
+  .booking-content
+    background: white
+
+    section
+      margin: 1.5rem 0
+
+    button
+      color: gray
+      font-size: $small_font_size
+      margin-bottom: 1rem

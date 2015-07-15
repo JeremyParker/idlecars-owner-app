@@ -4,7 +4,22 @@
     button.clear-button Edit Account Settings
 
   .bookings-container
-    h3 My Booking
-    br
-    h3 hello
+    h4 MY BOOKING
+    hr
+    .booking-content
+      car-image
 
+      section
+        h2 {{car.name}}
+        .light {{car.listing_features}}
+        .bold
+          | $425 Deposit
+          span(style='color: green')  Paid
+
+      section
+        .bold
+          | Status
+          span(style='color: orange')  Awaiting Approval
+        .light We'll notify you once you are approved.
+
+      button.clear-button Cancel Reservation
