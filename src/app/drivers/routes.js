@@ -7,7 +7,7 @@ angular.module('idlecars')
 
     .state('driverAccount', {
       url: '/account',
-      data: {requireAuth: true},
+      // data: {requireAuth: true},
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',
@@ -16,6 +16,21 @@ angular.module('idlecars')
         'content@': {
           templateUrl: 'app/drivers/account.html',
           controller: 'account.controller',
+        }
+      }
+    })
+
+    .state('driverAccount.reservation', {
+      url: '/reservation',
+      data: {navbarInfo: {title: 'My Reservations', enableBack: true}},
+      views: {
+        'navbar@': {
+          templateUrl: 'components/navbar/navbar_main.html',
+          controller: 'navbarMain.controller',
+        },
+        'content@': {
+          templateUrl: 'app/drivers/reservation.html',
+          controller: 'reservation.controller',
         }
       }
     })
