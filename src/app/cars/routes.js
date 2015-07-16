@@ -13,7 +13,7 @@ angular.module('idlecars')
           controller: 'navbarMain.controller',
         },
         'content': {
-          templateUrl: 'app/cars/index.html',
+          templateUrl: 'app/cars/list.html',
           controller: 'cars.indexCtrl',
         },
       },
