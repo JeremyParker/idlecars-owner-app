@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('driver.update.email.controller', function ($scope, MyDriverService) {
+.controller('driver.update.email.controller', function ($scope, $rootScope, $state, MyDriverService) {
   $scope.user = {};
 
   $scope.fields = [{
@@ -16,4 +16,14 @@ angular.module('idlecars')
   MyDriverService.get().then(function (me) {
     $scope.user.email = me.email;
   })
+
+  $rootScope.navSave = function() {
+    MyDriverService.patch($scope.user).then(function () {
+      $state.go('driverAccount')
+    })
+  }
+
+  $scope.validateForm = function() {
+    $rootScope.navNextEnabled = $scope.fieldForm.$valid;
+  }
 })
