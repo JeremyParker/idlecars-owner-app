@@ -6,37 +6,30 @@ angular.module('idlecars')
 
   $scope.fields = [{
     placeholder: 'First name',
-    name: 'firstname',
+    name: 'first_name',
     type: 'text',
     maxlength: '30',
     autoFocus: true,
   },
   {
     placeholder: 'Last name',
-    name: 'lastname',
+    name: 'last_name',
     type: 'text',
     maxlength: '30',
   }];
 
   MyDriverService.get().then(function (me) {
-    $scope.user.firstname = me.first_name;
-    $scope.user.lastname = me.last_name;
+    $scope.user.first_name = me.first_name;
+    $scope.user.last_name = me.last_name;
   })
 
   $rootScope.navSave = function() {
-    MyDriverService.patch(_loginParams()).then(function () {
-      $state.go('driverAccount')
+    MyDriverService.patch($scope.user).then(function () {
+      $state.go('driverAccount');
     })
   }
 
   $scope.validateForm = function() {
     $rootScope.navNextEnabled = $scope.fieldForm.$valid;
-  }
-
-  var _loginParams = function() {
-    return {
-      first_name: $scope.user.firstname,
-      last_name: $scope.user.lastname,
-    }
   }
 })
