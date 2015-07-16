@@ -14,7 +14,7 @@ angular.module('idlecars')
         },
         'content': {
           templateUrl: 'app/cars/list.html',
-          controller: 'cars.indexCtrl',
+          controller: 'cars.list.controller',
         },
       },
     })
