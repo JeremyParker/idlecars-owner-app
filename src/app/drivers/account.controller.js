@@ -23,6 +23,8 @@ angular.module('idlecars')
 
   MyDriverService.get().then(
     function (me) {
+      $scope.allDocsCompleted = me.all_docs_uploaded;
+
       for (var key in accountInfoFields) {
         $scope.accountInfo.push({title: accountInfoFields[key].title, content: me[key], link: accountInfoFields[key].link});
       }
