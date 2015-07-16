@@ -1,6 +1,3 @@
-.invisible
-  visibility: hidden
-
 .navbar-wrapper
   @extend %app_width
 
@@ -10,6 +7,9 @@
 .bar-wrapper
   display: flex
   height: $navbar_height
+
+  section
+    @extend %flex_content
 
   .prev-pointer
     flex: 1
