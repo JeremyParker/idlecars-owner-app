@@ -1,13 +1,13 @@
 .bar-wrapper
   section
-    button.clear-button.prev-pointer(ng-if='navbarInfo.enableBack', ng-click='goBack()')
+    button.clear-button.prev-pointer(ng-show='navbarInfo.enableBack', ng-click='goBack()')
   h3 {{navbarInfo.title}}
   section
-    .right-button(ng-if='navbarInfo.enableNext', ng-click='menuOpen = !menuOpen')
+    .right-button(ng-show='navbarInfo.enableNext', ng-click='menuOpen = !menuOpen')
       img(src='/assets/images/burger_button.png', ng-show='!menuOpen')
       img(src='/assets/images/burger_button_blue.png', ng-show='menuOpen')
 
-    .right-button(ng-if='navbarInfo.enableSave', ng-click='save()') Save
+    .right-button(ng-show='navbarInfo.enableSave', ng-click='save()') Save
 
 .menu(ng-show="menuOpen")
   a(ui-sref='cars', ng-click='menuOpen = false') Home
