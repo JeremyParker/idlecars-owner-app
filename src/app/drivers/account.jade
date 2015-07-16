@@ -1,7 +1,7 @@
 .settings-wrapper
   section
     .section-row(ng-repeat='item in accountInfo')
-      .row-content(ng-class='{"has-bar": !$last}')
+      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
         .pull-left.medium-gray {{item.title}}
         .content-main {{item.content}}
 

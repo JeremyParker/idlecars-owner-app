@@ -5,10 +5,10 @@ angular.module('idlecars')
 
   // TODO: we should move it to a presenter.
   var accountInfoFields = {
-    first_name: {title: 'First Name', link: ''},
-    last_name: {title: 'Last Name', link: ''},
-    email: {title: 'Email', link: ''},
-    phone_number: {title: 'Phone', link: ''}
+    first_name: {title: 'First Name', link: '.update.name'},
+    last_name: {title: 'Last Name', link: '.update.name'},
+    email: {title: 'Email', link: '.update.email'},
+    phone_number: {title: 'Phone', link: '.'}
   };
 
   var driverDocumentsFields = {

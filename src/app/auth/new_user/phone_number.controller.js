@@ -13,10 +13,10 @@ angular.module('idlecars')
   }];
 
   $rootScope.navGoNext = function() {
-    var phoneNumber = Restangular.one('phone_numbers', $scope.newUser.phone_number);
+    var phoneNumber = Restangular.one('phone_numbers', $scope.user.phone_number);
     phoneNumber.get()
     .then(function() {
-      $state.go('login', {username: $scope.newUser.phone_number}).then(function() {
+      $state.go('login', {username: $scope.user.phone_number}).then(function() {
         AppNotificationService.push("Cool, you already have an account, enter your password.");
       });
     })
