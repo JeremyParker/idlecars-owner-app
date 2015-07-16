@@ -4,8 +4,7 @@ angular.module('idlecars')
 .controller('bookings.controller', function ($scope, Restangular, MyDriverService) {
 
   var initScope = function (me) {
-    var name = me.first_name + me.last_name;
-    $scope.username = name || me.phone_number;
+    $scope.username = me.admin_display;
   }
 
   MyDriverService.get().then(initScope);
