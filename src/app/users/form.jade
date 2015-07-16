@@ -16,3 +16,6 @@
           auto-focus='{{field.autoFocus}}',
           required,
           autocomplete='off')
+
+        .login-link(ng-if='field.name === "phone_number"')
+          | Already have an account? #[a(ui-sref='login') Log in]
