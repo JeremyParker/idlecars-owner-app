@@ -5,7 +5,7 @@ angular.module('idlecars')
   $scope.user = {};
 
   $scope.fields = [{
-    label: 'Enter your email address',
+    label: 'Update your email address',
     placeholder: 'email@address.com',
     name: 'email',
     type: 'email',
