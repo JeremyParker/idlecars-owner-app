@@ -1,9 +1,12 @@
 'use strict';
 
-// angular.module('icFilters')
-// .filter('attrInRange', function (items) {
-//   return items.filter(function(item) {
-//     return true
-//     // return item[attrKey] >= startRange && item[attrKey] < endRange;
-//   });
-// });
+angular.module('icFilters')
+.filter('attrInRange', function() {
+  return function(items, attrKey, min, max) {
+    if (!items) { return []; }
+
+    return items.filter(function(item) {
+      return item[attrKey] >= min && item[attrKey] < max;
+    });
+  }
+});
