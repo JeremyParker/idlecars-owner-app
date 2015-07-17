@@ -7,7 +7,7 @@
       img(src='/assets/images/burger_button.png', ng-show='!menuOpen')
       img(src='/assets/images/burger_button_blue.png', ng-show='menuOpen')
 
-    .right-button(ng-show='navbarInfo.enableSave', ng-click='save()') Save
+    button.clear-button.right-button(ng-show='navbarInfo.enableSave', ng-click='save()', ng-disabled="!navNextEnabled") Save
 
 .menu(ng-show="menuOpen")
   a(ui-sref='cars', ng-click='menuOpen = false') Home
