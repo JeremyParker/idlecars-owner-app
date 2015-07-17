@@ -20,7 +20,7 @@ angular.module('idlecars')
   }
 
   $scope.$on('$viewContentLoaded', function(){
-    $scope.validateForm();
+    if ($scope.$$childHead.fieldForm) { $scope.validateForm(); };
   })
 })
 
