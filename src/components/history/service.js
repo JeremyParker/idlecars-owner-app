@@ -9,7 +9,7 @@ angular.module('idlecars')
   }
 
   var _duplicatedStates = function (stateName) {
-    return states[states.length - 1] && stateName == states[states.length - 1].state;
+    return states[states.length - 1] && stateName === states[states.length - 1].state;
   }
 
   history.forget = function () {
