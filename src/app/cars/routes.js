@@ -35,6 +35,9 @@ angular.module('idlecars')
       controller: 'cars.newBooking.controller',
       templateUrl: 'components/loading/full_screen_loading.html',
       data: {requireAuth: true},
+      onExit: function (HistoryService) {
+        HistoryService.forget();
+      }
     })
 
     .state('cars.detail.renewal', {
