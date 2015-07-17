@@ -81,6 +81,20 @@ angular.module('idlecars')
       }
     })
 
+    .state('driverAccount.update.email', {
+      url: '/email',
+      data: {navbarInfo: {title: 'Email', enableBack: true, enableSave: true}},
+      templateUrl: 'app/users/form.html',
+      controller: 'driver.update.email.controller',
+    })
+
+    .state('driverAccount.update.name', {
+      url: '/name',
+      data: {navbarInfo: {title: 'Name', enableBack: true, enableSave: true}},
+      templateUrl: 'app/users/form.html',
+      controller: 'driver.update.name.controller',
+    })
+
     .state('driverAccount.update.uploadDriverLicense', {
       url: '/driver-license',
       data: {navbarInfo: {title: 'Driver License', enableBack: true}},

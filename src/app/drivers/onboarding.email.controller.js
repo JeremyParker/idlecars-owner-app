@@ -2,7 +2,7 @@
 
 angular.module('idlecars')
 .controller('driver.onboarding.email.controller', function ($scope, $rootScope, MyDriverService, DocRouterService) {
-  $scope.newUser = {};
+  $scope.user = {};
 
   $scope.fields = [{
     label: 'Enter your email address',
@@ -14,7 +14,7 @@ angular.module('idlecars')
   }];
 
   $rootScope.navGoNext = function() {
-    MyDriverService.patch($scope.newUser).then(function () {
+    MyDriverService.patch($scope.user).then(function () {
       DocRouterService.goRequiredDoc();
     })
   }

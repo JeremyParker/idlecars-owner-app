@@ -29,11 +29,11 @@ angular.module('idlecars')
   }
 
   var _passwordsMatch = function() {
-    return $scope.newUser.password === $scope.newUser.re_password;
+    return $scope.user.password === $scope.user.re_password;
   }
 
   var _saveUser = function() {
-    var newDriver = new DriverService($scope.newUser);
+    var newDriver = new DriverService($scope.user);
 
     newDriver.$save().then(function() {
       return AuthService.login(_loginParams());
@@ -42,8 +42,8 @@ angular.module('idlecars')
 
   var _loginParams = function() {
     return {
-      username: $scope.newUser.phone_number,
-      password: $scope.newUser.password,
+      username: $scope.user.phone_number,
+      password: $scope.user.password,
     }
   }
 });
