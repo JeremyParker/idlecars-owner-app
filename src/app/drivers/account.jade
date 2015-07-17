@@ -3,7 +3,7 @@
     .section-row(ng-repeat='item in accountInfo')
       a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
         .pull-left.medium-gray {{item.title}}
-        .content-main {{item.content}}
+        .content-main(ng-class='{"next-pointer": !$last}') {{item.content}}
 
   .section-interlude(ng-if='!allDocsCompleted')
     .b-inter-content All driver documents are required
