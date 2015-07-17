@@ -8,7 +8,6 @@ angular.module('idlecars')
     first_name: {title: 'First Name', link: '.update.name'},
     last_name: {title: 'Last Name', link: '.update.name'},
     email: {title: 'Email', link: '.update.email'},
-    phone_number: {title: 'Phone', link: '.'}
   };
 
   var driverDocumentsFields = {

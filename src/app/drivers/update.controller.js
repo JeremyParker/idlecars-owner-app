@@ -21,7 +21,7 @@ angular.module('idlecars')
 
   $scope.$on('$viewContentLoaded', function(){
     $scope.validateForm();
-  });
+  })
 })
 
 .controller('driver.update.driverlicense.controller', function ($scope) {

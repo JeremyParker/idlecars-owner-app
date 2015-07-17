@@ -15,6 +15,4 @@ angular.module('idlecars')
     type: 'text',
     maxlength: '30',
   }];
-
-  $scope.user;
 })
