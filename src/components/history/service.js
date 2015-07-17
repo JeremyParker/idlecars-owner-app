@@ -16,10 +16,6 @@ angular.module('idlecars')
     return $state.current.data && $state.current.data.notInHistory;
   }
 
-  history.forget = function () {
-    states.pop();
-  }
-
   history.listen = function () {
     $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
       var stateName = toState.name;
