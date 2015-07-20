@@ -1,20 +1,18 @@
 h1(hidden) Rent cars for rideshare
 
 .listing-filters
-  button.clear-button(ng-click="setCostBucket('$')", ng-class="{active: costBucket == '$'}") $
-  button.clear-button(ng-click="setCostBucket('$$')", ng-class="{active: costBucket == '$$'}") $$
-  button.clear-button(ng-click="setCostBucket('$$$')", ng-class="{active: costBucket == '$$$'}") $$$
+  label.box(for="cheap") < $50
+  input(id="cheap", type="checkbox", ng-model="carFilter.cheap", ng-class="{active: carFilter.cheap}", hidden)
 
-  .cost-label(ng-switch="costBucket")
-    span(ng-switch-when="$") #[span.tiny up to] $50 #[span.tiny a day]
-    span(ng-switch-when="$$") $50 - $80 #[span.tiny a day]
-    span(ng-switch-when="$$$") $80+ #[span.tiny a day]
-    span(ng-switch-default) PRICE RANGE
+  label.box(for="medium") $50 - 80
+  input(id="medium", type="checkbox", ng-model="carFilter.medium", ng-class="{active: carFilter.medium}", hidden)
 
+  label.box(for="pricey") $80+
+  input(id="pricey", type="checkbox", ng-model="carFilter.pricey", ng-class="{active: carFilter.pricey}", hidden)
 
 .listing-wrapper(save-scroll)
 
-  a.car(ng-repeat="car in cars | filter: costBucket && {cost_bucket: costBucket}", ui-sref=".detail({carId: car.id, car: car})")
+  a.car(ng-repeat="car in cars | attrFilter:carFilter", ui-sref=".detail({carId: car.id, car: car})")
     car-image
     .info
       h3 {{car.name}}
