@@ -13,6 +13,6 @@ angular.module('idlecars')
     var booking = bookings[0];
 
     $scope.car = booking.car;
-    $scope.state = booking.state;
+    $scope.state = booking.state_details;
   })
 })

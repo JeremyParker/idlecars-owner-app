@@ -17,8 +17,5 @@
       section
         .bold
           | Status
-          span(ng-if='state == 1', style='color: orange')  Awaiting Documents
-          span(ng-if='state == 2', style='color: green')  Awaiting Approval
-        .light
-          span(ng-if='state == 1') Blah blah
-          span(ng-if='state == 2') We'll notify you once you are approved.
+          span(style='color: orange')  {{state.status}}
+        .light {{state.content}}
