@@ -6,7 +6,7 @@ angular.module('idlecars')
   $scope.afterUploadSref = 'driverAccount';
 
   MyDriverService.get().then(function (me) {
-    $scope.user = me;
+    $scope.user = angular.copy(me);
   })
 
   $rootScope.navSave = function() {
