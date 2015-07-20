@@ -13,8 +13,9 @@ body
   overflow: hidden
 
 .main-content
-  @extend %flex_content
   @extend %app_width
+  @extend %flex_content
+  flex-direction: column
   min-height: 0 // NOTE: allows scroll in firefox
   margin: 0 auto
   background: white

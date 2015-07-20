@@ -7,3 +7,18 @@
 
     *:last-child
       margin-bottom: 0
+
+.listing-filters
+  display: flex
+
+  button
+    @extend %gray_theme
+    margin: 0.5rem 0.5rem 0.5rem 0
+    padding: 0.5rem
+    flex: 1
+
+  button:first-child
+    margin-left: 0.5rem
+
+  .active
+    @extend %blue_theme

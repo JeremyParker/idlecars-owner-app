@@ -6,15 +6,11 @@ angular.module('idlecars')
     $scope.cars = cars;
   });
 
-  $scope.togglePriceFilter = function(min, max) {
-    if (_shouldTurnFilterOff(min, max)) {
-      $scope.min = 0; $scope.max = 9999;
+  $scope.setCostBucket = function(newBucket) {
+    if ($scope.costBucket === newBucket) {
+      $scope.costBucket = undefined;
     } else {
-      $scope.min = min; $scope.max = max;
+      $scope.costBucket = newBucket;
     }
-  }
-
-  var _shouldTurnFilterOff = function(min, max) {
-    return $scope.min == min && $scope.max == max;
   }
 })
