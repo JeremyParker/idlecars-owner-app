@@ -5,6 +5,13 @@ h1(hidden) Rent cars for rideshare
   button.clear-button(ng-click="setCostBucket('$$')", ng-class="{active: costBucket == '$$'}") $$
   button.clear-button(ng-click="setCostBucket('$$$')", ng-class="{active: costBucket == '$$$'}") $$$
 
+  .cost-label(ng-switch="costBucket")
+    span(ng-switch-when="$") #[span.tiny up to] $50 #[span.tiny a day]
+    span(ng-switch-when="$$") $50 - $75 #[span.tiny a day]
+    span(ng-switch-when="$$$") $75+ #[span.tiny a day]
+    span(ng-switch-default) PRICE RANGE
+
+
 .listing-wrapper(save-scroll)
 
   a.car(ng-repeat="car in cars | filter: costBucket && {cost_bucket: costBucket}", ui-sref=".detail({carId: car.id, car: car})")
