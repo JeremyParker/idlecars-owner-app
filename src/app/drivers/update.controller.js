@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('driver.update.controller', function ($scope, $rootScope, $state, MyDriverService) {
+.controller('driver.update.controller', function ($scope, $timeout, $rootScope, $state, MyDriverService) {
   $scope.showSkipLink = false;
   $scope.afterUploadSref = 'driverAccount';
 
@@ -16,7 +16,7 @@ angular.module('idlecars')
   }
 
   $scope.validateForm = function() {
-    $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid;
+    $timeout(function () { $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid; })
   }
 
   $scope.$on('$viewContentLoaded', function(){
