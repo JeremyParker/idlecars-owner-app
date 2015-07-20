@@ -25,7 +25,7 @@ angular.module('idlecars')
     if (AuthService.isLoggedIn()) {
       _goToDestination();
     } else {
-      $state.go('login');
+      $state.go('newUser.phoneNumber');
     }
   }
 

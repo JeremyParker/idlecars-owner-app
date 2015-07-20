@@ -25,6 +25,10 @@ angular.module('idlecars')
     $scope.isLoggedIn = AuthService.isLoggedIn();
     $state.go('cars');
   };
+
+  $scope.save = function () {
+    $rootScope.navSave();
+  };
 })
 
 .controller('navbarField.controller', function ($scope, $rootScope, NavbarService) {

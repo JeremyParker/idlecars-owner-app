@@ -1,11 +1,11 @@
 .settings-wrapper
   section
     .section-row(ng-repeat='item in accountInfo')
-      .row-content(ng-class='{"has-bar": !$last}')
+      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
         .pull-left.medium-gray {{item.title}}
-        .content-main {{item.content}}
+        .content-main.next-pointer {{me[item.content]}}
 
-  .section-interlude
+  .section-interlude(ng-if='!me.all_docs_uploaded')
     .b-inter-content All driver documents are required
     .s-inter-content.medium-gray to complete your booking
 
@@ -18,9 +18,9 @@
           .pull-left.title-padding {{item.title}}
           .img-upload
             .image-wrapper
-              img(ng-if='item.image', ng-src='{{item.image}}')
-              .dashed-box-border(ng-if='!item.image')
+              img(ng-if='me[item.image]', ng-src='{{me[item.image]}}')
+              .dashed-box-border(ng-if='!me[item.image]')
                 .box-content
                   .box-text.medium-gray Upload now
-            p.ic-blue.next-pointer(ng-if='item.image') Change
-            p.color-red.next-pointer(ng-if='!item.image') Upload
+            p.ic-blue.next-pointer(ng-if='me[item.image]') Change
+            p.color-red.next-pointer(ng-if='!me[item.image]') Upload

@@ -1,9 +1,27 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('driver.update.controller', function ($scope) {
+.controller('driver.update.controller', function ($scope, $timeout, $rootScope, $state, MyDriverService) {
   $scope.showSkipLink = false;
   $scope.afterUploadSref = 'driverAccount';
+
+  MyDriverService.get().then(function (me) {
+    $scope.user = angular.copy(me);
+  })
+
+  $rootScope.navSave = function() {
+    MyDriverService.patch($scope.$$childHead.user).then(function () {
+      $state.go('driverAccount');
+    })
+  }
+
+  $scope.validateForm = function() {
+    $timeout(function () { $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid; })
+  }
+
+  $scope.$on('$viewContentLoaded', function(){
+    if ($scope.$$childHead.fieldForm) { $scope.validateForm(); };
+  })
 })
 
 .controller('driver.update.driverlicense.controller', function ($scope) {

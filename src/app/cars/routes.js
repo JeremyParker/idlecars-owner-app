@@ -32,21 +32,19 @@ angular.module('idlecars')
 
     .state('cars.detail.newBooking', {
       // TODO: mark this state as notInHistory
+      data: {notInHistory: true, requireAuth: true},
       controller: 'cars.newBooking.controller',
-      templateUrl: 'components/loading/full_screen_loading.html',
-      data: {requireAuth: true},
+      templateUrl: 'components/loading/full_screen_loading.html'
     })
 
     .state('cars.detail.renewal', {
+      data: {notInHistory: true},
       url: '/renewals/:renewalId',
       views: {
         'content@': {
           templateUrl: 'app/cars/renewal.html',
           controller: 'renewal.showCtrl',
         },
-      },
-      onExit: function (HistoryService) {
-        HistoryService.forget();
       }
     })
 
