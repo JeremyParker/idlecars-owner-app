@@ -1,14 +1,14 @@
 h1(hidden) Rent cars for rideshare
 
 .listing-filters
-  label.box(for="cheap") < $50
-  input(id="cheap", type="checkbox", ng-model="carFilter.cheap", ng-class="{active: carFilter.cheap}", hidden)
+  label.box(for="cheap", ng-class="{active: carFilter.cheap}") < $50
+  input(id="cheap", type="checkbox", ng-model="carFilter.cheap", hidden)
 
-  label.box(for="medium") $50 - 80
-  input(id="medium", type="checkbox", ng-model="carFilter.medium", ng-class="{active: carFilter.medium}", hidden)
+  label.box(for="medium", ng-class="{active: carFilter.medium}") $50 - 80
+  input(id="medium", type="checkbox", ng-model="carFilter.medium", hidden)
 
-  label.box(for="pricey") $80+
-  input(id="pricey", type="checkbox", ng-model="carFilter.pricey", ng-class="{active: carFilter.pricey}", hidden)
+  label.box(for="pricey", ng-class="{active: carFilter.pricey}") $80+
+  input(id="pricey", type="checkbox", ng-model="carFilter.pricey", hidden)
 
 .listing-wrapper(save-scroll)
 
