@@ -52,8 +52,8 @@ angular.module('idlecars')
       tempImg.src = reader.result;
       tempImg.onload = function() {
 
-        var MAX_WIDTH = 600;
-        var MAX_HEIGHT = 600;
+        var MAX_WIDTH = 2000;
+        var MAX_HEIGHT = 2000;
         var tempW = tempImg.width;
         var tempH = tempImg.height;
         if (tempW > tempH) {
@@ -74,7 +74,7 @@ angular.module('idlecars')
         canvas.height = tempH;
         var ctx = canvas.getContext("2d");
         ctx.drawImage(this, 0, 0, tempW, tempH);
-        var dataURL = canvas.toDataURL("image/png");
+        var dataURL = canvas.toDataURL("image/jpeg", 0.3);
 
         var fileData = _dataUrlToData(dataURL);
         deferred.resolve(fileData);
