@@ -8,6 +8,10 @@ h1(hidden) Rent cars for rideshare
   .box(ng-click="didFilterCost('pricey')", ng-class="{active: costFilter.pricey}") $80+
     p a day
 
+.no-results(ng-if="cars.length === 0")
+  h3 No Matching Cars
+  p Try a different search
+
 .listing-wrapper(save-scroll)
 
   a.car(ng-repeat="car in cars", ui-sref=".detail({carId: car.id, car: car})")
