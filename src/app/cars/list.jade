@@ -1,18 +1,13 @@
 h1(hidden) Rent cars for rideshare
 
 .listing-filters
-  label.box(for="cheap", ng-class="{active: carFilter.cheap}") < $50
-  input(id="cheap", type="checkbox", ng-model="carFilter.cheap", hidden)
-
-  label.box(for="medium", ng-class="{active: carFilter.medium}") $50 - 80
-  input(id="medium", type="checkbox", ng-model="carFilter.medium", hidden)
-
-  label.box(for="pricey", ng-class="{active: carFilter.pricey}") $80+
-  input(id="pricey", type="checkbox", ng-model="carFilter.pricey", hidden)
+  .box(ng-click="didFilterCost('cheap')", ng-class="{active: costFilter.cheap}") < $50
+  .box(ng-click="didFilterCost('medium')", ng-class="{active: costFilter.medium}") $50 - 80
+  .box(ng-click="didFilterCost('pricey')", ng-class="{active: costFilter.pricey}") $80+
 
 .listing-wrapper(save-scroll)
 
-  a.car(ng-repeat="car in cars | attrFilter:carFilter", ui-sref=".detail({carId: car.id, car: car})")
+  a.car(ng-repeat="car in cars", ui-sref=".detail({carId: car.id, car: car})")
     car-image
     .info
       h3 {{car.name}}

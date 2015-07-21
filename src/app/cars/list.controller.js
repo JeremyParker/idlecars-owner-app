@@ -2,15 +2,30 @@
 
 angular.module('idlecars')
 .controller('cars.list.controller', function ($scope, CarService) {
+  $scope.costFilter = {};
+  var _allCars = [];
+
   CarService.query().$promise.then(function(cars) {
-    $scope.cars = cars;
+    _allCars = cars;
+    _filterCars();
   });
 
-  $scope.setCostBucket = function(newBucket) {
-    if ($scope.costBucket === newBucket) {
-      $scope.costBucket = undefined;
-    } else {
-      $scope.costBucket = newBucket;
+  $scope.didFilterCost = function(setting) {
+    $scope.costFilter[setting] = !$scope.costFilter[setting];
+    _filterCars();
+  }
+
+  var _filterCars = function() {
+    if (!_anyFiltersOn()) { return $scope.cars = _allCars; }
+
+    $scope.cars = _allCars.filter(function(car) {
+      return $scope.costFilter[car.cost_bucket];
+    });
+  }
+
+  var _anyFiltersOn = function() {
+    for (var key in $scope.costFilter) {
+      if ($scope.costFilter[key]) { return true; }
     }
   }
 })
