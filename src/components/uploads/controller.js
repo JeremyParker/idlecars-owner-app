@@ -52,8 +52,8 @@ angular.module('idlecars')
       tempImg.src = reader.result;
       tempImg.onload = function() {
 
-        var MAX_WIDTH = 2000;
-        var MAX_HEIGHT = 2000;
+        var MAX_WIDTH = 1500;
+        var MAX_HEIGHT = 1500;
         var tempW = tempImg.width;
         var tempH = tempImg.height;
         if (tempW > tempH) {
