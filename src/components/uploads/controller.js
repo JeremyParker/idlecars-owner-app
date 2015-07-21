@@ -43,6 +43,16 @@ angular.module('idlecars')
     return dataURL.split(',')[1];
   }
 
+  var _getQuality = function (sizeInByte) {
+    var size = sizeInByte/1000;
+
+    if (size < 500) { return 0.99; }
+    else if (size < 1000) { return 0.99+(0.73-0.99)/500*(size-500); }
+    else if (size < 7000) { return 0.72+(0.65-0.72)/6000*(size-1000); }
+    else if (size < 10000) { return 0.65+(0.60-0.65)/3000*(size-7000); }
+    else { return 0.60; }
+  }
+
   var _resizeImage = function (file) {
     var deferred = $q.defer();
     var reader = new FileReader();
@@ -52,8 +62,8 @@ angular.module('idlecars')
       tempImg.src = reader.result;
       tempImg.onload = function() {
 
-        var MAX_WIDTH = 600;
-        var MAX_HEIGHT = 600;
+        var MAX_WIDTH = 1500;
+        var MAX_HEIGHT = 1500;
         var tempW = tempImg.width;
         var tempH = tempImg.height;
         if (tempW > tempH) {
@@ -74,7 +84,7 @@ angular.module('idlecars')
         canvas.height = tempH;
         var ctx = canvas.getContext("2d");
         ctx.drawImage(this, 0, 0, tempW, tempH);
-        var dataURL = canvas.toDataURL("image/png");
+        var dataURL = canvas.toDataURL("image/jpeg", _getQuality(file.size));
 
         var fileData = _dataUrlToData(dataURL);
         deferred.resolve(fileData);

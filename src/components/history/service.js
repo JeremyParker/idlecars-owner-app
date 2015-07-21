@@ -8,8 +8,12 @@ angular.module('idlecars')
     return states[states.length - 2] || {state: 'cars'};
   }
 
-  history.forget = function () {
-    states.pop();
+  var _duplicatedStates = function (stateName) {
+    return states[states.length - 1] && stateName === states[states.length - 1].state;
+  }
+
+  var _notInHistory = function () {
+    return $state.current.data && $state.current.data.notInHistory;
   }
 
   history.listen = function () {
@@ -20,6 +24,8 @@ angular.module('idlecars')
         states.pop();
         goBackTriggered = false;
       }
+      else if (_notInHistory()) { return; }
+      else if (_duplicatedStates(stateName)) { return; }
       else {
         states.push({state: stateName, params: toParams});
       };
