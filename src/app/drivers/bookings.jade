@@ -6,19 +6,19 @@
   .bookings-container
     h4 MY RENTAL
     hr
-    .booking-content
+    .booking-content(ng-repeat='booking in bookings')
       car-image
 
       section
-        h2 {{car.name}}
-        .light {{car.booked_features}}
-        .bold {{car.headline_features[2]}}
+        h2 {{booking.car.name}}
+        .light {{booking.car.booked_features}}
+        .bold {{booking.car.headline_features[2]}}
 
       section
         .bold
           | Status
-          span(style='color: orange')  {{state.status}}
-        .light {{state.content}}
+          span(ng-style='{color: booking.state_details.color}')  {{booking.state_details.status}}
+        .light {{booking.state_details.content}}
 
       section
-        button.clear-button(ng-click='cancelBooking()') Cancel booking
+        button.clear-button(ng-click='cancelBooking()' ng-show='booking.state != 12') Cancel booking
