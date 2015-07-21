@@ -19,3 +19,6 @@
           | Status
           span(style='color: orange')  {{state.status}}
         .light {{state.content}}
+
+      section
+        button.clear-button(ng-click='cancelBooking()') Cancel booking
