@@ -7,7 +7,7 @@
     h4 MY RENTAL
     hr
     .booking-content(ng-repeat='booking in bookings')
-      car-image
+      car-image(car='booking.car')
 
       section
         h2 {{booking.car.name}}
