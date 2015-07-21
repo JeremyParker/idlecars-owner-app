@@ -20,6 +20,9 @@ angular.module('idlecars')
   })
 
   $scope.cancelBooking = function () {
+    var patchData = { state: '12' };
 
+    Restangular.one('bookings', bookingId).patch(patchData)
+    .then(function (data) { window.location.reload() });
   }
 })
