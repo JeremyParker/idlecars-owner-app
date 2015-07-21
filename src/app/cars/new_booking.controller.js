@@ -19,7 +19,7 @@ angular.module('idlecars')
         $state.go(nextState);
       } else {
         // back to carDetail state
-        $state.go('^');
+        $state.go('driverAccount.bookings');
       }
     });
   }
