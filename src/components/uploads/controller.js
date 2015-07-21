@@ -51,7 +51,7 @@ angular.module('idlecars')
     else if (size < 7000) { return 0.72+(0.65-0.72)/6000*(size-1000); }
     else if (size < 10000) { return 0.65+(0.60-0.65)/3000*(size-7000); }
     else { return 0.60; }
-   }
+  }
 
   var _resizeImage = function (file) {
     var deferred = $q.defer();
