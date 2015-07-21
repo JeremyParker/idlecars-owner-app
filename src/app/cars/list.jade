@@ -2,8 +2,11 @@ h1(hidden) Rent cars for rideshare
 
 .listing-filters
   .box(ng-click="didFilterCost('cheap')", ng-class="{active: costFilter.cheap}") < $50
+    p a day
   .box(ng-click="didFilterCost('medium')", ng-class="{active: costFilter.medium}") $50 - 80
+    p a day
   .box(ng-click="didFilterCost('pricey')", ng-class="{active: costFilter.pricey}") $80+
+    p a day
 
 .listing-wrapper(save-scroll)
 
