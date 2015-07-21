@@ -7,7 +7,7 @@ angular.module('idlecars')
   $timeout(function() {
     newBooking.$save()
     .then(function(data) {
-      $state.go('bookingDetail', {bookingId: data.id});
+      $state.go('bookingSuccess');
     })
     .catch(_bookingSaveFailed);
   });
