@@ -18,7 +18,6 @@ angular.module('idlecars')
       if (nextState) {
         $state.go(nextState);
       } else {
-        // back to carDetail state
         $state.go('driverAccount.bookings');
       }
     });

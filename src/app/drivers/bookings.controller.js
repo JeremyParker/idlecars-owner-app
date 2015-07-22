@@ -7,16 +7,18 @@ angular.module('idlecars')
     $scope.username = me.client_display;
   }
 
-  MyDriverService.get().then(initScope);
+  var _getBooking = function () {
+    Restangular.all('bookings').getList().then(function (bookings) {
+      $scope.bookings = angular.copy(bookings);
+    })
+  }
 
-  Restangular.all('bookings').getList().then(function (bookings) {
-    $scope.bookings = angular.copy(bookings);
-  })
+  MyDriverService.get().then(initScope);
+  _getBooking();
 
   $scope.cancelBooking = function (bookingId) {
     var patchData = { state: '12' };
 
-    Restangular.one('bookings', bookingId).patch(patchData)
-    .then(function () { window.location.reload() });
+    Restangular.one('bookings', bookingId).patch(patchData).then(_getBooking);
   }
 })

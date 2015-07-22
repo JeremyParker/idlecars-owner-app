@@ -6,7 +6,7 @@
   .bookings-container
     h4 MY RENTAL
 
-    div(ng-if='bookings.length', ng-repeat='booking in bookings')
+    div(ng-repeat='booking in bookings')
       hr
       .booking-content
         car-image(car='booking.car')
