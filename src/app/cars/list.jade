@@ -1,0 +1,21 @@
+h1(hidden) Rent cars for rideshare
+
+.listing-filters
+  .box(ng-click="didFilterCost('cheap')", ng-class="{active: costFilter.cheap}") < $60
+    p a day
+  .box(ng-click="didFilterCost('medium')", ng-class="{active: costFilter.medium}") $60 - 80
+    p a day
+  .box(ng-click="didFilterCost('pricey')", ng-class="{active: costFilter.pricey}") $80+
+    p a day
+
+.no-results(ng-if="cars.length === 0")
+  h3 No Matching Cars
+  p Try a different search
+
+.listing-wrapper(save-scroll)
+
+  a.car(ng-repeat="car in cars", ui-sref=".detail({carId: car.id, car: car})")
+    car-image
+    .info
+      h3 {{car.name}}
+      p {{car.listing_features}}
