@@ -24,7 +24,6 @@ angular.module('idlecars')
   )
 
   $scope.logout = function () {
-    $scope.menuOpen = false;
     AuthService.logout();
     $scope.isLoggedIn = AuthService.isLoggedIn();
     $state.go('cars');
