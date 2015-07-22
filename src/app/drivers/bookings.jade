@@ -22,7 +22,7 @@
             span(ng-style='{color: booking.state_details.color}')  {{booking.state_details.status}}
           .light {{booking.state_details.content}}
 
-        section(ng-if='booking.state != 12')
+        section(ng-if='booking.state_details.cancelable')
           button.clear-button(ng-click='cancelBooking(booking.id)') Cancel booking
 
     .no-booking(ng-if='!bookings.length')
