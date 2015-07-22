@@ -1,0 +1,53 @@
+.bookings-wrapper
+  @extend %gray_theme
+  @extend %flex_scrollable
+  text-align: center
+
+  hr
+    margin: 1rem 0
+    border: none
+    height: 1px
+    background: $medium_gray
+
+  .light
+    font-size: $small_font_size
+
+  .bold
+    font-weight: $bold_font_weight
+
+  .user-info
+    background: white
+    padding: 2rem 0
+
+    h2
+      padding: 0 $page_gutter
+
+    button
+      color: $ic-blue
+      font-weight: $bold_font_weight
+
+  .bookings-container
+    padding: 1rem $page_gutter
+
+    h4
+      margin: 0
+
+  .booking-content
+    background: white
+
+  .content-wording
+    padding: 1.5rem 0.5rem 1rem
+
+    section
+      margin-bottom: 1.5rem
+
+      button
+        font-size: $small_font_size
+        color: $medium_gray
+
+    section:last-child
+      margin-bottom: 0
+
+  .no-booking
+    h3
+      margin: 2rem

@@ -7,7 +7,7 @@ angular.module('idlecars')
   $timeout(function() {
     newBooking.$save()
     .then(function(data) {
-      $state.go('bookingDetail', {bookingId: data.id});
+      $state.go('bookingSuccess');
     })
     .catch(_bookingSaveFailed);
   });
@@ -18,8 +18,7 @@ angular.module('idlecars')
       if (nextState) {
         $state.go(nextState);
       } else {
-        // back to carDetail state
-        $state.go('^');
+        $state.go('driverAccount.bookings');
       }
     });
   }
