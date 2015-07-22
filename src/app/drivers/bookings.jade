@@ -11,19 +11,20 @@
       .booking-content
         car-image(car='booking.car')
 
-        section
-          h2 {{booking.car.name}}
-          .light {{booking.car.booked_features}}
-          .bold {{booking.car.headline_features[2]}}
+        .content-wording
+          section
+            h2 {{booking.car.name}}
+            .light {{booking.car.booked_features}}
+            .bold {{booking.car.headline_features[2]}}
 
-        section
-          .bold
-            | Status
-            span(ng-style='{color: booking.state_details.color}')  {{booking.state_details.status}}
-          .light {{booking.state_details.content}}
+          section
+            .bold
+              | Status
+              span(ng-style='{color: booking.state_details.color}')  {{booking.state_details.status}}
+            .light {{booking.state_details.content}}
 
-        section(ng-if='booking.state_details.cancelable')
-          button.clear-button(ng-click='cancelBooking(booking.id)') Cancel booking
+          section(ng-if='booking.state_details.cancelable')
+            button.clear-button(ng-click='cancelBooking(booking.id)') Cancel booking
 
     .no-booking(ng-if='!bookings.length')
       hr
