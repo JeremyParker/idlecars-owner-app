@@ -6,19 +6,17 @@ angular.module('idlecars')
 
   $timeout(function() {
     newBooking.$save()
-    .then(function(data) {
-      $state.go('bookingSuccess');
-    })
-    .catch(_bookingSaveFailed);
+    .then(function(){_afterSaveAttempting('bookingSuccess')})
+    .catch(function(){_afterSaveAttempting('driverAccount.bookings')})
   });
 
-  var _bookingSaveFailed = function() {
+  var _afterSaveAttempting = function(destination) {
     DocRouterService.requiredDocState()
     .then(function(nextState) {
       if (nextState) {
         $state.go(nextState);
       } else {
-        $state.go('driverAccount.bookings');
+        $state.go(destination);
       }
     });
   }
