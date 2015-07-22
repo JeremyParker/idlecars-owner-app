@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('account.controller', function ($scope, MyDriverService) {
+.controller('account.controller', function ($scope, $state, MyDriverService, AuthService) {
 
   // TODO: we should move it to a presenter.
   $scope.accountInfo = [
@@ -22,4 +22,11 @@ angular.module('idlecars')
       $scope.me = me;
     }
   )
+
+  $scope.logout = function () {
+    $scope.menuOpen = false;
+    AuthService.logout();
+    $scope.isLoggedIn = AuthService.isLoggedIn();
+    $state.go('cars');
+  };
 })
