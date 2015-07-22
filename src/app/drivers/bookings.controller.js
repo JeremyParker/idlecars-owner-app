@@ -10,13 +10,13 @@ angular.module('idlecars')
   MyDriverService.get().then(initScope);
 
   Restangular.all('bookings').getList().then(function (bookings) {
-    $scope.bookings = bookings;
+    $scope.bookings = angular.copy(bookings);
   })
 
   $scope.cancelBooking = function (bookingId) {
     var patchData = { state: '12' };
 
     Restangular.one('bookings', bookingId).patch(patchData)
-    .then(function (data) { window.location.reload() });
+    .then(function () { window.location.reload() });
   }
 })
