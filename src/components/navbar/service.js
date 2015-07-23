@@ -20,7 +20,7 @@ angular.module('idlecars')
     if ($state.current.data){
       navbarStateData = $state.current.data.navbarInfo;
     };
-    return navbarStateParams[$stateParams.navbarType] || navbarStateData || {title: '', enableBack: true, enableNext: true};
+    return navbarStateParams[$stateParams.navbarType] || navbarStateData || {title: '', enableBack: true, enableMenu: true};
   }
 
   return factory;

@@ -8,10 +8,11 @@ angular.module('idlecars')
     .state('newUser', {
       abstract: true,
       url: '/users/new',
+      data: {navbarInfo: {title: 'Sign up', enableBack: true, enableNext: true}},
       views: {
         'navbar@': {
-          templateUrl: 'components/navbar/navbar_field.html',
-          controller: 'navbarField.controller',
+          templateUrl: 'components/navbar/navbar_main.html',
+          controller: 'navbarMain.controller',
         },
         'content@': {
           controller: function($scope) {
