@@ -22,10 +22,6 @@ angular.module('idlecars')
   $scope.save = function () {
     $rootScope.navSave();
   };
-})
-
-.controller('navbarField.controller', function ($scope, $rootScope, NavbarService) {
-  $scope.Navbar = NavbarService;
 
   $rootScope.navKeyPressed = function ($event) {
     if ($event.which !== 13) { return; }

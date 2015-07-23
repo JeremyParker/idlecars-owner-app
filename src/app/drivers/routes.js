@@ -22,7 +22,7 @@ angular.module('idlecars')
 
     .state('driverAccount.bookings', {
       url: '/bookings',
-      data: {navbarInfo: {title: 'My Rental', enableBack: true, enableNext: true}},
+      data: {navbarInfo: {title: 'My Rental', enableBack: true, enableMenu: true}},
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',
@@ -49,11 +49,8 @@ angular.module('idlecars')
 
     .state('driverAccount.onboarding.email', {
       url: '/email',
+      data: {navbarInfo: {title: 'Email', enableBack: true, enableNext: true}},
       views: {
-        'navbar@': {
-          templateUrl: 'components/navbar/navbar_field.html',
-          controller: 'navbarField.controller',
-        },
         'content@': {
           controller: 'driver.onboarding.email.controller',
           templateUrl: 'app/users/form.html',
