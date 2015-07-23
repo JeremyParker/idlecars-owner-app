@@ -1,31 +1,17 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.list.controller', function ($scope, CarService) {
-  $scope.costFilter = {};
-  var _allCars = [];
+.controller('cars.list.controller', function ($scope, $timeout, CarService, CarFilterService) {
+  $timeout(function() {
+    $scope.costFilter = CarFilterService.costFilter || {};
+  });
 
   CarService.query().$promise.then(function(cars) {
-    _allCars = cars;
-    _filterCars();
+    CarFilterService.allCars = cars;
+    $scope.cars = CarFilterService.filterCars();
   });
 
   $scope.didFilterCost = function(setting) {
-    $scope.costFilter[setting] = !$scope.costFilter[setting];
-    _filterCars();
-  }
-
-  var _filterCars = function() {
-    if (!_anyFiltersOn()) { return $scope.cars = _allCars; }
-
-    $scope.cars = _allCars.filter(function(car) {
-      return $scope.costFilter[car.cost_bucket];
-    });
-  }
-
-  var _anyFiltersOn = function() {
-    for (var key in $scope.costFilter) {
-      if ($scope.costFilter[key]) { return true; }
-    }
+    $scope.cars = CarFilterService.filterCost(setting);
   }
 })
