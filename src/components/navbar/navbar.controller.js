@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('navbarMain.controller', function ($scope, $rootScope, $state, AuthService, NavbarService, config) {
+.controller('navbarMain.controller', function ($scope, $rootScope, AuthService, NavbarService, config) {
   $rootScope.$on('$stateChangeSuccess', function() {
     $scope.menuOpen = false;
     $scope.navbarInfo = NavbarService.getNavbarInfo();
@@ -17,13 +17,6 @@ angular.module('idlecars')
       return;
     }
     NavbarService.popState();
-  };
-
-  $scope.logout = function () {
-    $scope.menuOpen = false;
-    AuthService.logout();
-    $scope.isLoggedIn = AuthService.isLoggedIn();
-    $state.go('cars');
   };
 
   $scope.save = function () {
