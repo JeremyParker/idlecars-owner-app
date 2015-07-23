@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('newUser.phoneNumber.controller', function ($scope, $rootScope, $state, Restangular, AppNotificationService) {
+.controller('newUser.phoneNumber.controller', function ($scope, $rootScope, $state, Restangular, NavbarService, AppNotificationService) {
   $scope.fields = [{
     label: 'Your phone number',
     placeholder: '(555) 555-5555',
@@ -29,4 +29,6 @@ angular.module('idlecars')
   $scope.validateForm = function() {
     $rootScope.navNextEnabled = $scope.fieldForm.$valid;
   }
+
+  NavbarService.validateInit($scope);
 });
