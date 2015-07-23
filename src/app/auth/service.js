@@ -21,14 +21,17 @@ angular.module('idlecars')
     return clean;
   }
 
+  service.saveToken = function(data) {
+    service.token = data.token;
+    console.log("service.token " + service.token)
+    $localStorage.authToken = data.token;
+    _setAuthHeader();
+  }
+
   service.login = function(params) {
     var newToken = new TokenService(_cleanParams(params));
     return newToken.$save()
-    .then(function(data) {
-      service.token = data.token;
-      $localStorage.authToken = data.token;
-      _setAuthHeader();
-    })
+    .then(service.saveToken(data))
     .catch(function(error) {
       AppNotificationService.push("The password is incorrect");
       return $q.reject(error);
