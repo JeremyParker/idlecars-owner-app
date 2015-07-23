@@ -22,7 +22,7 @@ angular.module('idlecars')
 
     .state('driverAccount.bookings', {
       url: '/bookings',
-      data: {navbarInfo: {title: 'My Rental', enableBack: true, enableNext: true}},
+      data: {navbarInfo: {title: 'My Rental', enableBack: true, enableMenu: true}},
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',
