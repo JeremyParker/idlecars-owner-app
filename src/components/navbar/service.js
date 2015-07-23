@@ -23,6 +23,7 @@ angular.module('idlecars')
     return navbarStateParams[$stateParams.navbarType] || navbarStateData || {title: '', enableBack: true, enableNext: true};
   }
 
+  // TODO: Don't use scope in service
   factory.validateInit = function (scope, loadChild) {
     scope.$on('$viewContentLoaded', function() {
       var scopeOrChild = scope;
