@@ -6,7 +6,7 @@ angular.module('idlecars')
 
   $scope.fields =  [{
     label: 'Create a password',
-    placeholder: 'Add a password',
+    placeholder: 'password',
     name: 'password',
     type: 'password',
     minlength: minPassword,
@@ -14,7 +14,7 @@ angular.module('idlecars')
   },
   {
     label: 'Confirm password',
-    placeholder: 'Confirm password',
+    placeholder: 'password',
     name: 're_password',
     type: 'password',
     minlength: minPassword,
