@@ -9,5 +9,5 @@
     .skip-link
       a(ng-if='showSkipLink', ui-sref="bookingDetail({goRequiredDoc: false})") skip for now
 
-  .progress-bar(ng-if='completion != null')
+  .progress-bar(ng-if='completion != null && showProgressBar')
     progress-bar(progress='{{completion}}')

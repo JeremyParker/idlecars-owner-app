@@ -3,6 +3,7 @@
 angular.module('idlecars')
 .controller('driver.onboarding.controller', function ($scope) {
   $scope.showSkipLink = true;
+  $scope.showProgressBar = true;
 
   $scope.$on('completion', function (event, completion) {
     $scope.completion = completion;

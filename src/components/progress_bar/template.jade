@@ -1,5 +1,4 @@
 .completion(ng-if='progress') Profile completion #[span {{progress}}%]
-.completion(ng-if='steps') Step #[span {{step}}] of #[span {{steps}}]
 
 .bar-container
-  .bar-content(ng-style="{'width': completion}", ng-class="{'completed': completion=='100%'}")
+  .bar-content(ng-style="{'width': completion}")
