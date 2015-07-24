@@ -9,6 +9,10 @@ angular.module('idlecars')
     $scope.user = angular.copy(me);
   })
 
+  $scope.$on('completion', function (event, completion) {
+    $scope.completion = completion;
+  })
+
   $rootScope.navSave = function() {
     MyDriverService.patch($scope.$$childHead.user).then(function () {
       $state.go('driverAccount');
