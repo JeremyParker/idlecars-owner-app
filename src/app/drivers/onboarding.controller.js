@@ -3,6 +3,10 @@
 angular.module('idlecars')
 .controller('driver.onboarding.controller', function ($scope) {
   $scope.showSkipLink = true;
+
+  $scope.$on('completion', function (event, completion) {
+    $scope.completion = completion;
+  })
 })
 
 .controller('driver.onboarding.driverlicense.controller', function ($scope) {
