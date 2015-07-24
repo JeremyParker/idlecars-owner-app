@@ -6,6 +6,8 @@ angular.module('idlecars')
     templateUrl: 'components/progress_bar/template.html',
     scope: {
       progress: '@',
+      steps: '@',
+      step: '@',
     }
   };
 });

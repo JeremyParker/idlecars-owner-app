@@ -1,11 +1,13 @@
 .upload-wrapper
-  .title
-    div Please upload a photo of
-    .upload-title {{uploadTitle}}
+  .upload-container
+    .title
+      div Please upload a photo of
+      .upload-title {{uploadTitle}}
 
-  ic-upload(field-name="{{fieldName}}", after-upload-sref="{{afterUploadSref}}")
+    ic-upload(field-name="{{fieldName}}", after-upload-sref="{{afterUploadSref}}")
 
-  .skip-link
-    a(ng-if='showSkipLink', ui-sref="bookingDetail({goRequiredDoc: false})") skip for now
+    .skip-link
+      a(ng-if='showSkipLink', ui-sref="bookingDetail({goRequiredDoc: false})") skip for now
 
-  progress-bar(progress='60%')
+  .progress-bar
+    progress-bar(progress='60%')
