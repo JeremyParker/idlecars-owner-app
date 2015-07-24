@@ -23,7 +23,6 @@ angular.module('idlecars')
 
     .state('resetPassword', {
       url: '/reset_password/:resetToken',
-      params: {token: null},
       data: {navbarInfo: {title: 'Reset password', enableBack: false, enableSave: true}},
       views: {
         'navbar@': {

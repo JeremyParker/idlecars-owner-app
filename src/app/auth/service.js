@@ -23,7 +23,6 @@ angular.module('idlecars')
 
   service.saveToken = function(data) {
     service.token = data.token;
-    console.log("service.token " + service.token)
     $localStorage.authToken = data.token;
     _setAuthHeader();
   }
