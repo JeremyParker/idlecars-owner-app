@@ -19,8 +19,8 @@
 
           section
             .bold
-              | Status
-              span(ng-style='{color: booking.state_details.color}')  {{booking.state_details.status}}
+              | Status:
+              span(ng-style='{color: booking.state_details.color}') &nbsp{{booking.state_details.status}}
             .light {{booking.state_details.content}}
 
           section(ng-if='booking.state_details.cancelable')
