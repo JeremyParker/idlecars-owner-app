@@ -30,7 +30,9 @@ angular.module('idlecars')
   service.login = function(params) {
     var newToken = new TokenService(_cleanParams(params));
     return newToken.$save()
-    .then(service.saveToken(data))
+    .then(function(data) {
+      service.saveToken(data.token);
+    })
     .catch(function(error) {
       AppNotificationService.push("The password is incorrect");
       return $q.reject(error);
