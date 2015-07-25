@@ -38,10 +38,11 @@ angular.module('idlecars')
     Restangular.one('password', 'resets').patch(_resetParams())
     .then(function(data) {
       AuthService.saveToken(data.token);
-      AppNotificationService.push('Your password has been reset')
+      for (var i = 0; i < data._app_notifications.length; i++) {
+        AppNotificationService.push(data._app_notifications[i]);
+      }
       $state.go('driverAccount');
     }).catch(function(data) {
-      AppNotificationService.push(data.data.detail)
       $state.go('login');
     })
   }

@@ -21,9 +21,9 @@ angular.module('idlecars')
     return clean;
   }
 
-  service.saveToken = function(data) {
-    service.token = data.token;
-    $localStorage.authToken = data.token;
+  service.saveToken = function(token) {
+    service.token = token;
+    $localStorage.authToken = token;
     _setAuthHeader();
   }
 
