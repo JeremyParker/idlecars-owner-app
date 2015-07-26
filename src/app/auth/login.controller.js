@@ -30,7 +30,21 @@ angular.module('idlecars')
 
   var _phoneNotFound = function() {
     // TODO: return this error from the server
-    AppNotificationService.push("Sorry, we couldn't find this phone number");
+    AppNotificationService.push("Sorry, that didn't work. Please double-check your phone number.");
     $scope.user.password = '';
   }
+
+  $scope.resetPassword = function() {
+    if (!$scope.user) {
+      AppNotificationService.push('Please enter your phone number.');
+      return
+    }
+    var postParams = { phone_number: $scope.user.username };
+    var passwordReset = Restangular.all('password/reset_setups');
+    passwordReset.post(postParams)
+    .then(function() {
+      // TODO(JP) - hook up SMS service and $state.go to the SMS screen that @craigstar made.
+      AppNotificationService.push('An email has been sent to your address.');
+    })
+  };
 });

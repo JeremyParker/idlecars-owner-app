@@ -34,7 +34,7 @@ angular.module('idlecars')
       service.saveToken(data.token);
     })
     .catch(function(error) {
-      AppNotificationService.push("The password is incorrect");
+      AppNotificationService.push("Sorry, that didn't work. Please double-check your password.");
       return $q.reject(error);
     });
   }
