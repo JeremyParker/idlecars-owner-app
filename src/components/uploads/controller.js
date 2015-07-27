@@ -7,6 +7,9 @@ angular.module('idlecars')
   $scope.isBusy = false;
 
   MyDriverService.get().then(function(me) {
+    var completion = MyDriverService.getCompletion(me);
+    $scope.$emit('completion', completion);
+
     if (!me[$scope.fieldName]) { return; }
     $scope.fileUrl = me[$scope.fieldName];
   });

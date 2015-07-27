@@ -3,6 +3,7 @@
 angular.module('idlecars')
 .controller('driver.update.controller', function ($scope, $timeout, $rootScope, $state, MyDriverService, NavbarService) {
   $scope.showSkipLink = false;
+  $scope.showProgressBar = false;
   $scope.afterUploadSref = 'driverAccount';
 
   MyDriverService.get().then(function (me) {
