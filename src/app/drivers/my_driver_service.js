@@ -20,6 +20,7 @@ angular.module('idlecars')
     return service.driver;
   }
 
+  // TODO: math should be done in server
   service.getCompletion = function(me) {
     var completion = 0;
     for (var i in requiredItems) {
