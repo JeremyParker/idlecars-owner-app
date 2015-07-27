@@ -10,8 +10,10 @@
 .has-bar
   border-bottom: 1px solid $light_gray
 
-.pull-left
+.content-title
   text-align: left
+  padding-right: 1rem
+  color: $medium_gray
 
 .column-content
   @extend %flex_content
@@ -29,6 +31,8 @@
 
 .content-main
   @extend %pull_right
+  overflow: hidden
+  text-overflow: ellipsis
 
 .section-interlude
   padding: 0.75rem 1rem
@@ -38,6 +42,7 @@
 
 .title-padding
   padding: 0.5rem 0 0.75rem 0
+  text-align: left
 
 .settings-wrapper
   @extend %gray_theme
@@ -54,6 +59,7 @@
       padding: 0 1rem
 
       .section-title
+        text-align: left
         padding-top: 1rem
         font-size: $large_font_size
 

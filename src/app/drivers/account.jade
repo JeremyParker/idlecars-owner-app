@@ -2,8 +2,9 @@
   section
     .section-row(ng-repeat='item in accountInfo')
       a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
-        .pull-left.medium-gray {{item.title}}
-        .content-main.next-pointer {{me[item.content]}}
+        .content-title {{item.title}}
+        .content-main {{me[item.content]}}
+        .next-pointer
 
   .section-interlude(ng-if='!me.all_docs_uploaded')
     .b-inter-content All driver documents are required
@@ -11,11 +12,11 @@
 
   section
     .section-row
-      .section-title.pull-left.medium-gray Driver Documents
+      .section-title.medium-gray Driver Documents
     .section-row(ng-repeat='item in driverDocuments')
       a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
         .column-content
-          .pull-left.title-padding {{item.title}}
+          .title-padding {{item.title}}
           .img-upload
             .image-wrapper
               img(ng-if='me[item.image]', ng-src='{{me[item.image]}}')
