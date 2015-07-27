@@ -33,23 +33,4 @@ angular.module('idlecars')
     AppNotificationService.push("Sorry, that didn't work. Please double-check your phone number.");
     $scope.user.password = '';
   }
-
-  $scope.resetPassword = function() {
-    if (!$scope.user) {
-      AppNotificationService.push('Please enter your phone number.');
-      return
-    }
-    var postParams = { phone_number: $scope.user.username };
-    var passwordReset = Restangular.all('password/reset_setups');
-    passwordReset.post(postParams)
-    .then(function() {
-      // TODO(JP) - hook up SMS service and $state.go to the SMS screen that @craigstar made.
-      AppNotificationService.push('A password recovery email has been sent to your address.');
-    })
-    .catch(function(error) {
-      if (error.data.phone_number) {
-        _phoneNotFound();
-      }
-    });
-  };
 });

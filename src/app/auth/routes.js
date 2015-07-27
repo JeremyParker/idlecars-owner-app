@@ -21,6 +21,21 @@ angular.module('idlecars')
       }
     })
 
+    .state('forgotPassword', {
+      url: '/forgot_password',
+      data: {navbarInfo: {title: 'I forgot my password', enableBack: true, enableNext: true}},
+      views: {
+        'navbar@': {
+          templateUrl: 'components/navbar/navbar_main.html',
+          controller: 'navbarMain.controller',
+        },
+        'content@': {
+          templateUrl: 'app/users/form.html',
+          controller: 'auth.forgotPassword.controller',
+        }
+      }
+    })
+
     .state('resetPassword', {
       url: '/reset_password/:resetToken',
       data: {navbarInfo: {title: 'Reset password', enableBack: false, enableSave: true}},

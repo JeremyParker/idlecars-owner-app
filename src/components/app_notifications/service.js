@@ -6,7 +6,7 @@ angular.module('idlecars')
 
   service.push = function(message) {
     service.messages.push(message);
-    $timeout(function() { service.messages.shift(); }, 3000);
+    $timeout(function() { service.messages.shift(); }, 5000);
   }
 
   return service;

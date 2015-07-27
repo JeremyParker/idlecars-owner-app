@@ -10,6 +10,7 @@ angular.module('idlecars')
     pattern: '[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
     maxlength: '14',
     autoFocus: true,
+    showLogin: true,
   }];
 
   $rootScope.navGoNext = function() {
