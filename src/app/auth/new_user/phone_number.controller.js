@@ -10,6 +10,7 @@ angular.module('idlecars')
     pattern: '[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
     maxlength: '14',
     autoFocus: true,
+    showLogin: true,
   }];
 
   $rootScope.navGoNext = function() {
@@ -17,7 +18,7 @@ angular.module('idlecars')
     phoneNumber.get()
     .then(function() {
       $state.go('login', {username: $scope.user.phone_number}).then(function() {
-        AppNotificationService.push("Cool, you already have an account, enter your password.");
+        AppNotificationService.push("Great, you already have an account. Enter your password.");
       });
     })
     .catch(function() {

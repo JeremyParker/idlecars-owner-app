@@ -17,5 +17,5 @@
           required,
           autocomplete='off')
 
-        .login-link(ng-if='field.name === "phone_number"')
+        .login-link(ng-if='field.showLogin')
           | Already have an account? #[a(ui-sref='login') Log in]
