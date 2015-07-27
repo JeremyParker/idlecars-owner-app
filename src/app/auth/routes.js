@@ -24,6 +24,7 @@ angular.module('idlecars')
     .state('forgotPassword', {
       url: '/forgot_password',
       data: {navbarInfo: {title: 'I forgot my password', enableBack: true, enableNext: true}},
+      params: {phone_number: null},
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',

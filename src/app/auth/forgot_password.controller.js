@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('auth.forgotPassword.controller', function ($scope, $rootScope, $state, $stateParams, Restangular, AppNotificationService) {
+.controller('auth.forgotPassword.controller', function ($scope, $rootScope, $state, $stateParams, Restangular, AppNotificationService, NavbarService) {
 
   $scope.user = {};
   $scope.fields = [{
@@ -17,6 +17,7 @@ angular.module('idlecars')
   if ($stateParams.phone_number) {
     $scope.user = { phone_number: $stateParams.phone_number };
   }
+  NavbarService.validateInit($scope);
 
   $scope.validateForm = function() {
     $rootScope.navNextEnabled = $scope.fieldForm.$valid;
