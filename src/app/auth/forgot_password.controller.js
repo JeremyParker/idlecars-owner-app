@@ -25,7 +25,7 @@ angular.module('idlecars')
 
   $rootScope.navGoNext = function() {
     var postParams = { phone_number: $scope.user.phone_number };
-    var passwordReset = Restangular.all('password/reset_setups');
+    var passwordReset = Restangular.all('password').all('reset_setups');
     passwordReset.post(postParams)
     .then(function() {
       // TODO(JP) - hook up SMS service and $state.go to the SMS screen that @craigstar made.
