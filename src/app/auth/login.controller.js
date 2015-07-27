@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('auth.login.controller', function ($scope, $stateParams, $state, Restangular, AppNotificationService, RequireAuthService, AuthService) {
+.controller('auth.login.controller', function ($scope, $stateParams, Restangular, AppNotificationService, RequireAuthService, AuthService) {
 
   // TODO: find a place to store stuff like this
   $scope.min_password = 2;
@@ -17,11 +17,6 @@ angular.module('idlecars')
     .then(_login)
     .catch(_phoneNotFound)
   };
-
-  $scope.forgotPassword = function() {
-    console.log($scope.user.username)
-    $state.go('forgotPassword', {phone_number: $scope.user.username});
-  }
 
   var _login = function() {
     AuthService.login($scope.user)

@@ -23,7 +23,7 @@
           required)
 
       .forgot-wrapper
-        a(ng-click='forgotPassword()') Forgot your password?
+        a(ui-sref="forgotPassword({phone_number: user.username})") Forgot your password?
 
   .lower-section
     .button-wrapper
