@@ -1,14 +1,18 @@
 'use strict';
 
 describe('index page', function () {
+  var navbar;
 
   beforeEach(function () {
     browser.get('http://localhost:3000/index.html');
-    // page = require('./show.po');
+    navbar = require('./navbar.po');
   });
 
-  iit('has a navbar', function() {
-    var navbar = element(by.css('bar-wrapper'));
-    expect(navbar.isPresent()).toBe(true);
+  it('has a menu button', function() {
+    navbar.menu.click();
+    expect(navbar.homeButton.isDisplayed()).toBe(true);
+    expect(navbar.signupButton.isDisplayed()).toBe(true);
+    expect(navbar.loginButton.isDisplayed()).toBe(true);
+    expect(navbar.questionsButton.isDisplayed()).toBe(true);
   });
 });
