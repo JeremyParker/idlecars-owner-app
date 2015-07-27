@@ -29,7 +29,7 @@ angular.module('idlecars')
     passwordReset.post(postParams)
     .then(function() {
       // TODO(JP) - hook up SMS service and $state.go to the SMS screen that @craigstar made.
-      $state.go('login', {username: $scope.user.phone_number})
+      return $state.go('login', {username: $scope.user.phone_number});
     })
     .then(function() {
       AppNotificationService.push('An email has been sent to your address. Please check your email.');
