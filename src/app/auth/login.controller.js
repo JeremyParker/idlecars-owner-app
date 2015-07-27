@@ -44,7 +44,12 @@ angular.module('idlecars')
     passwordReset.post(postParams)
     .then(function() {
       // TODO(JP) - hook up SMS service and $state.go to the SMS screen that @craigstar made.
-      AppNotificationService.push('An email has been sent to your address.');
+      AppNotificationService.push('A password recovery email has been sent to your address.');
     })
+    .catch(function(error) {
+      if (error.data.phone_number) {
+        _phoneNotFound();
+      }
+    });
   };
 });
