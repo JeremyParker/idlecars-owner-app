@@ -1,10 +1,18 @@
 'use strict';
 
 var Login = function() {
-  this.phone = element(by.css('input[name=phone]'));
-  this.password = element(by.css('input[name=password]'));
-  this.loginButton = element(by.cssContainingText('span', 'Log in'));
-  this.signupButton = element(by.cssContainingText('span', 'Sign up'));
+  var self = this;
+
+  self.phone = element(by.css('input[name=phone]'));
+  self.password = element(by.css('input[name=password]'));
+  self.loginButton = element(by.cssContainingText('span', 'Log in'));
+  self.signupButton = element(by.cssContainingText('span', 'Sign up'));
+
+  self.loginProcess = function () {
+    self.phone.sendKeys('1234567891');
+    self.password.sendKeys('password');
+    self.loginButton.click();
+  }
 };
 
 module.exports = new Login();

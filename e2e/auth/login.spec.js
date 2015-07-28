@@ -14,10 +14,8 @@ describe('log in page', function () {
     navbar.loginButton.click();
   });
 
-  iit('can log in', function() {
-    page.phone.sendKeys('1234567891');
-    page.password.sendKeys('password');
-    page.loginButton.click();
+  it('can log in', function() {
+    page.loginProcess();
     expect(index.carEls.count()).toBe(4);
   });
 
