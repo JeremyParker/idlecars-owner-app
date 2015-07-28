@@ -1,6 +1,7 @@
 {
   "config": {
     "env": "e2e",
-    "api_base_url": "//localhost:9999/api/"
+    "landing_page_url": "http://localhost:9999/",
+    "api_base_url": "http://localhost:9999/api/"
   }
 }

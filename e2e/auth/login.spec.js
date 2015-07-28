@@ -1,27 +1,24 @@
 'use strict';
 
 describe('log in page', function () {
-  var navbar;
-  var page;
-  var notification;
+  var index = require('../cars/index.po');
+  var navbar = require('../navbar/navbar.po');
+  var page = require('./login.po');
+  var helpers = require('../spec_helper');
 
   beforeEach(function () {
     browser.get('http://localhost:3000/index.html');
 
-    navbar = require('../navbar/navbar.po');
-    page = require(('./login.po'));
-    notification = require('../components/app_notifications.po');
-
+    helpers.startTest();
     navbar.menu.click();
     navbar.loginButton.click();
   });
 
-  it('can log in', function() {
-    page.inputPhone.sendKeys('7777777777');
-    page.inputPassword.sendKeys('888');
+  iit('can log in', function() {
+    page.phone.sendKeys('1234567891');
+    page.password.sendKeys('password');
     page.loginButton.click();
-    // expect(notification.errorMessage.isDisplayed()).toBe(true)
-
+    expect(index.carEls.count()).toBe(4);
   });
 
   it('can go to sign up page', function() {
