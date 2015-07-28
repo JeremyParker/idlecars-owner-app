@@ -5,6 +5,7 @@ var Signup = function() {
   this.login = element(by.cssContainingText('a', 'Log in'));
   this.password1 = element(by.css('input[name=password'));
   this.password2 = element(by.css('input[name=re_password'));
+  this.email = element(by.css('input[name=email'));
 };
 
 module.exports = new Signup();

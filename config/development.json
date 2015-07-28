@@ -1,7 +1,7 @@
 {
   "config": {
     "env": "development",
-    "landing_page_url": "//localhost:8000/",
-    "api_base_url": "http://localhost:8000/api/"
+    "landing_page_url": "//localhost:9999/",
+    "api_base_url": "http://localhost:9999/api/"
   }
 }
