@@ -8,7 +8,7 @@ describe('Getting to a car detail page from the car index', function () {
     var index = require('./index.po');
     index.delorean.click();
 
-    page = require('./show.po');
+    page = require('./detail.po');
   });
 
   it('includes a header', function() {
@@ -21,7 +21,7 @@ describe('Deep linking to a car detail page', function () {
 
   beforeEach(function () {
     browser.get('http://localhost:3000/#/cars/1');
-    page = require('./show.po');
+    page = require('./detail.po');
   });
 
   it('includes a header', function() {
