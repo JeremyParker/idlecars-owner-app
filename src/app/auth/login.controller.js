@@ -30,7 +30,7 @@ angular.module('idlecars')
 
   var _phoneNotFound = function() {
     // TODO: return this error from the server
-    AppNotificationService.push("Sorry, we couldn't find this phone number");
+    AppNotificationService.push("Sorry, that didn't work. Please double-check your phone number.");
     $scope.user.password = '';
   }
 });

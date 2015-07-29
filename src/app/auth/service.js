@@ -21,16 +21,20 @@ angular.module('idlecars')
     return clean;
   }
 
+  service.saveToken = function(token) {
+    service.token = token;
+    $localStorage.authToken = token;
+    _setAuthHeader();
+  }
+
   service.login = function(params) {
     var newToken = new TokenService(_cleanParams(params));
     return newToken.$save()
     .then(function(data) {
-      service.token = data.token;
-      $localStorage.authToken = data.token;
-      _setAuthHeader();
+      service.saveToken(data.token);
     })
     .catch(function(error) {
-      AppNotificationService.push("The password is incorrect");
+      AppNotificationService.push("Sorry, that didn't work. Please double-check your password.");
       return $q.reject(error);
     });
   }

@@ -1,7 +1,12 @@
 .upload-wrapper
   @extend %gray_theme
-  padding: 2rem $page_gutter 0
-  flex: 1
+  @extend %flex_container_column
+  @extend %flex_content
+  padding: 0 $page_gutter 0
+
+  .upload-container
+    flex: 1
+    padding: 1.5rem 0
 
   .title
     text-align: center
@@ -42,7 +47,5 @@
       font-weight: $bold_font_weight
       text-decoration: underline
 
-
-
-
-
+  .progress-bar
+    margin-bottom: 1.5rem
