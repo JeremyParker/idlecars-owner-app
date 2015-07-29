@@ -2,7 +2,7 @@
 
 describe('Renewing a car', function () {
   var helpers = require('../spec_helper');
-  var renewal = require('./renewal.po');
+  var renewal = require('../cars/renewal.po');
 
   beforeEach(function () {
     helpers.startTest();

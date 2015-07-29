@@ -1,7 +1,7 @@
 'use strict';
 
 var Signup = function() {
-  var navbar = require('../navbar/navbar.po');
+  var navbar = require('../components/navbar.po');
 
   var self = this;
   var randomPhoneNumber = Math.floor(Math.random()*10000000000);

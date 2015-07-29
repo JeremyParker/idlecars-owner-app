@@ -2,7 +2,7 @@
 
 describe('index page', function () {
   var helpers = require('../spec_helper');
-  var navbar = require('./navbar.po');
+  var navbar = require('../components/navbar.po');
 
   beforeEach(function () {
     helpers.startTest();

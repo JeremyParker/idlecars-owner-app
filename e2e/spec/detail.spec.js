@@ -1,15 +1,15 @@
 'use strict';
 
 describe('Getting to a car detail page', function () {
-  var carDetail = require('./detail.po');
+  var carDetail = require('../cars/detail.po');
   var helpers = require('../spec_helper');
+  var index = require('../cars/index.po');
 
   describe('from the car index', function () {
 
     beforeEach(function () {
       helpers.startTest();
       browser.get('http://localhost:3000/index.html');
-      var index = require('./index.po');
       index.delorean.click();
     });
 

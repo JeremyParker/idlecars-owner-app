@@ -1,8 +1,8 @@
 'use strict';
 
 describe('sign up page', function () {
-  var navbar = require('../navbar/navbar.po');
-  var page = require('./signup.po');
+  var navbar = require('../components/navbar.po');
+  var signup = require('../auth/signup.po');
   var carDetail = require('../cars/detail.po');
   var listing = require('../cars/index.po');
   var helpers = require('../spec_helper');
@@ -17,7 +17,7 @@ describe('sign up page', function () {
     });
 
     it('should create an account', function() {
-      page.signupProcess();
+      signup.signupProcess();
       expect(listing.carEls.count()).toBe(4);
     });
 
@@ -33,7 +33,7 @@ describe('sign up page', function () {
 
 
     it('should create an account', function() {
-      page.signupProcess();
+      signup.signupProcess();
       expect(navbar.title.getText()).toEqual('Email');
     });
   });

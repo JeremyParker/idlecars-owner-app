@@ -2,11 +2,11 @@
 
 describe('As a driver, I can upload my docs', function () {
   var path = require('path');
-  var account = require('./account.po');
+  var account = require('../driver/account.po');
   var carDetail = require('../cars/detail.po');
-  var navbar = require('../navbar/navbar.po');
+  var navbar = require('../components/navbar.po');
   var signup = require('../auth/signup.po');
-  var uploadDocs = require('./uploadDocs.po');
+  var uploadDocs = require('../driver/uploadDocs.po');
   var success = require('../booking/success_page.po');
   var docsOverview = require('../booking/docs_overview.po');
   var helpers = require('../spec_helper');

@@ -2,7 +2,7 @@
 
 describe('Listing cars', function () {
   var helpers = require('../spec_helper');
-  var listing = require('./index.po');
+  var listing = require('../cars/index.po');
 
   beforeEach(function () {
     helpers.startTest();
