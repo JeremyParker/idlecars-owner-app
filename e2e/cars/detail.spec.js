@@ -1,30 +1,33 @@
 'use strict';
 
-describe('Getting to a car detail page from the car index', function () {
-  var page;
+describe('Getting to a car detail page', function () {
+  var carDetail = require('./detail.po');
+  var helpers = require('../spec_helper');
 
-  beforeEach(function () {
-    browser.get('http://localhost:3000/index.html');
-    var index = require('./index.po');
-    index.delorean.click();
+  describe('from the car index', function () {
 
-    page = require('./detail.po');
+    beforeEach(function () {
+      helpers.startTest();
+      browser.get('http://localhost:3000/index.html');
+      var index = require('./index.po');
+      index.delorean.click();
+    });
+
+    it('includes a header', function() {
+      expect(carDetail.header.getText()).toBe('1985 DMC Delorean');
+    });
   });
 
-  it('includes a header', function() {
-    expect(page.header.getText()).toBe('1985 DMC Delorean');
-  });
-});
+  describe('from deep linking', function () {
+    beforeEach(function () {
+      helpers.startTest();
+      browser.get('http://localhost:3000/#/cars/1');
+    });
 
-describe('Deep linking to a car detail page', function () {
-  var page;
-
-  beforeEach(function () {
-    browser.get('http://localhost:3000/#/cars/1');
-    page = require('./detail.po');
+    it('includes a header', function() {
+      expect(carDetail.header.getText()).toBe('1985 DMC Delorean');
+    });
   });
+})
 
-  it('includes a header', function() {
-    expect(page.header.getText()).toBe('1985 DMC Delorean');
-  });
-});
+

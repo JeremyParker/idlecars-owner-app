@@ -13,10 +13,6 @@ var Login = function() {
     self.password.sendKeys('password');
     self.loginButton.click();
   }
-
-  self.removeToken = function () {
-    browser.executeScript('return localStorage.removeItem("ngStorage-authToken");')
-  }
 };
 
 module.exports = new Login();

@@ -6,7 +6,6 @@ describe('As a driver, I can upload my docs', function () {
   var carDetail = require('../cars/detail.po');
   var navbar = require('../navbar/navbar.po');
   var signup = require('../auth/signup.po');
-  var login = require('../auth/login.po');
   var uploadDocs = require('./uploadDocs.po');
   var success = require('../booking/success_page.po');
   var docsOverview = require('../booking/docs_overview.po');
@@ -27,7 +26,6 @@ describe('As a driver, I can upload my docs', function () {
   beforeEach(function () {
     helpers.startTest();
     browser.get('http://localhost:3000/#/cars/1');
-    login.removeToken();
     carDetail.bookingLink.click();
   });
 

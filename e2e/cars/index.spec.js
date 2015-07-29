@@ -2,7 +2,7 @@
 
 describe('Listing cars', function () {
   var helpers = require('../spec_helper');
-  var page;
+  var listing = require('./index.po');
 
   beforeEach(function () {
     helpers.startTest();
@@ -10,12 +10,12 @@ describe('Listing cars', function () {
 
   describe('getting the cars', function () {
     beforeEach(function () {
+      helpers.startTest();
       browser.get('http://localhost:3000/index.html');
-      page = require('./index.po');
     });
 
     it('lists 4 cars', function () {
-      expect(page.carEls.count()).toBe(4);
+      expect(listing.carEls.count()).toBe(4);
     });
   });
 });

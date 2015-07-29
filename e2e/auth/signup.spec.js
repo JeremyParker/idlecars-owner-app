@@ -10,6 +10,7 @@ describe('sign up page', function () {
   describe('from menu button', function() {
 
     beforeEach(function () {
+      helpers.startTest();
       browser.get('http://localhost:3000/index.html');
       navbar.menu.click();
       navbar.signupButton.click();
@@ -25,9 +26,7 @@ describe('sign up page', function () {
   describe('from a car', function () {
 
     beforeEach(function () {
-      // TODO: need to find a way to log out
       helpers.startTest();
-
       browser.get('http://localhost:3000/#/cars/1');
       carDetail.bookingLink.click();
     });

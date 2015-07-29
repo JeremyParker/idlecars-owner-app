@@ -1,12 +1,12 @@
 'use strict';
 
 describe('index page', function () {
-  var navbar;
+  var helpers = require('../spec_helper');
+  var navbar = require('./navbar.po');
 
   beforeEach(function () {
+    helpers.startTest();
     browser.get('http://localhost:3000/index.html');
-    login.removeToken();
-    navbar = require('./navbar.po');
   });
 
   it('has a menu button', function() {
