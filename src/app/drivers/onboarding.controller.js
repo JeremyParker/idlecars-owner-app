@@ -12,12 +12,12 @@ angular.module('idlecars')
 
 .controller('driver.onboarding.driverlicense.controller', function ($scope) {
   $scope.fieldName = 'driver_license_image';
-  $scope.uploadTitle = 'your Driver License';
+  $scope.uploadTitle = 'your Drivers License';
 })
 
 .controller('driver.onboarding.fhvlicense.controller', function ($scope) {
   $scope.fieldName = 'fhv_license_image';
-  $scope.uploadTitle = 'your Hack License';
+  $scope.uploadTitle = 'your TLC License';
 })
 
 .controller('driver.onboarding.defensivedriving.controller', function ($scope) {
