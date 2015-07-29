@@ -2,10 +2,14 @@
 
 describe('As a driver, I can upload my docs', function () {
   var path = require('path');
+  var account = require('./account.po');
   var carDetail = require('../cars/detail.po');
   var navbar = require('../navbar/navbar.po');
   var signup = require('../auth/signup.po');
+  var login = require('../auth/login.po');
   var uploadDocs = require('./uploadDocs.po');
+  var success = require('../booking/success_page.po');
+  var docsOverview = require('../booking/docs_overview.po');
   var helpers = require('../spec_helper');
 
   var oldUrl = 'http://localhost:3000/#/account/onboarding/driver-license';
@@ -23,6 +27,7 @@ describe('As a driver, I can upload my docs', function () {
   beforeEach(function () {
     helpers.startTest();
     browser.get('http://localhost:3000/#/cars/1');
+    login.removeToken();
     carDetail.bookingLink.click();
   });
 
@@ -37,6 +42,16 @@ describe('As a driver, I can upload my docs', function () {
     navbar.nextButton.click();
 
     expect(uploadDocs.progressBar.isDisplayed()).toBe(true);
+    uploadDocs.skipButton.click();
+    expect(docsOverview.documents.count()).toBe(4);
+    docsOverview.driverLicense.click();
+    expect(uploadDocs.uploadTitle.getText()).toContain('Driver');
+    uploadDocs.skipButton.click();
+    docsOverview.accountButton.click();
+    expect(account.userInfo.count()).toBe(3);
+
+    navbar.backButton.click();
+    docsOverview.driverLicense.click();
 
     expect(uploadDocs.uploadTitle.getText()).toContain('Driver');
     uploadDocs.uploadButton.sendKeys(absolutePath);
@@ -53,5 +68,9 @@ describe('As a driver, I can upload my docs', function () {
     expect(uploadDocs.uploadTitle.getText()).toContain('address');
     uploadDocs.uploadButton.sendKeys(absolutePath);
     browserWait();
+
+    expect(success.title.getText()).toContain('Complete');
+    success.rentalButton.click();
+    expect(navbar.title.getText()).toContain('Rental');
   });
 });

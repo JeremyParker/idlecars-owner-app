@@ -5,6 +5,7 @@ describe('index page', function () {
 
   beforeEach(function () {
     browser.get('http://localhost:3000/index.html');
+    login.removeToken();
     navbar = require('./navbar.po');
   });
 
