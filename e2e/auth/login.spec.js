@@ -7,9 +7,9 @@ describe('log in page', function () {
   var helpers = require('../spec_helper');
 
   beforeEach(function () {
+    helpers.startTest();
     browser.get('http://localhost:3000/index.html');
 
-    helpers.startTest();
     navbar.menu.click();
     navbar.loginButton.click();
   });
