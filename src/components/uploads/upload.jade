@@ -1,5 +1,6 @@
 .image-wrapper
-  img(ng-src='{{fileUrl}}')
+  a(href='{{fileUrl}}')
+    img(ng-src='{{fileUrl}}')
 
 .button
   ic-loading(ng-show="isBusy")
