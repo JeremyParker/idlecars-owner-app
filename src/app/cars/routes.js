@@ -19,6 +19,10 @@ angular.module('idlecars')
       },
     })
 
+    .state('cars.search', {
+      templateUrl: 'app/cars/search.html'
+    })
+
     .state('cars.detail', {
       url: 'cars/:carId',
       params: {car: null},
@@ -31,7 +35,6 @@ angular.module('idlecars')
     })
 
     .state('cars.detail.newBooking', {
-      // TODO: mark this state as notInHistory
       data: {notInHistory: true, requireAuth: true},
       controller: 'cars.newBooking.controller',
       templateUrl: 'components/loading/full_screen_loading.html'

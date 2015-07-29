@@ -1,0 +1,16 @@
+modal(action-sref="^")
+
+  .listing-filters
+    .box(ng-click="didFilterCost('cheap')", ng-class="{active: costFilter.cheap}") < $60
+      p a day
+    .box(ng-click="didFilterCost('medium')", ng-class="{active: costFilter.medium}") $60 - 80
+      p a day
+    .box(ng-click="didFilterCost('pricey')", ng-class="{active: costFilter.pricey}") $80+
+      p a day
+
+  .listing-filters
+    .box(ng-click="didFilterCost('sedan')", ng-class="{active: costFilter.sedan}") Sedan
+    .box(ng-click="didFilterCost('suv')", ng-class="{active: costFilter.suv}") SUV
+
+  .listing-filters
+    .box(ng-click="didFilterCost('lux')", ng-class="{active: costFilter.lux}") Luxuy
