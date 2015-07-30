@@ -8,9 +8,9 @@ modal(action-sref="^")
     .box(ng-click="didFilter('cost_bucket', 'pricey')", ng-class="{active: filters.cost_bucket.pricey}") $80+
       p a day
 
-  //- .listing-filters
-  //-   .box(ng-click="didFilterCost('sedan')", ng-class="{active: costFilter.sedan}") Sedan
-  //-   .box(ng-click="didFilterCost('suv')", ng-class="{active: costFilter.suv}") SUV
+  .listing-filters
+    .box(ng-click="didFilter('body_type', 'Sedan')", ng-class="{active: filters.body_type.Sedan}") Sedan
+    .box(ng-click="didFilter('body_type', 'SUV')", ng-class="{active: filters.body_type.SUV}") SUV
 
-  //- .listing-filters
-  //-   .box(ng-click="didFilterCost('lux')", ng-class="{active: costFilter.lux}") Luxuy
+  .listing-filters
+    .box(ng-click="didFilter('lux_level', 'Luxuy')", ng-class="{active: filters.lux_level.Luxuy}") Luxuy
