@@ -4,11 +4,13 @@ angular.module('idlecars')
 .factory('CarFilterService', function() {
   var service = {
     allCars: [],
-    costFilter: {},
+    filters: {},
   };
 
-  service.filterCost = function(setting) {
-    service.costFilter[setting] = !service.costFilter[setting];
+  service.filter = function(feature, setting) {
+    if (!service.filters[feature]) { service.filters[feature] = {}; }
+
+    service.filters[feature][setting] = !service.filters[feature][setting];
     return service.filterCars();
   }
 
@@ -16,13 +18,19 @@ angular.module('idlecars')
     if (!_anyFiltersOn()) { return service.allCars; }
 
     return service.allCars.filter(function(car) {
-      return service.costFilter[car.cost_bucket];
+      for (var feature in car.searchable) {
+        var feature_filter = service.filters[feature];
+        if (feature_filter && feature_filter[car.searchable[feature]]) { return true; }
+      }
+      return false;
     });
   }
 
   var _anyFiltersOn = function() {
-    for (var key in service.costFilter) {
-      if (service.costFilter[key]) { return true; }
+    for (var feature in service.filters) {
+      for (var setting in service.filters[feature]) {
+        if (service.filters[feature][setting]) { return true; }
+      }
     }
   }
 

@@ -1,16 +1,16 @@
 modal(action-sref="^")
 
   .listing-filters
-    .box(ng-click="didFilterCost('cheap')", ng-class="{active: costFilter.cheap}") < $60
+    .box(ng-click="didFilter('cost_bucket', 'cheap')", ng-class="{active: filters.cost_bucket.cheap}") < $60
       p a day
-    .box(ng-click="didFilterCost('medium')", ng-class="{active: costFilter.medium}") $60 - 80
+    .box(ng-click="didFilter('cost_bucket', 'medium')", ng-class="{active: filters.cost_bucket.medium}") $60 - 80
       p a day
-    .box(ng-click="didFilterCost('pricey')", ng-class="{active: costFilter.pricey}") $80+
+    .box(ng-click="didFilter('cost_bucket', 'pricey')", ng-class="{active: filters.cost_bucket.pricey}") $80+
       p a day
 
-  .listing-filters
-    .box(ng-click="didFilterCost('sedan')", ng-class="{active: costFilter.sedan}") Sedan
-    .box(ng-click="didFilterCost('suv')", ng-class="{active: costFilter.suv}") SUV
+  //- .listing-filters
+  //-   .box(ng-click="didFilterCost('sedan')", ng-class="{active: costFilter.sedan}") Sedan
+  //-   .box(ng-click="didFilterCost('suv')", ng-class="{active: costFilter.suv}") SUV
 
-  .listing-filters
-    .box(ng-click="didFilterCost('lux')", ng-class="{active: costFilter.lux}") Luxuy
+  //- .listing-filters
+  //-   .box(ng-click="didFilterCost('lux')", ng-class="{active: costFilter.lux}") Luxuy
