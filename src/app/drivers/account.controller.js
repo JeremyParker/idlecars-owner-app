@@ -5,8 +5,8 @@ angular.module('idlecars')
 
   // TODO: we should move it to a presenter.
   $scope.accountInfo = [
-    {title: 'First Name', link: '.update.name', content: 'first_name'},
-    {title: 'Last Name', link: '.update.name', content: 'last_name'},
+    {title: 'First Name', link: '.update.firstname', content: 'first_name'},
+    {title: 'Last Name', link: '.update.lastname', content: 'last_name'},
     {title: 'Email', link: '.update.email', content: 'email'},
   ];
 
