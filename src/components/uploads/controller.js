@@ -30,17 +30,17 @@ angular.module('idlecars')
     if (!file) { return; }
 
     $timeout(function () {
-      $scope.isBusy = true;
-    })
+      _resizeImage(file).then(function (fileData) {
 
-    _resizeImage(file).then(function (fileData) {
-
-      UserUploadService.upload({
-        fileName: file.name,
-        fileData: fileData,
-      }).then(_uploadDidComplete);
+        UserUploadService.upload({
+          fileName: file.name,
+          fileData: fileData,
+        }).then(_uploadDidComplete);
+      })
     })
+    $scope.isBusy = true;
   }
+
 
   var _dataUrlToData = function (dataURL) {
     return dataURL.split(',')[1];
