@@ -30,15 +30,15 @@ angular.module('idlecars')
     if (!file) { return; }
 
     $timeout(function () {
-      _resizeImage(file).then(function (fileData) {
-
-        UserUploadService.upload({
-          fileName: file.name,
-          fileData: fileData,
-        }).then(_uploadDidComplete);
-      })
+      $scope.isBusy = true;
     })
-    $scope.isBusy = true;
+    _resizeImage(file).then(function (fileData) {
+
+      UserUploadService.upload({
+        fileName: file.name,
+        fileData: fileData,
+      }).then(_uploadDidComplete);
+    })
   }
 
 
