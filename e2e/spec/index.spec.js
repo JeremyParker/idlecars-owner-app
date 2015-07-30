@@ -8,6 +8,7 @@ describe('Listing page', function () {
   var navbar = require('../components/navbar.po');
   var account = require('../driver/account.po');
   var rental = require('../driver/rental.po');
+  var uploadDocs = require('../driver/uploadDocs.po');
 
   beforeEach(function () {
     helpers.startTest();
@@ -26,13 +27,22 @@ describe('Listing page', function () {
     expect(faq.title.getText()).toContain('Questions');
   });
 
-  it('My account and My rental button should work', function () {
+  iit('My account and My rental button should work', function () {
     navbar.menuButton.click();
     navbar.loginButton.click();
     login.loginProcess();
     navbar.menuButton.click();
     navbar.accountButton.click();
     expect(account.userInfo.count()).toBe(3);
+
+    account.firstName.click();
+    uploadDocs.firstName.sendKeys('my');
+    navbar.saveButton.click();
+    expect(account.firstName.getText()).toContain('Tommy');
+
+    account.driverLicense.click();
+    expect(navbar.title.getText()).toContain('Driver');
+    navbar.backButton.click();
 
     navbar.backButton.click();
     navbar.menuButton.click();
@@ -43,9 +53,6 @@ describe('Listing page', function () {
 
     rental.accountButton.click();
     expect(account.userInfo.count()).toBe(3);
-    account.driverLicense.click();
-    expect(navbar.title.getText()).toContain('Driver');
-    navbar.backButton.click();
     navbar.backButton.click();
 
     expect(rental.booking.count()).toBe(1);
