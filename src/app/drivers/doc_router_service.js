@@ -39,8 +39,10 @@ angular.module('idlecars')
   return service;
 })
 
-.run(function($state, AuthService, DocRouterService) {
-  if (AuthService.isLoggedIn()) {
+.run(function($location, AuthService, DocRouterService) {
+  var isResetUrl = $location.url().indexOf('reset_password') > -1;
+
+  if (AuthService.isLoggedIn() && !isResetUrl) {
     DocRouterService.goRequiredDoc();
   }
 });
