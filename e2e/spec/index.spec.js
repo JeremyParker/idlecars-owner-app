@@ -27,7 +27,7 @@ describe('Listing page', function () {
     expect(faq.title.getText()).toContain('Questions');
   });
 
-  iit('My account and My rental button should work', function () {
+  it('My account and My rental button should work', function () {
     navbar.menuButton.click();
     navbar.loginButton.click();
     login.loginProcess();

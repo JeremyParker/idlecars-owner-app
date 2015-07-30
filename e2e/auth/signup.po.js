@@ -2,9 +2,7 @@
 
 var Signup = function() {
   var navbar = require('../components/navbar.po');
-
   var self = this;
-  var randomPhoneNumber = Math.floor(Math.random()*10000000000);
 
   self.phone = element(by.css('input[name=phone_number]'));
   self.login = element(by.cssContainingText('a', 'Log in'));
@@ -12,7 +10,7 @@ var Signup = function() {
   self.password2 = element(by.css('input[name=re_password'));
 
   self.signupProcess = function () {
-    self.phone.sendKeys(randomPhoneNumber);
+    self.phone.sendKeys('1234567890');
     navbar.nextButton.click();
     self.password1.sendKeys('12');
     self.password2.sendKeys('12');
