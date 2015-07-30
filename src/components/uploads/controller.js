@@ -32,6 +32,7 @@ angular.module('idlecars')
     $timeout(function () {
       $scope.isBusy = true;
     })
+
     _resizeImage(file).then(function (fileData) {
 
       UserUploadService.upload({
@@ -40,7 +41,6 @@ angular.module('idlecars')
       }).then(_uploadDidComplete);
     })
   }
-
 
   var _dataUrlToData = function (dataURL) {
     return dataURL.split(',')[1];
