@@ -16,14 +16,15 @@ angular.module('idlecars')
 
   service.filterCars = function() {
     if (!_anyFiltersOn()) { return service.allCars; }
+    return service.allCars.filter(_matchesAnyFilter);
+  }
 
-    return service.allCars.filter(function(car) {
-      for (var feature in car.searchable) {
-        var feature_filter = service.filters[feature];
-        if (feature_filter && feature_filter[car.searchable[feature]]) { return true; }
-      }
-      return false;
-    });
+  var _matchesAnyFilter = function(car) {
+    for (var feature in car.searchable) {
+      var feature_filter = service.filters[feature];
+      if (feature_filter && feature_filter[car.searchable[feature]]) { return true; }
+    }
+    return false;
   }
 
   var _anyFiltersOn = function() {
