@@ -12,7 +12,7 @@ describe('sign up page', function () {
     beforeEach(function () {
       helpers.startTest();
       browser.get('http://localhost:3000/index.html');
-      navbar.menu.click();
+      navbar.menuButton.click();
       navbar.signupButton.click();
     });
 

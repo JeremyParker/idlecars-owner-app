@@ -10,7 +10,7 @@ describe('log in page', function () {
     helpers.startTest();
     browser.get('http://localhost:3000/index.html');
 
-    navbar.menu.click();
+    navbar.menuButton.click();
     navbar.loginButton.click();
   });
 
