@@ -11,7 +11,6 @@ angular.module('idlecars')
         if (!needToFormat) { return; }
 
         var value = element[0].value;
-        var numberPressed = (event.which-48).toString();
 
         if (event.which > 47 && event.which < 58) {
 
