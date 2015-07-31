@@ -21,34 +21,38 @@ angular.module('idlecars')
       }
     })
 
-    .state('forgotPassword', {
-      url: '/forgot_password',
-      data: {navbarInfo: {title: 'I forgot my password', enableBack: true, enableNext: true}},
-      params: {phone_number: null},
+    .state('password', {
+      abstract: true,
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',
           controller: 'navbarMain.controller',
         },
         'content@': {
-          templateUrl: 'app/users/form.html',
-          controller: 'auth.forgotPassword.controller',
+          template: '<ui-view class="flex"/>',
         }
       }
     })
 
-    .state('resetPassword', {
+    .state('password.forgot', {
+      url: '/forgot_password',
+      data: {navbarInfo: {title: 'I forgot my password', enableBack: true, enableNext: true}},
+      params: {phone_number: null},
+      templateUrl: 'app/users/form.html',
+      controller: 'auth.forgotPassword.controller',
+    })
+
+    .state('password.reset', {
       url: '/reset_password/:resetToken',
       data: {navbarInfo: {title: 'Reset password', enableBack: false, enableSave: true}},
-      views: {
-        'navbar@': {
-          templateUrl: 'components/navbar/navbar_main.html',
-          controller: 'navbarMain.controller',
-        },
-        'content@': {
-          templateUrl: 'app/users/form.html',
-          controller: 'auth.resetPassword.controller',
-        }
-      }
+      templateUrl: 'app/users/form.html',
+      controller: 'auth.resetPassword.controller',
+    })
+
+    .state('password.change', {
+      url: '/change_password',
+      data: {navbarInfo: {title: 'Change my password', enableBack: true}},
+      templateUrl: 'app/users/notice.html',
+      controller: 'auth.changePassword.controller',
     })
 })
