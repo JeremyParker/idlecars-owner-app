@@ -8,6 +8,7 @@ angular.module('idlecars')
     {title: 'First Name', link: '.update.firstname', content: 'first_name'},
     {title: 'Last Name', link: '.update.lastname', content: 'last_name'},
     {title: 'Email', link: '.update.email', content: 'email'},
+    {title: 'Phone number', link: '.update.phonenumber', content: 'phone_number'},
     {title: 'Reset password', link: 'password.change', content: ''},
   ];
 
