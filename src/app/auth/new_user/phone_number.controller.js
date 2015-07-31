@@ -11,6 +11,7 @@ angular.module('idlecars')
     maxlength: '14',
     autoFocus: true,
     showLogin: true,
+    formatTel: true,
   }];
 
   $rootScope.navGoNext = function() {
