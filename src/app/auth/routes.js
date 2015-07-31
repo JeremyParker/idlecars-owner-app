@@ -51,7 +51,7 @@ angular.module('idlecars')
 
     .state('password.change', {
       url: '/change_password',
-      data: {navbarInfo: {title: 'Change my password', enableBack: true}},
+      data: {navbarInfo: {title: 'Change password', enableBack: true}},
       templateUrl: 'app/users/notice.html',
       controller: 'auth.changePassword.controller',
     })

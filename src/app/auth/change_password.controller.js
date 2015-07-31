@@ -2,8 +2,8 @@
 
 angular.module('idlecars')
 .controller('auth.changePassword.controller', function ($scope, $state, Restangular, MyDriverService, AppNotificationService) {
-  $scope.label = 'change my password';
-  $scope.button = 'Send email';
+  $scope.label = 'We will send you an email with instructions on how to change your password.';
+  $scope.button = 'Send me an email';
 
   $scope.buttonClick = function () {
     MyDriverService.get().then(function (me) {
