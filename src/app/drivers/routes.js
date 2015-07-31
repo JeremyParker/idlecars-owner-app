@@ -114,6 +114,13 @@ angular.module('idlecars')
       controller: 'driver.update.lastname.controller',
     })
 
+    .state('driverAccount.update.phonenumber', {
+      url: '/phonenumber',
+      data: {navbarInfo: {title: 'Phone number', enableBack: true, enableSave: true}},
+      templateUrl: 'app/users/form.html',
+      controller: 'driver.update.phoneNumber.controller',
+    })
+
     .state('driverAccount.update.uploadDriverLicense', {
       url: '/driver-license',
       data: {navbarInfo: {title: 'Driver License', enableBack: true}},
