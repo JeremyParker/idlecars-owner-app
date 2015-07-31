@@ -17,7 +17,6 @@ angular.module('idlecars')
       .then(function() {
         AppNotificationService.push('An email has been sent to your address. Please check your email.');
       });
-    }
-  )
+    })
   }
 })
