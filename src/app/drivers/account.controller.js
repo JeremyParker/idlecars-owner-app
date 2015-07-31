@@ -9,6 +9,7 @@ angular.module('idlecars')
     {title: 'Last Name', link: '.update.lastname', content: 'last_name'},
     {title: 'Email', link: '.update.email', content: 'email'},
     {title: 'Phone number', link: '.update.phonenumber', content: 'phone_number'},
+    {title: 'Reset password', link: 'password.change', content: ''},
   ];
 
   $scope.driverDocuments = [
