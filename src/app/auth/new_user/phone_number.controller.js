@@ -6,7 +6,7 @@ angular.module('idlecars')
     label: 'Your phone number',
     placeholder: '(555) 555-5555',
     name: 'phone_number',
-    type: 'text',
+    type: 'tel',
     pattern: '[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
     maxlength: '14',
     autoFocus: true,
