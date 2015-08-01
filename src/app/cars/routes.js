@@ -34,7 +34,7 @@ angular.module('idlecars')
       // TODO: mark this state as notInHistory
       data: {notInHistory: true, requireAuth: true},
       controller: 'cars.newBooking.controller',
-      templateUrl: 'components/loading/full_screen_loading.html'
+      template: "<ic-loading />"
     })
 
     .state('cars.detail.renewal', {
