@@ -13,6 +13,8 @@ angular.module('idlecars')
         var value = element[0].value.replace(/[^0-9]/g, '')
 
         switch (value.length) {
+          case 0:
+            break;
           case 1:
           case 2:
           case 3:
@@ -23,12 +25,8 @@ angular.module('idlecars')
           case 6:
             value = '(' + value.substr(0, 3) + ') ' + value.substr(3, 3);
             break;
-          case 7:
-          case 8:
-          case 9:
-          case 10:
+          default:
             value = '(' + value.substr(0, 3) + ') ' + value.substr(3, 3) + '-' + value.substr(6);
-            break;
         }
         element[0].value = value;
       }
