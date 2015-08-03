@@ -3,6 +3,7 @@
     .input-wrapper
       form(name='userForm', novalidate)
         input(
+          format-tel='true',
           type='tel',
           name='phone',
           placeholder='(555) 555-5555',
@@ -23,7 +24,7 @@
           required)
 
       .forgot-wrapper
-        a(ui-sref="forgotPassword({phone_number: user.username})") Forgot your password?
+        a(ui-sref="password.forgot({phone_number: user.username})") Forgot your password?
 
   .lower-section
     .button-wrapper
