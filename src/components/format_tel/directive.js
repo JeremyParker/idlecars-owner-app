@@ -7,20 +7,17 @@ angular.module('idlecars')
     link: function (scope, element, attrs) {
       var needToFormat = attrs.formatTel == 'true';
 
-      element[0].oninput = function (event) {
-        if (!needToFormat) { return; };
+      element[0].oninput = function () {
+        if (!needToFormat) { return }
 
+        var value = element[0].value;
         // special-cases for users who add the right formatting themselves
-        if (5 == element[0].value.length && ')' == element[0].value.slice(-1))
-          return
+        if (1 == value.length && '(' == value) { return }
+        if (5 == value.length && ')' == value.slice(-1)) { return }
+        if (10 == value.length && '-' == value.slice(-1)) { return }
+        if (6 == value.length && (' ' == value.slice(-1) || '-' == value.slice(-1))) { return }
 
-        if (6 == element[0].value.length && ' ' == element[0].value.slice(-1))
-          return
-
-        if (10 == element[0].value.length && '-' == element[0].value.slice(-1))
-          return
-
-        var value = element[0].value.replace(/[^0-9]/g, '')
+        value = value.replace(/[^0-9]/g, '');
 
         switch (value.length) {
           case 0:
