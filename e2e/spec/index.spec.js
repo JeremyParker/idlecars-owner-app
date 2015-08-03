@@ -42,9 +42,12 @@ describe('Listing page', function () {
 
     account.driverLicense.click();
     expect(navbar.title.getText()).toContain('Driver');
-    navbar.backButton.click();
+  })
 
-    navbar.backButton.click();
+  it('My rental button should work', function () {
+    navbar.menuButton.click();
+    navbar.loginButton.click();
+    login.loginProcess();
     navbar.menuButton.click();
     navbar.rentalButton.click();
     expect(rental.userName.getText()).toEqual('Tom Cat');
