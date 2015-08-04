@@ -8,26 +8,6 @@
     *:last-child
       margin-bottom: 0
 
-.listing-filters
-  display: flex
-  min-height: 3.75rem // HACK: chrome bug fix, not needed for canary, so maybe remove later
-  margin: 0 0.25rem
-
-  .box
-    @extend %black_theme
-    margin: 0.5rem 0.25rem
-    padding: 0.5rem
-    flex: 1
-    text-align: center
-
-  .box.active
-    @extend %blue_theme
-    font-weight: $bold_font_weight
-
-  p
-    margin: 0
-    font-size: $tiny_font_size
-
 .no-results
   @extend %flex_container_center
   flex-direction: column
@@ -36,11 +16,3 @@
   h3
     text-transform: uppercase
     font-weight: $bold_font_weight
-
-.search
-  @extend %dark_gray_theme
-  @extend %flex_container_center
-  padding: 0 1rem
-
-  img
-    height: 1rem

@@ -1,12 +1,10 @@
-modal(action-sref="^")
+modal.car-search(action-sref="^")
 
+  h3 Cost per day
   .listing-filters
     .box(ng-click="didFilter('cost_bucket', 'cheap')", ng-class="{active: filters.cost_bucket.cheap}") < $60
-      p a day
     .box(ng-click="didFilter('cost_bucket', 'medium')", ng-class="{active: filters.cost_bucket.medium}") $60 - 80
-      p a day
     .box(ng-click="didFilter('cost_bucket', 'pricey')", ng-class="{active: filters.cost_bucket.pricey}") $80+
-      p a day
 
   .listing-filters
     .box(ng-click="didFilter('body_type', 'Sedan')", ng-class="{active: filters.body_type.Sedan}") Sedan
