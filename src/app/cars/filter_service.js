@@ -27,16 +27,11 @@ angular.module('idlecars')
   }
 
   var _doesMatchFeature = function(car, feature) {
-    console.log({
-      _isAllBlank: _isAllBlank(feature),
-      feature: feature,
-    })
     if (_isAllBlank(feature)) { return true; }
     return service.filters[feature][car.searchable[feature]];
   }
 
   var _isAllBlank = function(feature) {
-    if (!service.filters[feature]) { return true; }
     for (var setting in service.filters[feature]) {
       if (service.filters[feature][setting]) { return false; }
     }
