@@ -16,24 +16,31 @@ angular.module('idlecars')
   }
 
   service.filterCars = function() {
-    if (!_anyFiltersOn()) { return service.allCars; }
-    return service.allCars.filter(_matchesAnyFilter);
+    return service.allCars.filter(_doesMatchFilter);
   }
 
-  var _matchesAnyFilter = function(car) {
-    for (var feature in car.searchable) {
-      var feature_filter = service.filters[feature];
-      if (feature_filter && feature_filter[car.searchable[feature]]) { return true; }
-    }
-    return false;
-  }
-
-  var _anyFiltersOn = function() {
+  var _doesMatchFilter = function(car) {
     for (var feature in service.filters) {
-      for (var setting in service.filters[feature]) {
-        if (service.filters[feature][setting]) { return true; }
-      }
+      if (!_doesMatchFeature(car, feature)) { return false; }
     }
+    return true;
+  }
+
+  var _doesMatchFeature = function(car, feature) {
+    console.log({
+      _isAllBlank: _isAllBlank(feature),
+      feature: feature,
+    })
+    if (_isAllBlank(feature)) { return true; }
+    return service.filters[feature][car.searchable[feature]];
+  }
+
+  var _isAllBlank = function(feature) {
+    if (!service.filters[feature]) { return true; }
+    for (var setting in service.filters[feature]) {
+      if (service.filters[feature][setting]) { return false; }
+    }
+    return true;
   }
 
   var _toggleBodyType = function(feature, bodyType) {
