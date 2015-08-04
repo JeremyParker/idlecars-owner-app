@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('upload.controller', function($scope, $timeout, $q, $state, UserUploadService, MyDriverService, DocRouterService) {
+.controller('upload.controller', function($scope, $timeout, $q, $state, UserUploadService, MyDriverService, BookingService, DocRouterService) {
   // TODO: this component is not a component at all.. it needs to be generified
   $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.isBusy = false;
@@ -20,7 +20,12 @@ angular.module('idlecars')
         $scope.isBusy = false;
         return $scope.afterUploadSref || DocRouterService.requiredDocState();
       }).then(function(nextState) {
-        $state.go(nextState || 'bookingSuccess');
+        if (nextState) { return $state.go(nextState) }
+
+        BookingService.get().then(function (booking) {
+          if (booking.length) { return $state.go('bookingSuccess') };
+          $state.go('driverAccount');
+        })
       });
     });
   };
