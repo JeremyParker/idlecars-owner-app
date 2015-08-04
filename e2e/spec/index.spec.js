@@ -33,7 +33,7 @@ describe('Listing page', function () {
     login.loginProcess();
     navbar.menuButton.click();
     navbar.accountButton.click();
-    expect(account.userInfo.count()).toBe(3);
+    expect(account.userInfo.count()).toBe(5);
 
     account.firstName.click();
     uploadDocs.firstName.sendKeys('my');
@@ -55,7 +55,7 @@ describe('Listing page', function () {
     expect(rental.status.getText()).toContain('Waiting for documents');
 
     rental.accountButton.click();
-    expect(account.userInfo.count()).toBe(3);
+    expect(account.userInfo.count()).toBe(5);
     navbar.backButton.click();
 
     expect(rental.booking.count()).toBe(1);

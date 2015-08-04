@@ -46,7 +46,7 @@ describe('As a driver, I can upload my docs', function () {
     expect(uploadDocs.uploadTitle.getText()).toContain('Driver');
     uploadDocs.skipButton.click();
     docsOverview.accountButton.click();
-    expect(account.userInfo.count()).toBe(3);
+    expect(account.userInfo.count()).toBe(5);
 
     navbar.backButton.click();
     docsOverview.driverLicense.click();
@@ -55,7 +55,7 @@ describe('As a driver, I can upload my docs', function () {
     uploadDocs.uploadButton.sendKeys(absolutePath);
     browserWait();
 
-    expect(uploadDocs.uploadTitle.getText()).toContain('Hack');
+    expect(uploadDocs.uploadTitle.getText()).toContain('TLC');
     uploadDocs.uploadButton.sendKeys(absolutePath);
     browserWait();
 
