@@ -11,27 +11,40 @@ angular.module('idlecars')
     if (!service.filters[feature]) { service.filters[feature] = {}; }
 
     service.filters[feature][setting] = !service.filters[feature][setting];
+    _toggleBodyType(feature, setting);
     return service.filterCars();
   }
 
   service.filterCars = function() {
-    if (!_anyFiltersOn()) { return service.allCars; }
-    return service.allCars.filter(_matchesAnyFilter);
+    return service.allCars.filter(_doesMatchFilter);
   }
 
-  var _matchesAnyFilter = function(car) {
-    for (var feature in car.searchable) {
-      var feature_filter = service.filters[feature];
-      if (feature_filter && feature_filter[car.searchable[feature]]) { return true; }
-    }
-    return false;
-  }
-
-  var _anyFiltersOn = function() {
+  var _doesMatchFilter = function(car) {
     for (var feature in service.filters) {
-      for (var setting in service.filters[feature]) {
-        if (service.filters[feature][setting]) { return true; }
-      }
+      if (!_doesMatchFeature(car, feature)) { return false; }
+    }
+    return true;
+  }
+
+  var _doesMatchFeature = function(car, feature) {
+    if (_isAllBlank(feature)) { return true; }
+    return service.filters[feature][car.searchable[feature]];
+  }
+
+  var _isAllBlank = function(feature) {
+    for (var setting in service.filters[feature]) {
+      if (service.filters[feature][setting]) { return false; }
+    }
+    return true;
+  }
+
+  var _toggleBodyType = function(feature, bodyType) {
+    if (feature !== 'body_type') { return }
+    if (bodyType === 'Sedan') {
+      service.filters.body_type.SUV = false
+    }
+    if (bodyType === 'SUV') {
+      service.filters.body_type.Sedan = false
     }
   }
 
