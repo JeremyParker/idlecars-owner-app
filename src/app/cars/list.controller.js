@@ -3,7 +3,7 @@
 angular.module('idlecars')
 .controller('cars.list.controller', function ($scope, $timeout, CarService, CarFilterService) {
   $timeout(function() {
-    $scope.costFilter = CarFilterService.costFilter || {};
+    $scope.filters = CarFilterService.filters || {};
   });
 
   CarService.query().$promise.then(function(cars) {
@@ -11,7 +11,7 @@ angular.module('idlecars')
     $scope.cars = CarFilterService.filterCars();
   });
 
-  $scope.didFilterCost = function(setting) {
-    $scope.cars = CarFilterService.filterCost(setting);
+  $scope.didFilter = function(feature, setting) {
+    $scope.cars = CarFilterService.filter(feature, setting);
   }
 })

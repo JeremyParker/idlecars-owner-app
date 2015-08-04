@@ -1,0 +1,43 @@
+%_box
+  margin: 0.5rem 0.25rem
+  padding: 0.5rem
+  text-align: center
+
+  &:first-child
+    margin-left: 0
+
+  &:last-child
+    margin-right: 0
+
+.listing-filters
+  display: flex
+  margin: 0 0.5rem
+  min-height: 3rem // HACK: chrome bug fix, not needed for canary, so maybe remove later
+
+  .box
+    @extend %_box
+    @extend %gray_theme
+    flex: 1
+
+  .box.active
+    @extend %blue_theme
+    font-weight: $bold_font_weight
+
+.add-filters
+  @extend %_box
+  @extend %gray_theme
+  text-transform: uppercase
+
+
+.search-modal
+  h3
+    margin: 2.5rem 0 0.5rem
+    text-transform: uppercase
+
+  .listing-filters
+    margin: 0
+
+  .box
+    @extend %black_theme
+    font-weight: $bold_font_weight
+    padding: 0.75rem 0.5rem

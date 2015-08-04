@@ -1,12 +1,11 @@
 h1(hidden) Rent cars for rideshare
 
 .listing-filters
-  .box(ng-click="didFilterCost('cheap')", ng-class="{active: costFilter.cheap}") < $60
-    p a day
-  .box(ng-click="didFilterCost('medium')", ng-class="{active: costFilter.medium}") $60 - 80
-    p a day
-  .box(ng-click="didFilterCost('pricey')", ng-class="{active: costFilter.pricey}") $80+
-    p a day
+  .box(ng-click="didFilter('cost_bucket', 'cheap')", ng-class="{active: filters.cost_bucket.cheap}") $
+  .box(ng-click="didFilter('cost_bucket', 'medium')", ng-class="{active: filters.cost_bucket.medium}") $$
+  .box(ng-click="didFilter('cost_bucket', 'pricey')", ng-class="{active: filters.cost_bucket.pricey}") $$$
+
+  a.add-filters(ui-sref=".search") add filters
 
 .no-results(ng-if="cars.length === 0")
   h3 No Matching Cars
@@ -19,3 +18,5 @@ h1(hidden) Rent cars for rideshare
     .info
       h3 {{car.name}}
       p {{car.listing_features}}
+
+ui-view

@@ -1,0 +1,15 @@
+modal.search-modal(action-sref="^")
+
+  h3 Cost per day
+  .listing-filters
+    .box(ng-click="didFilter('cost_bucket', 'cheap')", ng-class="{active: filters.cost_bucket.cheap}") < $60
+    .box(ng-click="didFilter('cost_bucket', 'medium')", ng-class="{active: filters.cost_bucket.medium}") $60 - 80
+    .box(ng-click="didFilter('cost_bucket', 'pricey')", ng-class="{active: filters.cost_bucket.pricey}") $80+
+
+  h3 Type of car
+  .listing-filters
+    .box(ng-click="didFilter('body_type', 'Sedan')", ng-class="{active: filters.body_type.Sedan}") Sedan
+    .box(ng-click="didFilter('body_type', 'SUV')", ng-class="{active: filters.body_type.SUV}") SUV
+
+  .listing-filters
+    .box(ng-click="didFilter('lux_level', 'Luxuy')", ng-class="{active: filters.lux_level.Luxuy}") Luxuy
