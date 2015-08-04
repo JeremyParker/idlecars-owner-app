@@ -11,7 +11,8 @@ angular.module('idlecars')
     $scope.cars = CarFilterService.filterCars();
   });
 
-  $scope.didFilter = function(feature, setting) {
+  $scope.didFilter = function(feature, setting, $event) {
+    if ($event) { $event.stopPropagation(); }
     $scope.cars = CarFilterService.filter(feature, setting);
   }
 })
