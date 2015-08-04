@@ -2,10 +2,9 @@
 
 angular.module('idlecars')
 .controller('cars.newBooking.controller', function($state, $stateParams, $timeout, BookingService, DocRouterService) {
-  var newBooking = new BookingService({car: $stateParams.carId});
 
   $timeout(function() {
-    newBooking.$save()
+    BookingService.post({car: $stateParams.carId})
     .then(function(){_afterSaveAttempting('bookingSuccess')})
     .catch(function(){_afterSaveAttempting('driverAccount.bookings')})
   });
