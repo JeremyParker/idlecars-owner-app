@@ -1,6 +1,6 @@
 'use strict';
 
-describe('index page', function () {
+describe('listing page', function () {
   var helpers = require('../spec_helper');
   var navbar = require('../components/navbar.po');
 
