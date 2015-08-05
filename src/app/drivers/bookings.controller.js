@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('bookings.controller', function ($scope, Restangular, MyDriverService) {
+.controller('bookings.controller', function ($scope, BookingService, MyDriverService) {
 
   var initScope = function (me) {
     $scope.username = me.client_display;
   }
 
   var _getBooking = function () {
-    Restangular.all('bookings').getList().then(function (bookings) {
+    BookingService.get().then(function (bookings) {
       $scope.bookings = angular.copy(bookings);
     })
   }
@@ -19,6 +19,6 @@ angular.module('idlecars')
   $scope.cancelBooking = function (bookingId) {
     var patchData = { state: '12' };
 
-    Restangular.one('bookings', bookingId).patch(patchData).then(_getBooking);
+    BookingService.patch(bookingId, patchData).then(_getBooking);
   }
 })
