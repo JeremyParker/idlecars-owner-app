@@ -21,7 +21,7 @@ angular.module('idlecars')
         return $scope.afterUploadSref || DocRouterService.requiredDocState();
       }).then(function(nextState) {
         if (nextState) { return $state.go(nextState) }
-
+        // TODO: we could have better solution than then in then
         BookingService.get().then(function (booking) {
           if (booking.length) { return $state.go('bookingSuccess') };
           $state.go('driverAccount');
