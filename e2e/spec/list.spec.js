@@ -63,4 +63,3 @@ describe('Listing page', function () {
     expect(rental.booking.count()).toBe(0);
   })
 });
-
