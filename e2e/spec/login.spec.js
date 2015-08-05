@@ -1,7 +1,7 @@
 'use strict';
 
 describe('log in page', function () {
-  var index = require('../cars/index.po');
+  var listing = require('../cars/list.po');
   var navbar = require('../components/navbar.po');
   var login = require('../auth/login.po');
   var helpers = require('../spec_helper');
@@ -16,7 +16,7 @@ describe('log in page', function () {
 
   it('can log in', function() {
     login.loginProcess();
-    expect(index.carEls.count()).toBe(4);
+    expect(listing.carEls.count()).toBe(4);
   });
 
   it('can go to sign up page', function() {

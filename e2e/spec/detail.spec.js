@@ -3,14 +3,14 @@
 describe('Getting to a car detail page', function () {
   var carDetail = require('../cars/detail.po');
   var helpers = require('../spec_helper');
-  var index = require('../cars/index.po');
+  var listing = require('../cars/list.po');
 
-  describe('from the car index', function () {
+  describe('from the car listing', function () {
 
     beforeEach(function () {
       helpers.startTest();
       browser.get('http://localhost:3000/index.html');
-      index.delorean.click();
+      listing.delorean.click();
     });
 
     it('includes a header', function() {

@@ -4,7 +4,7 @@ describe('sign up page', function () {
   var navbar = require('../components/navbar.po');
   var signup = require('../auth/signup.po');
   var carDetail = require('../cars/detail.po');
-  var listing = require('../cars/index.po');
+  var listing = require('../cars/list.po');
   var helpers = require('../spec_helper');
 
   describe('from menu button', function() {
