@@ -3,7 +3,7 @@
 describe('Getting to a car detail page', function () {
   var carDetail = require('../cars/detail.po');
   var helpers = require('../spec_helper');
-  var index = require('../cars/index.po');
+  var index = require('../cars/list.po');
 
   describe('from the car index', function () {
 

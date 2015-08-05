@@ -1,7 +1,7 @@
 'use strict';
 
 describe('log in page', function () {
-  var index = require('../cars/index.po');
+  var index = require('../cars/list.po');
   var navbar = require('../components/navbar.po');
   var login = require('../auth/login.po');
   var helpers = require('../spec_helper');
