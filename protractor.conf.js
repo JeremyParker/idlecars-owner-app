@@ -22,5 +22,9 @@ exports.config = {
     showColors: true,
 
     defaultTimeoutInterval: 20 * 1000
-  }
+  },
+
+  onPrepare: function() {
+    require('protractor-linkuisref-locator')(protractor);
+  },
 };
