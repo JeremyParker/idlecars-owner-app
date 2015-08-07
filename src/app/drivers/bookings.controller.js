@@ -9,9 +9,7 @@ angular.module('idlecars')
 
   var _getBooking = function () {
     BookingService.get().then(function (bookings) {
-     var bookings = angular.copy(bookings);
-     if (bookings.length) { return $scope.booking = bookings[0]};
-     $scope.booking = {state: 0};
+    $scope.booking = angular.copy(bookings[0]) || [];
     })
   }
 
