@@ -2,17 +2,7 @@
   car-image(car='booking.car')
 
   .content-wording
-    section
-      h2 {{booking.car.name}}
-      .light {{booking.car.booked_features}}
-      .bold {{booking.car.headline_features[2]}}
-        span(style='color: orange') &nbspUnpaid
-
-    section
-      .bold
-        | Status:
-        span(ng-style='{color: booking.state_details.color}') &nbsp{{booking.state_details.status}}
-      .light {{booking.state_details.content}}
+    ng-include(src='"components/rental_view/features.html"')
 
 button.button(ng-click='uploadDocuments()') Upload Documents
 button.button.cancel(ng-click='cancelBooking(booking.id)') Cancel Reservation

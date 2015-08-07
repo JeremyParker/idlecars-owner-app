@@ -3,17 +3,31 @@
   @extend %flex_scrollable
   text-align: center
 
-  hr
-    margin: 1rem 0
-    border: none
-    height: 1px
-    background: $medium_gray
-
   .light
     font-size: $small_font_size
 
   .bold
     font-weight: $bold_font_weight
+    font-size: $small_font_size
+
+  .left
+    flex: 4
+
+  .right
+    flex: 3
+
+  .row
+    display: flex
+    margin: 0.25rem 0
+    text-align: left
+    padding: 0 1rem
+
+  .time
+    @extend %flex_container_column
+
+    button
+      color: $ic_blue
+      margin-top: 0
 
   .user-info
     background: white
@@ -29,17 +43,15 @@
   .bookings-container
     padding: 1rem $page_gutter
 
-    h4
-      margin: 0
-
   .booking-content
     background: white
+    margin-bottom: 0.75rem
 
   .content-wording
     padding: 1.5rem 0.5rem 1rem
 
     section
-      margin-bottom: 1.5rem
+      margin-bottom: 1rem
 
     section:last-child
       margin-bottom: 0

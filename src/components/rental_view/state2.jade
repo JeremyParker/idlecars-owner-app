@@ -3,16 +3,14 @@
 
   .content-wording
     section
-      h2 {{booking.car.name}}
-      .light {{booking.car.booked_features}}
-      .bold {{booking.car.headline_features[2]}}
-        span(style='color: orange') &nbspUnpaid
-
+      ng-include(src='"components/rental_view/features.html"')
     section
-      .bold
-        | Status:
-        span(ng-style='{color: booking.state_details.color}') &nbsp{{booking.state_details.status}}
-      .light {{booking.state_details.content}}
+      ng-include(src='"components/rental_view/time.html"')
 
-    section(ng-if='booking.state_details.cancelable')
-      button.clear-button(ng-click='cancelBooking(booking.id)') Cancel booking
+.booking-content
+  .row
+    .bold.left Refundable Deposit
+    .bold.right {{booking.car.headline_features[2]}}
+  button.button Pay Deposit
+
+button.button.cancel(ng-click='cancelBooking(booking.id)') Cancel booking
