@@ -1,4 +1,10 @@
 .circle-steps-wrapper
-  .circle-container(ng-repeat='i in stepsArray')
-    .circle(ng-class='{active: step == i+1}')
-      div {{i + 1}}
+  .circles
+    .circle-container(ng-repeat='i in stepsArray')
+      .circle(ng-class='{active: step == i+1}')
+        div {{i + 1}}
+
+  .content
+    .bold Create your account
+    .light You must upload your documents to rent a car
+
