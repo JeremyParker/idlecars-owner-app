@@ -4,6 +4,17 @@
   .content-wording
     section
       ng-include(src='"components/rental_view/features.html"')
+
+    section
+      .row
+        .label.bold Rental Charges
+        .content
+          span.bold $425
+          span.light &nbspa week
+
+      .light.warning
+        div(style='padding: 0 1rem') Payment due on Pickup
+        div Insurance and Maintanance Included
     section
       ng-include(src='"components/rental_view/time.html"')
 

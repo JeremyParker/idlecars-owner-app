@@ -10,17 +10,24 @@
     font-weight: $bold_font_weight
     font-size: $small_font_size
 
-  .label
-    flex: 4
-
-  .content
-    flex: 3
+  .warning
+    color: $medium_gray
+    padding: 0 0.75rem
 
   .row
     display: flex
     margin: 0.25rem 0
     text-align: left
     padding: 0 1rem
+
+    .label
+      flex: 4
+
+    .content
+      flex: 3
+
+    button
+      text-align: left
 
   .time-container
     @extend %flex_container_column
@@ -73,7 +80,3 @@
 
   .cancel-container
     padding: 0 0.5rem
-
-    .light
-      color: $medium_gray
-      padding: 0 0.75rem
