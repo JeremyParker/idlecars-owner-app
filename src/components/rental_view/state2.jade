@@ -7,10 +7,6 @@
     section
       ng-include(src='"components/rental_view/time.html"')
 
-.booking-content
-  .row
-    .bold.left Refundable Deposit
-    .bold.right {{booking.car.headline_features[2]}}
-  button.button Pay Deposit
+    button.button Pay Deposit
 
-button.button.cancel(ng-click='cancelBooking(booking.id)') Cancel booking
+ng-include(src='"components/rental_view/cancel.html"')

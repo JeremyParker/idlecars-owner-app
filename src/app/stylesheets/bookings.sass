@@ -10,10 +10,10 @@
     font-weight: $bold_font_weight
     font-size: $small_font_size
 
-  .left
+  .label
     flex: 4
 
-  .right
+  .content
     flex: 3
 
   .row
@@ -22,7 +22,7 @@
     text-align: left
     padding: 0 1rem
 
-  .time
+  .time-container
     @extend %flex_container_column
 
     button
@@ -53,6 +53,9 @@
     section
       margin-bottom: 1rem
 
+      a
+        color: $ic_blue
+
     section:last-child
       margin-bottom: 0
 
@@ -67,3 +70,10 @@
     p
       margin: 6rem 0
       color: $medium_gray
+
+  .cancel-container
+    padding: 0 0.5rem
+
+    .light
+      color: $medium_gray
+      padding: 0 0.75rem

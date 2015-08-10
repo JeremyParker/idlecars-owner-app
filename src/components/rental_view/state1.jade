@@ -2,7 +2,9 @@
   car-image(car='booking.car')
 
   .content-wording
-    ng-include(src='"components/rental_view/features.html"')
+    h2 {{booking.car.name}}
+    .light {{booking.car.booked_features}}
+    .bold {{booking.car.headline_features[2]}}
+    button.button(ng-click='uploadDocuments()') Upload Documents
 
-button.button(ng-click='uploadDocuments()') Upload Documents
 button.button.cancel(ng-click='cancelBooking(booking.id)') Cancel Reservation
