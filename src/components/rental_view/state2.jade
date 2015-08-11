@@ -2,22 +2,9 @@
   car-image(car='booking.car')
 
   .content-wording
-    section
-      ng-include(src='"components/rental_view/features.html"')
+    h2 {{booking.car.name}}
+    .light {{booking.car.booked_features}}
+    .bold {{booking.car.headline_features[2]}}
+    button.button(ng-click='uploadDocuments()') Upload Documents
 
-    section
-      .row
-        .label.bold Rental Charges
-        .content
-          span.bold $425
-          span.light &nbspa week
-
-      .light.warning
-        div(style='padding: 0 1rem') Payment due on Pickup
-        div Insurance and Maintanance Included
-    section
-      ng-include(src='"components/rental_view/time.html"')
-
-    button.button Pay Deposit
-
-ng-include(src='"components/rental_view/cancel.html"')
+button.button.cancel(ng-click='cancelBooking(booking.id)') Cancel Reservation

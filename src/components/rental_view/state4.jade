@@ -1,0 +1,21 @@
+.booking-content
+  car-image(car='booking.car')
+
+  .content-wording
+    section
+      ng-include(src='"components/rental_view/features.html"')
+
+    section(style='border-bottom: 0.1rem solid gray')
+        ng-include(src='"components/rental_view/time.html"')
+
+    section
+      .row
+        .label.bold Next Payment
+        .content
+          span.bold $425
+          span.light &nbspon pickup
+
+    .light We will notify you when your insurance has been approved. This can take 24 to 48 hours.
+    button.button Pick up your car
+
+ng-include(src='"components/rental_view/cancel.html"')
