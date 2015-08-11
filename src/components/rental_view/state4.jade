@@ -6,15 +6,14 @@
       ng-include(src='"components/rental_view/features.html"')
 
     section
-        ng-include(src='"components/rental_view/time.html"')
+      ng-include(src='"components/rental_view/time.html"')
 
     hr
-
     .row
       .label.bold Next Payment
       .content.bold {{booking.car.deposit}} #[span.light &nbspon pickup]
 
-    .light(ng-if='!booking.pickup_info') We will notify you when your insurance has been approved. This can take 24 to 48 hours.
+    .tiny(ng-if='!booking.pickup_info') We will notify you when your insurance has been approved. This can take 24 to 48 hours.
     button.button(ng-disabled='!booking.pickup_info') Pick up your car
 
 ng-include(src='"components/rental_view/cancel.html"')
