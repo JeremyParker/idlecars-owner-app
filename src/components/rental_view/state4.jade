@@ -14,6 +14,6 @@
       .content.bold {{booking.car.deposit}} #[span.light &nbspon pickup]
 
     .tiny(ng-if='!booking.pickup_info') We will notify you when your insurance has been approved. This can take 24 to 48 hours.
-    button.button(ng-disabled='!booking.pickup_info') Pick up your car
+    button.button(ng-disabled='booking.pickup_info', ui-sref='.pickup') Pick up your car
 
 ng-include(src='"components/rental_view/cancel.html"')

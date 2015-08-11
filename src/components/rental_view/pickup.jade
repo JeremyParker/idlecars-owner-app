@@ -1,0 +1,16 @@
+.bookings-wrapper
+  map(address='{{booking.car.zipcode}}', ng-if='booking.car')
+
+  .bookings-container(style='padding-top: 0')
+    .booking-content
+      .content-wording
+        section
+          check-mark(checked='isChecked0') I have confirmed that the license plate is {{booking.car.plate}}
+          check-mark(checked='isChecked1') I have Inspected the car and it meets my expectations
+          check-mark(checked='isChecked2') I have noted any prior damage
+          check-mark(checked='isChecked3') The owner has the registration, and the insurance endorsement
+          check-mark(checked='isChecked4') I am ready to pay $425 for first week’s rent and take possesion of the car
+
+        section
+          .tiny.warning Do NOT pay cash
+          button.button Pay and drive

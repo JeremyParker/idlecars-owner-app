@@ -35,6 +35,16 @@ angular.module('idlecars')
       }
     })
 
+    .state('driverAccount.bookings.pickup', {
+       url: '/pickup',
+      views: {
+        'content@': {
+          templateUrl: 'components/rental_view/pickup.html',
+          controller: 'bookings.controller',
+        }
+      }
+    })
+
     .state('driverAccount.onboarding', {
       abstract: true,
       url: '/onboarding',
