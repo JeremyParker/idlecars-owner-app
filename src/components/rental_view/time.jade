@@ -1,11 +1,11 @@
 .time-container
   .row
     .bold.label Rental Starts
-    .light.content July 30th
+    .light.content {{booking.start_time_display}}
   .row
     .bold.label Rental Ends
-    .light.content August 30th
+    .light.content {{booking.end_time_display}}
   .row
     button.clear-button.bold.label Change End Date
-    .light.content 3 week minimum
+    .light.content {{booking.end_time_limit_display}}
 

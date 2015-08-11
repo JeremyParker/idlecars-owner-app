@@ -3,12 +3,28 @@
   @extend %flex_scrollable
   text-align: center
 
+  hr
+    border: none
+    height: 1px
+    background: $light_gray
+
+  hr::before
+    margin: 0
+
   .light
     font-size: $small_font_size
+    font-weight: $light_font_weight
 
   .bold
     font-weight: $bold_font_weight
     font-size: $small_font_size
+
+  .unpaid
+    font-weight: $bold_font_weight
+    color: $dark_orange
+
+  .due
+    color: $medium_green
 
   .warning
     color: $medium_gray
