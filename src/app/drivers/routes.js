@@ -36,10 +36,19 @@ angular.module('idlecars')
     })
 
     .state('driverAccount.bookings.pickup', {
-       url: '/pickup',
       views: {
         'content@': {
           templateUrl: 'components/rental_view/pickup.html',
+          controller: 'bookings.controller',
+        }
+      }
+    })
+
+    .state('driverAccount.bookings.success', {
+       url: '/success',
+      views: {
+        'content@': {
+          templateUrl: 'components/rental_view/success.html',
           controller: 'bookings.controller',
         }
       }

@@ -4,7 +4,7 @@
   .bookings-container(style='padding-top: 0')
     .booking-content
       .content-wording
-        section
+        section.light
           check-mark(checked='isChecked0') I have confirmed that the license plate is {{booking.car.plate}}
           check-mark(checked='isChecked1') I have Inspected the car and it meets my expectations
           check-mark(checked='isChecked2') I have noted any prior damage
@@ -13,4 +13,6 @@
 
         section
           .tiny.warning Do NOT pay cash
-          button.button Pay and drive
+          button.button(ng-click='payAndDrive()') Pay and drive
+
+    .tiny.warning(style='margin-bottom: 1rem') If you don’t like the car, call 1 (844) IDLE CARS to cancel with no cancelation fee.
