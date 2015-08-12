@@ -36,6 +36,7 @@ angular.module('idlecars')
     })
 
     .state('driverAccount.bookings.pickup', {
+      data: {notInHistory: true},
       views: {
         'content@': {
           templateUrl: 'components/rental_view/pickup.html',
@@ -45,7 +46,7 @@ angular.module('idlecars')
     })
 
     .state('driverAccount.bookings.success', {
-       url: '/success',
+      data: {notInHistory: true},
       views: {
         'content@': {
           templateUrl: 'components/rental_view/success.html',
