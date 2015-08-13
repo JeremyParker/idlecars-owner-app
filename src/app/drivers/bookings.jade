@@ -1,4 +1,4 @@
-.bookings-wrapper(ng-init='showConfirm=false')
+.bookings-wrapper
   .user-info
     h2 {{username}}
     button.clear-button(ui-sref='driverAccount') Edit Account Settings
@@ -24,7 +24,7 @@
             .light {{booking.state_details.content}}
 
           section(ng-if='booking.state_details.cancelable')
-            button.clear-button(ng-click="$parent.$parent.showConfirm = true") Cancel booking
+            button.clear-button(ng-click="doShowConfirm()") Cancel booking
 
     .no-booking(ng-if='!bookings.length')
       hr

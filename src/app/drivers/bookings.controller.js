@@ -22,6 +22,7 @@ angular.module('idlecars')
     BookingService.patch(bookingId, patchData).then(_getBooking);
   }
 
+  $scope.doShowConfirm = function () { $scope.showConfirm = true }
   $scope.icDismiss = function () { $scope.showConfirm = false }
   $scope.icConfirm = function () {
     $scope.showConfirm = false;
