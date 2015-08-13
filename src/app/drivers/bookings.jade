@@ -1,6 +1,8 @@
 .bookings-wrapper
   .user-info
-    circle-steps(step='2', of='4')
+    circle-steps(step='{{booking.step}}', of='4')
+      .bold {{booking.step_details.step_title}}
+      .light {{booking.step_details.step_subtitle}}
 
   .bookings-container
     ng-include(ng-if='booking', src='"app/bookings/step"+booking.step+".html"')
