@@ -4,7 +4,8 @@
     .light Please contact the owner to arrange pick up.
     .row
       .label.bold {{booking.car.owner.name}}
-      .content.bold.ic-blue {{booking.car.owner.phone_number}}
+      //- TODO: phone number should be interactive
+      a.content.bold.ic-blue(ng-href='tel:1-9173768864') {{booking.car.owner.phone_number}}
     .row
       .bold {{booking.car.owner.address}}
 

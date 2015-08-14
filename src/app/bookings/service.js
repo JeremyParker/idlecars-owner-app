@@ -16,5 +16,9 @@ angular.module('idlecars')
     return Restangular.one('bookings', bookingId).patch(patchData);
   }
 
+  service.cancel = function (bookingId) {
+    return Restangular.one('bookings', bookingId).all('cancelation').post('');
+  }
+
   return service;
 });

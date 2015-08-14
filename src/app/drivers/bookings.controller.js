@@ -16,10 +16,8 @@ angular.module('idlecars')
   MyDriverService.get().then(initScope);
   _getBooking();
 
-  $scope.cancelBooking = function (bookingId) {
-    var patchData = { state: '12' };
-
-    BookingService.patch(bookingId, patchData).then(_getBooking);
+  $scope.cancelBooking = function () {
+    BookingService.cancel($scope.booking.id).then(_getBooking);
   }
 
   $scope.uploadDocuments = function () {
