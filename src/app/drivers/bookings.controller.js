@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('bookings.controller', function ($scope, BookingService, MyDriverService) {
+.controller('bookings.controller', function ($scope, BookingService, MyDriverService, DocRouterService) {
 
   var initScope = function (me) {
     $scope.username = me.client_display;
@@ -9,7 +9,7 @@ angular.module('idlecars')
 
   var _getBooking = function () {
     BookingService.get().then(function (bookings) {
-      $scope.bookings = angular.copy(bookings);
+      $scope.booking = angular.copy(bookings[0]) || [];
     })
   }
 
@@ -23,4 +23,8 @@ angular.module('idlecars')
   }
 
   $scope.doShowConfirm = function () { $scope.showConfirm = true }
+
+  $scope.uploadDocuments = function () {
+    DocRouterService.goRequiredDoc();
+  }
 })
