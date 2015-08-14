@@ -11,10 +11,11 @@
 
   .content-wording
     section
-      ng-include(src='"components/rental_view/features.html"')
+      ng-include(src='"app/bookings/features.html"')
     section
-      ng-include(src='"components/rental_view/time.html"')
+      ng-include(src='"app/bookings/time.html"')
     hr
     .row.bold
       .label Next Payment
+      //- TODO: August 8th should be from server
       .content(style='flex: 5') ${{booking.car.cost * 7}} #[span.light &nbspon August 8th]

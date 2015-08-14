@@ -1,4 +1,13 @@
 .bookings-wrapper
+  .booking-header(style='padding: 1rem')
+    .bold PICK UP YOUR CAR
+    .light Please contact the owner to arrange pick up.
+    .row
+      .label.bold {{booking.car.owner.name}}
+      .content.bold.ic-blue {{booking.car.owner.phone_number}}
+    .row
+      .bold {{booking.car.owner.address}}
+
   map(address='{{booking.car.zipcode}}', ng-if='booking.car')
 
   .bookings-container(style='padding-top: 0')

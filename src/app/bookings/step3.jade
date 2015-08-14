@@ -3,18 +3,18 @@
 
   .content-wording
     section
-      ng-include(src='"components/rental_view/features.html"')
+      ng-include(src='"app/bookings/features.html"')
     section
       .row
         .label.bold Rental Charges
         .content.bold ${{booking.car.cost}} #[span.light &nbsp{{booking.car.cost_time}}]
       .tiny.warning Payment due on Pickup #[br] Insurance and Maintanance Included
     section
-      ng-include(src='"components/rental_view/time.html"')
+      ng-include(src='"app/bookings/time.html"')
     hr
     .row
       .label.bold Refundable Deposit
       .content.bold $425 #[span.due &nbspDue now]
     button.button Pay Deposit
 
-ng-include(src='"components/rental_view/cancel.html"')
+ng-include(src='"app/bookings/cancel.html"')
