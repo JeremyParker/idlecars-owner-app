@@ -20,6 +20,8 @@ angular.module('idlecars')
     BookingService.cancel($scope.booking.id).then(_getBooking);
   }
 
+  $scope.doShowConfirm = function () { $scope.showConfirm = true }
+
   $scope.uploadDocuments = function () {
     DocRouterService.goRequiredDoc();
   }

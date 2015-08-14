@@ -8,4 +8,5 @@
     img(src='/assets/images/white_car.png')
 
   .bookings-container
-    ng-include(src='"app/bookings/step"+booking.step+".html"')
+    ng-include(ng-if='booking', src='"app/bookings/step"+booking.step+".html"')
+ic-confirm(show-modal='showConfirm', result='cancelBooking')
