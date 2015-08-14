@@ -24,5 +24,9 @@ angular.module('idlecars')
     return Restangular.one('bookings', bookingId).all('checkout').post('');
   }
 
+  service.pickup = function (bookingId) {
+    return Restangular.one('bookings', bookingId).all('pickup').post('');
+  }
+
   return service;
 });

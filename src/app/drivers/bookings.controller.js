@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('bookings.controller', function ($scope, BookingService, MyDriverService, DocRouterService) {
+.controller('bookings.controller', function ($scope, $state, BookingService, MyDriverService, DocRouterService) {
 
   var initScope = function (me) {
     $scope.username = me.client_display;
@@ -26,5 +26,11 @@ angular.module('idlecars')
 
   $scope.checkOut = function () {
     BookingService.checkout($scope.booking.id).then(_getBooking)
+  }
+
+  $scope.pickUp = function () {
+    BookingService.pickup($scope.booking.id).then(function () {
+      $state.go('^.success');
+    })
   }
 })
