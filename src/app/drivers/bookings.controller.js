@@ -23,4 +23,8 @@ angular.module('idlecars')
   $scope.uploadDocuments = function () {
     DocRouterService.goRequiredDoc();
   }
+
+  $scope.checkOut = function () {
+    BookingService.checkout($scope.booking.id).then(_getBooking)
+  }
 })
