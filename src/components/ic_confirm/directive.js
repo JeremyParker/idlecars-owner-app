@@ -8,8 +8,5 @@ angular.module('idlecars')
       showModal: '=',
     },
     templateUrl: 'components/ic_confirm/cancel_booking_confirm.html',
-    controller: function ($scope) {
-
-    }
   }
 })
