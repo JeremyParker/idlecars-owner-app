@@ -4,3 +4,5 @@
 
   .bookings-container
     ng-include(ng-if='booking', src='"app/bookings/step"+booking.step+".html"')
+ic-confirm(show-modal='showConfirm', result='cancelBooking')
+

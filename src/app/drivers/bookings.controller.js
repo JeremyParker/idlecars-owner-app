@@ -22,6 +22,8 @@ angular.module('idlecars')
     BookingService.patch(bookingId, patchData).then(_getBooking);
   }
 
+  $scope.doShowConfirm = function () { $scope.showConfirm = true }
+
   $scope.uploadDocuments = function () {
     DocRouterService.goRequiredDoc();
   }
