@@ -1,7 +1,11 @@
 .circle-steps-wrapper
-  .circles
-    .circle-container(ng-repeat='i in stepsArray')
-      .circle(ng-class='{active: step == i+1}')
-        div {{i + 1}}
+  div(ng-if='step')
+    .circle-steps-content
+      .circle-container(ng-repeat='i in stepsArray')
+        .circle(ng-class='{active: step == i+1}')
+          div {{i + 1}}
 
-  .content(ng-transclude)
+    .content(ng-transclude)
+
+  .circle-steps-content(ng-if='!step')
+    img(src='/assets/images/white_car.png')

@@ -1,5 +1,5 @@
 .bookings-wrapper
-  .user-info
+  .user-info(ng-if='!booking.step || booking.step < 5')
     circle-steps(step='{{booking.step}}', of='4')
       .bold {{booking.step_details.step_title}}
       .light {{booking.step_details.step_subtitle}}
