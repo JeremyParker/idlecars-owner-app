@@ -14,6 +14,11 @@ h1(hidden) {{car.name}} for rent
       .image-certified
         img(src='/assets/images/idlecars_certified.png')
 
+  section(ng-if="car.compatibility && car.compatibility.length")
+    h3 Works with
+    .tags
+      .tag(ng-repeat="flavorName in car.compatibility") {{flavorName}}
+
   section.map
     map(address='{{car.zipcode}}', ng-if='car')
 
