@@ -1,8 +1,13 @@
-.bookings-wrapper
-  .user-info
-    circle-steps(step='2', of='4')
+.bookings-wrapper(ng-if='booking')
+  .booking-header(ng-if='booking.step && booking.step < 5')
+    circle-steps(step='{{booking.step}}', of='{{booking.step_display_count}}')
+      .bold {{booking.step_details.step_title}}
+      .light {{booking.step_details.step_subtitle}}
+
+  .booking-header(ng-if='!booking.step')
+    img(src='/assets/images/white_car.png')
 
   .bookings-container
-    ng-include(ng-if='booking', src='"app/bookings/step"+booking.step+".html"')
+    //- TODO: split the steps into their own controller and states
+    ng-include(src='"app/bookings/step"+booking.step+".html"')
 ic-confirm(show-modal='showConfirm', result='cancelBooking')
-

@@ -7,6 +7,7 @@ angular.module('idlecars')
       of: '@',
       step: '@'
     },
+    transclude: true,
     templateUrl: 'components/circle_steps/circle.html',
     controller: function ($scope) {
       // this generates array [0,1,2,3,4,...] of length $scope.of

@@ -18,13 +18,14 @@
         section
           .row.bold
             .label Next Payment
+            //- TODO: August 8th should come from server
             .content(style='flex: 5') ${{booking.car.cost * 7}} #[span.light &nbspon August 8th]
 
       car-image(car='booking.car')
 
       .content-wording
         section
-          ng-include(src='"components/rental_view/features.html"')
+          car-features
 
         section
           button.button(ui-sref='^') OK

@@ -8,6 +8,9 @@
     height: 1px
     background: $light_gray
 
+  .ic-blue
+    color: $ic_blue
+
   .tiny
     font-size: $tiny_font_size
     font-weight: $light_font_weight
@@ -50,10 +53,9 @@
     @extend %flex_container_column
 
     button
-      color: $ic_blue
       margin-top: 0
 
-  .user-info
+  .booking-header
     background: white
     padding: 1rem 0
 
@@ -63,6 +65,10 @@
     button
       color: $ic-blue
       font-weight: $bold_font_weight
+
+    img
+      height: 10rem
+      margin: 1rem auto 0
 
   .bookings-container
     padding: 1rem $page_gutter
@@ -77,9 +83,6 @@
     section
       margin-bottom: 1rem
 
-      a
-        color: $ic_blue
-
     section:last-of-type
       margin-bottom: 0
 
@@ -92,7 +95,7 @@
 
   .no-booking
     p
-      margin: 6rem 0
+      margin: 3.5rem 0
       color: $medium_gray
 
   .cancel-container

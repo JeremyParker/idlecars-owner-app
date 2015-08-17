@@ -1,4 +1,14 @@
 .bookings-wrapper
+  .booking-header(style='padding: 1rem')
+    .bold PICK UP YOUR CAR
+    .light Please contact the owner to arrange pick up.
+    .row
+      .label.bold {{booking.car.owner.name}}
+      //- TODO: phone number should be interactive
+      a.content.bold.ic-blue(ng-href='tel:1-9173768864') {{booking.car.owner.phone_number}}
+    .row
+      .bold {{booking.car.owner.address}}
+
   map(address='{{booking.car.zipcode}}', ng-if='booking.car')
 
   .bookings-container(style='padding-top: 0')
@@ -13,6 +23,6 @@
 
         section
           .tiny.warning Do NOT pay cash
-          button.button(ui-sref='^.success') Pay and drive
+          button.button(ng-click='pickUp()') Pay and drive
 
     .tiny.warning(style='margin-bottom: 1rem') If you don’t like the car, call 1 (844) IDLE CARS to cancel with no cancelation fee.

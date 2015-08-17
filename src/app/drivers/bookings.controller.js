@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('bookings.controller', function ($scope, BookingService, MyDriverService, DocRouterService) {
+.controller('bookings.controller', function ($scope, $state, BookingService, MyDriverService, DocRouterService) {
 
   var initScope = function (me) {
     $scope.username = me.client_display;
@@ -16,15 +16,23 @@ angular.module('idlecars')
   MyDriverService.get().then(initScope);
   _getBooking();
 
-  $scope.cancelBooking = function (bookingId) {
-    var patchData = { state: '12' };
-
-    BookingService.patch(bookingId, patchData).then(_getBooking);
+  $scope.cancelBooking = function () {
+    BookingService.cancel($scope.booking.id).then(_getBooking);
   }
 
   $scope.doShowConfirm = function () { $scope.showConfirm = true }
 
   $scope.uploadDocuments = function () {
     DocRouterService.goRequiredDoc();
+  }
+
+  $scope.checkOut = function () {
+    BookingService.checkout($scope.booking.id).then(_getBooking)
+  }
+
+  $scope.pickUp = function () {
+    BookingService.pickup($scope.booking.id).then(function () {
+      $state.go('^.success');
+    })
   }
 })
