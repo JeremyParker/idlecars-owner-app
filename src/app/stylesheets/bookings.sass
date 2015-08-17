@@ -18,15 +18,11 @@
     font-weight: $bold_font_weight
     color: $dark_orange
 
-  .due
-    color: $medium_green
-
   .warning
-    color: $medium_gray
+    @extend .m-gray
     padding: 0 0.75rem
 
   .flex-row
-    display: flex
     margin: 0.25rem 0
     text-align: left
     padding: 0 1rem
@@ -61,7 +57,7 @@
       height: 10rem
       margin: 1rem auto 0
 
-  .bookings-container
+  .booking-container
     padding: 1rem $page_gutter
 
   .booking-content
@@ -78,11 +74,10 @@
       margin-bottom: 0
 
   button
-    text-transform: none
     margin-top: 0.75rem
 
   .cancel
-    background: $medium_gray
+    @extend %medium_gray_theme
 
   .no-booking
     p

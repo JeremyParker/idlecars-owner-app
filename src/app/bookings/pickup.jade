@@ -11,7 +11,7 @@
 
   map(address='{{booking.car.zipcode}}', ng-if='booking.car')
 
-  .bookings-container(style='padding-top: 0')
+  .booking-container(style='padding-top: 0')
     .booking-content
       .content-wording
         section.light
@@ -22,7 +22,7 @@
           check-mark(checked='isChecked4') I am ready to pay $425 for first week’s rent and take possesion of the car
 
         section
-          .tiny.warning Do NOT pay cash
+          .tiny.m-gray Do NOT pay cash
           button.button(ng-click='pickUp()') Pay and drive
 
     .tiny.warning(style='margin-bottom: 1rem') If you don’t like the car, call 1 (844) IDLE CARS to cancel with no cancelation fee.

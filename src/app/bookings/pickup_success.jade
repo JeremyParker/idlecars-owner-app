@@ -1,5 +1,5 @@
 .bookings-wrapper
-  .bookings-container
+  .booking-container
     .booking-content
       .content-wording
         section
@@ -8,7 +8,7 @@
           .flex-row.bold
             .label First week payment
             //- TODO: let server send weekly cost
-            .content ${{booking.car.cost * 7}} #[span.due &nbspPaid]
+            .content ${{booking.car.cost * 7}} #[span.m-gray &nbspPaid]
         section
           .light
             | Your credit card has been charged ${{booking.car.cost * 7}}.
