@@ -49,7 +49,7 @@ angular.module('idlecars')
       data: {notInHistory: true},
       views: {
         'content@': {
-          templateUrl: 'app/bookings/rental_success.html',
+          templateUrl: 'app/bookings/pickup_success.html',
           controller: 'bookings.controller',
         }
       }
