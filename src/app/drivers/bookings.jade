@@ -1,5 +1,5 @@
 .bookings-wrapper(ng-if='booking')
-  .booking-header(ng-if='booking.step < 5')
+  .booking-header(ng-if='booking.step && booking.step < 5')
     circle-steps(step='{{booking.step}}', of='{{booking.step_display_count}}')
       .bold {{booking.step_details.step_title}}
       .light {{booking.step_details.step_subtitle}}
@@ -8,5 +8,5 @@
     img(src='/assets/images/white_car.png')
 
   .bookings-container
-    ng-include(ng-if='booking', src='"app/bookings/step"+booking.step+".html"')
+    ng-include(src='"app/bookings/step"+booking.step+".html"')
 ic-confirm(show-modal='showConfirm', result='cancelBooking')
