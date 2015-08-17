@@ -2,11 +2,11 @@
   .booking-header(style='padding: 1rem')
     .bold PICK UP YOUR CAR
     .light Please contact the owner to arrange pick up.
-    .row
+    .flex-row
       .label.bold {{booking.car.owner.name}}
       //- TODO: phone number should be interactive
       a.content.bold.ic-blue(ng-href='tel:1-9173768864') {{booking.car.owner.phone_number}}
-    .row
+    .flex-row
       .bold {{booking.car.owner.address}}
 
   map(address='{{booking.car.zipcode}}', ng-if='booking.car')

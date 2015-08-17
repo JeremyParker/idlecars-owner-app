@@ -5,7 +5,7 @@
         section
           h3 Success!
         section
-          .row.bold
+          .flex-row.bold
             .label First week payment
             //- TODO: let server send weekly cost
             .content ${{booking.car.cost * 7}} #[span.due &nbspPaid]
@@ -16,7 +16,7 @@
             |  You should now get the keys and start driving.
         hr
         section
-          .row.bold
+          .flex-row.bold
             .label Next Payment
             //- TODO: August 8th should come from server
             .content(style='flex: 5') ${{booking.car.cost * 7}} #[span.light &nbspon August 8th]
