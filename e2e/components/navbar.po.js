@@ -12,7 +12,7 @@ var Navbar = function() {
   this.questionsButton = element(by.cssContainingText('a', 'Questions'));
   this.accountButton = element(by.cssContainingText('a', 'My account'));
   this.rentalButton = element(by.cssContainingText('a', 'My rental'));
-  this.title = element(by.css('h3'));
+  this.title = element(by.css('.bar-wrapper h3'));
 };
 
 module.exports = new Navbar();
