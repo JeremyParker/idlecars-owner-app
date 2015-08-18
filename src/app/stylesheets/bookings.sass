@@ -8,34 +8,17 @@
     height: 1px
     background: $light_gray
 
-  .ic-blue
-    color: $ic_blue
-
   .tiny
-    font-size: $tiny_font_size
     font-weight: $light_font_weight
 
-  .light
+  .light, .bold
     font-size: $small_font_size
-    font-weight: $light_font_weight
-
-  .bold
-    font-weight: $bold_font_weight
-    font-size: $small_font_size
-
-  .unpaid
-    font-weight: $bold_font_weight
-    color: $dark_orange
-
-  .due
-    color: $medium_green
 
   .warning
-    color: $medium_gray
+    @extend .m-gray
     padding: 0 0.75rem
 
-  .row
-    display: flex
+  .flex-row
     margin: 0.25rem 0
     text-align: left
     padding: 0 1rem
@@ -70,7 +53,7 @@
       height: 10rem
       margin: 1rem auto 0
 
-  .bookings-container
+  .booking-container
     padding: 1rem $page_gutter
 
   .booking-content
@@ -87,11 +70,7 @@
       margin-bottom: 0
 
   button
-    text-transform: none
     margin-top: 0.75rem
-
-  .cancel
-    background: $medium_gray
 
   .no-booking
     p
