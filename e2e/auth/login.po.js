@@ -9,7 +9,7 @@ var Login = function() {
   self.signupButton = element(by.cssContainingText('span', 'Sign up'));
 
   self.loginProcess = function (booking) {
-    if (!booking) { self.phone.sendKeys('1234567891') }
+    if (booking) { self.phone.sendKeys('1234567891') }
     else { self.phone.sendKeys('1234567892') }
     self.password.sendKeys('password');
     self.loginButton.click();

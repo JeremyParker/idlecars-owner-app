@@ -18,7 +18,7 @@ describe('Driver in rental page', function () {
   });
 
   it('can cancel the booking', function() {
-    login.loginProcess();
+    login.loginProcess('booking');
     navbar.menuButton.click();
     navbar.rentalButton.click();
     expect(rental.circles.count()).toBe(4);
@@ -36,8 +36,8 @@ describe('Driver in rental page', function () {
     expect(rental.noBookingContent.getText()).toContain('No bookings')
   });
 
-  it('for an approved driver', function() {
-    login.loginProcess('booking');
+  it('can complete booking proccess', function() {
+    login.loginProcess();
     navbar.menuButton.click();
     navbar.rentalButton.click();
     expect(rental.noBookingContent.getText()).toContain('No bookings');

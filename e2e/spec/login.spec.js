@@ -15,7 +15,7 @@ describe('log in page', function () {
   });
 
   it('can log in', function() {
-    login.loginProcess();
+    login.loginProcess('booking');
     expect(listing.carEls.count()).toBe(4);
   });
 

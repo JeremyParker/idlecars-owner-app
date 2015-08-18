@@ -30,7 +30,7 @@ describe('Listing page', function () {
   it('My account should work', function () {
     navbar.menuButton.click();
     navbar.loginButton.click();
-    login.loginProcess();
+    login.loginProcess('booking');
     navbar.menuButton.click();
     navbar.accountButton.click();
     expect(account.userInfo.count()).toBe(5);
@@ -47,7 +47,7 @@ describe('Listing page', function () {
   it('My rental button should work', function () {
     navbar.menuButton.click();
     navbar.loginButton.click();
-    login.loginProcess();
+    login.loginProcess('booking');
     navbar.menuButton.click();
     navbar.rentalButton.click();
     expect(rental.userName.getText()).toEqual('Tom Cat');
