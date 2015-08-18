@@ -17,7 +17,7 @@ describe('Driver in rental page', function () {
     navbar.loginButton.click();
   });
 
-  iit('can cancel the booking', function() {
+  it('can cancel the booking', function() {
     login.loginProcess();
     navbar.menuButton.click();
     navbar.rentalButton.click();
@@ -29,7 +29,11 @@ describe('Driver in rental page', function () {
     navbar.rentalButton.click();
     rental.cancelButton.click();
     expect(popup.title.getText()).toContain('Confirm');
-    // browser.pause()
+    popup.dismissButton.click();
+    expect(popup.title.isDisplayed()).toBeFalsy();
+    rental.cancelButton.click();
+    popup.confirmButton.click();
+    expect(rental.noBookingContent.getText()).toContain('No bookings')
   });
 
   it('for an approved driver', function() {
