@@ -19,10 +19,6 @@ var Rental = function() {
 
   self.successTitle = element(by.cssContainingText('h3', 'Success'));
   self.inProgressTitle = element(by.cssContainingText('.bold', 'RENTAL'));
-
-  self.cancelTitle = element(by.css('.popup-container h3'));
-  self.cancelDismissButton = element(by.cssContainingText('button', 'No'));
-  self.cancelConfirmButton = element(by.cssContainingText('button', 'Yes'));
 };
 
 module.exports = new Rental();

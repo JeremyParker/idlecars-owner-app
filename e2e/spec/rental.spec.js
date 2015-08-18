@@ -8,6 +8,7 @@ describe('Driver in rental page', function () {
   var carDetail = require('../cars/detail.po');
   var rental = require('../driver/rental.po');
   var uploadDocs = require('../driver/uploadDocs.po');
+  var popup = require(('../components/popup.po'));
 
   beforeEach(function () {
     helpers.startTest();
@@ -27,7 +28,7 @@ describe('Driver in rental page', function () {
     navbar.menuButton.click();
     navbar.rentalButton.click();
     rental.cancelButton.click();
-    expect(rental.cancelTitle.getText()).toContain('Confirm');
+    expect(popup.title.getText()).toContain('Confirm');
     // browser.pause()
   });
 
