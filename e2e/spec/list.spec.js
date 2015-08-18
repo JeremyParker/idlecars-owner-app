@@ -30,7 +30,7 @@ describe('Listing page', function () {
   it('My account should work', function () {
     navbar.menuButton.click();
     navbar.loginButton.click();
-    login.loginProcess('booking');
+    login.loginProcess('1234567892');
     navbar.menuButton.click();
     navbar.accountButton.click();
     expect(account.userInfo.count()).toBe(5);
@@ -42,24 +42,5 @@ describe('Listing page', function () {
 
     account.driverLicense.click();
     expect(navbar.title.getText()).toContain('Driver');
-  })
-
-  it('My rental button should work', function () {
-    navbar.menuButton.click();
-    navbar.loginButton.click();
-    login.loginProcess('booking');
-    navbar.menuButton.click();
-    navbar.rentalButton.click();
-    expect(rental.userName.getText()).toEqual('Tom Cat');
-    expect(rental.carName.getText()).toEqual('1985 DMC Delorean');
-    expect(rental.status.getText()).toContain('Waiting for documents');
-
-    rental.accountButton.click();
-    expect(account.userInfo.count()).toBe(5);
-    navbar.backButton.click();
-
-    expect(rental.booking.count()).toBe(1);
-    rental.cancelButton.click();
-    expect(rental.booking.count()).toBe(0);
   })
 });

@@ -12,10 +12,11 @@ var Rental = function() {
   self.cancelButton = element(by.cssContainingText('button', 'Cancel'));
   self.carDetailAnchor = element(by.cssContainingText('a', 'details'));
   self.changeDateButton = element(by.cssContainingText('button', 'Change'));
+  self.checkOutButton = element(by.cssContainingText('button', 'Check'));
   self.pickupButton = element(by.cssContainingText('button', 'Pick'));
   self.payButton = element(by.cssContainingText('button', 'Pay'));
   self.okButton = element(by.cssContainingText('button', 'OK'));
-  self.phoneButton = element(by.cssContainingText('button', 'Yes'));
+  self.phoneButton = element(by.cssContainingText('a', 'IDLE-CARS'));
 
   self.successTitle = element(by.cssContainingText('h3', 'Success'));
   self.inProgressTitle = element(by.cssContainingText('.bold', 'RENTAL'));

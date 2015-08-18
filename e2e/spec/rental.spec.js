@@ -17,8 +17,8 @@ describe('Driver in rental page', function () {
     navbar.loginButton.click();
   });
 
-  it('can cancel the booking', function() {
-    login.loginProcess('booking');
+  it('can cancel a booking with step 2', function() {
+    login.loginProcess('1234567892');
     navbar.menuButton.click();
     navbar.rentalButton.click();
     expect(rental.circles.count()).toBe(4);
@@ -36,8 +36,8 @@ describe('Driver in rental page', function () {
     expect(rental.noBookingContent.getText()).toContain('No bookings')
   });
 
-  it('can complete booking proccess', function() {
-    login.loginProcess();
+  it('can reserve a car with step 1', function() {
+    login.loginProcess('1234567891');
     navbar.menuButton.click();
     navbar.rentalButton.click();
     expect(rental.noBookingContent.getText()).toContain('No bookings');
@@ -46,10 +46,20 @@ describe('Driver in rental page', function () {
     carDetail.bookingLink.click();
     navbar.menuButton.click();
     navbar.rentalButton.click();
-    expect(rental.status.getText()).toContain('RESERVE');
-    rental.payButton.click();
-    expect(rental.status.getText()).toContain('PICK UP');
-    browser.pause()
+    expect(rental.status.getText()).toContain('Reserve');
+  });
 
+  it('can finish booking with step 4', function() {
+    login.loginProcess('1234567894');
+    navbar.menuButton.click();
+    navbar.rentalButton.click();
+    expect(rental.status.getText()).toContain('Pick up');
+    rental.pickupButton.click();
+    rental.payButton.click();
+    expect(rental.successTitle.isDisplayed()).toBeTruthy();
+    rental.okButton.click();
+    expect(rental.inProgressTitle.isDisplayed()).toBeTruthy();
+    rental.carDetailAnchor.click();
+    expect(carDetail.header.getText()).toContain('Benz');
   });
 });
