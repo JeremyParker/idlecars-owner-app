@@ -4,14 +4,20 @@ angular.module('idlecars')
 .directive('rentalDate', function () {
   return {
     templateUrl: 'components/rental_date/template.html',
-    controller: function ($scope) {
+    controller: function ($scope, BookingService) {
       $scope.options = {
         clear: '',
         today: '',
         min: 7,
         weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
         onClose: function () {
-          console.log($scope.date.getMonth())
+          $scope.isBusy = true;
+          var date = $scope.date;
+          var patchData = {end_time: [date.getFullYear(), date.getMonth(), date.getDate()]};
+          BookingService.patch($scope.booking.id, patchData).then(function (data) {
+            $scope.booking.end_time_display = data.end_time_display;
+            $scope.isBusy = false;
+          })
         }
       }
     }
