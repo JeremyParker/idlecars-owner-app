@@ -13,6 +13,10 @@ var Login = function() {
     self.password.sendKeys('password');
     self.loginButton.click();
   }
+
+  self.setToken = function (token) {
+    browser.executeScript("localStorage.setItem('ngStorage-authToken', '\"" + token +"\"')");
+  }
 };
 
 module.exports = new Login();
