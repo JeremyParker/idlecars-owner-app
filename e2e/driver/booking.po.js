@@ -1,6 +1,6 @@
 'use strict';
 
-var Rental = function() {
+var Booking = function() {
   var self = this;
 
   self.circles = element.all(by.repeater('i in stepsArray'));
@@ -22,4 +22,4 @@ var Rental = function() {
   self.inProgressTitle = element(by.cssContainingText('.bold', 'RENTAL'));
 };
 
-module.exports = new Rental();
+module.exports = new Booking();
