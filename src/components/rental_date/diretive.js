@@ -8,7 +8,7 @@ angular.module('idlecars')
       $scope.options = {
         clear: '',
         today: '',
-        min: 7,
+        min: $scope.booking.first_valid_end_time,
         weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
         onClose: function () {
           $scope.isBusy = true;
