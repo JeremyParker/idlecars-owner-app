@@ -7,7 +7,6 @@ describe('Listing page', function () {
   var login = require('../auth/login.po');
   var navbar = require('../components/navbar.po');
   var account = require('../driver/account.po');
-  var rental = require('../driver/rental.po');
   var uploadDocs = require('../driver/uploadDocs.po');
 
   beforeEach(function () {
