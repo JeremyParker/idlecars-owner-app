@@ -1,0 +1,20 @@
+.form-page
+  ng-form(novalidate)
+
+    label(for="first_name") First name
+    input(
+      type='text',
+      name='first_name',
+      maxlength=20,
+      ng-model='user.first_name',
+      required,
+      autocomplete='off')
+
+    label(for="last_name") Last name
+    input(
+      type='text',
+      name='last_name',
+      maxlength=20,
+      ng-model='user.last_name',
+      required,
+      autocomplete='off')
