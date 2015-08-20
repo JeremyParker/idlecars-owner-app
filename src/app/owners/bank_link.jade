@@ -1,5 +1,4 @@
-.form-page
-  ng-form(novalidate)
+ng-form.form-page
 
     label(for="first_name") First name
     input(
@@ -18,3 +17,91 @@
       ng-model='user.last_name',
       required,
       autocomplete='off')
+
+    label(for="email") Email
+    input(
+      type='email',
+      name='email',
+      maxlength=50,
+      ng-model='user.email',
+      required,
+      autocomplete='off')
+
+    label(for="street_address") Street address
+    input(
+      type='text',
+      name='street_address',
+      ng-model='user.address.street_address',
+      required,
+      autocomplete='off')
+
+    label(for="locality") City
+    input(
+      type='text',
+      name='locality',
+      ng-model='user.address.locality',
+      required,
+      autocomplete='off')
+
+    label(for="region") State
+    input(
+      type='text',
+      name='region',
+      ng-model='user.address.region',
+      required,
+      autocomplete='off')
+
+    label(for="postal_code") Postal code
+    input(
+      type='text',
+      name='postal_code',
+      ng-model='user.address.postal_code',
+      required,
+      autocomplete='off')
+
+    label(for="account_number") Account number
+    input(
+      type='text',
+      name='account_number',
+      ng-model='user.funding.account_number',
+      required,
+      autocomplete='off')
+
+    label(for="routing_number") Routing number
+    input(
+      type='text',
+      name='routing_number',
+      ng-model='user.funding.routing_number',
+      required,
+      autocomplete='off')
+
+
+    .radio
+      input(
+        type="radio",
+        id="account_type_personal"
+        name="account_type_personal",
+        ng-model="account_type",
+        value="personal")
+      label(for="account_type_personal") Personal Account
+    .radio
+      input(
+        type="radio",
+        id="account_type_business"
+        name="account_type_business",
+        ng-model="account_type",
+        value="business")
+      label(for="account_type_business") Business Account
+
+//- step4:
+//-     Business or Individual account?
+//-     'destination': braintree.MerchantAccount.FundingDestination.Bank,
+//-     'account_number': "1123581321",
+//-     'routing_number': "071101307",
+
+//- step4a (if business account type selected):
+//-     'legal_name': "Jane's Ladders",
+//-     'tax_id': "98-7654321",
+
+//- step5:
+//-     "tos_accepted": True,
