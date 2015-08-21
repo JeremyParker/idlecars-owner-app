@@ -16,6 +16,6 @@
       .label.bold Refundable Deposit
       //- TODO: $425 should be send from server
       .content.bold $425 #[span.m-gray &nbspDue now]
-    button.button(ng-click='checkOut()') Check out
+    a.button(ui-sref='.checkout({id: booking.id})') Check out
 
 rental-cancel
