@@ -32,6 +32,7 @@ ng-form(name="bankLinkForm").form-page
     type='text',
     name='street_address',
     ng-model='address.street_address',
+    maxlength=50,
     required,
     autocomplete='off')
 
@@ -40,6 +41,7 @@ ng-form(name="bankLinkForm").form-page
     type='text',
     name='locality',
     ng-model='address.locality',
+    maxlength=20,
     required,
     autocomplete='off')
 
@@ -48,6 +50,7 @@ ng-form(name="bankLinkForm").form-page
     type='text',
     name='region',
     ng-model='address.region',
+    maxlength=20,
     required,
     autocomplete='off')
 
@@ -55,15 +58,8 @@ ng-form(name="bankLinkForm").form-page
   input(
     type='text',
     name='postal_code',
+    ng-pattern="/^[\\d]{5}$/",
     ng-model='address.postal_code',
-    required,
-    autocomplete='off')
-
-  label(for="account_number") Account number
-  input(
-    type='text',
-    name='account_number',
-    ng-model='user.funding.account_number',
     required,
     autocomplete='off')
 
@@ -71,9 +67,22 @@ ng-form(name="bankLinkForm").form-page
   input(
     type='text',
     name='routing_number',
+    placeholder="9 digits",
+    ng-pattern="/^[\\d]{9}$/",
     ng-model='user.funding.routing_number',
     required,
     autocomplete='off')
+
+  label(for="account_number") Account number
+  input(
+    type='text',
+    name='account_number',
+    placeholder="10-12 digits",
+    ng-pattern="/^[\\d]{10,12}$/",
+    ng-model='user.funding.account_number',
+    required,
+    autocomplete='off')
+
 
 
   .radio
@@ -107,6 +116,7 @@ ng-form(name="bankLinkForm").form-page
     input(
       type='text',
       name='tax_id',
+      placeholder="00-0000000",
       ng-model='business.tax_id',
       required,
       autocomplete='off')
