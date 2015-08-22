@@ -20,8 +20,8 @@
   @extend %_base_button
   background: transparent
 
-.disabled-button
-  background: $medium_gray
+.button:disabled
+  @extend %disabled_theme
 
 .button
   @extend %blue_theme
@@ -44,4 +44,3 @@
   border: 1px solid white
   background: transparent
   padding: 1rem
-

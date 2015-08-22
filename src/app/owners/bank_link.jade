@@ -1,4 +1,4 @@
-ng-form.form-page
+ng-form(name="bankLinkForm").form-page
 
   label(for="first_name") First name
   input(
@@ -94,7 +94,7 @@ ng-form.form-page
       value="business")
     label(for="account_type_business") Business Account
 
-  div(ng-show="account_type == 'business'")
+  div(ng-if="account_type == 'business'")
     label(for="legal_name") Business legal name
     input(
       type='text',
@@ -116,7 +116,8 @@ ng-form.form-page
       type="checkbox",
       id="tos"
       name="tos",
+      required,
       ng-model="tos_accepted")
     label(for="tos") I accept the Terms of Service
 
-  button.button(type="submit") Submit
+  button.button(type="submit", ng-disabled="bankLinkForm.$invalid") Submit
