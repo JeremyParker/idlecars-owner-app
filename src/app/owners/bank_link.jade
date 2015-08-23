@@ -69,7 +69,7 @@ ng-form(name="bankLinkForm").form-page
     name='routing_number',
     placeholder="9 digits",
     ng-pattern="/^[\\d]{9}$/",
-    ng-model='user.funding.routing_number',
+    ng-model='funding.routing_number',
     required,
     autocomplete='off')
 
@@ -79,7 +79,7 @@ ng-form(name="bankLinkForm").form-page
     name='account_number',
     placeholder="10-12 digits",
     ng-pattern="/^[\\d]{10,12}$/",
-    ng-model='user.funding.account_number',
+    ng-model='funding.account_number',
     required,
     autocomplete='off')
 
@@ -130,4 +130,4 @@ ng-form(name="bankLinkForm").form-page
       ng-model="tos_accepted")
     label(for="tos") I accept the Terms of Service
 
-  button.button(type="submit", ng-disabled="bankLinkForm.$invalid") Submit
+  button.button(type="submit", ng-disabled="bankLinkForm.$invalid", ng-click="linkBankAccount()") Submit

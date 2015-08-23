@@ -15,6 +15,7 @@ angular.module('idlecars')
         },
         'content@': {
           templateUrl: 'app/owners/bank_link.html',
+          controller: 'owners.bankLink.controller'
         }
       }
     })
