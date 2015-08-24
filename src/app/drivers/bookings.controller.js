@@ -5,6 +5,7 @@ angular.module('idlecars')
 
   var initScope = function (me) {
     $scope.username = me.client_display;
+    $scope.paymentMethod = me.payment_method;
   }
 
   var _getBooking = function () {
@@ -28,7 +29,9 @@ angular.module('idlecars')
 
   $scope.checkout = function () {
     PaymentService.pending = $scope.booking;
-    $state.go('^.paymentMethod')
+
+    if (!$scope.paymentMethod) { return $state.go('^.paymentMethod') };
+    // TODO: make a checkout request without nonce
   }
 
   $scope.pickUp = function () {
