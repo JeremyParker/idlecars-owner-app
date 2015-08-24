@@ -4,7 +4,7 @@ angular.module('idlecars')
 .directive('bookingDate', function () {
   return {
     templateUrl: 'components/rental_date/template.html',
-    controller: function ($scope, BookingService) {
+    controller: function ($scope) {
       $scope.options = {
         clear: '',
         today: '',
