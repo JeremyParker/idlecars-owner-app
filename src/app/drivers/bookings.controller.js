@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('bookings.controller', function ($scope, $state, BookingService, MyDriverService, DocRouterService) {
+.controller('bookings.controller', function ($scope, $state, BookingService, MyDriverService, DocRouterService, PaymentService) {
 
   var initScope = function (me) {
     $scope.username = me.client_display;
@@ -24,6 +24,11 @@ angular.module('idlecars')
 
   $scope.uploadDocuments = function () {
     DocRouterService.goRequiredDoc();
+  }
+
+  $scope.checkout = function () {
+    PaymentService.pending = $scope.booking;
+    $state.go('^.paymentMethod')
   }
 
   $scope.pickUp = function () {

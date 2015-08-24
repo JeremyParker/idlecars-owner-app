@@ -8,7 +8,10 @@ angular.module('idlecars')
       container: "dropin-container",
       form: 'payment-form',
       onPaymentMethodReceived: function (obj) {
-        if (!PaymentService.pending) { return $state.go('^') };
+        if (!PaymentService.pending) {
+          // TODO: send nonce to server first
+          return $state.go('^')
+        };
 
         $scope.isBusy = true;
         var nonce = {nonce: obj.nonce};
@@ -17,6 +20,9 @@ angular.module('idlecars')
           PaymentService.pending = null;
           $scope.isBusy = false;
           $state.go('^.bookings');
+        })
+        .catch(function () {
+          //TODO: raise an error
         })
       }
     });
