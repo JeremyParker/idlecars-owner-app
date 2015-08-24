@@ -5,6 +5,7 @@ angular.module('idlecars')
   return {
     templateUrl: 'components/rental_date/template.html',
     controller: function ($scope) {
+      // TODO: needs to be more generic, could add a promise resovle
       $scope.options = {
         clear: '',
         today: '',
