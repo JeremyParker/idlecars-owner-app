@@ -31,7 +31,8 @@ angular.module('idlecars')
     PaymentService.pending = $scope.booking;
 
     if (!$scope.paymentMethod) { return $state.go('^.paymentMethod') };
-    // TODO: make a checkout request without nonce
+    BookingService.checkout($scope.booking.id).then(_getBooking)
+    // TODO: need server send Notification error
   }
 
   $scope.pickUp = function () {

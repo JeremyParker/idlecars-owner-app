@@ -1,29 +1,34 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('paymentMethod.controller', function ($scope, $state, PaymentService, BookingService) {
+.controller('paymentMethod.controller', function ($scope, $state, PaymentService, BookingService, MyDriverService) {
+
+  var addPaymentMethod = function (nonce) {
+    return MyDriverService.addPaymentMethod({nonce: nonce});
+  }
+
+  var resolve = function () {
+    if (!PaymentService.pending) { return $state.go('^') }
+
+    $scope.isBusy = true;
+    BookingService.checkout(PaymentService.pending.id).then(function () {
+      PaymentService.pending = null;
+      $scope.isBusy = false;
+      $state.go('^.bookings');
+    })
+    // TODO: require a server side notification
+  }
 
   PaymentService.getToken().then(function (data) {
+    // TODO: we need our custom form
     braintree.setup(data.client_token, "dropin", {
       container: "dropin-container",
       form: 'payment-form',
+      onUnsupported: function () {
+        // TODO: Error case
+      },
       onPaymentMethodReceived: function (obj) {
-        if (!PaymentService.pending) {
-          // TODO: send nonce to server first
-          return $state.go('^')
-        };
-
-        $scope.isBusy = true;
-        var nonce = {nonce: obj.nonce};
-        BookingService.checkout(PaymentService.pending.id, nonce)
-        .then(function () {
-          PaymentService.pending = null;
-          $scope.isBusy = false;
-          $state.go('^.bookings');
-        })
-        .catch(function () {
-          //TODO: raise an error
-        })
+        addPaymentMethod(obj.nonce).then(resolve)
       }
     });
   })

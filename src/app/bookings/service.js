@@ -20,8 +20,8 @@ angular.module('idlecars')
     return Restangular.one('bookings', bookingId).all('cancelation').post('');
   }
 
-  service.checkout = function (bookingId, nonce) {
-    return Restangular.one('bookings', bookingId).all('checkout').post(nonce);
+  service.checkout = function (bookingId) {
+    return Restangular.one('bookings', bookingId).all('checkout').post('');
   }
 
   service.pickup = function (bookingId) {
