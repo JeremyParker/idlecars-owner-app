@@ -27,7 +27,7 @@ angular.module('idlecars')
     DocRouterService.goRequiredDoc();
   }
 
-  $scope.checkout = function () {
+  $scope.checkOut = function () {
     PaymentService.pending = $scope.booking;
 
     if (!$scope.paymentMethod) { return $state.go('^.paymentMethod') };
