@@ -4,12 +4,12 @@ angular.module('idlecars')
 .config(function ($stateProvider) {
 
   $stateProvider
-    .state('driverAccount.bookings.checkout', {
-      url: '/:id/checkout',
+    .state('driverAccount.paymentMethod', {
+      url: '/payment_method',
       views: {
         'content@': {
-          templateUrl: 'app/payment/checkout.html',
-          controller: 'checkout.controller',
+          templateUrl: 'app/payment/method.html',
+          controller: 'paymentMethod.controller',
         }
       }
     })

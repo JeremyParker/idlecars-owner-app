@@ -1,20 +1,22 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('checkout.controller', function ($scope, $state, $stateParams, PaymentService, BookingService) {
+.controller('paymentMethod.controller', function ($scope, $state, PaymentService, BookingService) {
 
   PaymentService.getToken().then(function (data) {
     braintree.setup(data.client_token, "dropin", {
       container: "dropin-container",
       form: 'payment-form',
       onPaymentMethodReceived: function (obj) {
-        $scope.isBusy = true;
+        if (!PaymentService.pending) { return $state.go('^') };
 
+        $scope.isBusy = true;
         var nonce = {nonce: obj.nonce};
-        BookingService.checkout($stateParams.id, nonce)
+        BookingService.checkout(PaymentService.pending.id, nonce)
         .then(function () {
+          PaymentService.pending = null;
           $scope.isBusy = false;
-          $state.go('^');
+          $state.go('^.bookings');
         })
       }
     });
