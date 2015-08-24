@@ -11,3 +11,4 @@
     //- TODO: split the steps into their own controller and states
     ng-include(src='"app/bookings/step"+booking.step+".html"')
 ic-confirm(show-modal='showConfirm', result='cancelBooking')
+ic-loading(ng-show='isBusy')
