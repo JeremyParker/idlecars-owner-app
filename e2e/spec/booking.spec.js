@@ -8,7 +8,7 @@ describe('Driver in booking page', function () {
   var carDetail = require('../cars/detail.po');
   var booking = require('../driver/booking.po');
   var uploadDocs = require('../driver/uploadDocs.po');
-  var popup = require(('../components/popup.po'));
+  var confirm = require(('../components/confirm.po'));
 
   beforeEach(function () {
     helpers.startTest();
@@ -31,12 +31,12 @@ describe('Driver in booking page', function () {
     browser.get('http://localhost:3000/#/account/bookings');
     booking.cancelButton.click();
 
-    expect(popup.title.getText()).toContain('Confirm');
-    popup.dismissButton.click();
+    expect(confirm.title.getText()).toContain('Confirm');
+    confirm.dismissButton.click();
 
-    expect(popup.title.isDisplayed()).toBeFalsy();
+    expect(confirm.title.isDisplayed()).toBeFalsy();
     booking.cancelButton.click();
-    popup.confirmButton.click();
+    confirm.confirmButton.click();
 
     expect(booking.noBookingContent.getText()).toContain('No bookings')
   });

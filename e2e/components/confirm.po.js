@@ -1,6 +1,6 @@
 'use strict';
 
-var Popup = function() {
+var Confirm = function() {
   var self = this;
 
   self.title = element(by.css('.popup-container h3'));
@@ -8,4 +8,4 @@ var Popup = function() {
   self.confirmButton = element(by.cssContainingText('button', 'Yes'));
 };
 
-module.exports = new Popup();
+module.exports = new Confirm();
