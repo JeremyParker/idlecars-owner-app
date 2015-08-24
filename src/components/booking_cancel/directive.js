@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.directive('rentalCancel', function () {
+.directive('bookingCancel', function () {
   return {
     templateUrl: 'components/rental_cancel/template.html',
   }

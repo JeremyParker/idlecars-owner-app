@@ -16,6 +16,15 @@ angular.module('idlecars')
   MyDriverService.get().then(initScope);
   _getBooking();
 
+  $scope.changeEndDate = function (date) {
+    $scope.isBusy = true;
+    var patchData = {end_time: [date.getFullYear(), date.getMonth(), date.getDate()]};
+    BookingService.patch($scope.booking.id, patchData).then(function (data) {
+      $scope.booking.end_time_display = data.end_time_display;
+      $scope.isBusy = false;
+    })
+  }
+
   $scope.cancelBooking = function () {
     BookingService.cancel($scope.booking.id).then(_getBooking);
   }

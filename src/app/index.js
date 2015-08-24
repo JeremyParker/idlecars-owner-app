@@ -14,6 +14,7 @@ angular.module('idlecars',
     'ct.ui.router.extras.previous',
     'ngStorage',
     'icFilters',
+    'angular-datepicker',
   ]
 )
 
