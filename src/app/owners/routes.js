@@ -9,6 +9,7 @@ angular.module('idlecars')
       url: '/bank-link',
       data: {navbarInfo: {title: 'Link Bank Account', enableBack: true}},
       views: {
+        // TODO extend some base object, or have an `app` base state that holds the navbar
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',
           controller: 'navbarMain.controller',
