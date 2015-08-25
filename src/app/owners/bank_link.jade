@@ -1,0 +1,133 @@
+ng-form.form-page(name="bankLinkForm")
+
+  label(for="first_name") First name
+  input(
+    type='text',
+    name='first_name',
+    maxlength=20,
+    ng-model='individual.first_name',
+    required,
+    autocomplete='off')
+
+  label(for="last_name") Last name
+  input(
+    type='text',
+    name='last_name',
+    maxlength=20,
+    ng-model='individual.last_name',
+    required,
+    autocomplete='off')
+
+  label(for="email") Email
+  input(
+    type='email',
+    name='email',
+    maxlength=50,
+    ng-model='individual.email',
+    required,
+    autocomplete='off')
+
+  label(for="street_address") Street address
+  input(
+    type='text',
+    name='street_address',
+    ng-model='address.street_address',
+    maxlength=50,
+    required,
+    autocomplete='off')
+
+  label(for="locality") City
+  input(
+    type='text',
+    name='locality',
+    ng-model='address.locality',
+    maxlength=20,
+    required,
+    autocomplete='off')
+
+  label(for="region") State
+  input(
+    type='text',
+    name='region',
+    ng-model='address.region',
+    maxlength=20,
+    required,
+    autocomplete='off')
+
+  label(for="postal_code") Postal code
+  input(
+    type='text',
+    name='postal_code',
+    ng-pattern="/^[\\d]{5}$/",
+    ng-model='address.postal_code',
+    required,
+    autocomplete='off')
+
+  label(for="routing_number") Routing number
+  input(
+    type='text',
+    name='routing_number',
+    placeholder="9 digits",
+    ng-pattern="/^[\\d]{9}$/",
+    ng-model='funding.routing_number',
+    required,
+    autocomplete='off')
+
+  label(for="account_number") Account number
+  input(
+    type='text',
+    name='account_number',
+    placeholder="10-12 digits",
+    ng-pattern="/^[\\d]{10,12}$/",
+    ng-model='funding.account_number',
+    required,
+    autocomplete='off')
+
+
+
+  .radio
+    input(
+      type="radio",
+      id="account_type_personal"
+      name="account_type_personal",
+      ng-init="account_type = 'personal'",
+      ng-model="account_type",
+      value="personal")
+    label(for="account_type_personal") Personal Account
+  .radio(style="margin-bottom: 1rem")
+    input(
+      type="radio",
+      id="account_type_business"
+      name="account_type_business",
+      ng-model="account_type",
+      value="business")
+    label(for="account_type_business") Business Account
+
+  div(ng-if="account_type == 'business'")
+    label(for="legal_name") Business legal name
+    input(
+      type='text',
+      name='legal_name',
+      ng-model='business.legal_name',
+      required,
+      autocomplete='off')
+
+    label(for="tax_id") Business tax ID
+    input(
+      type='text',
+      name='tax_id',
+      placeholder="00-0000000",
+      ng-model='business.tax_id',
+      required,
+      autocomplete='off')
+
+  .checkbox(style="margin-bottom: 1rem")
+    input(
+      type="checkbox",
+      id="tos"
+      name="tos",
+      required,
+      ng-model="tos_accepted")
+    label(for="tos") I accept the Terms of Service
+
+  button.button(type="submit", ng-disabled="bankLinkForm.$invalid", ng-click="linkBankAccount()") Submit
