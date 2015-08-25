@@ -22,15 +22,10 @@ angular.module('idlecars')
 
   $scope.linkBankAccount = function() {
     var params = {};
-    console.log(params)
     params.tos_accepted = $scope.tos_accepted;
     params.individual = $scope.individual;
     params.individual.address = $scope.address;
     params.funding = $scope.funding;
-    params.funding.destination = braintree.MerchantAccount.FundingDestination.Bank;
-    params.master_merchant_account_id = 'someid';
-    console.log(params)
-
-    // result = braintree.MerchantAccount.create(params);
+    // TODO: submit to server
   }
 });
