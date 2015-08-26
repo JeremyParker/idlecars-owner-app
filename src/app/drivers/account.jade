@@ -10,6 +10,18 @@
     .b-inter-content All driver documents are required
     .s-inter-content.m-gray to complete a rental
 
+  section(ng-if='me.payment_method')
+    .section-row
+      .section-title.m-gray Payment
+    .section-row
+      a.row-content(ui-sref='.paymentMethod')
+        .column-content
+          .title-padding Card ending in {{me.payment_method.suffix}}
+          .img-upload
+            .image-wrapper
+              img(ng-src='{{me.payment_method.card_logo}}', style='height:2rem')
+            .ic-blue.next-pointer Replace/Remove
+
   section
     .section-row
       .section-title.m-gray Driver Documents
