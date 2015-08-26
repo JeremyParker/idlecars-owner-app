@@ -30,8 +30,4 @@ angular.module('idlecars')
     $scope.isLoggedIn = AuthService.isLoggedIn();
     $state.go('cars');
   };
-
-  $scope.removeMethod = function () {
-    console.log('hah')
-  }
 })
