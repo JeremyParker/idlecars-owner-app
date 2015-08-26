@@ -1,7 +1,7 @@
 .settings-wrapper
   section
     .section-row(ng-repeat='item in accountInfo')
-      a(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
+      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
         label.m-gray {{item.title}}
         .content-main {{me[item.content]}}
         .next-pointer
@@ -14,19 +14,20 @@
     .section-row
       title Payment
     .section-row
-      a(ui-sref='.paymentMethod')
+      .row-content.has-bar
         .flex-column
           label Card ending in {{me.payment_method.suffix}}
-          .flex
-            .flex-cell
-              img.small-image(ng-src='{{me.payment_method.card_logo}}')
-            .ic-blue.next-pointer Replace/Remove
+          .flex-cell
+            img.small-image(ng-src='{{me.payment_method.card_logo}}')
+      .row-content
+        a.ic-blue.flex-cell(ui-sref='.paymentMethod') Replace
+        a.ic-blue.flex-cell(ng-click='removeMethod()') Remove
 
   section
     .section-row
       title Driver Documents
     .section-row(ng-repeat='item in driverDocuments')
-      a(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
+      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
         .flex-column
           label {{item.title}}
           .flex
