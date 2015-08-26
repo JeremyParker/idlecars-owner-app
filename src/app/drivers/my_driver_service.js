@@ -44,8 +44,7 @@ angular.module('idlecars')
   }
 
   service.addPaymentMethod = function (nonce) {
-    // TODO: need to confirm endpoint when backend's setup
-    Restangular.one('drivers', 'payment_method').post(nonce)
+    return Restangular.one('drivers','me').all('payment_method').post(nonce);
   }
 
   return service;
