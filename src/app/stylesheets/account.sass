@@ -9,25 +9,12 @@
 
 .has-bar
   border-bottom: 1px solid $light_gray
+  border-radius: 0
 
 .content-title
   text-align: left
   padding-right: 1rem
   color: $medium_gray
-
-.column-content
-  @extend %flex_content
-  flex-direction: column
-
-.img-upload
-  @extend %flex_content
-  align-items: center
-
-  .image-wrapper
-    flex: 1
-
-    img
-      height: 4rem
 
 .content-main
   @extend %pull_right
@@ -66,14 +53,19 @@
       .row-content
         padding: 1rem 0
         display: flex
-        border-radius: 0
 
-  .logout
-    background: $light_red
+  .flex-column, .image-wrapper
+    flex: 1
+
+  .flex
+    align-items: center
+
+  .small-image
+    height: 2rem
+
+  .big-image
+    height: 4rem
 
 .terms-of-service
   margin-bottom: 1rem
   font-size: $tiny_font_size
-
-.underline
-  text-decoration: underline
