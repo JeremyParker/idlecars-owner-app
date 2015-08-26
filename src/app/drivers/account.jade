@@ -18,7 +18,7 @@
         .flex-column
           label Card ending in {{me.payment_method.suffix}}
           .flex
-            .image-wrapper
+            .flex-cell
               img.small-image(ng-src='{{me.payment_method.card_logo}}')
             .ic-blue.next-pointer Replace/Remove
 
@@ -30,7 +30,7 @@
         .flex-column
           label {{item.title}}
           .flex
-            .image-wrapper
+            .flex-cell
               img.big-image(ng-if='me[item.image]', ng-src='{{me[item.image]}}')
               .dashed-box-border(ng-if='!me[item.image]')
                 .box-content
