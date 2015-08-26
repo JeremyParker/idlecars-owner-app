@@ -7,7 +7,7 @@
     .section-row
       p.section-title.m-gray Your Driver Documents
     .section-row(ng-repeat='item in driverDocuments')
-      a.row-content(ng-class='{"has-bar": !$last}', ui-sref="{{item.sref}}")
+      a(ng-class='{"has-bar": !$last}', ui-sref="{{item.sref}}")
         .left-flex-title {{item.title}}
         .img-wrapper
           img.check-mark(ng-if='item.isUploaded', src='/assets/images/Mark_Check.png')

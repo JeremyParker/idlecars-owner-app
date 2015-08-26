@@ -1,8 +1,8 @@
 .settings-wrapper
   section
     .section-row(ng-repeat='item in accountInfo')
-      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
-        .content-title {{item.title}}
+      a(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
+        label.m-gray {{item.title}}
         .content-main {{me[item.content]}}
         .next-pointer
 
@@ -12,11 +12,11 @@
 
   section(ng-if='me.payment_method')
     .section-row
-      .section-title.m-gray Payment
+      title Payment
     .section-row
-      a.row-content(ui-sref='.paymentMethod')
+      a(ui-sref='.paymentMethod')
         .flex-column
-          .title-padding Card ending in {{me.payment_method.suffix}}
+          label Card ending in {{me.payment_method.suffix}}
           .flex
             .image-wrapper
               img.small-image(ng-src='{{me.payment_method.card_logo}}')
@@ -24,17 +24,17 @@
 
   section
     .section-row
-      .section-title.m-gray Driver Documents
+      title Driver Documents
     .section-row(ng-repeat='item in driverDocuments')
-      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
+      a(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
         .flex-column
-          .title-padding {{item.title}}
+          label {{item.title}}
           .flex
             .image-wrapper
               img.big-image(ng-if='me[item.image]', ng-src='{{me[item.image]}}')
               .dashed-box-border(ng-if='!me[item.image]')
                 .box-content
-                  .box-text.m-gray Upload now
+                  .box-text Upload now
             p.ic-blue.next-pointer(ng-if='me[item.image]') Change
             p.color-red.next-pointer(ng-if='!me[item.image]') Upload
 
