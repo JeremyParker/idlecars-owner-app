@@ -14,14 +14,14 @@
     .section-row
       title Payment
     .section-row
-      .row-content.has-bar
+      a.row-content(ui-sref='.paymentMethod')
         .flex-column
           label Card ending in {{me.payment_method.suffix}}
-          .flex-cell
-            img.small-image(ng-src='{{me.payment_method.card_logo}}')
-      .row-content
-        a.ic-blue.flex-cell(ui-sref='.paymentMethod') Replace
-        a.ic-blue.flex-cell(ng-click='removeMethod()') Remove
+          .flex
+            .flex-cell
+              img.small-image(ng-src='{{me.payment_method.card_logo}}')
+            .ic-blue.next-pointer Replace
+
 
   section
     .section-row
