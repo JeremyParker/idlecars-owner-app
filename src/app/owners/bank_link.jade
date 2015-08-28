@@ -83,8 +83,6 @@ ng-form.form-page(name="bankLinkForm")
     required,
     autocomplete='off')
 
-
-
   .radio
     input(
       type="radio",
@@ -128,6 +126,6 @@ ng-form.form-page(name="bankLinkForm")
       name="tos",
       required,
       ng-model="params.tos_accepted")
-    label(for="tos") I accept the Terms of Service
+    label(for="tos") I accept the #[a(ui-sref='terms' style='text-decoration: underline') Terms of Service]
 
   button.button(type="submit", ng-disabled="bankLinkForm.$invalid", ng-click="linkBankAccount()") Submit
