@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('owners.bankLink.controller', function ($scope, Restangular) {
+.controller('owners.bankLink.controller', function ($scope, Restangular, $state) {
 
   $scope.params = {}
   $scope.params.individual = {}
@@ -25,7 +25,7 @@ angular.module('idlecars')
     // TODO: replace `1` with the real owner id
     // TODO: a real solution for TOS
     Restangular.one('owners', 1).all('bank_link').post($scope.params).then(function () {
-      // TODO: go to the appropriate state
+      $state.go('bankSuccess')
     })
   }
 });
