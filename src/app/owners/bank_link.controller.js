@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('owners.bankLink.controller', function ($scope) {
+.controller('owners.bankLink.controller', function ($scope, Restangular) {
 
   $scope.individual = {}
   $scope.individual.first_name = 'taco'
@@ -22,10 +22,15 @@ angular.module('idlecars')
 
   $scope.linkBankAccount = function() {
     var params = {};
+    // TODO: figure out the TOS
     params.tos_accepted = $scope.tos_accepted;
     params.individual = $scope.individual;
     params.individual.address = $scope.address;
     params.funding = $scope.funding;
-    // TODO: submit to server
+    params.business = $scope.business;
+
+    Restangular.one('owners', 1).all('bank_link').post(params).then(function () {
+      // go to the appropriate state
+    })
   }
 });
