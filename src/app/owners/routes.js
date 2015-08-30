@@ -47,4 +47,17 @@ angular.module('idlecars')
     templateUrl: 'app/users/form.html',
     controller: 'auth.ownerSetPassword.controller',
   })
+    .state('bankSuccess', {
+      url: '/bank_success',
+      data: {navbarInfo: {title: ''}},
+      views: {
+        'navbar@': {
+          templateUrl: 'components/navbar/navbar_main.html',
+          controller: 'navbarMain.controller',
+        },
+        'content@': {
+          templateUrl: 'app/owners/success.html',
+        },
+      },
+    })
 })
