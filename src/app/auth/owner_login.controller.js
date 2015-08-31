@@ -11,14 +11,6 @@ angular.module('idlecars')
   }
 
   $scope.login = function() {
-    // TODO: Do we need to check phone number?
-    var phoneNumber = Restangular.one('phone_numbers', $scope.user.username);
-    phoneNumber.get()
-    .then(_login)
-    .catch(_phoneNotFound)
-  };
-
-  var _login = function() {
     AuthService.login($scope.user)
     .then(function() {
       $state.go('bankLink');
@@ -26,11 +18,5 @@ angular.module('idlecars')
     .catch(function(error) {
       $scope.user.password = '';
     });
-  }
-
-  var _phoneNotFound = function() {
-    // TODO: return this error from the server
-    AppNotificationService.push("Sorry, that didn't work. Please double-check your phone number.");
-    $scope.user.password = '';
   }
 });
