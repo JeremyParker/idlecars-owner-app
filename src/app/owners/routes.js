@@ -25,7 +25,7 @@ angular.module('idlecars')
       url: '/owner-login',
       views: {
         'content@': {
-          templateUrl: 'app/auth/login.html',
+          templateUrl: 'app/auth/owner_login.html',
           controller: 'auth.owner-login.controller',
         }
       }
