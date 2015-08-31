@@ -5,7 +5,7 @@ ng-form.form-page(name="bankLinkForm")
     type='text',
     name='first_name',
     maxlength=20,
-    ng-model='individual.first_name',
+    ng-model='params.individual.first_name',
     required,
     autocomplete='off')
 
@@ -14,7 +14,7 @@ ng-form.form-page(name="bankLinkForm")
     type='text',
     name='last_name',
     maxlength=20,
-    ng-model='individual.last_name',
+    ng-model='params.individual.last_name',
     required,
     autocomplete='off')
 
@@ -23,7 +23,7 @@ ng-form.form-page(name="bankLinkForm")
     type='email',
     name='email',
     maxlength=50,
-    ng-model='individual.email',
+    ng-model='params.individual.email',
     required,
     autocomplete='off')
 
@@ -31,7 +31,7 @@ ng-form.form-page(name="bankLinkForm")
   input(
     type='text',
     name='street_address',
-    ng-model='address.street_address',
+    ng-model='params.individual.address.street_address',
     maxlength=50,
     required,
     autocomplete='off')
@@ -40,7 +40,7 @@ ng-form.form-page(name="bankLinkForm")
   input(
     type='text',
     name='locality',
-    ng-model='address.locality',
+    ng-model='params.individual.address.locality',
     maxlength=20,
     required,
     autocomplete='off')
@@ -49,7 +49,7 @@ ng-form.form-page(name="bankLinkForm")
   input(
     type='text',
     name='region',
-    ng-model='address.region',
+    ng-model='params.individual.address.region',
     maxlength=20,
     required,
     autocomplete='off')
@@ -59,7 +59,7 @@ ng-form.form-page(name="bankLinkForm")
     type='text',
     name='postal_code',
     ng-pattern="/^[\\d]{5}$/",
-    ng-model='address.postal_code',
+    ng-model='params.individual.address.postal_code',
     required,
     autocomplete='off')
 
@@ -69,7 +69,7 @@ ng-form.form-page(name="bankLinkForm")
     name='routing_number',
     placeholder="9 digits",
     ng-pattern="/^[\\d]{9}$/",
-    ng-model='funding.routing_number',
+    ng-model='params.funding.routing_number',
     required,
     autocomplete='off')
 
@@ -79,11 +79,9 @@ ng-form.form-page(name="bankLinkForm")
     name='account_number',
     placeholder="10-12 digits",
     ng-pattern="/^[\\d]{10,12}$/",
-    ng-model='funding.account_number',
+    ng-model='params.funding.account_number',
     required,
     autocomplete='off')
-
-
 
   .radio
     input(
@@ -108,7 +106,7 @@ ng-form.form-page(name="bankLinkForm")
     input(
       type='text',
       name='legal_name',
-      ng-model='business.legal_name',
+      ng-model='params.business.legal_name',
       required,
       autocomplete='off')
 
@@ -117,7 +115,7 @@ ng-form.form-page(name="bankLinkForm")
       type='text',
       name='tax_id',
       placeholder="00-0000000",
-      ng-model='business.tax_id',
+      ng-model='params.business.tax_id',
       required,
       autocomplete='off')
 
@@ -127,7 +125,7 @@ ng-form.form-page(name="bankLinkForm")
       id="tos"
       name="tos",
       required,
-      ng-model="tos_accepted")
-    label(for="tos") I accept the Terms of Service
+      ng-model="params.tos_accepted")
+    label(for="tos") I accept the #[a(ui-sref='terms' style='text-decoration: underline') Terms of Service]
 
   button.button(type="submit", ng-disabled="bankLinkForm.$invalid", ng-click="linkBankAccount()") Submit

@@ -1,31 +1,31 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('owners.bankLink.controller', function ($scope) {
+.controller('owners.bankLink.controller', function ($scope, Restangular, $state) {
 
-  $scope.individual = {}
-  $scope.individual.first_name = 'taco'
-  $scope.individual.last_name = 'taco'
-  $scope.individual.email = 'taco@taco.com'
+  $scope.params = {}
+  $scope.params.individual = {}
+  $scope.params.individual.first_name = 'taco'
+  $scope.params.individual.last_name = 'taco'
+  $scope.params.individual.email = 'taco@taco.com'
 
-  $scope.address = {}
-  $scope.address.street_address = '123 taco street'
-  $scope.address.locality = 'taco'
-  $scope.address.region = 'tx'
-  $scope.address.postal_code = '74305'
+  $scope.params.individual.address = {}
+  $scope.params.individual.address.street_address = '123 taco street'
+  $scope.params.individual.address.locality = 'taco'
+  $scope.params.individual.address.region = 'tx'
+  $scope.params.individual.address.postal_code = '74305'
 
-  $scope.funding = {}
-  $scope.funding.routing_number = 123123123
-  $scope.funding.account_number = 1231231231
+  $scope.params.funding = {}
+  $scope.params.funding.routing_number = 123123123
+  $scope.params.funding.account_number = 1231231231
 
-  $scope.tos_accepted = true
+  $scope.params.tos_accepted = true
 
   $scope.linkBankAccount = function() {
-    var params = {};
-    params.tos_accepted = $scope.tos_accepted;
-    params.individual = $scope.individual;
-    params.individual.address = $scope.address;
-    params.funding = $scope.funding;
-    // TODO: submit to server
+    // TODO: replace `1` with the real owner id
+    // TODO: a real solution for TOS
+    Restangular.one('owners', 1).all('bank_link').post($scope.params).then(function () {
+      $state.go('bankSuccess')
+    })
   }
 });

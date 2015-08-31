@@ -7,7 +7,7 @@ angular.module('idlecars')
 
     .state('bankLink', {
       url: '/bank-link',
-      data: {navbarInfo: {title: 'Link Bank Account', enableBack: false}},
+      data: {navbarInfo: {title: 'Link Bank Account'}},
       views: {
         // TODO extend some base object, or have an `app` base state that holds the navbar
         'navbar@': {
@@ -20,6 +20,7 @@ angular.module('idlecars')
         }
       }
     })
+
     .state('ownerLogin', {
       url: '/owner-login',
       views: {
@@ -29,6 +30,7 @@ angular.module('idlecars')
         }
       }
     })
+
     .state('ownerPassword', {
       abstract: true,
       views: {
@@ -41,10 +43,26 @@ angular.module('idlecars')
         }
       }
     })
+
     .state('ownerPassword.reset', {
-    url: '/owner_reset_password/:resetToken',
-    data: {navbarInfo: {title: 'Create a password', enableBack: false, enableSave: true}},
-    templateUrl: 'app/users/form.html',
-    controller: 'auth.ownerSetPassword.controller',
-  })
+      url: '/owner_reset_password/:resetToken',
+      data: {navbarInfo: {title: 'Create a password', enableSave: true}},
+      templateUrl: 'app/users/form.html',
+      controller: 'auth.ownerSetPassword.controller',
+    })
+
+    .state('bankSuccess', {
+      url: '/bank_success',
+      data: {navbarInfo: {title: ''}},
+      views: {
+        'navbar@': {
+          templateUrl: 'components/navbar/navbar_main.html',
+          controller: 'navbarMain.controller',
+        },
+        'content@': {
+          templateUrl: 'app/owners/success.html',
+        },
+      },
+    })
+
 })
