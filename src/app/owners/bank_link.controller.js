@@ -24,8 +24,17 @@ angular.module('idlecars')
   $scope.linkBankAccount = function() {
     // TODO: replace `1` with the real owner id
     // TODO: a real solution for TOS
-    Restangular.one('owners', 1).all('bank_link').post($scope.params).then(function () {
+    var postParams = angular.copy($scope.params);
+    postParams.individual.date_of_birth = _dateFormat($scope.params.individual.date_of_birth)
+
+    Restangular.one('owners', 1).all('bank_link').post(postParams).then(function () {
       $state.go('bankSuccess')
     })
+  }
+
+  var _dateFormat = function (date) {
+    var day = ("0" + date.getDate()).slice(-2);
+    var month = ("0" + (date.getMonth() + 1)).slice(-2);
+    return date.getFullYear().toString() + month + day;
   }
 });

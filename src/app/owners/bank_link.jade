@@ -27,6 +27,14 @@ ng-form.form-page(name="bankLinkForm")
     required,
     autocomplete='off')
 
+  label(for="date_of_birth") Date of Birth
+  input(
+    type='date',
+    name='date_of_birth',
+    ng-model='params.individual.date_of_birth',
+    required,
+    autocomplete='off')
+
   label(for="street_address") Street address
   input(
     type='text',
