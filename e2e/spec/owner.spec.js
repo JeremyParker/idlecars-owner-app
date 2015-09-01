@@ -11,8 +11,7 @@ describe('As an owner I can', function () {
     browser.get('http://localhost:3000/#/owner_reset_password/test');
   });
 
-  iit('reset my password and submit my bank info', function() {
-    // browser.pause()
+  it('reset my password and submit my bank info', function() {
     signup.password1.sendKeys('12');
     signup.password2.sendKeys('12');
     navbar.saveButton.click();
