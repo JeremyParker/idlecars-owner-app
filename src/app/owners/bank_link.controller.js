@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('owners.bankLink.controller', function ($scope, $state, Restangular, OwnerBankService) {
+.controller('owners.bankLink.controller', function ($scope, $state, Restangular, OwnerBankService, AppNotificationService) {
 
   $scope.params = OwnerBankService.ownerBankInfo;
   OwnerBankService.ownerBankInfo = {};
@@ -18,6 +18,11 @@ angular.module('idlecars')
     Restangular.one('owners', 'me').all('bank_link').post(postParams).then(function () {
       $scope.isBusy = false;
       $state.go('bankSuccess');
+    }).catch(function () {
+      $scope.isBusy = false;
+      if (!AppNotificationService.messages) {
+        AppNotificationService.push('Sorry, there was an error. Please try again.');
+      }
     })
   }
 
