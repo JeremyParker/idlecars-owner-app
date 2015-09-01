@@ -137,3 +137,6 @@ ng-form.form-page(name="bankLinkForm")
     label(for="tos") I accept the #[a(ui-sref='terms' style='text-decoration: underline', ng-click='saveForm()') Terms of Service]
 
   button.button(type="submit", ng-disabled="bankLinkForm.$invalid", ng-click="linkBankAccount()") Submit
+
+//- put ic-loading under <body> tag. use rootScope.isBusy
+ic-loading(ng-if='isBusy')

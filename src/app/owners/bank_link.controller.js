@@ -10,11 +10,14 @@ angular.module('idlecars')
 
   $scope.linkBankAccount = function() {
     // TODO: a real solution for TOS
+    $scope.isBusy = true;
+
     var postParams = angular.copy($scope.params);
     postParams.individual.date_of_birth = _dateFormat($scope.params.individual.date_of_birth)
 
     Restangular.one('owners', 'me').all('bank_link').post(postParams).then(function () {
-      $state.go('bankSuccess')
+      $scope.isBusy = false;
+      $state.go('bankSuccess');
     })
   }
 
