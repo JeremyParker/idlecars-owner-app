@@ -24,7 +24,7 @@ angular.module('idlecars')
   $scope.linkBankAccount = function() {
     // TODO: replace `1` with the real owner id
     // TODO: a real solution for TOS
-    Restangular.one('owners', 1).all('bank_link').post($scope.params).then(function () {
+    Restangular.one('owners', 'me').all('bank_link').post($scope.params).then(function () {
       $state.go('bankSuccess')
     })
   }
