@@ -22,16 +22,11 @@ angular.module('idlecars')
   $scope.params.tos_accepted = true
 
   $scope.linkBankAccount = function() {
-    // TODO: replace `1` with the real owner id
     // TODO: a real solution for TOS
-<<<<<<< HEAD
     var postParams = angular.copy($scope.params);
     postParams.individual.date_of_birth = _dateFormat($scope.params.individual.date_of_birth)
 
-    Restangular.one('owners', 1).all('bank_link').post(postParams).then(function () {
-=======
-    Restangular.one('owners', 'me').all('bank_link').post($scope.params).then(function () {
->>>>>>> origin/owner-accounts
+    Restangular.one('owners', 'me').all('bank_link').post(postParams).then(function () {
       $state.go('bankSuccess')
     })
   }
