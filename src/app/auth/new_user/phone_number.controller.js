@@ -17,14 +17,12 @@ angular.module('idlecars')
   $rootScope.navGoNext = function() {
     var phoneNumber = Restangular.one('phone_numbers', $scope.user.phone_number);
     phoneNumber.get()
-    .then(function(data) {
-      console.log(data);
+    .then(function() {
       $state.go('login', {username: $scope.user.phone_number}).then(function() {
         AppNotificationService.push("Great, you already have an account. Enter your password.");
       });
     })
-    .catch(function(data) {
-      console.log(data);
+    .catch(function() {
       // Phone not found found, continue creating account
       $state.go('^.password');
     });
