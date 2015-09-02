@@ -17,9 +17,8 @@ describe('As an owner I can', function () {
     navbar.saveButton.click();
     expect(navbar.title.getText()).toEqual('Link Bank Account');
 
-    bankForm.firstName.sendKeys('test');
-    bankForm.lastName.sendKeys('e2e');
-    bankForm.email.sendKeys('test@idlecars.com');
+    // Note: we don't populate firstName, lastName or email because they're
+    // already populated from the Owner object.
     bankForm.dateOfBirth.sendKeys('12121990');
 
     bankForm.streetAddress.sendKeys('white house');
