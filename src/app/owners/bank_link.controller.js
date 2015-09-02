@@ -1,10 +1,19 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('owners.bankLink.controller', function ($scope, $state, Restangular, OwnerBankService, AppNotificationService) {
+.controller('owners.bankLink.controller', function ($scope, $state, OwnerBankService, AppNotificationService) {
 
-  $scope.params = OwnerBankService.ownerBankInfo;
-  OwnerBankService.ownerBankInfo = {};
+  var empty = OwnerBankService.ownerBankInfo.individual === undefined;
+
+  if(empty) {
+    OwnerBankService.get().then(function (owner) {
+      $scope.params = { individual: owner.auth_users[0] };
+    })
+  }
+  else {
+    $scope.params = OwnerBankService.ownerBankInfo;
+    OwnerBankService.ownerBankInfo = {};
+  }
 
   $scope.saveForm = function () { OwnerBankService.ownerBankInfo = $scope.params }
 
@@ -15,7 +24,7 @@ angular.module('idlecars')
     var postParams = angular.copy($scope.params);
     postParams.individual.date_of_birth = _dateFormat($scope.params.individual.date_of_birth)
 
-    Restangular.one('owners', 'me').all('bank_link').post(postParams).then(function () {
+    OwnerBankService.post(postParams).then(function () {
       $scope.isBusy = false;
       $state.go('bankSuccess');
     }).catch(function () {
