@@ -24,11 +24,13 @@ angular.module('idlecars')
     })
 
     .state('newUser.phoneNumber', {
+      url: '/phone_number',
       templateUrl: 'app/users/form.html',
       controller: 'newUser.phoneNumber.controller',
     })
 
     .state('newUser.password', {
+      url: '/password',
       templateUrl: 'app/users/form.html',
       controller: 'newUser.password.controller',
     })
