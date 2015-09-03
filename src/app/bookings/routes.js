@@ -8,7 +8,6 @@ angular.module('idlecars')
     .state('bookingDetail', {
       url: '/bookings/:bookingId',
       data: {requireAuth: true, navbarInfo: {title: 'Driver Documents', enableMenu: true}},
-      params: {goRequiredDoc: true},
       views: {
         'navbar@': {
           templateUrl: 'components/navbar/navbar_main.html',

@@ -2,7 +2,7 @@
 
 angular.module('idlecars')
 
-.factory('DocRouterService', function($state, MyDriverService) {
+.factory('DocRouterService', function ($state, MyDriverService) {
   var service = {};
 
   var _nextMissingDoc = function(me) {
@@ -28,21 +28,13 @@ angular.module('idlecars')
     });
   }
 
-  service.goRequiredDoc = function() {
-    service.requiredDocState().then(function(nextState) {
-      if (nextState) {
-        $state.go(nextState);
-      }
-    });
-  }
-
   return service;
 })
 
-.run(function($location, AuthService, DocRouterService) {
-  var isResetUrl = $location.url().indexOf('reset_password') > -1;
-
-  if (AuthService.isLoggedIn() && !isResetUrl) {
-    DocRouterService.goRequiredDoc();
+.run(function (AuthService, DocRouterService, AppNotificationService) {
+  if (AuthService.isLoggedIn()) {
+    DocRouterService.requiredDocState().then(function (state) {
+      if (state) { AppNotificationService.push('Please upload your docs') }
+    })
   }
 });
