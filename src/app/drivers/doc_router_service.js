@@ -34,7 +34,9 @@ angular.module('idlecars')
 .run(function (AuthService, DocRouterService, AppNotificationService) {
   if (AuthService.isLoggedIn()) {
     DocRouterService.requiredDocState().then(function (state) {
-      if (state) { AppNotificationService.push('Please upload your docs') }
+      if (state) {
+        AppNotificationService.push('Remember to upload your missing documents. Go to "My Account" from the menu.')
+      }
     })
   }
 });
