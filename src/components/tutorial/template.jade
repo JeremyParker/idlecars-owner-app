@@ -1,25 +1,37 @@
-.tutorial-wrapper(ng-if='true')
-  slick(dots='true', arrows='false', infinite='false')
-    div
-      img(src='/assets/images/white_car.png')
-      h3 Pick A Car. Any Car.
-      p.
-        Find the car that fits your style #[br]
-        and budget. Choose from a wide #[br]
-        variety of makes, models, #[br]
-        mileage and more.
-    div
-      img(src='/assets/images/white_car.png')
-      h3 Create Your Account.
-      p.
-        Using your smartphone, take clear #[br]
-        pictures of these 4 documents #[br]
-      ul
-        li Proof of Address and a
-        li Defensive Driving Certificate (optional).
-        li Upload from our app and
-        li you’re good to go.
-    div
-      img(src='/assets/images/white_car.png')
-    div
-      img(src='/assets/images/white_car.png')
+.tutorial-wrapper(ng-if='tutorialOn')
+  .tutorail-container
+    slick(dots='true', arrows='false', infinite='false')
+      div
+        img(src='/assets/images/white_car.png')
+        h3 Pick A Car. Any Car.
+        p.
+          Find the car that fits your style #[br]
+          and budget. Choose from a wide #[br]
+          variety of makes, models, #[br]
+          mileage and more.
+        input(
+          type='checkbox',
+          name='tutorial',
+          ng-model='setting',
+          ng-click='setLocalStorage(setting)')
+        |  Do not want to see this again
+        br
+        button(ng-click="closeTutorial()") Start now!
+
+      div
+        img(src='/assets/images/white_car.png')
+        h3 Create Your Account.
+        p.
+          Using your smartphone, take clear #[br]
+          pictures of these 4 documents #[br]
+        ul
+          li Proof of Address and a
+          li Defensive Driving Certificate.
+          li Upload from our app and
+          li you’re good to go.
+      div
+        img(src='/assets/images/white_car.png')
+      div
+        img(src='/assets/images/white_car.png')
+
+
