@@ -6,15 +6,11 @@ angular.module('idlecars')
     scope: {},
     templateUrl: 'components/tutorial/template.html',
     controller: function ($scope, $localStorage, $sessionStorage) {
-      $scope.tutorialOn = !$sessionStorage.haveSeenTutorial && !$localStorage.tutorialsetting;
+      $scope.tutorialOn = !$localStorage.tutorialClosed;
 
       $scope.closeTutorial = function () {
         $scope.tutorialOn = false;
-        $sessionStorage.haveSeenTutorial = true;
-      }
-
-      $scope.setLocalStorage = function (setting) {
-        $localStorage.tutorialsetting = setting;
+        $localStorage.tutorialClosed = true;
       }
     }
   }
