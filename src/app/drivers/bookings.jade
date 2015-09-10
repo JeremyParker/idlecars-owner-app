@@ -1,6 +1,6 @@
 .bookings-wrapper(ng-if='booking')
   .booking-header(ng-if='booking.step && booking.step < 5')
-    circle-steps(step='{{booking.step}}', of='{{booking.step_display_count}}')
+    tutorial-steps(step='{{booking.step}}', of='{{booking.step_display_count}}')
       .bold {{booking.step_details.step_title}}
       .light {{booking.step_details.step_subtitle}}
 
