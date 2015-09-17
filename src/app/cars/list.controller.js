@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.list.controller', function ($scope, $timeout, CarService, CarFilterService) {
+.controller('cars.list.controller', function ($scope, $timeout, $state, CarService, CarFilterService) {
   $timeout(function() {
     $scope.filters = CarFilterService.filters || {};
   });
@@ -15,4 +15,6 @@ angular.module('idlecars')
     if ($event) { $event.stopPropagation(); }
     $scope.cars = CarFilterService.filter(feature, setting);
   }
+
+  $state.go('.search')
 })
