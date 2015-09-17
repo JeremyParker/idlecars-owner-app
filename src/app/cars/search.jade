@@ -7,11 +7,15 @@ modal.search-modal(action-sref="^")
     .box(ng-click="didFilter('cost_bucket', 'pricey', $event)", ng-class="{active: filters.cost_bucket.pricey}") $80+
 
   h3 Type of car
-  .listing-filters
-    .box(ng-click="didFilter('body_type', 'Sedan', $event)", ng-class="{active: filters.body_type.Sedan}") Sedan
-    .box(ng-click="didFilter('body_type', 'SUV', $event)", ng-class="{active: filters.body_type.SUV}") SUV
+  .filter-container
+    .flex-row
+      label Sedan
+      on-off-button(ng-click="didFilter('body_type', 'Sedan', $event)", ng-class="{active: filters.body_type.Sedan}") Off
+    .flex-row
+      label SUV
+      .box(ng-click="didFilter('body_type', 'SUV', $event)", ng-class="{active: filters.body_type.SUV}") SUV
 
-  .listing-filters
+  .fiter-container
     .box(ng-click="didFilter('lux_level', 'Luxury', $event)", ng-class="{active: filters.lux_level.Luxury}") Luxury
 
   on-off-button(status='status', ng-click='status = !status')

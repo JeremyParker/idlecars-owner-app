@@ -12,7 +12,6 @@
 .listing-filters
   display: flex
   margin: 0 0.5rem
-  min-height: 3rem // HACK: chrome bug fix, not needed for canary, so maybe remove later
 
   .box
     @extend %_box
@@ -30,14 +29,37 @@
 
 
 .search-modal
-  h3
-    margin: 2.5rem 0 0.5rem
-    text-transform: uppercase
+  .modal-content
+    @extend %gray_theme
+    border-radius: 0.25rem
+    color: black
 
-  .listing-filters
+    margin: 0.5rem 0
+    padding: 1rem 0.5rem
+
+  h3
+    margin: 1rem 0 0.5rem
+    font-size: $base_font_size
+
+  .filter-container, .listing-filters
+    border: 1px solid $medium_gray
     margin: 0
 
+  .box-container
+    @extend %white_theme
+    display: flex
+
+    label
+      flex: 5
+
+
   .box
-    @extend %black_theme
+    @extend %white_theme
     font-weight: $bold_font_weight
+    border-left: 1px solid $medium_gray
+
+    margin: 0
     padding: 0.75rem 0.5rem
+
+    &:first-child
+      border-left: none
