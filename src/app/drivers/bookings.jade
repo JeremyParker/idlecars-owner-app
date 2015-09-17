@@ -1,11 +1,11 @@
 .bookings-wrapper(ng-if='booking')
   .booking-header(ng-if='booking.step && booking.step < 5')
-    circle-steps(step='{{booking.step}}', of='{{booking.step_display_count}}')
+    tutorial-steps(step='{{booking.step}}', of='{{booking.step_display_count}}')
       .bold {{booking.step_details.step_title}}
       .light {{booking.step_details.step_subtitle}}
 
   .booking-header(ng-if='!booking.step')
-    img(src='/assets/images/white_car.png')
+    img(src='/assets/images/tutorial/find_car.png')
 
   .booking-container
     //- TODO: split the steps into their own controller and states

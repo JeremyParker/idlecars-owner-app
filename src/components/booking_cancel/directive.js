@@ -3,6 +3,6 @@
 angular.module('idlecars')
 .directive('bookingCancel', function () {
   return {
-    templateUrl: 'components/rental_cancel/template.html',
+    templateUrl: 'components/booking_cancel/template.html',
   }
 })
