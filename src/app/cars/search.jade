@@ -11,10 +11,40 @@ modal.search-modal(action-sref="^")
     .filter-row
       .flex-row.has-bar
         .filter-label
-          label UberX
-        on-off-button(status='status_UberX', ng-click="status_UberX = !status_UberX; didFilter('body_type', 'Sedan', $event)")
+          label Uber X
+        on-off-button(status='filters.work_with.uber_x', ng-click="didFilter('work_with', 'uber_x', $event)")
+    .filter-row
+      .flex-row.has-bar
+        .filter-label
+          label Uber XL
+        on-off-button(status='filters.work_with.uber_xl', ng-click="didFilter('work_with', 'uber_xl', $event)")
+    .filter-row
+      .flex-row.has-bar
+        .filter-label
+          label Uber SUV
+        on-off-button(status='filters.work_with.uber_suv', ng-click="didFilter('work_with', 'uber_suv', $event)")
+    .filter-row
+      .flex-row.has-bar
+        .filter-label
+          label Uber Black
+        on-off-button(status='filters.work_with.uber_black', ng-click="didFilter('work_with', 'uber_black', $event)")
+    .filter-row
+      .flex-row.has-bar
+        .filter-label
+          label Lyft
+        on-off-button(status='filters.work_with.lyft_standard', ng-click="didFilter('work_with', 'lyft_standard', $event)")
+    .filter-row
+      .flex-row.has-bar
+        .filter-label
+          label Lyft Plus
+        on-off-button(status='filters.work_with.lyft_plus', ng-click="didFilter('work_with', 'lyft_plus', $event)")
+    .filter-row
+      .flex-row.has-bar
+        .filter-label
+          label Gett
+        on-off-button(status='filters.work_with.gett_standard', ng-click="didFilter('work_with', 'gett_standard', $event)")
     .filter-row
       .flex-row
         .filter-label
-          label UberSUV
-        on-off-button(status='status_UberSUV', ng-click="status_UberSUV = !status_UberSUV; didFilter('body_type', 'Sedan', $event)")
+          label Via
+        on-off-button(status='filters.work_with.via_standard', ng-click="didFilter('work_with', 'via_standard', $event)")
