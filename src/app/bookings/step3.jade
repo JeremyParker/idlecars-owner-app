@@ -10,7 +10,7 @@
         .content.bold ${{booking.car.cost}} #[span.light &nbsp{{booking.car.cost_time}}]
       .tiny.warning Payment due on Pickup #[br] Insurance and Maintanance Included
     section
-      rental-date
+      booking-date
     hr
     .flex-row
       .label.bold Refundable Deposit
@@ -18,4 +18,4 @@
       .content.bold $425 #[span.m-gray &nbspDue now]
     button.button(ng-click='checkOut()') Check out
 
-rental-cancel
+booking-cancel

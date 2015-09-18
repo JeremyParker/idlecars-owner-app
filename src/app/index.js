@@ -14,6 +14,7 @@ angular.module('idlecars',
     'ngStorage',
     'icFilters',
     'slick',
+    'angular-datepicker',
   ]
 )
 
