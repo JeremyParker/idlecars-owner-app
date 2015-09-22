@@ -6,6 +6,7 @@ angular.module('idlecars')
     templateUrl: 'components/on_off_button/template.html',
     scope: {
       status: '=',
-    }
+      action: '&',
+    },
   };
 });
