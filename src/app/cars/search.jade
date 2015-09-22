@@ -4,7 +4,7 @@ modal.search-modal(action-sref="^", ng-click="filter()")
   .listing-filters
     .box(ng-click="addOrFilter('cost_bucket', 'cheap', $event)", ng-class="{active: orFilters.cost_bucket.cheap}") < $60
     .box(ng-click="addOrFilter('cost_bucket', 'medium', $event)", ng-class="{active: orFilters.cost_bucket.medium}") $60 - 80
-    .box(ng-click="addOrFilter('cost_bucket', 'pricey', $event)", ng-class="{active: orFilters.cost_bucket.pricey}") > $80
+    .box(ng-click="addOrFilter('cost_bucket', 'pricey', $event)", ng-class="{active: orFilters.cost_bucket.pricey}") $80 >
 
   h3 Ride share service
   .filter-container
