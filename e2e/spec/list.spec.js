@@ -15,17 +15,6 @@ describe('Listing page', function () {
     browser.get('http://localhost:3000/index.html');
   });
 
-  it('can display tutorial carousel', function () {
-    browser.executeScript('return localStorage.removeItem("ngStorage-tutorialClosed");')
-    browser.get('http://localhost:3000/index.html');
-
-    tutorial.lastDotButton.click();
-    browser.wait(function () { return tutorial.closeButton.isDisplayed() })
-    tutorial.closeButton.click();
-
-    expect(listing.carEls.count()).toBe(4);
-  })
-
   it('lists 4 cars and menu buttons should work', function () {
     expect(listing.carEls.count()).toBe(4);
 
