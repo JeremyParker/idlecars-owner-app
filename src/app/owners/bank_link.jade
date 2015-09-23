@@ -27,14 +27,6 @@ ng-form.form-page(name="bankLinkForm")
     required,
     autocomplete='off')
 
-  label(for="date_of_birth") Date of Birth
-  input(
-    type='date',
-    name='date_of_birth',
-    ng-model='params.individual.date_of_birth',
-    required,
-    autocomplete='off')
-
   label(for="street_address") Street address
   input(
     type='text',
@@ -68,6 +60,14 @@ ng-form.form-page(name="bankLinkForm")
     name='postal_code',
     ng-pattern="/^[\\d]{5}$/",
     ng-model='params.individual.address.postal_code',
+    required,
+    autocomplete='off')
+
+  label(for="date_of_birth") Date of Birth
+  input(
+    type='date',
+    name='date_of_birth',
+    ng-model='params.individual.date_of_birth',
     required,
     autocomplete='off')
 
