@@ -15,12 +15,10 @@ describe('Driver in booking page', function () {
   });
 
   it('can see upload docs state', function() {
-    browser.get('http://localhost:3000/#/login');
-    login.loginProcess('1234567892');
-    navbar.menuButton.click();
-    navbar.rentalButton.click();
+    login.setToken('without_docs');
+    browser.get('http://localhost:3000/#/account/bookings');
 
-    expect(booking.circles.count()).toBe(4);
+    expect(booking.icons.count()).toBe(4);
     booking.upLoadButton.click();
 
     expect(uploadDocs.uploadTitle.getText()).toContain('Driver');
