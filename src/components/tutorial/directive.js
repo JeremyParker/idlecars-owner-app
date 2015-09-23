@@ -5,8 +5,9 @@ angular.module('idlecars')
   return {
     scope: {},
     templateUrl: 'components/tutorial/template.html',
-    controller: function ($scope, $localStorage, $sessionStorage) {
+    controller: function ($scope, $rootScope, $localStorage) {
       $scope.tutorialOn = !$localStorage.tutorialClosed;
+      $scope.showArrow = !$rootScope.isMobileDevice;
 
       $scope.closeTutorial = function () {
         $scope.tutorialOn = false;
