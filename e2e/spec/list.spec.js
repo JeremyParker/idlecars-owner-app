@@ -8,7 +8,6 @@ describe('Listing page', function () {
   var navbar = require('../components/navbar.po');
   var account = require('../driver/account.po');
   var uploadDocs = require('../driver/uploadDocs.po');
-  var tutorial = require('../components/tutorial.po');
 
   beforeEach(function () {
     helpers.startTest();
