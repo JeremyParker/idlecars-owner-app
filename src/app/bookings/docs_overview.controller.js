@@ -2,9 +2,6 @@
 
 angular.module('idlecars')
 .controller('docsOverview.controller', function ($scope, $stateParams, MyDriverService, DocRouterService) {
-  if ($stateParams.goRequiredDoc) {
-    DocRouterService.goRequiredDoc();
-  };
 
   MyDriverService.get().then(function(me) {
     // TODO: combine this data with the data stored in the DocRouterService

@@ -7,7 +7,7 @@
     ic-upload(field-name="{{fieldName}}", after-upload-sref="{{afterUploadSref}}")
 
     .skip-link
-      a(ng-if='showSkipLink', ui-sref="bookingDetail({goRequiredDoc: false})") skip for now
+      a(ng-if='showSkipLink', ui-sref="bookingDetail") skip for now
 
   .progress-bar(ng-if='completion != null && showProgressBar')
     progress-bar(progress='{{completion}}')
