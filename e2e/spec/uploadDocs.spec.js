@@ -7,7 +7,6 @@ describe('As a driver, I can upload my docs', function () {
   var navbar = require('../components/navbar.po');
   var signup = require('../auth/signup.po');
   var uploadDocs = require('../driver/uploadDocs.po');
-  var success = require('../booking/success_page.po');
   var docsOverview = require('../booking/docs_overview.po');
   var helpers = require('../spec_helper');
 
@@ -67,8 +66,6 @@ describe('As a driver, I can upload my docs', function () {
     uploadDocs.uploadButton.sendKeys(absolutePath);
     browserWait();
 
-    expect(success.title.getText()).toContain('Complete');
-    success.rentalButton.click();
     expect(navbar.title.getText()).toContain('Rental');
   });
 });
