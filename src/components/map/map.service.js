@@ -1,11 +1,9 @@
 'use strict';
 
 angular.module('idlecars')
-.service('mapService', function ($rootScope){
+.service('mapService', function (){
 
   var self = this;
-
-  self.isMobileDevice = $rootScope.isMobileDevice;
 
   self.currentLoc = {};
   self.markers = [];
