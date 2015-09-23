@@ -44,8 +44,8 @@ describe('As a driver, I can upload my docs', function () {
     docsOverview.driverLicense.click();
     expect(uploadDocs.uploadTitle.getText()).toContain('Driver');
     uploadDocs.skipButton.click();
-    docsOverview.accountButton.click();
-    expect(account.userInfo.count()).toBe(5);
+    docsOverview.rentalButton.click();
+    expect(navbar.title.getText()).toContain('Rental');
 
     navbar.backButton.click();
     docsOverview.driverLicense.click();
