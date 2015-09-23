@@ -3,11 +3,11 @@
 var Booking = function() {
   var self = this;
 
-  self.circles = element.all(by.repeater('i in stepsArray'));
+  self.icons = element.all(by.repeater('i in stepsArray'));
   self.status = element(by.css('.booking-header .bold'));
   self.carName = element(by.css('section h2'));
   self.noBookingContent = element(by.css('.no-booking p'));
-  self.findCarButton = element(by.cssContainingText('a', 'Search'));
+  self.findCarButton = element(by.css('.no-booking a'));
   self.upLoadButton = element(by.cssContainingText('button', 'Upload'));
   self.cancelButton = element(by.cssContainingText('button', 'Cancel'));
   self.carDetailAnchor = element(by.cssContainingText('a', 'details'));

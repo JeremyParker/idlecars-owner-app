@@ -33,7 +33,7 @@ angular.module('idlecars')
   $scope.doShowConfirm = function () { $scope.showConfirm = true }
 
   $scope.uploadDocuments = function () {
-    DocRouterService.goRequiredDoc();
+    DocRouterService.requiredDocState().then(function (state) { $state.go(state) });
   }
 
   $scope.checkOut = function () {
