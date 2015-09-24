@@ -29,7 +29,11 @@ angular.module('idlecars')
   }
 
   $scope.cancelBooking = function () {
-    BookingService.cancel($scope.booking.id).then(_getBooking);
+    $scope.isBusy = true;
+
+    BookingService.cancel($scope.booking.id)
+    .then(_getBooking)
+    .finally(function () { $scope.isBusy = false })
   }
 
   $scope.doShowConfirm = function () { $scope.showConfirm = true }
@@ -42,13 +46,20 @@ angular.module('idlecars')
     PaymentService.pending = $scope.booking;
 
     if (!$scope.paymentMethod) { return $state.go('^.paymentMethod') };
-    BookingService.checkout($scope.booking.id).then(_getBooking)
+
+    $scope.isBusy = true;
+
+    BookingService.checkout($scope.booking.id)
+    .then(_getBooking)
+    .finally(function () { $scope.isBusy = false })
     // TODO: need server send Notification error
   }
 
   $scope.pickUp = function () {
-    BookingService.pickup($scope.booking.id).then(function () {
-      $state.go('^.success');
-    })
+    $scope.isBusy = true;
+
+    BookingService.pickup($scope.booking.id)
+    .then(function () { $state.go('^.success') })
+    .finally(function () { $scope.isBusy = false })
   }
 })
