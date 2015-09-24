@@ -1,5 +1,7 @@
-div(id="dropin-container")
-form(id="payment-form")
-  input(type="submit", value="Pay deposit")
+.payment-method
+  label Payment Method
+  div(id="dropin-container")
+  form(id="payment-form")
+    input.button(type="submit", value="Pay deposit")
 
 ic-loading(ng-if='isBusy')
