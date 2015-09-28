@@ -3,6 +3,11 @@
 angular.module('idlecars')
 .controller('paymentMethod.controller', function ($scope, $state, PaymentService, BookingService, MyDriverService) {
 
+  $scope.actionButton = 'Add this card';
+  if (PaymentService.pending) {
+    $scope.actionButton = 'Pay deposit ' + PaymentService.pending.car.deposit;
+  };
+
   var addPaymentMethod = function (nonce) {
     return MyDriverService.addPaymentMethod({nonce: nonce});
   }
