@@ -5,6 +5,7 @@ angular.module('idlecars')
 
   $stateProvider
     .state('driverAccount.paymentMethod', {
+      data: {navbarInfo: {title: 'Payment Method', enableBack: true, enableMenu: true}},
       url: '/payment_method',
       views: {
         'content@': {
