@@ -1,7 +1,4 @@
-.faq-container
-  section
-    a(ui-sref='ownerFaq') I am an OWNER
-
+.faq-container(ng-init='$parent.driverView=true;$parent.ownerView=false')
   h2 Driver questions
   section
     h3 How do I rent a car?
