@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('driver.onboarding.email.controller', function ($scope, $rootScope, $state, MyDriverService, BookingService, RequireAuthService) {
+.controller('driver.onboarding.email.controller', function ($scope, $rootScope, $state, MyDriverService, RequireAuthService) {
   $scope.user = {};
 
   $scope.fields = [{
