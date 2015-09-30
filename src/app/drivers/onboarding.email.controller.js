@@ -14,9 +14,7 @@ angular.module('idlecars')
   }];
 
   $rootScope.navGoNext = function() {
-    MyDriverService.patch($scope.user).then(function () {
-      RequireAuthService.resolve;
-    })
+    MyDriverService.patch($scope.user).then(RequireAuthService.resolve)
   }
 
   $scope.validateForm = function() {
