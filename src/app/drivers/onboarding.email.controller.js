@@ -15,7 +15,7 @@ angular.module('idlecars')
 
   $rootScope.navGoNext = function() {
     MyDriverService.patch($scope.user).then(function () {
-      BookingService.get().then(RequireAuthService.resolve)
+      RequireAuthService.resolve;
     })
   }
 
