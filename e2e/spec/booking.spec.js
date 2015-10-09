@@ -61,6 +61,11 @@ describe('Driver in booking page', function () {
 
     expect(booking.status.getText()).toContain('Pick up');
     booking.pickupButton.click();
+    booking.checkbox_2.click();
+    booking.checkbox_3.click();
+    booking.checkbox_4.click();
+    booking.checkbox_5.click();
+    booking.checkbox_6.click();
     booking.payButton.click();
 
     expect(booking.successTitle.isDisplayed()).toBeTruthy();
