@@ -18,6 +18,7 @@ angular.module('idlecars')
     name: 're_password',
     type: 'password',
     minlength: minPassword,
+    showPasswordMatch: true,
   }];
 
   $rootScope.navGoNext = function() {
@@ -26,6 +27,9 @@ angular.module('idlecars')
 
   $scope.validateForm = function() {
     $rootScope.navNextEnabled = $scope.fieldForm.$valid && _passwordsMatch();
+
+    $scope.showMatchError = false;
+    if($scope.fieldForm.re_password.$dirty) { $scope.showMatchError = !$rootScope.navNextEnabled }
   }
 
   NavbarService.validateInit($scope);
