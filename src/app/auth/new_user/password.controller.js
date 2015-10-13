@@ -28,7 +28,6 @@ angular.module('idlecars')
   $scope.validateForm = function() {
     $rootScope.navNextEnabled = $scope.fieldForm.$valid && _passwordsMatch();
 
-    $scope.showMatchError = false;
     if($scope.fieldForm.re_password.$dirty) { $scope.showMatchError = !$rootScope.navNextEnabled }
   }
 
