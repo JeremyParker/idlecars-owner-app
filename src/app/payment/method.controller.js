@@ -12,16 +12,16 @@ angular.module('idlecars')
     return MyDriverService.addPaymentMethod({nonce: nonce});
   }
 
-  var resolve = function () {
-    if (!PaymentService.pending) { return $state.go('^') }
+  var onSuccess = function () {
+    if (PaymentService.pending) { return BookingService.checkout(PaymentService.pending.id) }
+  }
 
-    $scope.isBusy = true;
-    BookingService.checkout(PaymentService.pending.id).then(function () {
-      PaymentService.pending = null;
-      $scope.isBusy = false;
-      $state.go('^.bookings');
-    })
-    // TODO: require a server side notification
+  var onFinal = function () {
+    if (PaymentService.pending) { $state.go('^.booking') }
+    else { $state.go('^') }
+
+    PaymentService.pending = null;
+    $scope.isBusy = false;
   }
 
   PaymentService.getToken().then(function (data) {
@@ -33,7 +33,8 @@ angular.module('idlecars')
         // TODO: Error case
       },
       onPaymentMethodReceived: function (obj) {
-        addPaymentMethod(obj.nonce).then(resolve)
+        $scope.isBusy = true;
+        addPaymentMethod(obj.nonce).then(onSuccess).finally(onFinal)
       }
     });
   })
