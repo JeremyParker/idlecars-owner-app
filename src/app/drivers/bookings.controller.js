@@ -9,7 +9,7 @@ angular.module('idlecars')
   }
 
   var _getBooking = function () {
-    BookingService.get().then(function (bookings) {
+    return BookingService.get().then(function (bookings) {
       $scope.booking = angular.copy(bookings[0]) || [];
     })
   }
@@ -23,7 +23,7 @@ angular.module('idlecars')
       $scope.isBusy = true;
 
       BookingService.patch($scope.booking.id, patchData)
-      .then(function (data) { $scope.booking.end_time_display = data.end_time_display })
+      .then(_getBooking)
       .finally(function () { $scope.isBusy = false })
     }
   }
