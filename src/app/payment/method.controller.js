@@ -3,6 +3,7 @@
 angular.module('idlecars')
 .controller('paymentMethod.controller', function ($scope, $state, PaymentService, BookingService, MyDriverService) {
 
+  var newDriver;
   $scope.actionButton = 'Add this card';
   if (PaymentService.pending) {
     $scope.actionButton = 'Pay deposit ' + PaymentService.pending.car.deposit;
@@ -13,6 +14,7 @@ angular.module('idlecars')
   }
 
   var onSuccess = function () {
+    MyDriverService.driver = newDriver;
     if (PaymentService.pending) { return BookingService.checkout(PaymentService.pending.id) }
   }
 
@@ -34,7 +36,8 @@ angular.module('idlecars')
       },
       onPaymentMethodReceived: function (obj) {
         $scope.isBusy = true;
-        addPaymentMethod(obj.nonce).then(onSuccess).finally(onFinal)
+        newDriver = addPaymentMethod(obj.nonce);
+        newDriver.then(onSuccess).finally(onFinal);
       }
     });
   })
