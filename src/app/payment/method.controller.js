@@ -17,7 +17,7 @@ angular.module('idlecars')
   }
 
   var onFinal = function () {
-    if (PaymentService.pending) { $state.go('^.booking') }
+    if (PaymentService.pending) { $state.go('^.bookings') }
     else { $state.go('^') }
 
     PaymentService.pending = null;
