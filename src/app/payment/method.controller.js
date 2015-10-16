@@ -3,7 +3,9 @@
 angular.module('idlecars')
 .controller('paymentMethod.controller', function ($scope, $state, PaymentService, BookingService, MyDriverService) {
 
-  var $scope.isBusy = true;
+  var newDriver;
+  $scope.isBusy = true;
+
   $scope.actionButton = 'Add this card';
   if (PaymentService.pending) {
     $scope.actionButton = 'Pay deposit ' + PaymentService.pending.car.deposit;
@@ -14,6 +16,7 @@ angular.module('idlecars')
   }
 
   var onSuccess = function () {
+    MyDriverService.driver = newDriver;
     if (PaymentService.pending) { return BookingService.checkout(PaymentService.pending.id) }
   }
 
@@ -26,8 +29,8 @@ angular.module('idlecars')
   }
 
   PaymentService.getToken().then(function (data) {
-
     $scope.isBusy = false;
+
     // TODO: we need our custom form
     braintree.setup(data.client_token, "dropin", {
       container: "dropin-container",
@@ -37,7 +40,8 @@ angular.module('idlecars')
       },
       onPaymentMethodReceived: function (obj) {
         $scope.isBusy = true;
-        addPaymentMethod(obj.nonce).then(onSuccess).finally(onFinal)
+        newDriver = addPaymentMethod(obj.nonce);
+        newDriver.then(onSuccess).finally(onFinal);
       }
     });
   })
