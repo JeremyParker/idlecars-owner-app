@@ -33,7 +33,8 @@ angular.module('idlecars')
   service.updateBookings = function (bookings) {
     if (bookings.constructor == Array) {
       service.bookings = bookings;
-    } else {
+    }
+    else if (bookings.constructor == Object) {
       service.bookings = [bookings];
     }
   }
