@@ -4,6 +4,8 @@ angular.module('idlecars')
 .factory('BookingService', function (Restangular) {
   var service = {};
 
+  service.bookings = [];
+
   service.post = function (params) {
     return Restangular.all('bookings').post(params);
   }
@@ -28,5 +30,19 @@ angular.module('idlecars')
     return Restangular.one('bookings', bookingId).all('pickup').post('');
   }
 
+  service.updateBookings = function (bookings) {
+    if (bookings.constructor == Array) {
+      service.bookings = bookings;
+    } else {
+      service.bookings = [bookings];
+    }
+  }
+
   return service;
-});
+})
+
+.run(function (AuthService, BookingService) {
+  if (AuthService.isLoggedIn()) {
+    BookingService.get().then(BookingService.updateBookings)
+  }
+})

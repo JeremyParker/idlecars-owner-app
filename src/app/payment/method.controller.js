@@ -17,7 +17,9 @@ angular.module('idlecars')
 
   var onSuccess = function () {
     MyDriverService.driver = newDriver;
-    if (PaymentService.pending) { return BookingService.checkout(PaymentService.pending.id) }
+    if (PaymentService.pending) {
+      return BookingService.checkout(PaymentService.pending.id).then(BookingService.updateBookings)
+    }
   }
 
   var onFinal = function () {

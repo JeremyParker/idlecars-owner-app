@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.detail.controller', function ($scope, $state, $stateParams, CarService) {
+.controller('cars.detail.controller', function ($scope, $state, $stateParams, CarService, BookingService) {
   if (!$stateParams.car) {
     CarService.get({carId: $stateParams.carId}).$promise.then(
       function(car) {
@@ -15,4 +15,8 @@ angular.module('idlecars')
   }
 
   $scope.car = $stateParams.car;
+
+  $scope.booking = function () {
+    return BookingService.bookings.length;
+  }
 });
