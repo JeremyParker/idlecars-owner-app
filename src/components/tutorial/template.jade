@@ -1,6 +1,6 @@
 .tutorial-wrapper(ng-if='tutorialOn')
-  .tutorail-container
-    slick(dots='true', arrows='{{showArrow}}', infinite='false')
+  .tutorial-container
+    slick(dots='true', arrows='{{!isMobile}}', infinite='false')
       div
         .tutorial-content
           .flex-cell
@@ -52,3 +52,5 @@
               That’s it!
             section
               button.white-button(ng-click="closeTutorial()") FIND YOUR CAR
+
+      button.circle-button(ng-click="closeTutorial()")

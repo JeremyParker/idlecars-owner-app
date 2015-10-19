@@ -1,10 +1,10 @@
 .tutorial-wrapper
   @extend %fixed_background
 
-  .tutorail-container, .slick-track
+  .tutorial-container, .slick-track
     height: 100%
 
-  .tutorail-container
+  .tutorial-container
     @extend %app_width
     @extend %blue_theme
     margin: 0 auto
@@ -35,22 +35,35 @@
 
     button:before, .slick-active button:before
       color: white
+      font-size: 50px
 
   .slick-prev
     left: 1rem
 
+    &:before
+      content: '‹'
+
   .slick-next
     right: 1rem
 
-  .slick-prev, .slick-next
-    width: 50px
-    height:50px
+    &:before
+      content: '›'
 
   .slick-prev:before, .slick-next:before
-    font-size: 50px
+    font-family: inherit
+    font-size: 40px
+    position: relative
+    top: -14px
 
   .white-button
     color: $ic_blue
 
   section
     padding: 1rem
+
+  .circle-button
+    position: absolute
+    top: 1rem
+    right: 1rem
+    width: 1.5rem
+    height: 1.5rem
