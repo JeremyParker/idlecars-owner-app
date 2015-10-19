@@ -26,9 +26,10 @@ angular.module('idlecars')
   }
 
   $scope.validateForm = function() {
-    $rootScope.navNextEnabled = $scope.fieldForm.$valid && _passwordsMatch();
+    var passwordMatch = $scope.fieldForm.$valid && _passwordsMatch();
 
-    if($scope.fieldForm.re_password.$dirty) { $scope.showMatchError = !$rootScope.navNextEnabled }
+    $rootScope.navNextEnabled = passwordMatch;
+    if($scope.fieldForm.re_password.$dirty) { $scope.showMatchError = !passwordMatch }
   }
 
   NavbarService.validateInit($scope);
