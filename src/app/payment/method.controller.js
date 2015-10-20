@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('paymentMethod.controller', function ($scope, $state, PaymentService, BookingService, MyDriverService) {
+.controller('paymentMethod.controller', function ($scope, $state, $stateParams, PaymentService, BookingService, MyDriverService) {
 
   var newDriver;
   $scope.isBusy = true;
 
   $scope.actionButton = 'Add this card';
-  if (PaymentService.pending) {
-    $scope.actionButton = 'Pay deposit ' + PaymentService.pending.car.deposit;
+  if ($stateParams.pendingBooking) {
+    $scope.actionButton = 'Pay deposit ' + $stateParams.pendingBooking.car.deposit;
   };
 
   var addPaymentMethod = function (nonce) {
@@ -17,14 +17,13 @@ angular.module('idlecars')
 
   var onSuccess = function () {
     MyDriverService.driver = newDriver;
-    if (PaymentService.pending) { return BookingService.checkout(PaymentService.pending.id) }
+    if ($stateParams.pendingBooking) { return BookingService.checkout($stateParams.pendingBooking.id) }
   }
 
   var onFinal = function () {
-    if (PaymentService.pending) { $state.go('^.bookings') }
+    if ($stateParams.pendingBooking) { $state.go('^.bookings') }
     else { $state.go('^') }
 
-    PaymentService.pending = null;
     $scope.isBusy = false;
   }
 

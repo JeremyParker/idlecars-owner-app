@@ -49,9 +49,9 @@ angular.module('idlecars')
   }
 
   $scope.checkOut = function () {
-    PaymentService.pending = $scope.booking;
-
-    if (!$scope.paymentMethod) { return $state.go('^.paymentMethod') };
+    if (!$scope.paymentMethod) {
+      return $state.go('^.paymentMethod', {pendingBooking: $scope.booking})
+    };
 
     $scope.isBusy = true;
 
