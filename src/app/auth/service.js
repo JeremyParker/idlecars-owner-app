@@ -27,16 +27,12 @@ angular.module('idlecars')
     _setAuthHeader();
   }
 
-  service.saveMe = function() {
-    BookingService.get().then(BookingService.updateBookings)
-  }
-
   service.login = function(params) {
     var newToken = new TokenService(_cleanParams(params));
     return newToken.$save()
     .then(function(data) {
       service.saveToken(data.token);
-      service.saveMe();
+      BookingService.get().then(BookingService.updateBookings);
     })
     .catch(function(error) {
       AppNotificationService.push("Sorry, that didn't work. Please double-check your phone number and password.");
