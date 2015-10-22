@@ -5,6 +5,7 @@ angular.module('idlecars')
 
   $timeout(function() {
     BookingService.post({car: $stateParams.carId})
+    .then(BookingService.updateBookings)
     .finally(function(){_afterSaveAttempting('driverAccount.bookings')})
   });
 

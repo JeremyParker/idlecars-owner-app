@@ -10,11 +10,13 @@ angular.module('idlecars')
 
   var _getBooking = function () {
     return BookingService.get().then(function (bookings) {
+      BookingService.updateBookings(bookings);
       $scope.booking = angular.copy(bookings[0]) || [];
     })
   }
 
   var _replaceBooking = function (booking) {
+    BookingService.updateBookings(booking);
     return $scope.booking = booking
   }
 
@@ -65,7 +67,10 @@ angular.module('idlecars')
     $scope.isBusy = true;
 
     BookingService.pickup($scope.booking.id)
-    .then(function () { $state.go('^.success') })
+    .then(function () {
+      BookingService.updateBookings;
+      $state.go('^.success');
+    })
     .finally(function () { $scope.isBusy = false })
   }
 })

@@ -17,7 +17,11 @@ angular.module('idlecars')
 
   var onSuccess = function () {
     MyDriverService.driver = newDriver;
-    if ($stateParams.pendingBooking) { return BookingService.checkout($stateParams.pendingBooking.id) }
+
+    if ($stateParams.pendingBooking) {
+      return BookingService.checkout($stateParams.pendingBooking.id)
+      .then(BookingService.updateBookings)
+    }
   }
 
   var onFinal = function () {
