@@ -5,7 +5,6 @@ angular.module('idlecars')
 
   var newDriver;
   $scope.isBusy = true;
-  $rootScope.processing = false;
 
   $scope.actionButton = 'Add this card';
   if ($stateParams.pendingBooking) {
@@ -30,7 +29,6 @@ angular.module('idlecars')
     else { $state.go('^') }
 
     $scope.isBusy = false;
-    $rootScope.processing = false;
   }
 
   PaymentService.getToken().then(function (data) {
@@ -44,8 +42,8 @@ angular.module('idlecars')
         // TODO: Error case
       },
       onPaymentMethodReceived: function (obj) {
-        if (!$rootScope.processing) {
-          $rootScope.processing = true;
+        if ($rootScope.nonce != obj.nonce) {
+          $rootScope.nonce = obj.nonce;
           $scope.isBusy = true;
 
           newDriver = addPaymentMethod(obj.nonce);
