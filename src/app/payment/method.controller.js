@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('paymentMethod.controller', function ($scope, $state, $stateParams, PaymentService, BookingService, MyDriverService) {
+.controller('paymentMethod.controller', function ($scope, $rootScope, $state, $stateParams, PaymentService, BookingService, MyDriverService) {
 
   var newDriver;
   $scope.isBusy = true;
@@ -42,9 +42,13 @@ angular.module('idlecars')
         // TODO: Error case
       },
       onPaymentMethodReceived: function (obj) {
-        $scope.isBusy = true;
-        newDriver = addPaymentMethod(obj.nonce);
-        newDriver.then(onSuccess).finally(onFinal);
+        if ($rootScope.nonce != obj.nonce) {
+          $rootScope.nonce = obj.nonce;
+          $scope.isBusy = true;
+
+          newDriver = addPaymentMethod(obj.nonce);
+          newDriver.then(onSuccess).finally(onFinal);
+        };
       }
     });
   })
