@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('paymentMethod.controller', function ($scope, $state, $stateParams, PaymentService, BookingService, MyDriverService) {
+.controller('paymentMethod.controller', function ($scope, $rootScope, $state, $stateParams, PaymentService, BookingService, MyDriverService) {
 
   var newDriver;
   $scope.isBusy = true;
+  $rootScope.processing = false;
 
   $scope.actionButton = 'Add this card';
   if ($stateParams.pendingBooking) {
@@ -29,6 +30,7 @@ angular.module('idlecars')
     else { $state.go('^') }
 
     $scope.isBusy = false;
+    $rootScope.processing = false;
   }
 
   PaymentService.getToken().then(function (data) {
@@ -42,9 +44,13 @@ angular.module('idlecars')
         // TODO: Error case
       },
       onPaymentMethodReceived: function (obj) {
-        $scope.isBusy = true;
-        newDriver = addPaymentMethod(obj.nonce);
-        newDriver.then(onSuccess).finally(onFinal);
+        if (!$rootScope.processing) {
+          $rootScope.processing = true;
+          $scope.isBusy = true;
+
+          newDriver = addPaymentMethod(obj.nonce);
+          newDriver.then(onSuccess).finally(onFinal);
+        };
       }
     });
   })
