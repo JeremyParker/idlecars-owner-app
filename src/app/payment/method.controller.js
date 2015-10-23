@@ -3,12 +3,12 @@
 angular.module('idlecars')
 .controller('paymentMethod.controller', function ($scope, $rootScope, $state, $stateParams, PaymentService, BookingService, MyDriverService) {
 
-  var newDriver;
-  $scope.isBusy = true;
+  $rootScope.pendingBooking = $stateParams.pendingBooking;
+  $rootScope.isBusy = true;
 
   $scope.actionButton = 'Add this card';
-  if ($stateParams.pendingBooking) {
-    $scope.actionButton = 'Pay deposit ' + $stateParams.pendingBooking.car.deposit;
+  if ($rootScope.pendingBooking) {
+    $scope.actionButton = 'Pay deposit ' + $rootScope.pendingBooking.car.deposit;
   };
 
   var addPaymentMethod = function (nonce) {
@@ -16,23 +16,23 @@ angular.module('idlecars')
   }
 
   var onSuccess = function () {
-    MyDriverService.driver = newDriver;
+    MyDriverService.driver = $rootScope.newDriver;
 
-    if ($stateParams.pendingBooking) {
-      return BookingService.checkout($stateParams.pendingBooking.id)
+    if ($rootScope.pendingBooking) {
+      return BookingService.checkout($rootScope.pendingBooking.id)
       .then(BookingService.updateBookings)
     }
   }
 
   var onFinal = function () {
-    if ($stateParams.pendingBooking) { $state.go('^.bookings') }
+    if ($rootScope.pendingBooking) { $state.go('^.bookings') }
     else { $state.go('^') }
 
-    $scope.isBusy = false;
+    $rootScope.isBusy = false;
   }
 
   PaymentService.getToken().then(function (data) {
-    $scope.isBusy = false;
+    $rootScope.isBusy = false;
 
     // TODO: we need our custom form
     braintree.setup(data.client_token, "dropin", {
@@ -44,10 +44,10 @@ angular.module('idlecars')
       onPaymentMethodReceived: function (obj) {
         if ($rootScope.nonce != obj.nonce) {
           $rootScope.nonce = obj.nonce;
-          $scope.isBusy = true;
+          $rootScope.isBusy = true;
 
-          newDriver = addPaymentMethod(obj.nonce);
-          newDriver.then(onSuccess).finally(onFinal);
+          $rootScope.newDriver = addPaymentMethod(obj.nonce);
+          $rootScope.newDriver.then(onSuccess).finally(onFinal);
         };
       }
     });
