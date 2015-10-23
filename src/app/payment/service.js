@@ -10,3 +10,7 @@ angular.module('idlecars')
 
   return service;
 })
+
+.run(function ($rootScope) {
+  $rootScope.braintree = {};
+})
