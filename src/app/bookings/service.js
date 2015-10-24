@@ -32,11 +32,12 @@ angular.module('idlecars')
 
   service.updateBookings = function (bookings) {
     if (bookings.constructor == Array) {
-      service.bookings = bookings;
+      return service.bookings = bookings;
     }
-    else if (bookings.constructor == Object) {
-      service.bookings = [bookings];
+    if (bookings.constructor == Object && bookings.id) {
+      return service.bookings = [bookings];
     }
+    return service.bookings = [];
   }
 
   return service;
