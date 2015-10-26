@@ -67,8 +67,8 @@ angular.module('idlecars')
     $scope.isBusy = true;
 
     BookingService.pickup($scope.booking.id)
-    .then(function () {
-      BookingService.updateBookings;
+    .then(function (booking) {
+      _replaceBooking(booking);
       $state.go('^.success');
     })
     .finally(function () { $scope.isBusy = false })
