@@ -5,9 +5,12 @@ angular.module('idlecars')
 
   $timeout(function() {
     BookingService.post({car: $stateParams.carId})
-    .then(BookingService.updateBookings)
-    .finally(function(){_afterSaveAttempting('driverAccount.bookings')})
-  });
+    .then(function(booking){
+      BookingService.updateBookings(booking);
+      _afterSaveAttempting('driverAccount.bookings');
+    })
+    .catch(function(){$state.go('cars')})
+   });
 
   var _afterSaveAttempting = function(destination) {
     DocRouterService.requiredDocState()
