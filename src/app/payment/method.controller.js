@@ -19,6 +19,7 @@ angular.module('idlecars')
     MyDriverService.driver = $rootScope.braintree.newDriver;
 
     if ($rootScope.braintree.pendingBooking) {
+      // TODO: move this BookingService.checkout to booking page
       return BookingService.checkout($rootScope.braintree.pendingBooking.id)
       .then(BookingService.updateBookings)
     }
