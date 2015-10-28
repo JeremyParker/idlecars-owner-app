@@ -3,12 +3,12 @@
 angular.module('idlecars')
 .controller('paymentMethod.controller', function ($scope, $rootScope, $state, $stateParams, PaymentService, BookingService, MyDriverService) {
 
-  $rootScope.pendingBooking = $stateParams.pendingBooking;
-  $rootScope.isBusy = true;
+  $rootScope.braintree.pendingBooking = $stateParams.pendingBooking;
+  $rootScope.braintree.isBusy = true;
 
   $scope.actionButton = 'Add this card';
-  if ($rootScope.pendingBooking) {
-    $scope.actionButton = 'Pay deposit ' + $rootScope.pendingBooking.car.deposit;
+  if ($rootScope.braintree.pendingBooking) {
+    $scope.actionButton = 'Pay deposit ' + $rootScope.braintree.pendingBooking.car.deposit;
   };
 
   var addPaymentMethod = function (nonce) {
@@ -16,23 +16,24 @@ angular.module('idlecars')
   }
 
   var onSuccess = function () {
-    MyDriverService.driver = $rootScope.newDriver;
+    MyDriverService.driver = $rootScope.braintree.newDriver;
 
-    if ($rootScope.pendingBooking) {
-      return BookingService.checkout($rootScope.pendingBooking.id)
+    if ($rootScope.braintree.pendingBooking) {
+      // TODO: move this BookingService.checkout to booking page
+      return BookingService.checkout($rootScope.braintree.pendingBooking.id)
       .then(BookingService.updateBookings)
     }
   }
 
   var onFinal = function () {
-    if ($rootScope.pendingBooking) { $state.go('^.bookings') }
+    if ($rootScope.braintree.pendingBooking) { $state.go('^.bookings') }
     else { $state.go('^') }
 
-    $rootScope.isBusy = false;
+    $rootScope.braintree.isBusy = false;
   }
 
   PaymentService.getToken().then(function (data) {
-    $rootScope.isBusy = false;
+    $rootScope.braintree.isBusy = false;
 
     // TODO: we need our custom form
     braintree.setup(data.client_token, "dropin", {
@@ -42,12 +43,12 @@ angular.module('idlecars')
         // TODO: Error case
       },
       onPaymentMethodReceived: function (obj) {
-        if ($rootScope.nonce != obj.nonce) {
-          $rootScope.nonce = obj.nonce;
-          $rootScope.isBusy = true;
+        if ($rootScope.braintree.nonce != obj.nonce) {
+          $rootScope.braintree.nonce = obj.nonce;
+          $rootScope.braintree.isBusy = true;
 
-          $rootScope.newDriver = addPaymentMethod(obj.nonce);
-          $rootScope.newDriver.then(onSuccess).finally(onFinal);
+          $rootScope.braintree.newDriver = addPaymentMethod(obj.nonce);
+          $rootScope.braintree.newDriver.then(onSuccess).finally(onFinal);
         };
       }
     });
