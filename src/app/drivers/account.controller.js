@@ -30,4 +30,12 @@ angular.module('idlecars')
     $scope.isLoggedIn = AuthService.isLoggedIn();
     $state.go('cars');
   };
+
+  $scope.toggleSMS = function () {
+    $scope.isBusy = true;
+    var patchData = {sms_enabled: !$scope.me.sms_enabled};
+    MyDriverService.patch(patchData)
+    .then(function (me) { $scope.me = me })
+    .finally(function () { $scope.isBusy = false })
+  }
 })
