@@ -24,6 +24,16 @@
 
   section
     .section-row
+      title Notification method
+      a.row-content
+        .flex-cell
+          .flex
+            .flex-cell
+              label SMS
+            on-off-button(status='me.sms_enabled', action="toggleSMS()")
+
+  section
+    .section-row
       title Driver Documents
     .section-row(ng-repeat='item in driverDocuments')
       a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
@@ -39,3 +49,5 @@
             p.color-red.next-pointer(ng-if='!me[item.image]') Upload
 
   button.alert-button(ng-click='logout()') Log out
+
+ic-loading(ng-show='isBusy')
