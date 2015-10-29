@@ -25,12 +25,13 @@
   section
     .section-row
       title Notification method
-      a.row-content
+    .section-row
+      a.row-content(ng-click="toggleSMS()")
         .flex-cell
           .flex
             .flex-cell
               label SMS
-            on-off-button(status='me.sms_enabled', action="toggleSMS()")
+            on-off-button(status='me.sms_enabled')
 
   section
     .section-row
