@@ -9,7 +9,7 @@
             .label First week payment
             //- TODO: let server send weekly cost
             .content ${{booking.paid_payments[0].amount}}
-              #[span.m-green &nbsp${{booking.paid_payments[0].status}}]
+              span.m-green &nbsp${{booking.paid_payments[0].status}}
         section
           .light
             | Your credit card has been charged ${{booking.paid_payments[0].amount}}.
