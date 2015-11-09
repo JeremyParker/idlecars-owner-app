@@ -5,6 +5,9 @@ angular.module('idlecars')
   var goBackTriggered = false;
 
   var _prevOrDefault = function() {
+    if (_notInHistory()) {
+      return states[states.length - 1] || {state: 'cars'};
+    }
     return states[states.length - 2] || {state: 'cars'};
   }
 
