@@ -2,8 +2,8 @@
 
 angular.module('idlecars')
 .controller('auth.changePassword.controller', function ($scope, $state, Restangular, MyDriverService, AppNotificationService) {
-  $scope.label = 'We will send you an email with instructions on how to change your password.';
-  $scope.button = 'Send me an email';
+  $scope.label = 'We will send you instructions on how to change your password.';
+  $scope.button = 'Send me instructions';
 
   $scope.buttonClick = function () {
     MyDriverService.get().then(function (me) {
@@ -15,7 +15,7 @@ angular.module('idlecars')
         return $state.go('driverAccount');
       })
       .then(function() {
-        AppNotificationService.push({success: 'An email has been sent to your address. Please check your email.'});
+        AppNotificationService.push({success: 'A text message has been sent. If you disabled SMS texting, check your email.'});
       });
     })
   }
