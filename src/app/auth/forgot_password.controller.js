@@ -5,7 +5,7 @@ angular.module('idlecars')
 
   $scope.user = {};
   $scope.fields = [{
-    label: 'Please enter your phone number and we will send you an email about how to reset your password.',
+    label: 'Please enter your phone number and we will send you instructions for resetting your password.',
     placeholder: '(555) 555-5555',
     name: 'phone_number',
     type: 'text',
@@ -33,7 +33,7 @@ angular.module('idlecars')
       return $state.go('login', {username: $scope.user.phone_number});
     })
     .then(function() {
-      AppNotificationService.push({success: 'An email has been sent to your address. Please check your email.'});
+      AppNotificationService.push({success: 'A text message has been sent. If you disabled SMS texting, check your email.'});
     });
   };
 });
