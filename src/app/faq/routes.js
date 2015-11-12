@@ -8,7 +8,7 @@ angular.module('idlecars')
       abstract: true,
       views: {
         'navbar@': {
-          templateUrl: 'components/navbar/navbar_main.html',
+          templateUrl: 'shared/components/navbar/navbar_main.html',
           controller: 'navbarMain.controller',
         },
         'content@': {

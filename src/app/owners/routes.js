@@ -11,7 +11,7 @@ angular.module('idlecars')
       views: {
         // TODO extend some base object, or have an `app` base state that holds the navbar
         'navbar@': {
-          templateUrl: 'components/navbar/navbar_main.html',
+          templateUrl: 'shared/components/navbar/navbar_main.html',
           controller: 'navbarMain.controller',
         },
         'content@': {
@@ -35,7 +35,7 @@ angular.module('idlecars')
       abstract: true,
       views: {
         'navbar@': {
-          templateUrl: 'components/navbar/navbar_main.html',
+          templateUrl: 'shared/components/navbar/navbar_main.html',
           controller: 'navbarMain.controller',
         },
         'content@': {
@@ -56,7 +56,7 @@ angular.module('idlecars')
       data: {navbarInfo: {title: ''}},
       views: {
         'navbar@': {
-          templateUrl: 'components/navbar/navbar_main.html',
+          templateUrl: 'shared/components/navbar/navbar_main.html',
           controller: 'navbarMain.controller',
         },
         'content@': {
