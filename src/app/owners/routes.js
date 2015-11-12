@@ -25,7 +25,7 @@ angular.module('idlecars')
       url: '/owner-login',
       views: {
         'content@': {
-          templateUrl: 'app/auth/owner_login.html',
+          templateUrl: 'shared/auth/owner_login.html',
           controller: 'auth.owner-login.controller',
         }
       }
@@ -47,7 +47,7 @@ angular.module('idlecars')
     .state('ownerPassword.reset', {
       url: '/owner_reset_password/:resetToken',
       data: {navbarInfo: {title: 'Create a password', enableSave: true}},
-      templateUrl: 'app/users/form.html',
+      templateUrl: 'shared/users/form.html',
       controller: 'auth.ownerSetPassword.controller',
     })
 

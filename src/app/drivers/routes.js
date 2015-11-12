@@ -73,7 +73,7 @@ angular.module('idlecars')
       views: {
         'content@': {
           controller: 'driver.onboarding.email.controller',
-          templateUrl: 'app/users/form.html',
+          templateUrl: 'shared/users/form.html',
         }
       },
     })
@@ -116,28 +116,28 @@ angular.module('idlecars')
     .state('driverAccount.update.email', {
       url: '/email',
       data: {navbarInfo: {title: 'Email', enableBack: true, enableSave: true}},
-      templateUrl: 'app/users/form.html',
+      templateUrl: 'shared/users/form.html',
       controller: 'driver.update.email.controller',
     })
 
     .state('driverAccount.update.firstname', {
       url: '/firstname',
       data: {navbarInfo: {title: 'First name', enableBack: true, enableSave: true}},
-      templateUrl: 'app/users/form.html',
+      templateUrl: 'shared/users/form.html',
       controller: 'driver.update.firstname.controller',
     })
 
     .state('driverAccount.update.lastname', {
       url: '/lastname',
       data: {navbarInfo: {title: 'Last name', enableBack: true, enableSave: true}},
-      templateUrl: 'app/users/form.html',
+      templateUrl: 'shared/users/form.html',
       controller: 'driver.update.lastname.controller',
     })
 
     .state('driverAccount.update.phonenumber', {
       url: '/phonenumber',
       data: {navbarInfo: {title: 'Phone number', enableBack: true, enableSave: true}},
-      templateUrl: 'app/users/form.html',
+      templateUrl: 'shared/users/form.html',
       controller: 'driver.update.phoneNumber.controller',
     })
 
