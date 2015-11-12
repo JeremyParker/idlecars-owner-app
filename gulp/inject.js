@@ -11,14 +11,14 @@ var wiredep = require('wiredep').stream;
 gulp.task('inject', ['styles', 'environment'], function () {
 
   var injectStyles = gulp.src([
-    paths.tmp + '/serve/{app,components}/**/*.css',
+    paths.tmp + '/serve/{shared,app}/**/*.css',
     '!' + paths.tmp + '/serve/app/vendor.css'
   ], { read: false });
 
   var injectScripts = gulp.src([
-    paths.src + '/{app,components}/**/*.js',
-    '!' + paths.src + '/{app,components}/**/*.spec.js',
-    '!' + paths.src + '/{app,components}/**/*.mock.js'
+    paths.src + '/{shared,app}/**/*.js',
+    '!' + paths.src + '/{shared,app}/**/*.spec.js',
+    '!' + paths.src + '/{shared,app}/**/*.mock.js'
   ]).pipe($.angularFilesort());
 
   var injectOptions = {

@@ -14,15 +14,15 @@ gulp.task('styles', function () {
   };
 
   var injectFiles = gulp.src([
-    paths.src + '/{app,components}/**/*.sass',
+    paths.src + '/{shared,app}/**/*.sass',
     '!' + paths.src + '/app/index.scss',
     '!' + paths.src + '/app/vendor.scss'
   ], { read: false });
 
   var injectOptions = {
     transform: function(filePath) {
+      filePath = filePath.replace(paths.src + '/shared/', '../shared/');
       filePath = filePath.replace(paths.src + '/app/', '');
-      filePath = filePath.replace(paths.src + '/components/', '../components/');
       return '@import \'' + filePath + '\';';
     },
     starttag: '// injector',
