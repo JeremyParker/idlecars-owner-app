@@ -28,7 +28,7 @@ function browserSyncInit(baseDir, files, browser) {
       routes: routes
     },
     open: false,
-    browser: browser
+    browser: browser,
   });
 }
 
@@ -37,12 +37,12 @@ gulp.task('serve', ['config', 'watch'], function () {
     paths.tmp + '/serve',
     paths.src
   ], [
-    paths.tmp + '/serve/{app,components}/**/*.css',
-    paths.src + '/{app,components}/**/*.js',
+    paths.tmp + '/serve/{app,shared}/**/*.css',
+    paths.src + '/{app,shared}/**/*.js',
     paths.src + 'src/assets/images/**/*',
     paths.tmp + '/serve/*.html',
-    paths.tmp + '/serve/{app,components}/**/*.html',
-    paths.src + '/{app,components}/**/*.html'
+    paths.tmp + '/serve/{app,shared}/**/*.html',
+    paths.src + '/{app,shared}/**/*.html'
   ]);
 });
 
