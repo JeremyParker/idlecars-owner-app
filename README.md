@@ -1,13 +1,13 @@
-# idlecars web client
+# idlecars driver-app client
 An angularjs single page application
 
 ## Getting set up
-install brew
-Run `brew install node`
-Run `npm install -g bower`
-In the root directory of this project, run `npm install`
-In the same directory run `bower install`
-Run `npm install -g gulp`
+- install brew
+- Run `brew install node`
+- Run `npm install -g bower`
+- In the root directory of this project, run `npm install`
+- In the same directory run `bower install`
+- Run `npm install -g gulp`
 
 ### Running a dev server
 `gulp serve`
