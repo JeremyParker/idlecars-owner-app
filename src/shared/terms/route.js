@@ -5,18 +5,18 @@ angular.module('idlecars')
 
   $stateProvider
 
-    .state('bookingDetail', {
-      url: '/bookings',
-      data: {requireAuth: true, navbarInfo: {title: 'Driver Documents', enableMenu: true}},
+    .state('terms', {
+      url: '/terms_of_service',
+      data: {navbarInfo: {title: 'Terms of Service', enableBack: true}},
       views: {
         'navbar@': {
           templateUrl: 'shared/components/navbar/navbar_main.html',
           controller: 'navbarMain.controller',
         },
         'content@': {
-          templateUrl: 'app/bookings/docs_overview.html',
-          controller: 'docsOverview.controller',
-        },
+          templateUrl: 'shared/terms/terms_of_service.html',
+        }
       },
     })
-});
+
+})

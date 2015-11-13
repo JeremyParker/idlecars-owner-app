@@ -10,7 +10,7 @@ angular.module('idlecars')
       url: '/styleguide',
       views: {
         'navbar@': {
-          templateUrl: 'components/navbar/navbar_main.html',
+          templateUrl: 'shared/components/navbar/navbar_main.html',
           controller: 'navbarMain.controller',
         },
         'content@': {
