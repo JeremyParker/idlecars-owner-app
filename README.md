@@ -11,13 +11,17 @@ I======:    ::____|__________;_;:    ::======(
 `------`.  .'-------------------`.  .'`------'
 ```
 
-## Getting set up
+## First time setup
 - install brew
 - Run `brew install node`
 - Run `npm install -g bower`
 - In the root directory of this project, run `npm install`
 - In the same directory run `bower install`
 - Run `npm install -g gulp`
+
+## Subsequent setups
+ - `bower install`
+ - `npm install`
 
 ### Running a dev server
 `gulp serve`
