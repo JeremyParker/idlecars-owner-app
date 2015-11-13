@@ -1,4 +1,4 @@
-# idlecars driver-app client
+# idlecars owner-app client
 An angularjs single page application
 ```
             ______________
