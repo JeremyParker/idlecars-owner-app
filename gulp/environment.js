@@ -7,14 +7,14 @@ gulp.task('environment', function() {
   gulp.environment = {};
 
   var prod = {
-    deploy_bucket: 'app.idlecars.com',
+    deploy_bucket: 'owner.idlecars.com',
     template_vars: {
       heap_app_id: '3053705704',
     },
   };
 
   var staging = {
-    deploy_bucket: 'app.staging.idlecars.com',
+    deploy_bucket: 'owner.staging.idlecars.com',
     template_vars: {
       heap_app_id: '1900221263',
     },
