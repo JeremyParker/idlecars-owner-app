@@ -18,6 +18,8 @@ angular.module('idlecars',
   ]
 )
 
+.constant('LANDING_STATE', 'cars')
+
 .config(function ($urlRouterProvider, $resourceProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/');
   $resourceProvider.defaults.stripTrailingSlashes = false;
