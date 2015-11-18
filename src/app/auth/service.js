@@ -4,10 +4,12 @@ angular.module('idlecars')
 .factory('AppAuthService', function ($state, UserService) {
   var service = {};
 
+  // TODO: hook up the real page instead of console.log
   service.loggedin = function () {
     console.log('logged in')
   }
 
+  // TODO: hook up the real page instead of console.log
   service.loggedout = function () {
     console.log('logged out')
   }
