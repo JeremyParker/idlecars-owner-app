@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.factory('AppAuthService', function ($state, UserService) {
+.factory('AppAuthService', function ($state, MyOwnerService, UserService) {
   var service = {};
 
   // TODO: hook up the real page instead of console.log
@@ -15,7 +15,9 @@ angular.module('idlecars')
   }
 
   service.accountCreated = function () {
-    $state.go('^.email');
+    UserService.get()
+    .then(function () { return MyOwnerService.post('') })
+    .then(function () { $state.go('^.email') })
   }
 
   service.passwordChanged = function () {
