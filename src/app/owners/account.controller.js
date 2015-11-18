@@ -34,4 +34,12 @@ angular.module('idlecars')
   MyOwnerService.get().then(function (owner) {
     $scope.owner = owner;
   })
+
+  $scope.toggleSMS = function () {
+    $scope.isBusy = true;
+    var patchData = {sms_enabled: !$scope.owner.sms_enabled};
+    MyOwnerService.patch(patchData)
+    .then(function (owner) { $scope.owner = owner })
+    .finally(function () { $scope.isBusy = false })
+  }
 })
