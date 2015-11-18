@@ -4,9 +4,10 @@ angular.module('idlecars')
 .factory('AppAuthService', function ($state, MyOwnerService, UserService) {
   var service = {};
 
-  // TODO: hook up the real page instead of console.log
   service.loggedin = function () {
-    console.log('logged in')
+    UserService.get().then(function (me) {
+      if (!me.owner) { MyOwnerService.post({}) }
+    })
   }
 
   // TODO: hook up the real page instead of console.log
@@ -15,9 +16,7 @@ angular.module('idlecars')
   }
 
   service.accountCreated = function () {
-    UserService.get()
-    .then(function () { return MyOwnerService.post('') })
-    .then(function () { $state.go('^.email') })
+    $state.go('^.email')
   }
 
   service.passwordChanged = function () {

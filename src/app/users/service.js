@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('idlecars')
-.factory('AppUserService', function ($state, MyOwnerService, RequireAuthService) {
+.factory('AppUserService', function ($state, UserService, MyOwnerService, RequireAuthService) {
   var service = {};
 
   service.emailEntered = function (newUser) {
-    MyOwnerService.patch(newUser).then(RequireAuthService.resolve)
+    UserService.patch(newUser).then(RequireAuthService.resolve)
   }
 
   service.userUpdated = function (newUser) {
