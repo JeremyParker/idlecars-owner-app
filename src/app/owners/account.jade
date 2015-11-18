@@ -1,9 +1,16 @@
 .settings-wrapper
   section
-    .section-row(ng-repeat='item in accountInfo')
+    .section-row(ng-repeat='item in userInfo')
       a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
         label.m-gray {{item.title}}
-        .content-main {{item.content}}
+        .content-main {{user[item.content]}}
+        .next-pointer
+
+  section
+    .section-row(ng-repeat='item in ownerInfo')
+      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
+        label.m-gray {{item.title}}
+        .content-main {{user[item.content]}}
         .next-pointer
 
   section
