@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('owner.update.controller', function ($scope, $rootScope, $state, $timeout, MyOwnerService, NavbarService) {
+.controller('owner.update.controller', function ($scope, $rootScope, $state, $timeout, MyOwnerService) {
   MyOwnerService.get().then(function (owner) {
     $scope.user = angular.copy(owner);
+    $scope.validateForm();
   })
 
   $rootScope.navSave = function() {
@@ -14,8 +15,6 @@ angular.module('idlecars')
   $scope.validateForm = function() {
     $timeout(function () { $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid; })
   }
-
-  NavbarService.validateInit($scope, true);
 })
 
 .controller('owner.update.company.controller', function ($scope) {
