@@ -1,18 +1,15 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('owner.onboarding.controller', function ($scope, $rootScope, $state, $timeout, MyOwnerService) {
-  MyOwnerService.get().then(function (owner) {
-    $scope.user = angular.copy(owner);
-    $scope.validateForm();
-  })
+.controller('owner.onboarding.controller', function ($scope, $rootScope) {
+  $scope.user = {};
 
   $scope.validateForm = function() {
-    $timeout(function () { $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid; })
+    $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid;
   }
 })
 
-.controller('owner.onboarding.company.controller', function ($scope, MyOwnerService) {
+.controller('owner.onboarding.company.controller', function ($scope, $rootScope, $state, MyOwnerService) {
   $scope.fields = [{
     label: 'Enter your company name',
     name: 'company_name',
@@ -27,7 +24,7 @@ angular.module('idlecars')
   }
 })
 
-.controller('owner.onboarding.zipcode.controller', function ($scope, MyOwnerService) {
+.controller('owner.onboarding.zipcode.controller', function ($scope, $rootScope, $state, MyOwnerService) {
   $scope.fields = [{
     label: 'Enter your zip code',
     name: 'zipcode',
@@ -39,6 +36,7 @@ angular.module('idlecars')
 
   $rootScope.navGoNext = function() {
     MyOwnerService.patch($scope.$$childHead.user)
+    // TODO: this will go to add new cars
     .then(function () { $state.go('^.zipcode') })
   }
 })
