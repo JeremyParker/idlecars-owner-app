@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('account.controller', function ($scope, UserService, MyOwnerService) {
+.controller('account.controller', function ($scope, AuthService, UserService, MyOwnerService) {
 
   // TODO: we should move it to a presenter.
   $scope.userInfo = [
@@ -27,6 +27,10 @@ angular.module('idlecars')
   MyOwnerService.get().then(function (owner) {
     $scope.owner = angular.copy(owner);
   })
+
+  $scope.logout = function () {
+    AuthService.logout();
+  };
 
   $scope.toggleSMS = function () {
     $scope.isBusy = true;
