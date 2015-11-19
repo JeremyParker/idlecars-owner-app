@@ -11,9 +11,6 @@
     button.clear-button.next-pointer(ng-show='navbarInfo.enableNext', ng-click="navGoNext()", ng-disabled="!navNextEnabled") Next
 
 .menu(ng-show="menuOpen")
-  a(ui-sref='cars', ng-click='menuOpen = false') Home
-  a(ng-show='isLoggedIn', ui-sref='driverAccount', ng-click='menuOpen = false') My account
-  a(ng-show='isLoggedIn', ui-sref='driverAccount.bookings', ng-click='menuOpen = false') My rental
-  a(ng-show='!isLoggedIn', ui-sref='newUser.phoneNumber') Sign up
-  a(ng-show='!isLoggedIn', ui-sref='login') Log in
-  a(ui-sref='faq.driver', ng-click='menuOpen = false') Questions
+  a(ng-show='isLoggedIn', ui-sref='cars', ng-click='menuOpen = false') My cars
+  a(ng-show='isLoggedIn', ui-sref='ownerAccount', ng-click='menuOpen = false') My account
+  a(ui-sref='faq.owner', ng-click='menuOpen = false') Questions
