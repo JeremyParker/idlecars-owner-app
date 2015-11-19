@@ -15,6 +15,18 @@
 
   section
     .section-row
+      title Payment
+    .section-row
+      a.row-content(ui-sref='.bankLink')
+        .flex-column
+          label Card ending in 1111
+          .flex
+            .flex-cell
+              img.small-image(ng-src='/assets/images/idlecars_logo_white.png')
+            .ic-blue.next-pointer Replace
+
+  section
+    .section-row
       title Notification method
     .section-row
       a.row-content(ng-click="toggleSMS()")
