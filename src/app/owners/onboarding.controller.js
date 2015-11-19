@@ -19,7 +19,7 @@ angular.module('idlecars')
   }];
 
   $rootScope.navGoNext = function() {
-    MyOwnerService.patch($scope.$$childHead.user)
+    MyOwnerService.patch($scope.user)
     .then(function () { $state.go('^.zipcode') })
   }
 })
@@ -35,7 +35,7 @@ angular.module('idlecars')
   }];
 
   $rootScope.navGoNext = function() {
-    MyOwnerService.patch($scope.$$childHead.user)
+    MyOwnerService.patch($scope.user)
     // TODO: this will go to add new cars
     .then(function () { $state.go('^.zipcode') })
   }
