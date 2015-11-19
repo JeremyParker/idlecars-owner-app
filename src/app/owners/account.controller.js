@@ -13,18 +13,11 @@ angular.module('idlecars')
   ];
 
   $scope.ownerInfo = [
-    {title: 'Company Name', link: 'user.firstname', content: 'company_name'},
-    {title: 'Address', link: 'user.lastname', content: 'address1'},
-    {title: 'Apartment', link: 'user.email', content: 'address2'},
-    {title: 'City', link: 'user.phonenumber', content: 'city'},
-    {title: 'Zip Code', link: 'password.change', content: 'zipcode'},
-  ];
-
-  $scope.driverDocuments = [
-    {title: 'Driver License', link: '.update.uploadDriverLicense', image:'driver_license_image'},
-    {title: 'FHV License', link: '.update.uploadFhvLicense', image: 'fhv_license_image'},
-    {title: 'Defensive Driving', link: '.update.uploadDefensiveCert', image: 'defensive_cert_image'},
-    {title: 'Proof of Address', link: '.update.uploadAddressProof', image: 'address_proof_image'}
+    {title: 'Company Name', link: '.update.company', content: 'company_name'},
+    {title: 'Address', link: '.update.address', content: 'address1'},
+    {title: 'Apartment', link: '.update.apartment', content: 'address2'},
+    {title: 'City', link: '.update.city', content: 'city'},
+    {title: 'Zip Code', link: '.update.zipcode', content: 'zipcode'},
   ];
 
   UserService.get().then(function (user) {

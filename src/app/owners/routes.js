@@ -53,32 +53,39 @@ angular.module('idlecars')
       }
     })
 
-    .state('ownerAccount.update.email', {
-      url: '/email',
-      data: {navbarInfo: {title: 'Email', enableBack: true, enableSave: true}},
+    .state('ownerAccount.update.company', {
+      url: '/company',
+      data: {navbarInfo: {title: 'Company name', enableBack: true, enableSave: true}},
       templateUrl: 'shared/users/form.html',
-      controller: 'update.email.controller',
+      controller: 'owner.update.company.controller',
     })
 
-    .state('ownerAccount.update.firstname', {
-      url: '/firstname',
-      data: {navbarInfo: {title: 'First name', enableBack: true, enableSave: true}},
+    .state('ownerAccount.update.address', {
+      url: '/address',
+      data: {navbarInfo: {title: 'Address', enableBack: true, enableSave: true}},
       templateUrl: 'shared/users/form.html',
-      controller: 'update.firstname.controller',
+      controller: 'owner.update.address.controller',
     })
 
-    .state('ownerAccount.update.lastname', {
-      url: '/lastname',
-      data: {navbarInfo: {title: 'Last name', enableBack: true, enableSave: true}},
+    .state('ownerAccount.update.apartment', {
+      url: '/apartment',
+      data: {navbarInfo: {title: 'Apartment', enableBack: true, enableSave: true}},
       templateUrl: 'shared/users/form.html',
-      controller: 'update.lastname.controller',
+      controller: 'owner.update.apartment.controller',
     })
 
-    .state('ownerAccount.update.phonenumber', {
-      url: '/phonenumber',
-      data: {navbarInfo: {title: 'Phone number', enableBack: true, enableSave: true}},
+    .state('ownerAccount.update.city', {
+      url: '/city',
+      data: {navbarInfo: {title: 'City', enableBack: true, enableSave: true}},
       templateUrl: 'shared/users/form.html',
-      controller: 'update.phoneNumber.controller',
+      controller: 'owner.update.city.controller',
+    })
+
+    .state('ownerAccount.update.zipcode', {
+      url: '/zipcode',
+      data: {navbarInfo: {title: 'Zip code', enableBack: true, enableSave: true}},
+      templateUrl: 'shared/users/form.html',
+      controller: 'owner.update.zipcode.controller',
     })
 
 })
