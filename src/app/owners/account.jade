@@ -10,7 +10,7 @@
     .section-row(ng-repeat='item in ownerInfo')
       a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
         label.m-gray {{item.title}}
-        .content-main {{user[item.content]}}
+        .content-main {{owner[item.content]}}
         .next-pointer
 
   section

@@ -48,7 +48,7 @@ angular.module('idlecars')
       views: {
         'content@': {
           template: '<ui-view class="flex"/>',
-          controller: 'update.controller',
+          controller: 'owner.update.controller',
         }
       }
     })

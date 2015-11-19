@@ -21,11 +21,11 @@ angular.module('idlecars')
   ];
 
   UserService.get().then(function (user) {
-    $scope.user = user;
+    $scope.user = angular.copy(user);
   })
 
   MyOwnerService.get().then(function (owner) {
-    $scope.owner = owner;
+    $scope.owner = angular.copy(owner);
   })
 
   $scope.toggleSMS = function () {
