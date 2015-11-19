@@ -9,7 +9,7 @@ angular.module('idlecars')
   }
 
   service.userUpdated = function (newUser) {
-    MyOwnerService.patch(newUser).then(function () {
+    UserService.patch(newUser).then(function () {
       $state.go('ownerAccount');
     })
   }

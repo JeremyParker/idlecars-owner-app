@@ -5,64 +5,65 @@ angular.module('idlecars')
 
   $stateProvider
 
-    .state('bankLink', {
-      url: '/bank-link',
-      data: {navbarInfo: {title: 'Link Bank Account'}},
+    .state('ownerAccount', {
+      url: '/account',
+      data: {requireAuth: true},
       views: {
-        // TODO extend some base object, or have an `app` base state that holds the navbar
         'navbar@': {
           templateUrl: 'shared/components/navbar/navbar_main.html',
           controller: 'navbarMain.controller',
         },
         'content@': {
-          templateUrl: 'app/owners/bank_link.html',
-          controller: 'owners.bankLink.controller'
+          templateUrl: 'app/owners/account.html',
+          controller: 'account.controller',
         }
       }
     })
 
-    .state('ownerLogin', {
-      url: '/owner-login',
-      views: {
-        'content@': {
-          templateUrl: 'shared/auth/owner_login.html',
-          controller: 'auth.owner-login.controller',
-        }
-      }
-    })
-
-    .state('ownerPassword', {
+    .state('ownerAccount.update', {
       abstract: true,
+      url: '/update',
       views: {
-        'navbar@': {
-          templateUrl: 'shared/components/navbar/navbar_main.html',
-          controller: 'navbarMain.controller',
-        },
         'content@': {
           template: '<ui-view class="flex"/>',
+          controller: 'owner.update.controller',
         }
       }
     })
 
-    .state('ownerPassword.reset', {
-      url: '/owner_reset_password/:resetToken',
-      data: {navbarInfo: {title: 'Create a password', enableSave: true}},
+    .state('ownerAccount.update.company', {
+      url: '/company',
+      data: {navbarInfo: {title: 'Company name', enableBack: true, enableSave: true}},
       templateUrl: 'shared/users/form.html',
-      controller: 'auth.ownerSetPassword.controller',
+      controller: 'owner.update.company.controller',
     })
 
-    .state('bankSuccess', {
-      url: '/bank_success',
-      data: {navbarInfo: {title: ''}},
-      views: {
-        'navbar@': {
-          templateUrl: 'shared/components/navbar/navbar_main.html',
-          controller: 'navbarMain.controller',
-        },
-        'content@': {
-          templateUrl: 'app/owners/success.html',
-        },
-      },
+    .state('ownerAccount.update.address', {
+      url: '/address',
+      data: {navbarInfo: {title: 'Address', enableBack: true, enableSave: true}},
+      templateUrl: 'shared/users/form.html',
+      controller: 'owner.update.address.controller',
+    })
+
+    .state('ownerAccount.update.apartment', {
+      url: '/apartment',
+      data: {navbarInfo: {title: 'Apartment', enableBack: true, enableSave: true}},
+      templateUrl: 'shared/users/form.html',
+      controller: 'owner.update.apartment.controller',
+    })
+
+    .state('ownerAccount.update.city', {
+      url: '/city',
+      data: {navbarInfo: {title: 'City', enableBack: true, enableSave: true}},
+      templateUrl: 'shared/users/form.html',
+      controller: 'owner.update.city.controller',
+    })
+
+    .state('ownerAccount.update.zipcode', {
+      url: '/zipcode',
+      data: {navbarInfo: {title: 'Zip code', enableBack: true, enableSave: true}},
+      templateUrl: 'shared/users/form.html',
+      controller: 'owner.update.zipcode.controller',
     })
 
 })

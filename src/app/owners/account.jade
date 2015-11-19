@@ -1,0 +1,29 @@
+.settings-wrapper
+  section
+    .section-row(ng-repeat='item in userInfo')
+      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
+        label.m-gray {{item.title}}
+        .content-main {{user[item.content]}}
+        .next-pointer
+
+  section
+    .section-row(ng-repeat='item in ownerInfo')
+      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
+        label.m-gray {{item.title}}
+        .content-main {{owner[item.content]}}
+        .next-pointer
+
+  section
+    .section-row
+      title Notification method
+    .section-row
+      a.row-content(ng-click="toggleSMS()")
+        .flex-cell
+          .flex
+            .flex-cell
+              label SMS
+            on-off-button(status='owner.sms_enabled')
+
+  button.alert-button(ng-click='logout()') Log out
+
+ic-loading(ng-show='isBusy')

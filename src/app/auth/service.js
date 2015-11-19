@@ -12,11 +12,11 @@ angular.module('idlecars')
 
   // TODO: hook up the real page instead of console.log
   service.loggedout = function () {
-    console.log('logged out')
+    $state.go('cars');
   }
 
   service.accountCreated = function () {
-    $state.go('^.email')
+    $state.go('^.email');
   }
 
   service.passwordChanged = function () {
@@ -29,7 +29,7 @@ angular.module('idlecars')
 
   // TODO: get rid of the this temporary solution
   service.saveUser = function (user) {
-    return UserService.post(user)
+    return UserService.post(user);
   }
 
   return service;
