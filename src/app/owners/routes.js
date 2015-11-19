@@ -20,28 +20,6 @@ angular.module('idlecars')
       }
     })
 
-    .state('ownerAccount.onboarding', {
-      abstract: true,
-      url: '/onboarding',
-      views: {
-        'content@': {
-          template: '<ui-view class="flex"/>',
-          controller: 'owner.onboarding.controller',
-        }
-      }
-    })
-
-    .state('ownerAccount.onboarding.email', {
-      url: '/email',
-      data: {navbarInfo: {title: 'Email', enableBack: true, enableNext: true}},
-      views: {
-        'content@': {
-          controller: 'owner.onboarding.email.controller',
-          templateUrl: 'shared/users/form.html',
-        }
-      },
-    })
-
     .state('ownerAccount.update', {
       abstract: true,
       url: '/update',
