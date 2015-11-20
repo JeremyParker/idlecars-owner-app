@@ -20,4 +20,19 @@ angular.module('idlecars')
       },
     })
 
+    .state('form', {
+      data: {navbarInfo: {title: 'Form', enableBack: true, enableSave: true}},
+      url: '/form',
+      views: {
+        'navbar': {
+          templateUrl: 'components/navbar/navbar_main.html',
+          controller: 'navbarMain.controller',
+        },
+        'content': {
+          templateUrl: 'shared/users/form.html',
+          controller: 'choice.controller',
+        },
+      },
+    })
+
 });
