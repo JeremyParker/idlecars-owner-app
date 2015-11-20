@@ -1,21 +1,22 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('owners.bankLink.controller', function ($scope, $state, OwnerBankService, AppNotificationService) {
+.controller('owners.bankLink.controller', function ($scope, $state, UserService, BankService, AppNotificationService) {
 
-  var empty = OwnerBankService.ownerBankInfo.individual === undefined;
+  var empty = BankService.ownerBankInfo.individual === undefined;
 
   if(empty) {
-    OwnerBankService.get().then(function (owner) {
-      $scope.params = { individual: owner.auth_users[0] };
+    UserService.get().then(function (user) {
+      $scope.params = { individual: user };
     })
+
   }
   else {
-    $scope.params = OwnerBankService.ownerBankInfo;
-    OwnerBankService.ownerBankInfo = {};
+    $scope.params = BankService.ownerBankInfo;
+    BankService.ownerBankInfo = {};
   }
 
-  $scope.saveForm = function () { OwnerBankService.ownerBankInfo = $scope.params }
+  $scope.saveForm = function () { BankService.ownerBankInfo = $scope.params }
 
   $scope.linkBankAccount = function() {
     if ($scope.bankLinkForm.$invalid) { return $scope.showError = true };
@@ -26,9 +27,9 @@ angular.module('idlecars')
     var postParams = angular.copy($scope.params);
     postParams.individual.date_of_birth = _dateFormat($scope.params.individual.date_of_birth)
 
-    OwnerBankService.post(postParams).then(function () {
+    BankService.post(postParams).then(function () {
       $scope.isBusy = false;
-      $state.go('bankSuccess');
+      $state.go('^.bankSuccess');
     }).catch(function () {
       $scope.isBusy = false;
       if (!AppNotificationService.messages) {

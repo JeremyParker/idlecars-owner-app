@@ -1,17 +1,23 @@
 'use strict';
 
 angular.module('idlecars')
-.factory('AppUserService', function ($state, UserService, MyOwnerService, RequireAuthService) {
+.factory('AppUserService', function ($state) {
   var service = {};
 
-  service.emailEntered = function (newUser) {
-    UserService.patch(newUser).then(RequireAuthService.resolve)
+  service.emailEntered = function () {
+    $state.go('^.firstname');
   }
 
-  service.userUpdated = function (newUser) {
-    UserService.patch(newUser).then(function () {
-      $state.go('ownerAccount');
-    })
+  service.firstnameEntered = function () {
+    $state.go('^.lastname');
+  }
+
+  service.lastnameEntered = function () {
+    $state.go('ownerAccount.onboarding.company');
+  }
+
+  service.userUpdated = function () {
+    $state.go('ownerAccount');
   }
 
   return service;

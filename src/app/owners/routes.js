@@ -20,6 +20,31 @@ angular.module('idlecars')
       }
     })
 
+    .state('ownerAccount.onboarding', {
+      abstract: true,
+      url: '/onboarding',
+      views: {
+        'content@': {
+          template: '<ui-view class="flex"/>',
+          controller: 'owner.onboarding.controller',
+        }
+      }
+    })
+
+    .state('ownerAccount.onboarding.company', {
+      url: '/company',
+      data: {navbarInfo: {title: 'Company name', enableBack: true, enableNext: true}},
+      templateUrl: 'shared/users/form.html',
+      controller: 'owner.onboarding.company.controller',
+    })
+
+    .state('ownerAccount.onboarding.zipcode', {
+      url: '/zipcode',
+      data: {navbarInfo: {title: 'Zip code', enableBack: true, enableNext: true}},
+      templateUrl: 'shared/users/form.html',
+      controller: 'owner.onboarding.zipcode.controller',
+    })
+
     .state('ownerAccount.update', {
       abstract: true,
       url: '/update',
