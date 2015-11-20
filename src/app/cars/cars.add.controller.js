@@ -92,7 +92,13 @@ angular.module('idlecars')
 })
 
 .controller('cars.add.exterior.controller', function ($scope, $rootScope, $state) {
+  $rootScope.navNextEnabled = true;
+
+  $scope.formTitle = 'Please select exterior color:';
+  $scope.choices = ['black', 'red', 'white', 'yellow'];
+
   $rootScope.navGoNext = function() {
+    console.log($scope.$$childHead.selectedItem)
     $state.go('^.interior')
   }
 })
