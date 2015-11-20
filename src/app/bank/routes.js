@@ -10,10 +10,20 @@ angular.module('idlecars')
       data: {navbarInfo: {title: 'Link Bank Account', enableBack: true}},
       views: {
         'content@': {
-          templateUrl: 'app/owners/bank_link.html',
+          templateUrl: 'app/bank/bank_link.html',
           controller: 'owners.bankLink.controller'
         }
       }
+    })
+
+    .state('ownerAccount.bankSuccess', {
+      url: '/bank_success',
+      data: {navbarInfo: {title: ''}},
+      views: {
+        'content@': {
+          templateUrl: 'app/bank/success.html',
+        },
+      },
     })
 
 })

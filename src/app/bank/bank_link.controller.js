@@ -29,8 +29,7 @@ angular.module('idlecars')
 
     BankService.post(postParams).then(function () {
       $scope.isBusy = false;
-      $state.go('ownerAccount');
-      AppNotificationService.push({success: 'Success, you\'ve added your bank account!'});
+      $state.go('^.bankSuccess');
     }).catch(function () {
       $scope.isBusy = false;
       if (!AppNotificationService.messages) {
