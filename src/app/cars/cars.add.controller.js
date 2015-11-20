@@ -98,7 +98,7 @@ angular.module('idlecars')
   $scope.choices = ['black', 'red', 'white', 'yellow'];
 
   $rootScope.navGoNext = function() {
-    console.log($scope.$$childHead.selectedItem)
+    console.log($scope.selectedItem)
     $state.go('^.interior')
   }
 })
@@ -110,7 +110,7 @@ angular.module('idlecars')
   $scope.choices = ['black', 'red', 'white', 'yellow'];
 
   $rootScope.navGoNext = function() {
-    console.log($scope.$$childHead.selectedItem)
+    console.log($scope.selectedItem)
     $state.go('^.success')
   }
 })
