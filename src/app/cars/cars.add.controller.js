@@ -108,10 +108,13 @@ angular.module('idlecars')
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select exterior color:';
-  $scope.choices = ['black', 'red', 'white', 'yellow'];
+  $scope.singleChoice = {
+    key: 'exteriorColor',
+    choices: ['black', 'red', 'white', 'yellow'],
+  }
 
   $rootScope.navGoNext = function() {
-    console.log($scope.selectedItem)
+    console.log($scope.user)
     $state.go('^.interior')
   }
 })
@@ -120,10 +123,13 @@ angular.module('idlecars')
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select interior color:';
-  $scope.choices = ['black', 'red', 'white', 'yellow'];
+  $scope.singleChoice = {
+    key: 'interiorColor',
+    choices: ['black', 'red', 'white', 'yellow'],
+  }
 
   $rootScope.navGoNext = function() {
-    console.log($scope.selectedItem)
+    console.log($scope.user)
     $state.go('^.success')
   }
 })
