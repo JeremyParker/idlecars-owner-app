@@ -54,8 +54,8 @@ angular.module('idlecars')
 
     .state('cars.add.available', {
       url: '/available',
-      data: {navbarInfo: {title: 'Available date', enableBack: true, enableNext: true}},
-      templateUrl: 'shared/users/form.html',
+      data: {navbarInfo: {title: 'Available date', enableBack: true}},
+      templateUrl: 'shared/users/notice.html',
       controller: 'cars.add.available.controller',
     })
 
