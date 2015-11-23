@@ -104,7 +104,7 @@ angular.module('idlecars')
   NavbarService.validateInit($scope);
 })
 
-.controller('cars.add.exterior.controller', function ($scope, $rootScope, $state, NavbarService) {
+.controller('cars.add.exterior.controller', function ($scope, $rootScope, $state) {
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select exterior color:';
@@ -114,12 +114,11 @@ angular.module('idlecars')
   }
 
   $rootScope.navGoNext = function() {
-    console.log($scope.user)
     $state.go('^.interior')
   }
 })
 
-.controller('cars.add.interior.controller', function ($scope, $rootScope, $state, NavbarService) {
+.controller('cars.add.interior.controller', function ($scope, $rootScope, $state) {
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select interior color:';
@@ -129,12 +128,11 @@ angular.module('idlecars')
   }
 
   $rootScope.navGoNext = function() {
-    console.log($scope.user)
     $state.go('^.success')
   }
 })
 
-.controller('cars.add.success.controller', function ($scope, $rootScope, $state, NavbarService) {
+.controller('cars.add.success.controller', function ($scope, $rootScope, $state) {
   $rootScope.navGoNext = function() {
     $state.go('cars')
   }
