@@ -3,18 +3,21 @@
   @extend %flex_scrollable
   flex: 1
 
-  .welcome
-    @extend %white_theme
+  text-align: center
 
-    text-align: center
-    padding: 3rem 2rem
-
-  .add a
+  a
     display: block
 
+  .welcome
+    @extend %white_theme
+    padding: 3rem 2rem
+
+  .cars .car
+    padding: 1rem 0
+
+  .add a
     border-top: 1px solid $medium_gray
     border-bottom: 1px solid $medium_gray
 
-    text-align: center
     padding: 1rem 0
     color: $ic_blue
