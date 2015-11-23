@@ -1,14 +1,18 @@
 .garage-wrapper
   h1(hidden) My cars
 
-  .welcome
+  section.welcome
     h2 Welcome to your Garage
     p List your car to the marketplace and manage your vehicles here
 
-  a.car(ng-repeat="car in cars", ui-sref=".detail({carId: car.id, car: car})")
-    .info
-      h3 {{car.name}}
-      p {{car.plate}}
-      p {{car.status}}
+  section.cars
+    a.car(ng-repeat="car in cars", ui-sref=".detail({carId: car.id, car: car})")
+      .info
+        h3 {{car.name}}
+        p {{car.plate}}
+        p {{car.status}}
+
+  section.add
+    a(ui-sref=".add.plate") + Add a new car
 
 welcome-modal
