@@ -8,6 +8,8 @@ angular.module('idlecars')
   $scope.validateForm = function() {
     $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid;
   }
+
+  $scope.colors = ['Black', 'Charcoal', 'Grey', 'Dark Blue', 'Blue', 'Tan', 'White'];
 })
 
 
@@ -140,7 +142,7 @@ angular.module('idlecars')
   $scope.formTitle = 'Please select exterior color:';
   $scope.singleChoice = {
     key: 'exterior_color',
-    choices: ['black', 'red', 'white', 'yellow'],
+    choices: $scope.colors,
   }
 
   $rootScope.navGoNext = function() {
@@ -154,7 +156,7 @@ angular.module('idlecars')
   $scope.formTitle = 'Please select interior color:';
   $scope.singleChoice = {
     key: 'interior_color',
-    choices: ['black', 'red', 'white', 'yellow'],
+    choices: $scope.colors,
   }
 
   $rootScope.navGoNext = function() {
