@@ -12,10 +12,6 @@ angular.module('idlecars')
     return Restangular.all('cars').post(params);
   }
 
-  service.post = function (carId, params) {
-    return Restangular.one('cars', carId).post(params);
-  }
-
   service.patch = function (carId, params) {
     return Restangular.one('cars', carId).patch(params);
   }
