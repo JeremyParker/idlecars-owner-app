@@ -28,12 +28,35 @@ angular.module('idlecars')
 })
 
 .controller('cars.add.confirm.controller', function ($scope, $state) {
-  $scope.addCar = function () {
+  var addCar = function () {
     // TODO: send request to add the car
-    $state.go('^.rent')
+    $state.go('^.rent');
   }
 
-  NavbarService.validateInit($scope);
+  var goPlate = function () { $state.go('^.plate') }
+
+  $scope.label = 'Please confirm this is your car';
+
+  $scope.contents = [{
+    title: 'Plate',
+    content: 'T2434342C',
+  },
+  {
+    content: '2014 Toyota Camery',
+  },
+  {
+    title: 'Base',
+    content: 'Idle Cars LLC',
+  }];
+
+  $scope.buttons = [{
+    value: 'That\'s my car',
+    click: addCar,
+  },
+  {
+    value: 'Not my car',
+    click: goPlate,
+  }];
 })
 
 .controller('cars.add.rent.controller', function ($scope, $rootScope, $state, NavbarService) {
@@ -132,8 +155,14 @@ angular.module('idlecars')
   }
 })
 
-.controller('cars.add.success.controller', function ($scope, $rootScope, $state) {
-  $rootScope.navGoNext = function() {
-    $state.go('cars')
-  }
+.controller('cars.add.success.controller', function ($scope, $state) {
+  var linkBankAccount = function () { $state.go('ownerAccount.bankLink') }
+
+  $scope.label = 'Your car has been added to your account. \
+    In order to receive weekly payments from the driver. you need to add your bank account details';
+
+  $scope.buttons = [{
+    value: 'Bank account',
+    click: linkBankAccount,
+  }]
 })

@@ -41,7 +41,7 @@ angular.module('idlecars')
     .state('cars.add.confirm', {
       url: '/confirm',
       data: {navbarInfo: {title: '', enableBack: true}},
-      templateUrl: 'app/cars/confirm.html',
+      templateUrl: 'shared/users/notice.html',
       controller: 'cars.add.confirm.controller',
     })
 
@@ -96,8 +96,8 @@ angular.module('idlecars')
 
     .state('cars.add.success', {
       url: '/success',
-      data: {navbarInfo: {title: 'Success', enableBack: true, enableNext: true}},
-      templateUrl: 'shared/users/form.html',
+      data: {navbarInfo: {title: 'Success', enableMenu: true}},
+      templateUrl: 'shared/users/notice.html',
       controller: 'cars.add.success.controller',
     })
 });
