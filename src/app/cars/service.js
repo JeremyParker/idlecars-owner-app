@@ -8,12 +8,16 @@ angular.module('idlecars')
     return Restangular.all('cars').getList();
   }
 
-  service.post = function (params, carId) {
+  service.create = function (params) {
+    return Restangular.all('cars').post(params);
+  }
+
+  service.post = function (carId, params) {
     return Restangular.one('cars', carId).post(params);
   }
 
-  service.patch = function (params, carId) {
-    return Restangular.one('owners', carId).patch(params);
+  service.patch = function (carId, params) {
+    return Restangular.one('cars', carId).patch(params);
   }
 
   return service;
