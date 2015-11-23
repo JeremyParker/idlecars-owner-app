@@ -34,7 +34,7 @@ angular.module('idlecars')
 })
 
 .controller('cars.update.available.controller', function ($scope) {
-  //TODO: date does not work. we need to refactor this
+  //TODO: date format does not work. we need to refactor this
   $scope.fields = [{
     label: 'When will the car be available',
     name: 'next_available_date',
@@ -58,6 +58,7 @@ angular.module('idlecars')
     label: 'Minimum rental',
     name: 'min_lease',
     type: 'text',
+    autoFocus: true,
   }];
 })
 
@@ -71,7 +72,7 @@ angular.module('idlecars')
 })
 
 .controller('cars.update.exterior.controller', function ($scope, $rootScope) {
-  //TODO: this does not work correctly. we need to refactor it
+  //TODO: this does not update $scope.user correctly. we need to refactor it
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select exterior color:';
@@ -82,6 +83,7 @@ angular.module('idlecars')
 })
 
 .controller('cars.update.interior.controller', function ($scope, $rootScope) {
+  //TODO: this does not update $scope.user correctly. we need to refactor it
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select interior color:';

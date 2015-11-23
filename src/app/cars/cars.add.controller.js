@@ -62,7 +62,7 @@ angular.module('idlecars')
 .controller('cars.add.rent.controller', function ($scope, $rootScope, $state, NavbarService) {
   $scope.fields = [{
     label: 'Rent per week($)',
-    name: 'rent',
+    name: 'solo_cost',
     type: 'text',
     autoFocus: true,
   }];
@@ -76,7 +76,7 @@ angular.module('idlecars')
 .controller('cars.add.available.controller', function ($scope, $rootScope, $state, NavbarService) {
   $scope.fields = [{
     label: 'When will the car be available',
-    name: 'available',
+    name: 'next_available_date',
     placeholder: 'YYYY-MM-DD',
     type: 'date',
     autoFocus: true,
@@ -92,7 +92,7 @@ angular.module('idlecars')
 .controller('cars.add.deposit.controller', function ($scope, $rootScope, $state, NavbarService) {
   $scope.fields = [{
     label: 'Deposit required($)',
-    name: 'deposit',
+    name: 'solo_deposit',
     type: 'text',
     autoFocus: true,
   }];
@@ -105,6 +105,13 @@ angular.module('idlecars')
 })
 
 .controller('cars.add.minimum.controller', function ($scope, $rootScope, $state, NavbarService) {
+  $scope.fields = [{
+    label: 'Minimum rental',
+    name: 'min_lease',
+    type: 'text',
+    autoFocus: true,
+  }];
+
   $rootScope.navGoNext = function() {
     $state.go('^.mileage')
   }
@@ -115,7 +122,7 @@ angular.module('idlecars')
 .controller('cars.add.mileage.controller', function ($scope, $rootScope, $state, NavbarService) {
   $scope.fields = [{
     label: 'Current mileage(optional)',
-    name: 'mileage',
+    name: 'last_known_mileage',
     type: 'text',
     autoFocus: true,
   }];
@@ -132,7 +139,7 @@ angular.module('idlecars')
 
   $scope.formTitle = 'Please select exterior color:';
   $scope.singleChoice = {
-    key: 'exteriorColor',
+    key: 'exterior_color',
     choices: ['black', 'red', 'white', 'yellow'],
   }
 
@@ -146,7 +153,7 @@ angular.module('idlecars')
 
   $scope.formTitle = 'Please select interior color:';
   $scope.singleChoice = {
-    key: 'interiorColor',
+    key: 'interior_color',
     choices: ['black', 'red', 'white', 'yellow'],
   }
 
