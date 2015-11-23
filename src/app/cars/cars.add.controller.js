@@ -31,9 +31,7 @@ angular.module('idlecars')
     $state.go('^.rent');
   }
 
-  var goPlate = function () {
-    $state.go('^.plate');
-  }
+  var goPlate = function () { $state.go('^.plate') }
 
   $scope.label = 'Please confirm this is your car';
 
@@ -130,8 +128,14 @@ angular.module('idlecars')
   }
 })
 
-.controller('cars.add.success.controller', function ($scope, $rootScope, $state) {
-  $rootScope.navGoNext = function() {
-    $state.go('cars')
-  }
+.controller('cars.add.success.controller', function ($scope, $state) {
+  var linkBankAccount = function () { $state.go('ownerAccount.bankLink') }
+
+  $scope.label = 'Your car has been added to your account. \
+    In order to receive weekly payments from the driver. you need to add your bank account details';
+
+  $scope.buttons = [{
+    value: 'Bank account',
+    click: linkBankAccount,
+  }]
 })
