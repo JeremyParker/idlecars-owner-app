@@ -1,10 +1,8 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.detail.controller', function ($scope, $stateParams, CarService, LANDING_STATE) {
-  console.log($stateParams.car)
-
-  if ($stateParams.car) {
+.controller('cars.detail.controller', function ($scope, $stateParams, $state, CarService, LANDING_STATE) {
+  if (!$stateParams.car) {
     CarService.get($stateParams.carId)
     .then(function (car) { $scope.car = angular.copy(car) })
     .catch(function () { $state.go(LANDING_STATE) })

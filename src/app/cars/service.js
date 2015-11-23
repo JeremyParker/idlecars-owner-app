@@ -4,7 +4,10 @@ angular.module('idlecars')
 .factory('CarService', function (Restangular) {
   var service = {};
 
-  service.get = function () {
+  service.get = function (carId) {
+    if (carId) {
+      return Restangular.one('cars', carId).get();
+    }
     return Restangular.all('cars').getList();
   }
 
