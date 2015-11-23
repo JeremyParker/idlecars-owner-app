@@ -41,7 +41,7 @@ angular.module('idlecars')
     .state('cars.add.confirm', {
       url: '/confirm',
       data: {navbarInfo: {title: '', enableBack: true}},
-      templateUrl: 'app/cars/confirm.html',
+      templateUrl: 'shared/users/notice.html',
       controller: 'cars.add.confirm.controller',
     })
 
