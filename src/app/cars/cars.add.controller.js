@@ -20,10 +20,10 @@ angular.module('idlecars')
 })
 
 .controller('cars.add.confirm.controller', function ($scope, $state) {
-  var addCar = function () { $state.go('^.rent') }
+  var confirm = function () { $state.go('^.rent') }
 
-  var goPlate = function () {
-    // patch to remove the owner from the car
+  var decline = function () {
+    // TODO: patch to remove the owner from the car
     $state.go('cars.plate')
   }
 
@@ -47,11 +47,11 @@ angular.module('idlecars')
 
   $scope.buttons = [{
     value: 'That\'s my car',
-    click: addCar,
+    click: confirm,
   },
   {
     value: 'Not my car',
-    click: goPlate,
+    click: decline,
   }];
 })
 
