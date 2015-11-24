@@ -6,7 +6,7 @@
     p List your car to the marketplace and manage your vehicles here
 
   section.add
-    a(ui-sref=".add.plate") + Add a new car
+    a(ui-sref="plate") + Add a new car
 
   section.cars
     a.car(ng-repeat="car in cars", ui-sref=".detail({carId: car.id, car: car})")

@@ -1,67 +1,68 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.add.controller', function ($scope, $rootScope) {
-  // this user is actually the car object
-  $scope.user = {};
+.controller('cars.add.controller', function ($scope, $rootScope, $state, $stateParams, CarService) {
+  // TODO: this user is actually the car object, we need to rename user --> object in form.jade
+  $scope.user = $stateParams.car || {};
+
+  if (!$stateParams.car) {
+    CarService.get($stateParams.carId).then(function (car) {
+      $scope.user = car;
+    })
+    // TODO: catch error
+  };
 
   $scope.validateForm = function() {
     $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid;
   }
 
+  $rootScope.navGoNext = function() {
+    CarService.patch($scope.user.id, $scope.user).then(function (car) {
+      $scope.user = car;
+      $state.go($scope.$$childHead.nextState);
+    })
+  }
+
   $scope.colors = ['Black', 'Charcoal', 'Grey', 'Dark Blue', 'Blue', 'Tan', 'White'];
 })
 
-
-.controller('cars.add.plate.controller', function ($scope, $rootScope, $state, NavbarService) {
-  $scope.fields = [{
-    label: 'To add a car, please enter the TLC plate of the car. We verify that all listed cars are TLC registered:',
-    name: 'plate',
-    type: 'text',
-    autoFocus: true,
-  }];
-
-  $rootScope.navGoNext = function() {
-    // TODO: send request to plate end point to verify the car
-    $state.go('^.confirm')
-  }
-
-  NavbarService.validateInit($scope);
-})
-
 .controller('cars.add.confirm.controller', function ($scope, $state) {
-  var addCar = function () {
-    // TODO: send request to add the car
-    $state.go('^.rent');
+  var confirm = function () { $state.go('^.rent') }
+
+  var decline = function () {
+    // TODO: patch to remove the owner from the car
+    $state.go('cars.plate')
   }
 
-  var goPlate = function () { $state.go('^.plate') }
+  var loadContent = function () {
+    $scope.contents = [{
+      title: 'Plate',
+      content: $scope.user.plate,
+    },
+    {
+      content: $scope.user.name,
+    },
+    {
+      title: 'Base',
+      content: $scope.user.base,
+    }];
+  }
+
+  $scope.$watch('user', loadContent);
 
   $scope.label = 'Please confirm this is your car';
 
-  $scope.contents = [{
-    title: 'Plate',
-    content: 'T2434342C',
-  },
-  {
-    content: '2014 Toyota Camery',
-  },
-  {
-    title: 'Base',
-    content: 'Idle Cars LLC',
-  }];
-
   $scope.buttons = [{
     value: 'That\'s my car',
-    click: addCar,
+    click: confirm,
   },
   {
     value: 'Not my car',
-    click: goPlate,
+    click: decline,
   }];
 })
 
-.controller('cars.add.rent.controller', function ($scope, $rootScope, $state, NavbarService) {
+.controller('cars.add.rent.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'Rent per week($)',
     name: 'solo_cost',
@@ -69,9 +70,8 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  $rootScope.navGoNext = function() {
-    $state.go('^.available')
-  }
+  $scope.nextState = '^.available';
+
   NavbarService.validateInit($scope);
 })
 
@@ -82,19 +82,32 @@ angular.module('idlecars')
     min: new Date(),
     weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
     onClose: function () {
-      //TODO: patch this to server
-      console.log($scope.$$childTail.date)
+      var new_date = $scope.$$childHead.date || $scope.$$childTail.date;
+      if (new_date) {
+        $scope.user.next_available_date = [
+          new_date.getFullYear(),
+          new_date.getMonth(),
+          new_date.getDate(),
+        ];
+        $rootScope.navGoNext()
+      };
     },
   }
 
+  var loadContent = function () {
+    var date = $scope.user.next_available_date;
+
+    if (date) {
+      $scope.contents = [{
+        content: date[0] +'-'+ date[1] +'-'+ date[2],
+      }]
+    };
+  }
+
+  $scope.nextState = '^.deposit';
   $rootScope.navNextEnabled = true;
-
+  $scope.$watch('user', loadContent)
   $scope.label = 'Please choose the next available date:';
-
-  $scope.contents = [{
-    //TODO: get this from server
-    content: '2015-11-23',
-  }]
 
   $scope.buttons = [{
     value: 'change date',
@@ -102,7 +115,7 @@ angular.module('idlecars')
   }];
 })
 
-.controller('cars.add.deposit.controller', function ($scope, $rootScope, $state, NavbarService) {
+.controller('cars.add.deposit.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'Deposit required($)',
     name: 'solo_deposit',
@@ -110,14 +123,12 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  $rootScope.navGoNext = function() {
-    $state.go('^.minimum')
-  }
+  $scope.nextState = '^.minimum';
 
   NavbarService.validateInit($scope);
 })
 
-.controller('cars.add.minimum.controller', function ($scope, $rootScope, $state, NavbarService) {
+.controller('cars.add.minimum.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'Minimum rental',
     name: 'min_lease',
@@ -125,14 +136,12 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  $rootScope.navGoNext = function() {
-    $state.go('^.mileage')
-  }
+  $scope.nextState = '^.mileage';
 
   NavbarService.validateInit($scope);
 })
 
-.controller('cars.add.mileage.controller', function ($scope, $rootScope, $state, NavbarService) {
+.controller('cars.add.mileage.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'Current mileage(optional)',
     name: 'last_known_mileage',
@@ -140,9 +149,7 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  $rootScope.navGoNext = function() {
-    $state.go('^.exterior')
-  }
+  $scope.nextState = '^.exterior';
 
   NavbarService.validateInit($scope);
 })
