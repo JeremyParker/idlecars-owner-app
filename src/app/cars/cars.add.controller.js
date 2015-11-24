@@ -2,7 +2,7 @@
 
 angular.module('idlecars')
 .controller('cars.add.controller', function ($scope, $rootScope, $state, $stateParams, CarService) {
-  // this user is actually the car object
+  // TODO: this user is actually the car object, we need to rename user --> object in form.jade
   $scope.user = $stateParams.car || {};
 
   if (!$stateParams.car) {
