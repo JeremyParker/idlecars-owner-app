@@ -1,0 +1,16 @@
+.settings-wrapper
+  section
+    .section-row(ng-repeat='item in carInfo')
+      a.row-content(ng-class='{"has-bar": !$last}')
+        label.m-gray {{item.title}}
+        .content-main {{car[item.content]}}
+
+  section
+    .section-row(ng-repeat='item in carDetail')
+      a.row-content(ng-class='{"has-bar": !$last}', ui-sref='{{item.link}}')
+        label.m-gray {{item.title}}
+        .content-main {{car[item.content]}}
+        .next-pointer
+
+  button.alert-button(ng-click='delist()') Remove listing
+

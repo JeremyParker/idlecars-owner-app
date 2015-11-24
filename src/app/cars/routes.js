@@ -20,6 +20,17 @@ angular.module('idlecars')
       },
     })
 
+    .state('cars.detail', {
+      url: 'cars/:carId',
+      params: {car: null},
+      views: {
+        'content@': {
+          templateUrl: 'app/cars/detail.html',
+          controller: 'cars.detail.controller',
+        },
+      },
+    })
+
     .state('cars.add', {
       abstract: true,
       url: 'cars/add',
