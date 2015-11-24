@@ -82,26 +82,32 @@ angular.module('idlecars')
     min: new Date(),
     weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
     onClose: function () {
-      var date = $scope.date;
-      if (date) {
-        var patchData = {next_available_date: [date.getFullYear(), date.getMonth(), date.getDate()]};
-
-        CarService.patch($scope.user.id, patchData).then(function (car) {
-          $state.go('^.deposit');
-        })
-        // TODO: catch error
-      }
+      var new_date = $scope.$$childHead.date || $scope.$$childTail.date;
+      if (new_date) {
+        $scope.user.next_available_date = [
+          new_date.getFullYear(),
+          new_date.getMonth(),
+          new_date.getDate(),
+        ];
+        $rootScope.navGoNext()
+      };
     },
   }
 
+  var loadContent = function () {
+    var date = $scope.user.next_available_date;
+
+    if (date) {
+      $scope.contents = [{
+        content: date[0] +'-'+ date[1] +'-'+ date[2],
+      }]
+    };
+  }
+
+  $scope.nextState = '^.deposit';
   $rootScope.navNextEnabled = true;
-
+  $scope.$watch('user', loadContent)
   $scope.label = 'Please choose the next available date:';
-
-  $scope.contents = [{
-    //TODO: get this from server
-    content: '2015-11-23',
-  }]
 
   $scope.buttons = [{
     value: 'change date',
