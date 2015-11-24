@@ -8,6 +8,8 @@ angular.module('idlecars')
   $scope.validateForm = function() {
     $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid;
   }
+
+  $scope.colors = ['Black', 'Charcoal', 'Grey', 'Dark Blue', 'Blue', 'Tan', 'White'];
 })
 
 
@@ -62,7 +64,7 @@ angular.module('idlecars')
 .controller('cars.add.rent.controller', function ($scope, $rootScope, $state, NavbarService) {
   $scope.fields = [{
     label: 'Rent per week($)',
-    name: 'rent',
+    name: 'solo_cost',
     type: 'text',
     autoFocus: true,
   }];
@@ -73,6 +75,7 @@ angular.module('idlecars')
   NavbarService.validateInit($scope);
 })
 
+<<<<<<< HEAD
 .controller('cars.add.available.controller', function ($scope, $rootScope, $state) {
   var options = {
     clear: 'Cancel',
@@ -83,6 +86,19 @@ angular.module('idlecars')
       //TODO: patch this to server
       console.log($scope.$$childTail.date)
     },
+=======
+.controller('cars.add.available.controller', function ($scope, $rootScope, $state, NavbarService) {
+  $scope.fields = [{
+    label: 'When will the car be available',
+    name: 'next_available_date',
+    placeholder: 'YYYY-MM-DD',
+    type: 'date',
+    autoFocus: true,
+  }];
+
+  $rootScope.navGoNext = function() {
+    $state.go('^.deposit')
+>>>>>>> master
   }
 
   $rootScope.navNextEnabled = true;
@@ -103,7 +119,7 @@ angular.module('idlecars')
 .controller('cars.add.deposit.controller', function ($scope, $rootScope, $state, NavbarService) {
   $scope.fields = [{
     label: 'Deposit required($)',
-    name: 'deposit',
+    name: 'solo_deposit',
     type: 'text',
     autoFocus: true,
   }];
@@ -116,6 +132,13 @@ angular.module('idlecars')
 })
 
 .controller('cars.add.minimum.controller', function ($scope, $rootScope, $state, NavbarService) {
+  $scope.fields = [{
+    label: 'Minimum rental',
+    name: 'min_lease',
+    type: 'text',
+    autoFocus: true,
+  }];
+
   $rootScope.navGoNext = function() {
     $state.go('^.mileage')
   }
@@ -126,7 +149,7 @@ angular.module('idlecars')
 .controller('cars.add.mileage.controller', function ($scope, $rootScope, $state, NavbarService) {
   $scope.fields = [{
     label: 'Current mileage(optional)',
-    name: 'mileage',
+    name: 'last_known_mileage',
     type: 'text',
     autoFocus: true,
   }];
@@ -143,8 +166,8 @@ angular.module('idlecars')
 
   $scope.formTitle = 'Please select exterior color:';
   $scope.singleChoice = {
-    key: 'exteriorColor',
-    choices: ['black', 'red', 'white', 'yellow'],
+    key: 'exterior_color',
+    choices: $scope.colors,
   }
 
   $rootScope.navGoNext = function() {
@@ -157,8 +180,8 @@ angular.module('idlecars')
 
   $scope.formTitle = 'Please select interior color:';
   $scope.singleChoice = {
-    key: 'interiorColor',
-    choices: ['black', 'red', 'white', 'yellow'],
+    key: 'interior_color',
+    choices: $scope.colors,
   }
 
   $rootScope.navGoNext = function() {
