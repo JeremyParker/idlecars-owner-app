@@ -1,9 +1,16 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.add.controller', function ($scope, $rootScope) {
+.controller('cars.add.controller', function ($scope, $rootScope, $stateParams, CarService) {
   // this user is actually the car object
   $scope.user = {};
+
+  if (!$stateParams.car) {
+    CarService.get($stateParams.carId).then(function (car) {
+      $scope.user = car;
+    })
+    // TODO: catch error
+  };
 
   $scope.validateForm = function() {
     $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid;
@@ -12,36 +19,20 @@ angular.module('idlecars')
   $scope.colors = ['Black', 'Charcoal', 'Grey', 'Dark Blue', 'Blue', 'Tan', 'White'];
 })
 
-
-.controller('cars.add.plate.controller', function ($scope, $rootScope, $state, NavbarService) {
-  $scope.fields = [{
-    label: 'To add a car, please enter the TLC plate of the car. We verify that all listed cars are TLC registered:',
-    name: 'plate',
-    type: 'text',
-    autoFocus: true,
-  }];
-
-  $rootScope.navGoNext = function() {
-    // TODO: send request to plate end point to verify the car
-    $state.go('^.confirm')
-  }
-
-  NavbarService.validateInit($scope);
-})
-
-.controller('cars.add.confirm.controller', function ($scope, $state) {
+.controller('cars.add.confirm.controller', function ($scope, $state, CarService) {
   var addCar = function () {
-    // TODO: send request to add the car
-    $state.go('^.rent');
+    console.log($scope.user.plate);
+    //patch owner to the car
+    // $state.go('^.rent');
   }
 
-  var goPlate = function () { $state.go('^.plate') }
+  var goPlate = function () { $state.go('cars.plate') }
 
   $scope.label = 'Please confirm this is your car';
 
   $scope.contents = [{
     title: 'Plate',
-    content: 'T2434342C',
+    content: $scope.user.plate,
   },
   {
     content: '2014 Toyota Camery',
