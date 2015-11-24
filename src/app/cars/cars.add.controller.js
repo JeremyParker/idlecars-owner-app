@@ -20,11 +20,12 @@ angular.module('idlecars')
 })
 
 .controller('cars.add.confirm.controller', function ($scope, $state) {
-  var addCar = function () {
-    $state.go('^.rent');
-  }
+  var addCar = function () { $state.go('^.rent') }
 
-  var goPlate = function () { $state.go('cars.plate') }
+  var goPlate = function () {
+    // patch to remove the owner from the car
+    $state.go('cars.plate')
+  }
 
   var loadContent = function () {
     $scope.contents = [{
