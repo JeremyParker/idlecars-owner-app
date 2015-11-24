@@ -75,7 +75,6 @@ angular.module('idlecars')
   NavbarService.validateInit($scope);
 })
 
-<<<<<<< HEAD
 .controller('cars.add.available.controller', function ($scope, $rootScope, $state) {
   var options = {
     clear: 'Cancel',
@@ -86,19 +85,6 @@ angular.module('idlecars')
       //TODO: patch this to server
       console.log($scope.$$childTail.date)
     },
-=======
-.controller('cars.add.available.controller', function ($scope, $rootScope, $state, NavbarService) {
-  $scope.fields = [{
-    label: 'When will the car be available',
-    name: 'next_available_date',
-    placeholder: 'YYYY-MM-DD',
-    type: 'date',
-    autoFocus: true,
-  }];
-
-  $rootScope.navGoNext = function() {
-    $state.go('^.deposit')
->>>>>>> master
   }
 
   $rootScope.navNextEnabled = true;
