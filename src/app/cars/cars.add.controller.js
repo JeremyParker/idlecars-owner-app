@@ -3,7 +3,7 @@
 angular.module('idlecars')
 .controller('cars.add.controller', function ($scope, $rootScope, $stateParams, CarService) {
   // this user is actually the car object
-  $scope.user = {};
+  $scope.user = $stateParams.car || {};
 
   if (!$stateParams.car) {
     CarService.get($stateParams.carId).then(function (car) {
@@ -19,28 +19,30 @@ angular.module('idlecars')
   $scope.colors = ['Black', 'Charcoal', 'Grey', 'Dark Blue', 'Blue', 'Tan', 'White'];
 })
 
-.controller('cars.add.confirm.controller', function ($scope, $state, CarService) {
+.controller('cars.add.confirm.controller', function ($scope, $state) {
   var addCar = function () {
-    console.log($scope.user.plate);
-    //patch owner to the car
-    // $state.go('^.rent');
+    $state.go('^.rent');
   }
 
   var goPlate = function () { $state.go('cars.plate') }
 
-  $scope.label = 'Please confirm this is your car';
+  var loadContent = function () {
+    $scope.contents = [{
+      title: 'Plate',
+      content: $scope.user.plate,
+    },
+    {
+      content: $scope.user.name,
+    },
+    {
+      title: 'Base',
+      content: $scope.user.base,
+    }];
+  }
 
-  $scope.contents = [{
-    title: 'Plate',
-    content: $scope.user.plate,
-  },
-  {
-    content: '2014 Toyota Camery',
-  },
-  {
-    title: 'Base',
-    content: 'Idle Cars LLC',
-  }];
+  $scope.$watch('user', loadContent);
+
+  $scope.label = 'Please confirm this is your car';
 
   $scope.buttons = [{
     value: 'That\'s my car',
