@@ -75,6 +75,18 @@ angular.module('idlecars')
   NavbarService.validateInit($scope);
 })
 
+<<<<<<< HEAD
+.controller('cars.add.available.controller', function ($scope, $rootScope, $state) {
+  var options = {
+    clear: 'Cancel',
+    today: '',
+    min: new Date(),
+    weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+    onClose: function () {
+      //TODO: patch this to server
+      console.log($scope.$$childTail.date)
+    },
+=======
 .controller('cars.add.available.controller', function ($scope, $rootScope, $state, NavbarService) {
   $scope.fields = [{
     label: 'When will the car be available',
@@ -86,9 +98,22 @@ angular.module('idlecars')
 
   $rootScope.navGoNext = function() {
     $state.go('^.deposit')
+>>>>>>> master
   }
 
-  NavbarService.validateInit($scope);
+  $rootScope.navNextEnabled = true;
+
+  $scope.label = 'Please choose the next available date:';
+
+  $scope.contents = [{
+    //TODO: get this from server
+    content: '2015-11-23',
+  }]
+
+  $scope.buttons = [{
+    value: 'change date',
+    dateOptions: options,
+  }];
 })
 
 .controller('cars.add.deposit.controller', function ($scope, $rootScope, $state, NavbarService) {
