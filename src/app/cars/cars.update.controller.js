@@ -4,6 +4,7 @@ angular.module('idlecars')
 .controller('cars.update.controller', function ($scope, $rootScope, $timeout, $stateParams, $state, CarService, NavbarService) {
   // TODO: this user is actually the car object, we need to rename it to object
   $scope.user = $stateParams.car || {};
+  $scope.colors = ['Black', 'Charcoal', 'Grey', 'Dark Blue', 'Blue', 'Tan', 'White'];
 
   if (!$stateParams.car) {
     CarService.get($stateParams.carId).then(function (car) {
@@ -79,7 +80,7 @@ angular.module('idlecars')
   $scope.formTitle = 'Please select exterior color:';
   $scope.singleChoice = {
     key: 'exterior_color',
-    choices: ['black', 'red', 'white', 'yellow'],
+    choices: $scope.colors,
   }
 })
 
@@ -90,6 +91,6 @@ angular.module('idlecars')
   $scope.formTitle = 'Please select interior color:';
   $scope.singleChoice = {
     key: 'interior_color',
-    choices: ['black', 'red', 'white', 'yellow'],
+    choices: $scope.colors,
   }
 })
