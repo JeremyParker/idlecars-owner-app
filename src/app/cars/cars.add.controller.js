@@ -22,16 +22,6 @@ angular.module('idlecars')
       $state.go($scope.$$childHead.nextState);
     })
   }
-
-  $scope.colors = [
-    {key: 'black', value: 'Black'},
-    {key: 'charcoal', value: 'Charcoal'},
-    {key: 'grey', value: 'Grey'},
-    {key: 'dark blue', value: 'Dark Blue'},
-    {key: 'blue', value: 'Blue'},
-    {key: 'tan', value: 'Tan'},
-    {key: 'white', value: 'White'},
-  ];
 })
 
 .controller('cars.add.confirm.controller', function ($scope, $state) {
@@ -136,17 +126,16 @@ angular.module('idlecars')
   NavbarService.validateInit($scope);
 })
 
-.controller('cars.add.minimum.controller', function ($scope, NavbarService) {
-  $scope.fields = [{
-    label: 'Minimum rental',
-    name: 'min_lease',
-    type: 'text',
-    autoFocus: true,
-  }];
+.controller('cars.add.minimum.controller', function ($scope, $rootScope, CarService) {
+  $rootScope.navNextEnabled = true;
+
+  $scope.formTitle = 'Please select minimum rental weeks:';
+  $scope.singleChoice = {
+    key: 'min_lease',
+    choices: CarService.minimum_lease,
+  }
 
   $scope.nextState = '^.mileage';
-
-  NavbarService.validateInit($scope);
 })
 
 .controller('cars.add.mileage.controller', function ($scope, NavbarService) {
@@ -162,25 +151,25 @@ angular.module('idlecars')
   NavbarService.validateInit($scope);
 })
 
-.controller('cars.add.exterior.controller', function ($scope, $rootScope, $state) {
+.controller('cars.add.exterior.controller', function ($scope, $rootScope, CarService) {
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select exterior color:';
   $scope.singleChoice = {
     key: 'exterior_color',
-    choices: $scope.colors,
+    choices: CarService.colors,
   }
 
   $scope.nextState = '^.interior';
 })
 
-.controller('cars.add.interior.controller', function ($scope, $rootScope, $state) {
+.controller('cars.add.interior.controller', function ($scope, $rootScope, CarService) {
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select interior color:';
   $scope.singleChoice = {
     key: 'interior_color',
-    choices: $scope.colors,
+    choices: CarService.colors,
   }
 
   $scope.nextState = '^.success';
