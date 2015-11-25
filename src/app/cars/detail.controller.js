@@ -19,7 +19,7 @@ angular.module('idlecars')
 
   $scope.carDetail = [
     {title: 'Weekly rent', link: '.update.rent', content: 'solo_cost'},
-    {title: 'Available', link: '.update.available', content: 'next_available_date'},
+    {title: 'Available', link: '.update.available', content: 'available_date_display'},
     {title: 'Deposit', link: '.update.deposit', content: 'solo_deposit'},
     {title: 'Min rental', link: '.update.minimum', content: 'min_lease'},
     {title: 'Mileage', link: '.update.mileage', content: 'last_known_mileage'},
