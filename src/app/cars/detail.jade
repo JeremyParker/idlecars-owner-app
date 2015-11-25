@@ -12,5 +12,8 @@
         .content-main {{car[item.content]}}
         .next-pointer
 
-  button.alert-button(ng-click='delist()') Remove listing
+  section
+    button.cancel-button(ng-click='delistCar()') Remove listing
 
+  section
+    button.alert-button(ng-click='deleteCar()') Delete car
