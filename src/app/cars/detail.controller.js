@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.detail.controller', function ($scope, $stateParams, $state, CarService, LANDING_STATE) {
+.controller('cars.detail.controller', function ($scope, $stateParams, $state, CarService, AppNotificationService, LANDING_STATE) {
   if (!$stateParams.car) {
     CarService.get($stateParams.carId)
     .then(function (car) { $scope.car = angular.copy(car) })
@@ -27,7 +27,20 @@ angular.module('idlecars')
     {title: 'Interior color', link: '.update.interior', content: 'interior_color'},
   ];
 
-  $scope.delist = function () {
+  $scope.delistCar = function () {
     // TODO: an endpoint to delist car
+  }
+
+  $scope.deleteCar = function () {
+    CarService.patch($scope.car.id, {owner: null})
+    .then(function (car) {
+      var message = "You've successfully deleted your " + car.name + " " + car.plate;
+      AppNotificationService.push({success: message});
+      $state.go('^');
+    })
+    .catch(function () {
+      AppNotificationService.push({error: 'Sorry, something went wrong. Please try again later'})
+    })
+
   }
 })

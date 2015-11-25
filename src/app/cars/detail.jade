@@ -11,6 +11,8 @@
         label.m-gray {{item.title}}
         .content-main {{car[item.content]}}
         .next-pointer
+  section
+    button.cancel-button(ng-click='delistCar()') Remove listing
 
-  button.alert-button(ng-click='delist()') Remove listing
-
+  section
+    button.alert-button(ng-click='deleteCar()') Delete car
