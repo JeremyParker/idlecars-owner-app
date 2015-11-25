@@ -13,7 +13,7 @@ angular.module('idlecars')
   $scope.carInfo = [
     {title: 'Car', content: 'name'},
     {title: 'Plate', content: 'plate'},
-    {title: 'Status', content: 'status'},
+    {title: 'State', content: 'state'},
   ];
 
   $scope.carDetail = [
