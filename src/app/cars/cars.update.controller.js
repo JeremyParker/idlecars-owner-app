@@ -74,7 +74,6 @@ angular.module('idlecars')
 })
 
 .controller('cars.update.exterior.controller', function ($scope, $rootScope) {
-  //TODO: this does not update $scope.user correctly. we need to refactor it
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select exterior color:';
@@ -85,7 +84,6 @@ angular.module('idlecars')
 })
 
 .controller('cars.update.interior.controller', function ($scope, $rootScope) {
-  //TODO: this does not update $scope.user correctly. we need to refactor it
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select interior color:';
