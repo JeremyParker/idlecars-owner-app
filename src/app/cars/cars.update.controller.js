@@ -1,23 +1,23 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.update.controller', function ($scope, $rootScope, $stateParams, CarService, NavbarService) {
+.controller('cars.update.controller', function ($scope, $rootScope, $timeout, $stateParams, $state, CarService, NavbarService) {
   // TODO: this user is actually the car object, we need to rename it to object
   $scope.user = $stateParams.car || {};
 
   if (!$stateParams.car) {
     CarService.get($stateParams.carId).then(function (car) {
       $scope.user = car;
-      NavbarService.validateInit($scope, true);
+      $scope.validateForm();
     })
   }
 
   $scope.validateForm = function() {
-    $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid;
+    $timeout(function () { $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid });
   }
 
   $rootScope.navSave = function() {
-    CarService.patch($scope.user).then(function () {
+    CarService.patch($stateParams.carId, $scope.user).then(function () {
       $state.go('cars.detail', {carId: $stateParams.carId});
     })
   }
