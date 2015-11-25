@@ -27,20 +27,47 @@ angular.module('idlecars')
     {title: 'Interior color', link: '.update.interior', content: 'interior_color'},
   ];
 
+  var errorDisplay = function () {
+    AppNotificationService.push({error: 'Sorry, something went wrong. Please try again later'});
+  }
+
+  var requestFinished = function () { $scope.isBusy = false }
+
+  $scope.relistCar = function () {
+    $scope.isBusy = true;
+    CarService.patch($scope.car.id, {status: 'available'})
+    .then(function (car) {
+      $scope.car = car;
+      var message = "You've successfully relisted your " + car.name + " " + car.plate;
+      AppNotificationService.push({success: message});
+    })
+    .catch(errorDisplay)
+    .finally(requestFinished)
+  }
+
   $scope.delistCar = function () {
-    // TODO: an endpoint to delist car
+    $scope.isBusy = true;
+    CarService.patch($scope.car.id, {status: 'busy'})
+    .then(function (car) {
+      $scope.car = car;
+      var message = "You've delisted your " + car.name + " " + car.plate;
+      AppNotificationService.push({warning: message});
+    })
+    .catch(errorDisplay)
+    .finally(requestFinished)
   }
 
   $scope.deleteCar = function () {
+    $scope.isBusy = true;
     CarService.patch($scope.car.id, {owner: null})
     .then(function (car) {
+      $scope.car = car;
       var message = "You've successfully deleted your " + car.name + " " + car.plate;
       AppNotificationService.push({success: message});
       $state.go('^');
     })
-    .catch(function () {
-      AppNotificationService.push({error: 'Sorry, something went wrong. Please try again later'})
-    })
+    .finally(requestFinished)
+    .catch(errorDisplay)
 
   }
 })
