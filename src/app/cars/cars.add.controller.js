@@ -23,7 +23,15 @@ angular.module('idlecars')
     })
   }
 
-  $scope.colors = ['Black', 'Charcoal', 'Grey', 'Dark Blue', 'Blue', 'Tan', 'White'];
+  $scope.colors = [
+    {key: 'black', value: 'Black'},
+    {key: 'charcoal', value: 'Charcoal'},
+    {key: 'grey', value: 'Grey'},
+    {key: 'dark blue', value: 'Dark Blue'},
+    {key: 'blue', value: 'Blue'},
+    {key: 'tan', value: 'Tan'},
+    {key: 'white', value: 'White'},
+  ];
 })
 
 .controller('cars.add.confirm.controller', function ($scope, $state) {
