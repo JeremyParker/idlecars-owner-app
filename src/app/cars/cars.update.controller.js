@@ -20,8 +20,8 @@ angular.module('idlecars')
   }
 
   $rootScope.navSave = function() {
-    CarService.patch($stateParams.carId, $scope.user).then(function () {
-      $state.go('cars.detail', {carId: $stateParams.carId});
+    CarService.patch($stateParams.carId, $scope.user).then(function (car) {
+      $state.go('cars.detail', {carId: $stateParams.carId, car: car});
     })
   }
 
