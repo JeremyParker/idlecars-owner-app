@@ -85,13 +85,14 @@ angular.module('idlecars')
   }];
 })
 
-.controller('cars.update.minimum.controller', function ($scope) {
-  $scope.fields = [{
-    label: 'Minimum rental',
-    name: 'min_lease',
-    type: 'text',
-    autoFocus: true,
-  }];
+.controller('cars.update.minimum.controller', function ($scope, $rootScope, CarService) {
+  $rootScope.navNextEnabled = true;
+
+  $scope.formTitle = 'Please select minimum rental weeks:';
+  $scope.singleChoice = {
+    key: 'min_lease',
+    choices: CarService.minimum_lease,
+  }
 })
 
 .controller('cars.update.mileage.controller', function ($scope) {
@@ -99,26 +100,27 @@ angular.module('idlecars')
     label: 'Current mileage(optional)',
     name: 'last_known_mileage',
     type: 'text',
+    required: false,
     autoFocus: true,
   }];
 })
 
-.controller('cars.update.exterior.controller', function ($scope, $rootScope) {
+.controller('cars.update.exterior.controller', function ($scope, $rootScope, CarService) {
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select exterior color:';
   $scope.singleChoice = {
     key: 'exterior_color',
-    choices: $scope.colors,
+    choices: CarService.colors,
   }
 })
 
-.controller('cars.update.interior.controller', function ($scope, $rootScope) {
+.controller('cars.update.interior.controller', function ($scope, $rootScope, CarService) {
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select interior color:';
   $scope.singleChoice = {
     key: 'interior_color',
-    choices: $scope.colors,
+    choices: CarService.colors,
   }
 })
