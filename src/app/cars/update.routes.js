@@ -27,7 +27,7 @@ angular.module('idlecars')
     .state('cars.update.available', {
       url: '/available',
       data: {navbarInfo: {title: 'Available date', enableBack: true, enableSave: true}},
-      templateUrl: 'shared/users/form.html',
+      templateUrl: 'shared/users/notice.html',
       controller: 'cars.update.available.controller',
     })
 

@@ -1,23 +1,27 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.update.controller', function ($scope, $rootScope, $stateParams, Restangular, NavbarService) {
-  // this user is actually the car object
+.controller('cars.update.controller', function ($scope, $rootScope, $timeout, $stateParams, $state, CarService, NavbarService) {
+  // TODO: this user is actually the car object, we need to rename it to object
+  $scope.user = $stateParams.car || {};
+  $scope.colors = ['Black', 'Charcoal', 'Grey', 'Dark Blue', 'Blue', 'Tan', 'White'];
+
   if (!$stateParams.car) {
-    Restangular.one('cars', $stateParams.carId).get().then(function (car) {
+    CarService.get($stateParams.carId).then(function (car) {
       $scope.user = car;
+      $scope.validateForm();
     })
   }
-  $scope.user = $stateParams.car;
 
   $scope.validateForm = function() {
-    $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid;
+    if ($scope.$$childHead.fieldForm) {
+      $timeout(function () { $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid });
+    };
   }
 
   $rootScope.navSave = function() {
-    CarService.patch($scope.user).then(function () {
-      var detailState = 'cars.detail({carId:' + $stateParams.carId + '})';
-      $state.go(detailState);
+    CarService.patch($stateParams.carId, $scope.user).then(function (car) {
+      $state.go('cars.detail', {carId: $stateParams.carId, car: car});
     })
   }
 
@@ -33,14 +37,42 @@ angular.module('idlecars')
   }];
 })
 
-.controller('cars.update.available.controller', function ($scope) {
-  //TODO: date format does not work. we need to refactor this
-  $scope.fields = [{
-    label: 'When will the car be available',
-    name: 'next_available_date',
-    placeholder: 'YYYY-MM-DD',
-    type: 'date',
-    autoFocus: true,
+.controller('cars.update.available.controller', function ($scope, $rootScope) {
+  var options = {
+    clear: 'Cancel',
+    today: '',
+    min: new Date(),
+    weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+    onClose: function () {
+      var new_date = $scope.$$childHead.date || $scope.$$childTail.date;
+      if (new_date) {
+        $scope.user.next_available_date = [
+          new_date.getFullYear(),
+          new_date.getMonth(),
+          new_date.getDate(),
+        ];
+        $rootScope.navSave()
+      };
+    },
+  }
+
+  var loadContent = function () {
+    var date = $scope.user.next_available_date;
+
+    if (date) {
+      $scope.contents = [{
+        content: date[0] +'-'+ date[1] +'-'+ date[2],
+      }]
+    };
+  }
+
+  $rootScope.navNextEnabled = true;
+  $scope.$watch('user', loadContent)
+  $scope.label = 'Please choose the next available date:';
+
+  $scope.buttons = [{
+    value: 'change date',
+    dateOptions: options,
   }];
 })
 
@@ -72,23 +104,21 @@ angular.module('idlecars')
 })
 
 .controller('cars.update.exterior.controller', function ($scope, $rootScope) {
-  //TODO: this does not update $scope.user correctly. we need to refactor it
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select exterior color:';
   $scope.singleChoice = {
     key: 'exterior_color',
-    choices: ['black', 'red', 'white', 'yellow'],
+    choices: $scope.colors,
   }
 })
 
 .controller('cars.update.interior.controller', function ($scope, $rootScope) {
-  //TODO: this does not update $scope.user correctly. we need to refactor it
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please select interior color:';
   $scope.singleChoice = {
     key: 'interior_color',
-    choices: ['black', 'red', 'white', 'yellow'],
+    choices: $scope.colors,
   }
 })
