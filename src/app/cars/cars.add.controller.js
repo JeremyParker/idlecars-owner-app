@@ -146,6 +146,7 @@ angular.module('idlecars')
     label: 'Current mileage(optional)',
     name: 'last_known_mileage',
     type: 'text',
+    required: false,
     autoFocus: true,
   }];
 
