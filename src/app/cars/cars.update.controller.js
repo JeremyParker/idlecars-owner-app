@@ -14,7 +14,9 @@ angular.module('idlecars')
   }
 
   $scope.validateForm = function() {
-    $timeout(function () { $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid });
+    if ($scope.$$childHead.fieldForm) {
+      $timeout(function () { $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid });
+    };
   }
 
   $rootScope.navSave = function() {
@@ -35,14 +37,42 @@ angular.module('idlecars')
   }];
 })
 
-.controller('cars.update.available.controller', function ($scope) {
-  //TODO: date format does not work. we need to refactor this
-  $scope.fields = [{
-    label: 'When will the car be available',
-    name: 'next_available_date',
-    placeholder: 'YYYY-MM-DD',
-    type: 'date',
-    autoFocus: true,
+.controller('cars.update.available.controller', function ($scope, $rootScope) {
+  var options = {
+    clear: 'Cancel',
+    today: '',
+    min: new Date(),
+    weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+    onClose: function () {
+      var new_date = $scope.$$childHead.date || $scope.$$childTail.date;
+      if (new_date) {
+        $scope.user.next_available_date = [
+          new_date.getFullYear(),
+          new_date.getMonth(),
+          new_date.getDate(),
+        ];
+        $rootScope.navSave()
+      };
+    },
+  }
+
+  var loadContent = function () {
+    var date = $scope.user.next_available_date;
+
+    if (date) {
+      $scope.contents = [{
+        content: date[0] +'-'+ date[1] +'-'+ date[2],
+      }]
+    };
+  }
+
+  $rootScope.navNextEnabled = true;
+  $scope.$watch('user', loadContent)
+  $scope.label = 'Please choose the next available date:';
+
+  $scope.buttons = [{
+    value: 'change date',
+    dateOptions: options,
   }];
 })
 

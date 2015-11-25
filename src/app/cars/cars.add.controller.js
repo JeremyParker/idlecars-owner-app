@@ -8,12 +8,15 @@ angular.module('idlecars')
   if (!$stateParams.car) {
     CarService.get($stateParams.carId).then(function (car) {
       $scope.user = car;
+      $scope.validateForm();
     })
     // TODO: catch error
   };
 
   $scope.validateForm = function() {
-    $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid;
+    if ($scope.$$childHead.fieldForm) {
+      $timeout(function () { $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid });
+    };
   }
 
   $rootScope.navGoNext = function() {
