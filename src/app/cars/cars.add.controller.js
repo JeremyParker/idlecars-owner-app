@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.add.controller', function ($scope, $rootScope, $state, $stateParams, CarService) {
+.controller('cars.add.controller', function ($scope, $rootScope, $state, $stateParams, $timeout, CarService) {
   // TODO: this user is actually the car object, we need to rename user --> object in form.jade
   $scope.user = $stateParams.car || {};
 

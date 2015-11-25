@@ -37,6 +37,6 @@ angular.module('idlecars')
   $rootScope.navGoNext = function() {
     MyOwnerService.patch($scope.user)
     // TODO: this will go to add new cars
-    .then(function () { $state.go('^.zipcode') })
+    .then(function () { $state.go('plate') })
   }
 })
