@@ -13,7 +13,10 @@
         .next-pointer
 
   section
-    button.cancel-button(ng-click='delistCar()') Remove listing
+    button.button(ng-if='car.status != "available"', ng-click='relistCar()') List my car
+
+  section
+    button.cancel-button(ng-if='car.status == "available"', ng-click='delistCar()') Remove listing
 
   section
     button.alert-button(ng-click='deleteCar()') Delete car
