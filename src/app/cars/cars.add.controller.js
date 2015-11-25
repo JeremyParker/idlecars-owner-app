@@ -163,9 +163,7 @@ angular.module('idlecars')
     choices: $scope.colors,
   }
 
-  $rootScope.navGoNext = function() {
-    $state.go('^.interior')
-  }
+  $scope.nextState = '^.interior';
 })
 
 .controller('cars.add.interior.controller', function ($scope, $rootScope, $state) {
@@ -177,9 +175,7 @@ angular.module('idlecars')
     choices: $scope.colors,
   }
 
-  $rootScope.navGoNext = function() {
-    $state.go('^.success')
-  }
+  $scope.nextState = '^.success';
 })
 
 .controller('cars.add.success.controller', function ($scope, $state) {
