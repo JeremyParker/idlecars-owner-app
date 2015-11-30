@@ -7,7 +7,7 @@ angular.module('idlecars')
 
     .state('ownerAccount.bankLink', {
       url: '/bank-link',
-      data: {navbarInfo: {title: 'Link Bank Account', enableBack: true}},
+      data: {navbarInfo: {title: 'Link Bank Account', enableBack: true, enableMenu: true}},
       views: {
         'content@': {
           templateUrl: 'app/bank/bank_link.html',
