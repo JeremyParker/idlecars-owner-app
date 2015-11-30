@@ -20,12 +20,11 @@ angular.module('idlecars')
   $scope.carInfo = [
     {title: 'Car', content: 'name'},
     {title: 'Plate', content: 'plate'},
-    {title: 'State', content: 'state'},
   ];
 
   $scope.carDetail = [
     {title: 'Weekly rent', link: getLink('rent'), content: 'solo_cost'},
-    {title: 'Available', link: getLink('available'), content: 'next_available_date'},
+    {title: 'Available', link: getLink('available'), content: 'available_date_display'},
     {title: 'Deposit', link: getLink('deposit'), content: 'solo_deposit'},
     {title: 'Min rental', link: getLink('minimum'), content: 'min_lease'},
     {title: 'Mileage', link: getLink('mileage'), content: 'last_known_mileage'},

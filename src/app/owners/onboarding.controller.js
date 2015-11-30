@@ -1,15 +1,25 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('owner.onboarding.controller', function ($scope, $rootScope) {
+.controller('owner.onboarding.controller', function ($scope, $rootScope, $state, $timeout, MyOwnerService) {
   $scope.user = {};
 
+  MyOwnerService.get().then(function (me) {
+    $scope.user = me;
+    $scope.validateForm();
+  })
+
   $scope.validateForm = function() {
-    $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid;
+    $timeout(function () { $rootScope.navNextEnabled = $scope.$$childHead.fieldForm.$valid })
+  }
+
+  $rootScope.navGoNext = function() {
+    MyOwnerService.patch($scope.user)
+    .then(function () { $state.go($scope.$$childHead.nextState) })
   }
 })
 
-.controller('owner.onboarding.company.controller', function ($scope, $rootScope, $state, MyOwnerService) {
+.controller('owner.onboarding.company.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'Enter your company name',
     name: 'company_name',
@@ -18,13 +28,12 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  $rootScope.navGoNext = function() {
-    MyOwnerService.patch($scope.user)
-    .then(function () { $state.go('^.zipcode') })
-  }
+  $scope.nextState = '^.zipcode';
+
+  NavbarService.validateInit($scope);
 })
 
-.controller('owner.onboarding.zipcode.controller', function ($scope, $rootScope, $state, MyOwnerService) {
+.controller('owner.onboarding.zipcode.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'Enter your zip code',
     name: 'zipcode',
@@ -34,9 +43,7 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  $rootScope.navGoNext = function() {
-    MyOwnerService.patch($scope.user)
-    // TODO: this will go to add new cars
-    .then(function () { $state.go('^.zipcode') })
-  }
+  $scope.nextState = 'plate';
+
+  NavbarService.validateInit($scope);
 })
