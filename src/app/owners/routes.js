@@ -63,27 +63,6 @@ angular.module('idlecars')
       controller: 'owner.update.company.controller',
     })
 
-    .state('ownerAccount.update.address', {
-      url: '/address',
-      data: {navbarInfo: {title: 'Address', enableBack: true, enableSave: true}},
-      templateUrl: 'shared/users/form.html',
-      controller: 'owner.update.address.controller',
-    })
-
-    .state('ownerAccount.update.apartment', {
-      url: '/apartment',
-      data: {navbarInfo: {title: 'Apartment', enableBack: true, enableSave: true}},
-      templateUrl: 'shared/users/form.html',
-      controller: 'owner.update.apartment.controller',
-    })
-
-    .state('ownerAccount.update.city', {
-      url: '/city',
-      data: {navbarInfo: {title: 'City', enableBack: true, enableSave: true}},
-      templateUrl: 'shared/users/form.html',
-      controller: 'owner.update.city.controller',
-    })
-
     .state('ownerAccount.update.zipcode', {
       url: '/zipcode',
       data: {navbarInfo: {title: 'Zip code', enableBack: true, enableSave: true}},
