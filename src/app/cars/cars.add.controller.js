@@ -179,14 +179,26 @@ angular.module('idlecars')
   $scope.nextState = '^.success';
 })
 
-.controller('cars.add.success.controller', function ($scope, $state) {
+.controller('cars.add.success.controller', function ($scope, $state, MyOwnerService) {
   var linkBankAccount = function () { $state.go('ownerAccount.bankLink') }
+  var myCars = function () { $state.go('cars') }
 
-  $scope.label = 'Your car has been added to your account. \
-    In order to receive weekly payments from the driver. you need to add your bank account details';
+  MyOwnerService.get().then(function (me) {
+    if (me.bank_account_state == 'Add now') {
+      $scope.label = 'Your car has been added to your account. \
+        In order to receive weekly payments from the driver. you need to add your bank account details';
+
+      $scope.buttons = [{
+        value: 'Bank account',
+        click: linkBankAccount,
+      }]
+    }
+  })
+
+  $scope.label = 'Your car has been added to your account. Check it out!';
 
   $scope.buttons = [{
-    value: 'Bank account',
-    click: linkBankAccount,
+    value: 'My cars',
+    click: myCars,
   }]
 })
