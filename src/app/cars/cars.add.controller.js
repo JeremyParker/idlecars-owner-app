@@ -56,27 +56,27 @@ angular.module('idlecars')
 
   $scope.$watch('user', loadContent);
 
-  $scope.label = 'Please confirm this is your car';
+  $scope.label = 'Is this your car?';
 
   $scope.buttons = [{
     value: 'That\'s my car',
     click: confirm,
   },
   {
-    value: 'Not my car',
+    value: 'That\'s not my car',
     click: decline,
   }];
 })
 
 .controller('cars.add.rent.controller', function ($scope, NavbarService) {
   $scope.fields = [{
-    label: 'Rent per week($)',
+    label: 'Please enter the weekly rent (in dollars)',
     name: 'solo_cost',
     type: 'text',
     autoFocus: true,
   }];
 
-  $scope.nextState = '^.available';
+  $scope.nextState = '^.deposit';
 
   NavbarService.validateInit($scope);
 })
@@ -110,10 +110,10 @@ angular.module('idlecars')
     };
   }
 
-  $scope.nextState = '^.deposit';
+  $scope.nextState = '^.minimum';
   $rootScope.navNextEnabled = true;
   $scope.$watch('user', loadContent)
-  $scope.label = 'Please choose the next available date:';
+  $scope.label = 'When is the car next available?';
 
   $scope.buttons = [{
     value: 'change date',
@@ -123,13 +123,13 @@ angular.module('idlecars')
 
 .controller('cars.add.deposit.controller', function ($scope, NavbarService) {
   $scope.fields = [{
-    label: 'Deposit required($)',
+    label: 'What is the required deposit? (in dollars)',
     name: 'solo_deposit',
     type: 'text',
     autoFocus: true,
   }];
 
-  $scope.nextState = '^.minimum';
+  $scope.nextState = '^.available';
 
   NavbarService.validateInit($scope);
 })
@@ -137,7 +137,7 @@ angular.module('idlecars')
 .controller('cars.add.minimum.controller', function ($scope, $rootScope, CarService) {
   $rootScope.navNextEnabled = true;
 
-  $scope.formTitle = 'Please select minimum rental weeks:';
+  $scope.formTitle = 'Please choose a minimum rental period:';
   $scope.singleChoice = {
     key: 'min_lease',
     choices: CarService.minimum_lease,
@@ -148,7 +148,7 @@ angular.module('idlecars')
 
 .controller('cars.add.mileage.controller', function ($scope, NavbarService) {
   $scope.fields = [{
-    label: 'Current mileage(optional)',
+    label: 'What is the car\'s current mileage? (optional)',
     name: 'last_known_mileage',
     type: 'text',
     required: false,
@@ -163,7 +163,7 @@ angular.module('idlecars')
 .controller('cars.add.exterior.controller', function ($scope, $rootScope, CarService) {
   $rootScope.navNextEnabled = true;
 
-  $scope.formTitle = 'Please select exterior color:';
+  $scope.formTitle = 'Please choose the car\'s exterior color:';
   $scope.singleChoice = {
     key: 'exterior_color',
     choices: CarService.colors,
@@ -175,7 +175,7 @@ angular.module('idlecars')
 .controller('cars.add.interior.controller', function ($scope, $rootScope, CarService) {
   $rootScope.navNextEnabled = true;
 
-  $scope.formTitle = 'Please select interior color:';
+  $scope.formTitle = 'Now choose the interior color:';
   $scope.singleChoice = {
     key: 'interior_color',
     choices: CarService.colors,
@@ -191,16 +191,16 @@ angular.module('idlecars')
   MyOwnerService.get().then(function (me) {
     if (me.bank_account_state == 'Add now') {
       $scope.label = 'Your car has been added to your account. \
-        In order to receive weekly payments from the driver. you need to add your bank account details';
+        In order to receive weekly payments from the driver we need to get your bank account details.';
 
       $scope.buttons = [{
-        value: 'Bank account',
+        value: 'Enter bank details',
         click: linkBankAccount,
       }]
     }
   })
 
-  $scope.label = 'Your car has been added to your account. Check it out!';
+  $scope.label = 'Your car has been added to your account!';
 
   $scope.buttons = [{
     value: 'My cars',

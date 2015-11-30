@@ -30,7 +30,7 @@ angular.module('idlecars')
 
 .controller('cars.update.rent.controller', function ($scope) {
   $scope.fields = [{
-    label: 'Rent per week($)',
+    label: 'Please enter the weekly rent (in dollars)',
     name: 'solo_cost',
     type: 'text',
     autoFocus: true,
@@ -68,7 +68,7 @@ angular.module('idlecars')
 
   $rootScope.navNextEnabled = true;
   $scope.$watch('user', loadContent)
-  $scope.label = 'Please choose the next available date:';
+  $scope.label = 'When is the car next available?';
 
   $scope.buttons = [{
     value: 'change date',
@@ -78,7 +78,7 @@ angular.module('idlecars')
 
 .controller('cars.update.deposit.controller', function ($scope) {
   $scope.fields = [{
-    label: 'Deposit required($)',
+    label: 'What is the required deposit? (in dollars)',
     name: 'solo_deposit',
     type: 'text',
     autoFocus: true,
@@ -88,7 +88,7 @@ angular.module('idlecars')
 .controller('cars.update.minimum.controller', function ($scope, $rootScope, CarService) {
   $rootScope.navNextEnabled = true;
 
-  $scope.formTitle = 'Please select minimum rental weeks:';
+  $scope.formTitle = 'Please choose a minimum rental period:';
   $scope.singleChoice = {
     key: 'min_lease',
     choices: CarService.minimum_lease,
@@ -97,7 +97,7 @@ angular.module('idlecars')
 
 .controller('cars.update.mileage.controller', function ($scope) {
   $scope.fields = [{
-    label: 'Current mileage(optional)',
+    label: 'What is the car\'s current mileage? (optional)',
     name: 'last_known_mileage',
     type: 'text',
     required: false,
@@ -108,7 +108,7 @@ angular.module('idlecars')
 .controller('cars.update.exterior.controller', function ($scope, $rootScope, CarService) {
   $rootScope.navNextEnabled = true;
 
-  $scope.formTitle = 'Please select exterior color:';
+  $scope.formTitle = 'exterior color:';
   $scope.singleChoice = {
     key: 'exterior_color',
     choices: CarService.colors,
@@ -118,7 +118,7 @@ angular.module('idlecars')
 .controller('cars.update.interior.controller', function ($scope, $rootScope, CarService) {
   $rootScope.navNextEnabled = true;
 
-  $scope.formTitle = 'Please select interior color:';
+  $scope.formTitle = 'interior color:';
   $scope.singleChoice = {
     key: 'interior_color',
     choices: CarService.colors,
