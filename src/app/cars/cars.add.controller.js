@@ -32,7 +32,7 @@ angular.module('idlecars')
 
   var decline = function () {
     // TODO: patch to remove the owner from the car
-    $state.go('cars.plate')
+    $state.go('plate')
   }
 
   var loadContent = function () {
