@@ -27,15 +27,13 @@ angular.module('idlecars')
   }
 })
 
-.controller('cars.add.confirm.controller', function ($scope, $state, CarService) {
+.controller('cars.add.confirm.controller', function ($scope, $state, $stateParams, CarService) {
   var confirm = function () {
-    if (!$scope.user.id) { return };
     $state.go('^.rent');
   }
 
   var decline = function () {
-    if (!$scope.user.id) { return };
-    CarService.patch($scope.user.id, {owner: null})
+    CarService.patch($stateParams.carId, {owner: null})
     .then(function (car) {
       $state.go('plate');
     })
