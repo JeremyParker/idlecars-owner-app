@@ -35,7 +35,7 @@ angular.module('idlecars')
 
 .controller('owner.onboarding.zipcode.controller', function ($scope, NavbarService) {
   $scope.fields = [{
-    label: 'Enter your zip code',
+    label: 'What is the zip code where your cars can be picked up?',
     name: 'zipcode',
     type: 'text',
     maxlength: '5',

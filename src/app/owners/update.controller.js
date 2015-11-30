@@ -59,7 +59,7 @@ angular.module('idlecars')
 
 .controller('owner.update.zipcode.controller', function ($scope) {
   $scope.fields = [{
-    label: 'Enter your zip code',
+    label: 'Zip code:',
     name: 'zipcode',
     type: 'text',
     maxlength: '5',
