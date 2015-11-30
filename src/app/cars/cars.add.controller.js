@@ -27,12 +27,17 @@ angular.module('idlecars')
   }
 })
 
-.controller('cars.add.confirm.controller', function ($scope, $state) {
-  var confirm = function () { $state.go('^.rent') }
+.controller('cars.add.confirm.controller', function ($scope, $state, $stateParams, CarService) {
+  var confirm = function () {
+    $state.go('^.rent');
+  }
 
   var decline = function () {
-    // TODO: patch to remove the owner from the car
-    $state.go('plate')
+    CarService.patch($stateParams.carId, {owner: null})
+    .then(function (car) {
+      $state.go('plate');
+    })
+    // TODO: catch error
   }
 
   var loadContent = function () {
