@@ -26,7 +26,7 @@ angular.module('idlecars')
     {title: 'Weekly rent', link: getLink('rent'), content: 'solo_cost'},
     {title: 'Available', link: getLink('available'), content: 'available_date_display'},
     {title: 'Deposit', link: getLink('deposit'), content: 'solo_deposit'},
-    {title: 'Min rental', link: getLink('minimum'), content: 'min_lease'},
+    {title: 'Min rental', link: getLink('minimum'), content: 'min_lease_display'},
     {title: 'Mileage', link: getLink('mileage'), content: 'last_known_mileage'},
     {title: 'Exterior color', link: getLink('exterior'), content: 'exterior_color'},
     {title: 'Interior color', link: getLink('interior'), content: 'interior_color'},
