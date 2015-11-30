@@ -19,11 +19,12 @@ angular.module('idlecars')
 
 .controller('owner.update.company.controller', function ($scope) {
   $scope.fields = [{
-    label: 'Enter your company name',
+    label: 'Enter your company name (optional)',
     name: 'company_name',
     type: 'text',
     maxlength: '30',
     autoFocus: true,
+    required: false,
   }];
 })
 

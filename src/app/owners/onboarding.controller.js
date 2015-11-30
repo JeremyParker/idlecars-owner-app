@@ -21,11 +21,12 @@ angular.module('idlecars')
 
 .controller('owner.onboarding.company.controller', function ($scope, NavbarService) {
   $scope.fields = [{
-    label: 'Enter your company name',
+    label: 'Enter your company name (optional)',
     name: 'company_name',
     type: 'text',
     maxlength: '30',
     autoFocus: true,
+    required: false,
   }];
 
   $scope.nextState = '^.zipcode';
