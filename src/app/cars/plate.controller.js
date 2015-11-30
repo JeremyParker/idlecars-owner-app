@@ -12,10 +12,12 @@ angular.module('idlecars')
   }];
 
   $rootScope.navGoNext = function() {
+    $scope.isBusy = true;
     CarService.create({plate: $scope.user.plate})
     .then(function (car) {
       $state.go('cars.add.confirm', {carId: car.id, car: car})
     })
+    .finally(function () { $scope.isBusy = false })
     // TODO: catch error
   }
 
