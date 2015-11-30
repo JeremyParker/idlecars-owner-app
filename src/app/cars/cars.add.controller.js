@@ -186,10 +186,10 @@ angular.module('idlecars')
   MyOwnerService.get().then(function (me) {
     if (me.bank_account_state == 'Add now') {
       $scope.label = 'Your car has been added to your account. \
-        In order to receive weekly payments from the driver. you need to add your bank account details';
+        In order to receive weekly payments from the driver we need to get your bank account details.';
 
       $scope.buttons = [{
-        value: 'Bank account',
+        value: 'Enter bank details',
         click: linkBankAccount,
       }]
     }
