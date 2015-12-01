@@ -101,9 +101,9 @@ angular.module('idlecars')
   }
 
   var loadContent = function () {
-      $scope.contents = [{
-        content: $scope.user.available_date_display,
-      }]
+    $scope.contents = [{
+      content: $scope.user.available_date_display,
+    }]
   }
 
   $scope.nextState = '^.minimum';
