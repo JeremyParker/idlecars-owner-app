@@ -52,13 +52,6 @@ angular.module('idlecars')
       controller: 'cars.add.minimum.controller',
     })
 
-    .state('cars.add.mileage', {
-      url: '/mileage',
-      data: {navbarInfo: {title: 'Current mileage', enableBack: true, enableNext: true}},
-      templateUrl: 'shared/users/form.html',
-      controller: 'cars.add.mileage.controller',
-    })
-
     .state('cars.add.exterior', {
       url: '/exterior',
       data: {navbarInfo: {title: 'Exterior color', enableBack: true, enableNext: true}},

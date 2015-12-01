@@ -143,22 +143,7 @@ angular.module('idlecars')
     choices: CarService.minimum_lease,
   }
 
-  $scope.nextState = '^.mileage';
-})
-
-.controller('cars.add.mileage.controller', function ($scope, NavbarService) {
-  $scope.fields = [{
-    label: 'What is the car\'s current mileage? (optional)',
-    name: 'last_known_mileage',
-    type: 'text',
-    required: false,
-    autoFocus: true,
-    formatInput: 'num',
-  }];
-
   $scope.nextState = '^.exterior';
-
-  NavbarService.validateInit($scope);
 })
 
 .controller('cars.add.exterior.controller', function ($scope, $rootScope, CarService) {
