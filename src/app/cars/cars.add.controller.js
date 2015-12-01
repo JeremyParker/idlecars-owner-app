@@ -153,7 +153,7 @@ angular.module('idlecars')
     type: 'text',
     required: false,
     autoFocus: true,
-    formatNum: true,
+    formatInput: 'num',
   }];
 
   $scope.nextState = '^.exterior';
