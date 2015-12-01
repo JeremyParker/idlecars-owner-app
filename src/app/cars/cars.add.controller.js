@@ -73,6 +73,7 @@ angular.module('idlecars')
     label: 'Please enter the weekly rent (in dollars)',
     name: 'solo_cost',
     type: 'text',
+    pattern: '^[0-9,]+$',
     autoFocus: true,
     formatNum: true,
   }];
@@ -123,6 +124,7 @@ angular.module('idlecars')
     label: 'What is the required deposit? (in dollars)',
     name: 'solo_deposit',
     type: 'text',
+    pattern: '^[0-9,]+$',
     autoFocus: true,
     formatNum: true,
   }];
