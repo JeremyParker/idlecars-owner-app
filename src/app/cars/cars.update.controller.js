@@ -57,13 +57,9 @@ angular.module('idlecars')
   }
 
   var loadContent = function () {
-    var date = $scope.user.next_available_date;
-
-    if (date) {
       $scope.contents = [{
-        content: date[0] +'-'+ date[1] +'-'+ date[2],
+        content: $scope.user.available_date_display,
       }]
-    };
   }
 
   $rootScope.navNextEnabled = true;
