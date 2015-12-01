@@ -34,6 +34,7 @@ angular.module('idlecars')
     name: 'solo_cost',
     type: 'text',
     autoFocus: true,
+    formatNum: true,
   }];
 })
 
@@ -82,6 +83,7 @@ angular.module('idlecars')
     name: 'solo_deposit',
     type: 'text',
     autoFocus: true,
+    formatNum: true,
   }];
 })
 
@@ -102,6 +104,7 @@ angular.module('idlecars')
     type: 'text',
     required: false,
     autoFocus: true,
+    formatNum: true,
   }];
 })
 

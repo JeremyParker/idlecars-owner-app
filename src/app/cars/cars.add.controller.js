@@ -74,6 +74,7 @@ angular.module('idlecars')
     name: 'solo_cost',
     type: 'text',
     autoFocus: true,
+    formatNum: true,
   }];
 
   $scope.nextState = '^.deposit';
@@ -127,6 +128,7 @@ angular.module('idlecars')
     name: 'solo_deposit',
     type: 'text',
     autoFocus: true,
+    formatNum: true,
   }];
 
   $scope.nextState = '^.available';
