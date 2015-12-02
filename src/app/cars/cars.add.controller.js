@@ -73,8 +73,9 @@ angular.module('idlecars')
     label: 'Please enter the weekly rent (in dollars)',
     name: 'solo_cost',
     type: 'text',
+    pattern: '^[0-9,]+$',
     autoFocus: true,
-    formatNum: true,
+    formatInput: 'num',
   }];
 
   $scope.nextState = '^.deposit';
@@ -123,8 +124,9 @@ angular.module('idlecars')
     label: 'What is the required deposit? (in dollars)',
     name: 'solo_deposit',
     type: 'text',
+    pattern: '^[0-9,]+$',
     autoFocus: true,
-    formatNum: true,
+    formatInput: 'num',
   }];
 
   $scope.nextState = '^.available';
@@ -141,22 +143,7 @@ angular.module('idlecars')
     choices: CarService.minimum_lease,
   }
 
-  $scope.nextState = '^.mileage';
-})
-
-.controller('cars.add.mileage.controller', function ($scope, NavbarService) {
-  $scope.fields = [{
-    label: 'What is the car\'s current mileage? (optional)',
-    name: 'last_known_mileage',
-    type: 'text',
-    required: false,
-    autoFocus: true,
-    formatNum: true,
-  }];
-
   $scope.nextState = '^.exterior';
-
-  NavbarService.validateInit($scope);
 })
 
 .controller('cars.add.exterior.controller', function ($scope, $rootScope, CarService) {
