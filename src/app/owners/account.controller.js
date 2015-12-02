@@ -5,10 +5,10 @@ angular.module('idlecars')
 
   // TODO: we should move it to a presenter.
   $scope.userInfo = [
-    {title: 'First Name', link: 'user.firstname', content: 'first_name'},
-    {title: 'Last Name', link: 'user.lastname', content: 'last_name'},
-    {title: 'Email', link: 'user.email', content: 'email'},
-    {title: 'Phone number', link: 'user.phonenumber', content: 'phone_number'},
+    {title: 'First Name', link: 'user.update.firstname', content: 'first_name'},
+    {title: 'Last Name', link: 'user.update.lastname', content: 'last_name'},
+    {title: 'Email', link: 'user.update.email', content: 'email'},
+    {title: 'Phone number', link: 'user.update.phonenumber', content: 'phone_number'},
     {title: 'Password', link: 'password.change', content: ''},
   ];
 
