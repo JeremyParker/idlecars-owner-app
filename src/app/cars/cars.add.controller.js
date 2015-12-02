@@ -75,7 +75,6 @@ angular.module('idlecars')
     type: 'text',
     pattern: '^[0-9,]+$',
     autoFocus: true,
-    formatInput: 'num',
   }];
 
   $scope.nextState = '^.deposit';
@@ -126,7 +125,6 @@ angular.module('idlecars')
     type: 'text',
     pattern: '^[0-9,]+$',
     autoFocus: true,
-    formatInput: 'num',
   }];
 
   $scope.nextState = '^.available';

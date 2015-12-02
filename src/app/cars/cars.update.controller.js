@@ -35,7 +35,6 @@ angular.module('idlecars')
     type: 'text',
     pattern: '^[0-9,]+$',
     autoFocus: true,
-    formatInput: 'num',
   }];
 })
 
@@ -81,7 +80,6 @@ angular.module('idlecars')
     type: 'text',
     pattern: '^[0-9,]+$',
     autoFocus: true,
-    formatInput: 'num',
   }];
 })
 
@@ -102,7 +100,7 @@ angular.module('idlecars')
     type: 'text',
     required: false,
     autoFocus: true,
-    formatInput: 'num',
+    pattern: '^[0-9,]+$',
   }];
 })
 
