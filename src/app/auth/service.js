@@ -16,7 +16,7 @@ angular.module('idlecars')
   }
 
   service.accountCreated = function () {
-    $state.go('^.email');
+    $state.go('user.onboarding.email');
   }
 
   service.passwordChanged = function () {
