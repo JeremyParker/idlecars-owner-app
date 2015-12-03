@@ -1,0 +1,6 @@
+.car-detail
+  h3 {{car.name}}
+  p Plate: {{car.plate}}
+  p {{car.state_string}}
+
+  button.button(ng-repeat='button in car.state_buttons', ng-click='go(button.function_key)') {{button.label}}
