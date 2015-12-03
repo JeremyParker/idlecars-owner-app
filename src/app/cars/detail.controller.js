@@ -17,11 +17,6 @@ angular.module('idlecars')
 
   $scope.car = $stateParams.car;
 
-  $scope.carInfo = [
-    {title: 'Car', content: 'name'},
-    {title: 'Plate', content: 'plate'},
-  ];
-
   $scope.carDetail = [
     {title: 'Weekly rent', link: getLink('rent'), content: 'solo_cost'},
     {title: 'Deposit', link: getLink('deposit'), content: 'solo_deposit'},
