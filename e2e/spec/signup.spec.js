@@ -3,7 +3,7 @@
 describe('sign up page', function () {
   var cars = require('../cars/cars.po');
   var navbar = require('../components/navbar.po');
-  var signup = require('../auth/signup.po');
+  var fields = require('../templates/fields.po');
   var helpers = require('../spec_helper');
 
   describe('can sign up', function() {
@@ -14,23 +14,29 @@ describe('sign up page', function () {
     });
 
     it('successfully with onboarding flow', function() {
-      signup.phone.sendKeys('0987654321');
+      fields.phone.sendKeys('0987654321');
       navbar.nextButton.click();
 
-      signup.password1.sendKeys('password');
-      signup.password2.sendKeys('password');
+      fields.password1.sendKeys('password');
+      fields.password2.sendKeys('password');
       navbar.nextButton.click();
 
-      signup.email.sendKeys('test@gmail.com');
+      fields.email.sendKeys('test@gmail.com');
       navbar.nextButton.click();
 
-      signup.firstname.sendKeys('firstname');
+      fields.firstname.sendKeys('firstname');
       navbar.nextButton.click();
 
-      signup.lastname.sendKeys('lastname');
+      fields.lastname.sendKeys('lastname');
       navbar.nextButton.click();
 
-      expect(navbar.title.getText()).toEqual('Company name');
+      fields.company.sendKeys('idlecars');
+      navbar.nextButton.click();
+
+      fields.zipcode.sendKeys('11201');
+      navbar.nextButton.click();
+
+      expect(navbar.title.getText()).toEqual('TLC plate');
     });
   })
 
@@ -42,7 +48,7 @@ describe('sign up page', function () {
     });
 
     it('log in page', function() {
-      signup.loginButton.click();
+      fields.loginButton.click();
       expect(navbar.title.getText()).toEqual('Log in');
     });
   });

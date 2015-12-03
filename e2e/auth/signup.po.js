@@ -1,6 +1,6 @@
 'use strict';
 
-var Signup = function() {
+var Fields = function() {
   var self = this;
 
   self.phone = element(by.css('input[name=phone_number]'));
@@ -12,4 +12,4 @@ var Signup = function() {
   self.lastname = element(by.css('input[name=last_name]'));
 };
 
-module.exports = new Signup();
+module.exports = new Fields();
