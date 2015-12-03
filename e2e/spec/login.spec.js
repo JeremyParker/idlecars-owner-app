@@ -17,7 +17,6 @@ describe('user can log in', function () {
   });
 
   it('unsuccessfully', function() {
-    browser.pause()
     login.loginProcess('9876543211');
     expect(notice.message.getText()).toContain('Sorry, that didn\'t work.');
   });
