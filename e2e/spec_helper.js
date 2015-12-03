@@ -7,9 +7,10 @@ var startTest = function () {
     console.log('e2e test setup request done');
   });
 
-  browser.get('http://localhost:3000/#/').then(function() {
+  browser.get('http://localhost:3001/#/').then(function() {
     browser.executeScript('return localStorage.removeItem("ngStorage-authToken");')
     browser.executeScript('return localStorage.setItem("ngStorage-welcomeModalClosed", "true");')
+    browser.executeScript('return localStorage.setItem("ngStorage-welcomeCarsModalClosed", "true");')
   })
 }
 
