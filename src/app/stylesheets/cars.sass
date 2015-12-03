@@ -12,8 +12,18 @@
     @extend %white_theme
     padding: 3rem 2rem
 
-  .cars .car
-    padding: 1rem 0
+  .cars
+    padding: 1rem $page-gutter
+
+    .car
+      @extend %white_theme
+      margin: 1rem auto
+
+      &:first-child
+        margin-top: 0
+
+      &:last-child
+        margin-bottom: 0
 
   .add a
     border-top: 1px solid $medium_gray
