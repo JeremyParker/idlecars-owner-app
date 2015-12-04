@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.controller', function ($scope, $state, CarService, OwnerRequiredService, UserRequiredService, AppNotificationService) {
+.controller('cars.controller', function ($scope, $state, CarService, RequiredService, AppNotificationService) {
   CarService.get().then(function (cars) {
     $scope.cars = cars
   })
@@ -16,6 +16,6 @@ angular.module('idlecars')
   }
 
   $scope.isBusy = true;
-  UserRequiredService.requiredDocState().then(checkStates);
-  OwnerRequiredService.requiredDocState().then(checkStates);
+  RequiredService.userState().then(checkStates);
+  RequiredService.ownerState().then(checkStates);
 })

@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.detail.controller', function ($scope, $stateParams, $state, CarService, CarRequiredService, AppNotificationService, LANDING_STATE) {
+.controller('cars.detail.controller', function ($scope, $stateParams, $state, CarService, RequiredService, AppNotificationService, LANDING_STATE) {
 
   var goRequired = function () {
     if ($scope.car && $scope.car.state_string == 'Waiting for information') {
-      var state = CarRequiredService.requiredDocState($scope.car)
+      var state = RequiredService.carState($scope.car)
       $state.go(state, {carId: $scope.car.id})    };
   }
 
