@@ -9,6 +9,6 @@
 
   section.cars
     a.car(ng-repeat="car in cars", ui-sref=".detail({carId: car.id, car: car})")
-      car-detail(car='car')
+      car-detail(car='car', show-button='false')
 
 ic-loading(ng-show='isBusy')
