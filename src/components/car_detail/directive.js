@@ -26,6 +26,9 @@ angular.module('idlecars')
         else if (key == 'GoNextAvailableDate') {
           $state.go('cars.update.available', {carId: $scope.car.id})
         }
+        else if (key == 'RenewListing') {
+          CarService.renew($scope.car.id).then(function (car) { $scope.car = car })
+        }
       }
     }
   }
