@@ -14,7 +14,7 @@ angular.module('idlecars')
   }
 
   var docOrder = {
-    zipcode: 'ownerAccount.onboarding.email',
+    zipcode: 'ownerAccount.onboarding.zipcode',
   }
 
   service.requiredDocState = function (owner) {
