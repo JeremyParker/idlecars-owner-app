@@ -20,4 +20,14 @@ angular.module('idlecars')
   $scope.isBusy = true;
   RequiredService.userState().then(checkStates);
   RequiredService.ownerState().then(checkStates);
+
+  $scope.carDetail = function (car) {
+    if (car.state_string == 'Waiting for information') {
+      var state = RequiredService.carState(car);
+      $state.go(state, {carId: car.id, car: car});
+    }
+    else {
+      $state.go('.detail', {carId: car.id, car: car});
+    }
+  }
 })
