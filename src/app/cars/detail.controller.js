@@ -6,8 +6,7 @@ angular.module('idlecars')
   var goRequired = function () {
     if ($scope.car && $scope.car.state_string == 'Waiting for information') {
       var state = CarRequiredService.requiredDocState($scope.car)
-      console.log(state)
-    };
+      $state.go('cars.add.rent', {carId: $scope.car.id})    };
   }
 
   if (!$stateParams.car) {
