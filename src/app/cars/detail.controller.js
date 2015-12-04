@@ -1,12 +1,21 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('cars.detail.controller', function ($scope, $stateParams, $state, CarService, AppNotificationService, LANDING_STATE) {
+.controller('cars.detail.controller', function ($scope, $stateParams, $state, CarService, CarRequiredService, AppNotificationService, LANDING_STATE) {
+
+  var goRequired = function () {
+    if ($scope.car && $scope.car.state_string == 'Waiting for information') {
+      var state = CarRequiredService.requiredDocState($scope.car)
+      console.log(state)
+    };
+  }
+
   if (!$stateParams.car) {
     CarService.get($stateParams.carId)
-    .then(function (car) { $scope.car = angular.copy(car) })
+    .then(function (car) { $scope.car = angular.copy(car); goRequired() })
     .catch(function () { $state.go(LANDING_STATE) })
   }
+  else { $scope.car = $stateParams.car; goRequired() }
 
   var getLink = function (content) {
     var link = 'cars.update.';
@@ -14,8 +23,6 @@ angular.module('idlecars')
     link += '({carId:' + $stateParams.carId + '})';
     return link;
   }
-
-  $scope.car = $stateParams.car;
 
   $scope.carDetail = [
     {title: 'Weekly rent', link: getLink('rent'), content: 'solo_cost'},

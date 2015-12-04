@@ -18,7 +18,7 @@ angular.module('idlecars')
   }
 
   service.requiredDocState = function (owner) {
-    if (owner) {
+    if (!owner) {
       return MyOwnerService.get().then(function (owner) {
         return _nextMissingDoc(owner);
       })

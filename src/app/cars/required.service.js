@@ -22,7 +22,7 @@ angular.module('idlecars')
   }
 
   service.requiredDocState = function(cars) {
-    if (cars) {
+    if (!cars) {
       return CarService.get().then(function (cars) {
         return _nextMissingDoc(cars);
       })
