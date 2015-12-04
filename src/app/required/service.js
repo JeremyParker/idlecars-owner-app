@@ -5,7 +5,7 @@ angular.module('idlecars')
   var service = {};
 
   var _nextMissingDoc = function (object, objectService) {
-    docOrder = objectService.requiredDocs;
+    var docOrder = objectService.requiredDocs;
 
     for (var key in docOrder) {
       if (!object[key] || object[key] == docOrder[key].dislike) {
@@ -17,7 +17,7 @@ angular.module('idlecars')
 
   service.userState = function (user) {
     if (!user) {
-      UserService.get().then(function (user) {
+      return UserService.get().then(function (user) {
         return _nextMissingDoc(user, UserService)
       })
     }
@@ -26,16 +26,16 @@ angular.module('idlecars')
 
   service.ownerState = function (owner) {
     if (!owner) {
-      OwnerService.get().then(function (owner) {
-        return _nextMissingDoc(owner, OwnerService)
+      return MyOwnerService.get().then(function (owner) {
+        return _nextMissingDoc(owner, MyOwnerService)
       })
     }
-    else { return _nextMissingDoc(owner, OwnerService) }
+    else { return _nextMissingDoc(owner, MyOwnerService) }
   }
 
   service.carState = function (car) {
     if (!car) {
-      CarService.get().then(function (car) {
+      return CarService.get().then(function (car) {
         return _nextMissingDoc(car, CarService)
       })
     }

@@ -17,9 +17,7 @@ angular.module('idlecars')
   }
 
   service.requiredDocs = {
-    email: {dislike: '', state: 'user.onboarding.email'},
-    first_name: {dislike: '', state: 'user.onboarding.firstname'},
-    last_name: {dislike: '', state: 'user.onboarding.lastname'},
+    zipcode: {dislike: '', state: 'ownerAccount.onboarding.zipcode'},
   }
 
   return service;
