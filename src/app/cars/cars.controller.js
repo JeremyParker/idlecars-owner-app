@@ -6,10 +6,12 @@ angular.module('idlecars')
     $scope.cars = cars
   })
 
+  var excuted = false;
   var checkStates = function (state) {
     $scope.isBusy = false;
 
-    if (state) {
+    if (state && !excuted) {
+      excuted = true;
       $state.go('ownerAccount');
       AppNotificationService.push({warning: 'Remember to upload your missing documents. Go to "My Account" from the menu.'})
     };
