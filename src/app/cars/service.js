@@ -37,5 +37,9 @@ angular.module('idlecars')
     return Restangular.one('cars', carId).patch(params);
   }
 
+  service.renew = function (carId) {
+    return Restangular.one('cars', carId).all('extension').post('');
+  }
+
   return service;
 })
