@@ -5,6 +5,7 @@ angular.module('idlecars')
   return {
     scope: {
       car: '=',
+      showButton: '=',
     },
     templateUrl: 'components/car_detail/template.html',
     controller: function ($scope, $state, CarService) {

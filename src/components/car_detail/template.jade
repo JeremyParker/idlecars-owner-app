@@ -4,6 +4,7 @@
   p {{car.state_string}}
 
   button.button(
+    ng-show='showButton==undefined || showButton',
     ng-repeat='button in car.state_buttons',
     ng-click='go(button.function_key)'
   ) {{button.label}}
