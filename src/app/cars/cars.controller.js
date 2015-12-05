@@ -13,7 +13,7 @@ angular.module('idlecars')
     if (state && !excuted) {
       excuted = true;
       $state.go('ownerAccount');
-      AppNotificationService.push({warning: 'Remember to upload your missing documents. Go to "My Account" from the menu.'})
+      AppNotificationService.push({warning: 'Your account is incomplete. Please fill in any missing information.'})
     };
   }
 
