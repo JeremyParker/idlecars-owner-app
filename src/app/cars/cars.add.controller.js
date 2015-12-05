@@ -120,7 +120,7 @@ angular.module('idlecars')
 
 .controller('cars.add.deposit.controller', function ($scope, NavbarService) {
   $scope.fields = [{
-    label: 'What is the required deposit? (in dollars)',
+    label: 'What is the required deposit? (We suggest the amount shown)',
     name: 'solo_deposit',
     type: 'text',
     pattern: '^[0-9]+$',
