@@ -23,7 +23,7 @@ angular.module('idlecars')
 
   $scope.carDetail = function (car) {
     if (car.state_string == 'Waiting for information') {
-      var state = RequiredService.carState(car);
+      var state = RequiredService.carState(car) || '.detail';
       $state.go(state, {carId: car.id, car: car});
     }
     else {
