@@ -13,7 +13,7 @@ describe('In account page', function () {
     browser.get('http://localhost:3001/#/account');
   });
 
-  it('owner can update first name', function () {
+  it('can update first name', function () {
     expect(account.firstname.getText()).toEqual('Craig');
     account.firstname.click();
 
@@ -23,7 +23,7 @@ describe('In account page', function () {
     expect(account.firstname.getText()).toEqual('Marry');
   });
 
-  it('owner can update company name', function () {
+  it('can update company name', function () {
     expect(account.company.getText()).toEqual('Test');
     account.company.click();
 
@@ -38,4 +38,9 @@ describe('In account page', function () {
     account.smsButton.click();
     expect(account.smsButton.getText()).toContain('Off');
   });
+
+  it('can log out', function () {
+    account.logoutButton.click();
+    expect(navbar.title.getText()).toEqual('Sign up')
+  })
 })
