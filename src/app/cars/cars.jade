@@ -1,15 +1,14 @@
 .cars-wrapper
   h1(hidden) My cars
 
-  section.welcome
-    h2 My cars
-    p This is where you can add and manage your cars. You can change their listing prices, required deposit and their availability.
+  section
+    welcome-cars-modal
 
   section.add
     a(ui-sref="plate") + Add a new car
 
   section.cars
-    a.car(ng-repeat="car in cars", ui-sref=".detail({carId: car.id, car: car})")
-      .info
-        h3 {{car.name}}
-        p {{car.plate}}
+    a.car(ng-repeat="car in cars", ng-click="carDetail(car)")
+      car-detail(car='car', show-button='false')
+
+ic-loading(ng-show='isBusy')

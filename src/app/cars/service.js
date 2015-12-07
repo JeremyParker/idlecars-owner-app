@@ -22,6 +22,14 @@ angular.module('idlecars')
     {key: '_05_one_month', value: '30 days'},
   ];
 
+  service.requiredDocs = {
+    solo_cost: {dislike: '', state: 'cars.add.rent'},
+    solo_deposit: {dislike: '', state: 'cars.add.deposit'},
+    min_lease: {dislike: '_00_unknown', state: 'cars.add.minimum'},
+    exterior_color: {dislike: '', state: 'cars.add.exterior'},
+    interior_color: {dislike: '', state: 'cars.add.interior'},
+  }
+
   service.get = function (carId) {
     if (carId) {
       return Restangular.one('cars', carId).get();
@@ -35,6 +43,10 @@ angular.module('idlecars')
 
   service.patch = function (carId, params) {
     return Restangular.one('cars', carId).patch(params);
+  }
+
+  service.renew = function (carId) {
+    return Restangular.one('cars', carId).all('extension').post('');
   }
 
   return service;

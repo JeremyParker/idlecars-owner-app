@@ -2,11 +2,13 @@
 
 angular.module('idlecars')
 .controller('cars.detail.controller', function ($scope, $stateParams, $state, CarService, AppNotificationService, LANDING_STATE) {
+
   if (!$stateParams.car) {
     CarService.get($stateParams.carId)
     .then(function (car) { $scope.car = angular.copy(car) })
     .catch(function () { $state.go(LANDING_STATE) })
   }
+  else { $scope.car = $stateParams.car }
 
   var getLink = function (content) {
     var link = 'cars.update.';
@@ -14,13 +16,6 @@ angular.module('idlecars')
     link += '({carId:' + $stateParams.carId + '})';
     return link;
   }
-
-  $scope.car = $stateParams.car;
-
-  $scope.carInfo = [
-    {title: 'Car', content: 'name'},
-    {title: 'Plate', content: 'plate'},
-  ];
 
   $scope.carDetail = [
     {title: 'Weekly rent', link: getLink('rent'), content: 'solo_cost'},

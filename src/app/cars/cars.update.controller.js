@@ -75,7 +75,7 @@ angular.module('idlecars')
 
 .controller('cars.update.deposit.controller', function ($scope) {
   $scope.fields = [{
-    label: 'What is the required deposit? (in dollars)',
+    label: 'What is the required deposit?',
     name: 'solo_deposit',
     type: 'text',
     pattern: '^[0-9]+$',
