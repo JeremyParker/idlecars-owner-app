@@ -1,7 +1,9 @@
 {
   "name": "idlecars",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-template": "^3.1.0"
+  },
   "devDependencies": {
     "browser-sync": "~1.7.1",
     "chalk": "~0.5.1",
