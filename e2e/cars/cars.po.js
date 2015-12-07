@@ -3,11 +3,10 @@
 var Cars = function() {
   var self = this;
 
-  self.title = element(by.css('.welcome h2'));
-
   self.addCarButton = element(by.css('.add a'));
   self.cars = element.all(by.repeater('car in cars'));
-  self.firstCar = element.all(by.repeater('car in cars')).first();
+  self.Xtravaganza = element.all(by.repeater('car in cars')).get(0);
+  self.benz = element.all(by.repeater('car in cars')).get(1);
 };
 
 module.exports = new Cars();
