@@ -15,6 +15,12 @@ describe('password', function () {
   it('was forgot', function() {
     browser.get('http://localhost:3001/#/login');
     login.forgotButton.click();
+    fields.phone.sendKeys('9876342342'); // this is a wrong number
+    navbar.nextButton.click();
+    expect(notice.message.getText()).toContain('Sorry');
+    notice.message.click();
+
+    fields.phone.clear();
     fields.phone.sendKeys('9876543210');
     navbar.nextButton.click();
     expect(notice.message.getText()).toContain('A text message has been sent.');
