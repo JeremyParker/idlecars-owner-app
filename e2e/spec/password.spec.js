@@ -27,11 +27,24 @@ describe('password', function () {
     notice.message.click();
   });
 
-  it('can be changed', function() {
-    login.setToken('owner_has_two_cars');
-    browser.get('http://localhost:3001/#/change_password');
-    fields.instructionButton.click();
-    expect(notice.message.getText()).toContain('A text message has been sent.');
-    notice.message.click();
-  });
+  describe('can be reset', function () {
+
+    it('successfully', function() {
+      browser.get('http://localhost:3001/#/reset_password/test');
+      fields.password1.sendKeys('12');
+      fields.password2.sendKeys('12');
+      navbar.saveButton.click();
+      expect(notice.message.getText()).toContain('Your password has been set.');
+      notice.message.click();
+    });
+
+    it('unsuccessfully', function() {
+      browser.get('http://localhost:3001/#/reset_password/unsuccessfully');
+      fields.password1.sendKeys('12');
+      fields.password2.sendKeys('12');
+      navbar.saveButton.click();
+      expect(notice.message.getText()).toContain('Unable to verify user.');
+      notice.message.click();
+    });
+  })
 });
