@@ -40,15 +40,16 @@ describe('sign up page', function () {
     });
   })
 
-  describe('can go to', function () {
+  describe('can go to log in page', function () {
 
     beforeEach(function () {
       helpers.startTest();
       browser.get('http://localhost:3001/#/users/new/phone_number');
     });
 
-    it('log in page', function() {
-      fields.loginButton.click();
+    it('with exsiting phone number', function() {
+      fields.phone.sendKeys('9876543210');
+      navbar.nextButton.click();
       expect(navbar.title.getText()).toEqual('Log in');
     });
   });
