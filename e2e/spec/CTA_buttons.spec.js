@@ -9,10 +9,10 @@ describe('CTA buttons should work:', function () {
   beforeEach(function () {
     helpers.startTest();
     login.setToken('owner_has_bank_link');
-    browser.get('http://localhost:3001/#/cars/1');
   });
 
   it('remove list and relist ', function () {
+    browser.get('http://localhost:3001/#/cars/1');
     expect(detail.status.getText()).toContain('Listed');
     expect(detail.ctaButtons.count()).toBe(1);
     detail.firstCtaButton.click();
@@ -24,4 +24,11 @@ describe('CTA buttons should work:', function () {
     navbar.saveButton.click();
     expect(detail.status.getText()).toContain('Listed');
   });
+
+  it('extend listing', function () {
+    browser.get('http://localhost:3001/#/cars/4');
+    expect(detail.status.getText()).toEqual('Listing expired.');
+    detail.firstCtaButton.click();
+    expect(detail.status.getText()).toContain('Listed.');
+  })
 })
