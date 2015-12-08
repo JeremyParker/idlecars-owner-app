@@ -1,10 +1,8 @@
 'use strict';
 
 describe('CTA buttons should work:', function () {
-  var cars = require('../cars/cars.po');
   var detail = require('../cars/detail.po');
   var navbar = require('../components/navbar.po');
-  var fields = require('../templates/fields.po');
   var login = require('../auth/login.po');
   var helpers = require('../spec_helper');
 
