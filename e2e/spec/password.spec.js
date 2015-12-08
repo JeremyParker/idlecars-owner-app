@@ -3,7 +3,6 @@
 describe('password', function () {
   var notice = require('../components/app_notifications.po');
   var navbar = require('../components/navbar.po');
-  var cars = require('../cars/cars.po');
   var login = require('../auth/login.po');
   var fields = require('../templates/fields.po');
   var helpers = require('../spec_helper');
