@@ -13,7 +13,7 @@ describe('Owner can submit bank info', function () {
     login.setToken('owner_has_two_cars');
   });
 
-  iit('from account page', function () {
+  it('from account page', function () {
     browser.get('http://localhost:3001/#/account');
     expect(account.bankLink.getText()).toEqual('Add now');
     account.bankLink.click();
@@ -34,8 +34,10 @@ describe('Owner can submit bank info', function () {
     bankForm.submitButton.click();
     bankForm.okButton.click();
 
-    // TODO: this should go back to account page;
-    // expect(account.bankLink.getText()).toEqual('Pending');
+    // TODO: this should go back to account page
+    navbar.menuButton.click();
+    navbar.accountButton.click();
+    expect(account.bankLink.getText()).toEqual('Pending');
   })
 
 })
