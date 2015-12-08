@@ -22,6 +22,8 @@ var Fields = function() {
   self.rent = element(by.css('input[name=solo_cost]'));
   self.deposit = element(by.css('input[name=solo_deposit]'));
 
+  self.instructionButton = element.all(by.buttonText('Send me instructions')).filter(displayed).first();
+
   self.bankLinkButton = element.all(by.buttonText('Enter bank details')).filter(displayed).first();
   self.myCarsButton = element.all(by.buttonText('My cars')).filter(displayed).first();
 
