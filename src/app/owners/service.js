@@ -20,6 +20,10 @@ angular.module('idlecars')
     return service.owner;
   }
 
+  service.deCache = function () {
+    service.owner = null;
+  }
+
   service.requiredDocs = {
     zipcode: {dislike: '', state: 'ownerAccount.onboarding.zipcode'},
   }
