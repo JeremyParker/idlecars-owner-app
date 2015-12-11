@@ -5,7 +5,9 @@ angular.module('idlecars')
   var service = {};
 
   service.get = function () {
-    return Restangular.one('users', 'me').get();
+    if (service.user) { return service.user }
+    service.user = Restangular.one('users', 'me').get();
+    return service.user;
   }
 
   service.post = function (params) {
@@ -13,7 +15,8 @@ angular.module('idlecars')
   }
 
   service.patch = function (patchData) {
-    return Restangular.one('users', 'me').patch(patchData);
+    service.user = Restangular.one('users', 'me').patch(patchData);
+    return service.user
   }
 
   service.requiredDocs = {
