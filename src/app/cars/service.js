@@ -48,8 +48,13 @@ angular.module('idlecars')
   }
 
   service.create = function (params) {
-    service.cars = null;
-    return Restangular.all('cars').post(params);
+    var promise = Restangular.all('cars').post(params);
+    return promise.then(function (car) {
+      service.cars = null;
+      var carId = car.id;
+      service.car.carId = promise;
+      return promise
+    });
   }
 
   service.patch = function (carId, params) {

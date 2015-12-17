@@ -15,7 +15,7 @@ angular.module('idlecars')
     $scope.isBusy = true;
     CarService.create({plate: $scope.user.plate})
     .then(function (car) {
-      $state.go('cars.add.confirm', {carId: car.id, car: car})
+      $state.go('cars.add.confirm', {carId: car.id})
     })
     .finally(function () { $scope.isBusy = false })
     // TODO: catch error
