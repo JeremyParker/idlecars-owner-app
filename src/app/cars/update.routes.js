@@ -8,7 +8,6 @@ angular.module('idlecars')
     .state('cars.update', {
       abstract: true,
       url: 'cars/update/:carId',
-      params: {car: null},
       views: {
         'content@': {
           template: '<ui-view class="flex"/>',

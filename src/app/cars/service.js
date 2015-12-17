@@ -4,6 +4,8 @@ angular.module('idlecars')
 .factory('CarService', function (Restangular) {
   var service = {};
 
+  service.car = {};
+
   service.colors = [
     {key: 'black', value: 'Black'},
     {key: 'charcoal', value: 'Charcoal'},
@@ -32,21 +34,42 @@ angular.module('idlecars')
 
   service.get = function (carId) {
     if (carId) {
-      return Restangular.one('cars', carId).get();
+      if (!service.car.carId) {
+        service.car.carId = Restangular.one('cars', carId).get();
+      };
+      return service.car.carId;
     }
-    return Restangular.all('cars').getList();
+    if (!service.cars) {
+      service.cars = Restangular.all('cars').getList();
+    }
+    return service.cars;
   }
 
   service.create = function (params) {
-    return Restangular.all('cars').post(params);
+    var promise = Restangular.all('cars').post(params);
+    return promise.then(function (car) {
+      service.cars = null;
+      var carId = car.id;
+      service.car.carId = promise;
+      return promise
+    });
   }
 
   service.patch = function (carId, params) {
-    return Restangular.one('cars', carId).patch(params);
+    service.cars = null;
+    service.car.carId = Restangular.one('cars', carId).patch(params);
+    return service.car.carId;
   }
 
   service.renew = function (carId) {
-    return Restangular.one('cars', carId).all('extension').post('');
+    service.cars = null;
+    service.car.carId = Restangular.one('cars', carId).all('extension').post('');
+    return service.car.carId;
+  }
+
+  service.clearCache = function () {
+    service.car = {};
+    service.cars = null;
   }
 
   return service;
