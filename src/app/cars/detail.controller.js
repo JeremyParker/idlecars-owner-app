@@ -3,6 +3,8 @@
 angular.module('idlecars')
 .controller('cars.detail.controller', function ($scope, $stateParams, $state, CarService, AppNotificationService, LANDING_STATE) {
 
+  $scope.car = {};
+
   CarService.get($stateParams.carId)
   .then(function (car) { $scope.car = angular.copy(car) })
   .catch(function () { $state.go(LANDING_STATE) })
