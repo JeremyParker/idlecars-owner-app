@@ -2,16 +2,16 @@
 
 angular.module('idlecars')
 .controller('cars.add.controller', function ($scope, $rootScope, $state, $stateParams, $timeout, CarService) {
-  // TODO: this user is actually the car object, we need to rename user --> object in form.jade
-  $scope.user = $stateParams.car || {};
+  // this predefine is very important,
+  // otherwise angular won't assign the receiving car to the correct place
+  $scope.user = {};
 
-  if (!$stateParams.car) {
-    CarService.get($stateParams.carId).then(function (car) {
-      $scope.user = car;
-      $scope.validateForm();
-    })
-    // TODO: catch error
-  };
+  // TODO: this user is actually the car object, we need to rename user --> object in form.jade
+  CarService.get($stateParams.carId).then(function (car) {
+    $scope.user = car;
+    $scope.validateForm();
+  })
+  // TODO: catch error
 
   $scope.validateForm = function() {
     if ($scope.$$childHead.fieldForm) {
@@ -21,7 +21,7 @@ angular.module('idlecars')
 
   $rootScope.navGoNext = function() {
     CarService.patch($scope.user.id, $scope.user).then(function (car) {
-      $scope.user = car;
+      $scope.user = angular.copy(car);
       $state.go($scope.$$childHead.nextState);
     })
   }
