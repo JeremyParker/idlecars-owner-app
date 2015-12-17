@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('account.controller', function ($scope, AuthService, UserService, MyOwnerService) {
+.controller('account.controller', function ($scope, AuthService, UserService, MyOwnerService, CarService) {
 
   // TODO: we should move it to a presenter.
   $scope.userInfo = [
@@ -27,6 +27,7 @@ angular.module('idlecars')
   })
 
   $scope.logout = function () {
+    CarService.clearCache();
     AuthService.logout();
   };
 
