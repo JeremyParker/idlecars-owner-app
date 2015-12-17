@@ -65,7 +65,7 @@ angular.module('idlecars')
       AppNotificationService.push({success: message});
       $state.go('^');
     })
-    .catch(errorDisplay)
+    // an error message comes from the server
     .finally(requestFinished)
   }
 })
