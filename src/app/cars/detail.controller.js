@@ -3,12 +3,9 @@
 angular.module('idlecars')
 .controller('cars.detail.controller', function ($scope, $stateParams, $state, CarService, AppNotificationService, LANDING_STATE) {
 
-  if (!$stateParams.car) {
-    CarService.get($stateParams.carId)
-    .then(function (car) { $scope.car = angular.copy(car) })
-    .catch(function () { $state.go(LANDING_STATE) })
-  }
-  else { $scope.car = $stateParams.car }
+  CarService.get($stateParams.carId)
+  .then(function (car) { $scope.car = angular.copy(car) })
+  .catch(function () { $state.go(LANDING_STATE) })
 
   var getLink = function (content) {
     var link = 'cars.update.';
@@ -66,8 +63,7 @@ angular.module('idlecars')
       AppNotificationService.push({success: message});
       $state.go('^');
     })
-    .finally(requestFinished)
     .catch(errorDisplay)
-
+    .finally(requestFinished)
   }
 })

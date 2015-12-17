@@ -22,7 +22,6 @@ angular.module('idlecars')
 
     .state('cars.detail', {
       url: 'cars/:carId',
-      params: {car: null},
       views: {
         'content@': {
           templateUrl: 'app/cars/detail.html',

@@ -36,13 +36,11 @@ angular.module('idlecars')
     if (carId) {
       if (!service.car.carId) {
         service.car.carId = Restangular.one('cars', carId).get();
-        return service.car.carId;
       };
       return service.car.carId;
     }
     if (!service.cars) {
       service.cars = Restangular.all('cars').getList();
-      return service.cars;
     }
     return service.cars;
   }

@@ -3,15 +3,12 @@
 angular.module('idlecars')
 .controller('cars.update.controller', function ($scope, $rootScope, $timeout, $stateParams, $state, CarService, NavbarService) {
   // TODO: this user is actually the car object, we need to rename it to object
-  $scope.user = $stateParams.car || {};
-  $scope.colors = ['Black', 'Charcoal', 'Grey', 'Dark Blue', 'Blue', 'Tan', 'White'];
+  $scope.user = {};
 
-  if (!$stateParams.car) {
-    CarService.get($stateParams.carId).then(function (car) {
-      $scope.user = car;
-      $scope.validateForm();
-    })
-  }
+  CarService.get($stateParams.carId).then(function (car) {
+    $scope.user = car;
+    $scope.validateForm();
+  })
 
   $scope.validateForm = function() {
     if ($scope.$$childHead.fieldForm) {
@@ -21,7 +18,7 @@ angular.module('idlecars')
 
   $rootScope.navSave = function() {
     CarService.patch($stateParams.carId, $scope.user).then(function (car) {
-      $state.go('cars.detail', {carId: $stateParams.carId, car: car});
+      $state.go('cars.detail', {carId: $stateParams.carId});
     })
   }
 
