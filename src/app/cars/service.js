@@ -34,10 +34,10 @@ angular.module('idlecars')
 
   service.get = function (carId) {
     if (carId) {
-      if (!service.car.carId) {
-        service.car.carId = Restangular.one('cars', carId).get();
+      if (!service.car[carId]) {
+        service.car[carId] = Restangular.one('cars', carId).get();
       };
-      return service.car.carId;
+      return service.car[carId];
     }
     if (!service.cars) {
       service.cars = Restangular.all('cars').getList();
@@ -50,21 +50,21 @@ angular.module('idlecars')
     return promise.then(function (car) {
       service.cars = null;
       var carId = car.id;
-      service.car.carId = promise;
+      service.car[carId] = promise;
       return promise
     });
   }
 
   service.patch = function (carId, params) {
     service.cars = null;
-    service.car.carId = Restangular.one('cars', carId).patch(params);
-    return service.car.carId;
+    service.car[carId] = Restangular.one('cars', carId).patch(params);
+    return service.car[carId];
   }
 
   service.renew = function (carId) {
     service.cars = null;
-    service.car.carId = Restangular.one('cars', carId).all('extension').post('');
-    return service.car.carId;
+    service.car[carId] = Restangular.one('cars', carId).all('extension').post('');
+    return service.car[carId];
   }
 
   service.clearCache = function () {
