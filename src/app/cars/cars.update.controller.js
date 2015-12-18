@@ -25,7 +25,7 @@ angular.module('idlecars')
   NavbarService.validateInit($scope, true);
 })
 
-.controller('cars.add.shift.controller', function ($scope, $rootScope, CarService) {
+.controller('cars.update.shift.controller', function ($scope, $rootScope, CarService) {
   $rootScope.navNextEnabled = true;
 
   $scope.formTitle = 'Please choose a rental option for the driver:';
