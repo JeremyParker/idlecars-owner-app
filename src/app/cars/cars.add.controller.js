@@ -71,7 +71,7 @@ angular.module('idlecars')
 .controller('cars.add.shift.controller', function ($scope, $rootScope, CarService) {
   $rootScope.navNextEnabled = true;
 
-  $scope.formTitle = 'Please choose a rental option for the driver:';
+  $scope.formTitle = 'What shift is this car available?';
   $scope.singleChoice = {
     key: 'shift',
     choices: CarService.shift,
