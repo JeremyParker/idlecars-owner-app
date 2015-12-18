@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('owners.bankLink.controller', function ($scope, $state, UserService, BankService, AppNotificationService) {
+.controller('owners.bankLink.controller', function ($scope, $state, UserService, BankService, MyOwnerService, AppNotificationService) {
 
   var empty = BankService.ownerBankInfo.individual === undefined;
 
@@ -35,6 +35,8 @@ angular.module('idlecars')
       if (!AppNotificationService.messages) {
         AppNotificationService.push('Sorry, there was an error. Please try again.');
       }
+    }).finally(function () {
+      MyOwnerService.clearCache();
     })
   }
 
