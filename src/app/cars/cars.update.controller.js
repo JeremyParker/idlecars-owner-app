@@ -30,8 +30,8 @@ angular.module('idlecars')
 
   $scope.formTitle = 'Please choose a rental option for the driver:';
   $scope.singleChoice = {
-    key: 'split_shift',
-    choices: CarService.split_shift,
+    key: 'shift',
+    choices: CarService.shift,
   }
 })
 

@@ -18,7 +18,7 @@ angular.module('idlecars')
 
     .state('cars.update.shift', {
       url: '/shift',
-      data: {navbarInfo: {title: 'Rental type', enableBack: true, enableNext: true}},
+      data: {navbarInfo: {title: 'Rental type', enableBack: true, enableSave: true}},
       templateUrl: 'shared/users/form.html',
       controller: 'cars.update.shift.controller',
     })

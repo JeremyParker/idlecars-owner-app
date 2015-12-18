@@ -25,12 +25,10 @@ angular.module('idlecars')
   ];
 
   // TODO: split shift wording
-  service.split_shift = [
-    {key: '_01_no_min', value: '1 day'},
-    {key: '_02_one_week', value: '7 days'},
-    {key: '_03_two_weeks', value: '14 days'},
-    {key: '_04_three_weeks', value: '21 days'},
-    {key: '_05_one_month', value: '30 days'},
+  service.shift = [
+    {key: '1', value: '24/7'},
+    {key: '2', value: 'Day shift (5am-5pm)'},
+    {key: '3', value: 'Night shift (5pm-5am)'},
   ];
 
   service.requiredDocs = {
