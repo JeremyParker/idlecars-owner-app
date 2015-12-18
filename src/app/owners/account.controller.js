@@ -29,6 +29,7 @@ angular.module('idlecars')
   $scope.logout = function () {
     CarService.clearCache();
     MyOwnerService.clearCache();
+    UserService.clearCache();
     AuthService.logout();
   };
 
