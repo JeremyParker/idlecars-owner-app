@@ -25,8 +25,8 @@ angular.module('idlecars')
   ];
 
   service.requiredDocs = {
-    solo_cost: {dislike: '', state: 'cars.add.rent'},
-    solo_deposit: {dislike: '', state: 'cars.add.deposit'},
+    weekly_rent: {dislike: '', state: 'cars.add.rent'},
+    deposit: {dislike: '', state: 'cars.add.deposit'},
     min_lease: {dislike: '_00_unknown', state: 'cars.add.minimum'},
     exterior_color: {dislike: '', state: 'cars.add.exterior'},
     interior_color: {dislike: '', state: 'cars.add.interior'},
