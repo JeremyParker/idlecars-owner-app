@@ -38,7 +38,7 @@ angular.module('idlecars')
 .controller('cars.update.rent.controller', function ($scope) {
   $scope.fields = [{
     label: 'Please enter the weekly rent (in dollars)',
-    name: 'solo_cost',
+    name: 'weekly_rent',
     type: 'text',
     pattern: '^[0-9]+$',
     autoFocus: true,
@@ -83,7 +83,7 @@ angular.module('idlecars')
 .controller('cars.update.deposit.controller', function ($scope) {
   $scope.fields = [{
     label: 'What is the required deposit?',
-    name: 'solo_deposit',
+    name: 'deposit',
     type: 'text',
     pattern: '^[0-9]+$',
     autoFocus: true,
