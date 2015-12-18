@@ -29,7 +29,7 @@ angular.module('idlecars')
 
 .controller('cars.add.confirm.controller', function ($scope, $state, $stateParams, CarService) {
   var confirm = function () {
-    $state.go('^.rent');
+    $state.go('^.shift');
   }
 
   var decline = function () {
@@ -66,6 +66,18 @@ angular.module('idlecars')
     value: 'That\'s not my car',
     click: decline,
   }];
+})
+
+.controller('cars.add.shift.controller', function ($scope, $rootScope, CarService) {
+  $rootScope.navNextEnabled = true;
+
+  $scope.formTitle = 'What shift is this car available?';
+  $scope.singleChoice = {
+    key: 'shift',
+    choices: CarService.shift,
+  }
+
+  $scope.nextState = '^.rent';
 })
 
 .controller('cars.add.rent.controller', function ($scope, NavbarService) {

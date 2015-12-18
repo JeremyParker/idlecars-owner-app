@@ -25,6 +25,16 @@ angular.module('idlecars')
   NavbarService.validateInit($scope, true);
 })
 
+.controller('cars.update.shift.controller', function ($scope, $rootScope, CarService) {
+  $rootScope.navNextEnabled = true;
+
+  $scope.formTitle = 'What shift is this car available?';
+  $scope.singleChoice = {
+    key: 'shift',
+    choices: CarService.shift,
+  }
+})
+
 .controller('cars.update.rent.controller', function ($scope) {
   $scope.fields = [{
     label: 'Please enter the weekly rent (in dollars)',

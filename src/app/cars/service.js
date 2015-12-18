@@ -24,6 +24,13 @@ angular.module('idlecars')
     {key: '_05_one_month', value: '30 days'},
   ];
 
+  // TODO: split shift wording
+  service.shift = [
+    {key: '1', value: '24/7'},
+    {key: '2', value: 'Day shift (5am-5pm)'},
+    {key: '3', value: 'Night shift (5pm-5am)'},
+  ];
+
   service.requiredDocs = {
     weekly_rent: {dislike: '', state: 'cars.add.rent'},
     deposit: {dislike: '', state: 'cars.add.deposit'},
