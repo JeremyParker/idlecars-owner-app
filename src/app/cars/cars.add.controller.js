@@ -71,7 +71,7 @@ angular.module('idlecars')
 .controller('cars.add.rent.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'Please enter the weekly rent (in dollars)',
-    name: 'solo_cost',
+    name: 'weekly_rent',
     type: 'text',
     pattern: '^[0-9]+$',
     autoFocus: true,
@@ -121,7 +121,7 @@ angular.module('idlecars')
 .controller('cars.add.deposit.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'What is the required deposit? (We suggest the amount shown)',
-    name: 'solo_deposit',
+    name: 'deposit',
     type: 'text',
     pattern: '^[0-9]+$',
     autoFocus: true,
