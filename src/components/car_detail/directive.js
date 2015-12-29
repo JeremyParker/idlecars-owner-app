@@ -30,6 +30,14 @@ angular.module('idlecars')
         else if (key == 'RenewListing') {
           CarService.renew($scope.car.id).then(function (car) { $scope.car = car })
         }
+        else if (key == 'ApproveInsurance') {
+          CarService.patch($scope.car.id, {insurance: 'approved'})
+          .then(function (car) { $scope.car = car } )
+        }
+        else if (key == 'RejectInsurance') {
+          CarService.patch($scope.car.id, {insurance: 'rejected'})
+          .then(function (car) { $scope.car = car } )
+        }
       }
     }
   }
