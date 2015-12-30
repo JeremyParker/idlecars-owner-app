@@ -13,7 +13,7 @@ var Detail = function() {
   self.thirdCtaButon = self.ctaButtons.get(2);
 
   self.attributes = element.all(by.repeater('item in carDetail'));
-  self.rent = self.attributes.first().element(by.css('.content-main'));
+  self.rent = self.attributes.get(1).element(by.css('.content-main'));
 
   self.deleteButton = element(by.css('.alert-button'));
 };
