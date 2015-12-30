@@ -19,8 +19,8 @@ var Fields = function() {
   self.zipcode = element(by.css('input[name=zipcode]'));
 
   self.plate = element(by.css('input[name=plate]'));
-  self.rent = element(by.css('input[name=solo_cost]'));
-  self.deposit = element(by.css('input[name=solo_deposit]'));
+  self.rent = element(by.css('input[name=weekly_rent]'));
+  self.deposit = element(by.css('input[name=deposit]'));
 
   self.bankLinkButton = element.all(by.buttonText('Enter bank details')).filter(displayed).first();
   self.myCarsButton = element.all(by.buttonText('My cars')).filter(displayed).first();
