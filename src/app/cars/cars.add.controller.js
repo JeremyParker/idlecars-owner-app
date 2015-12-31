@@ -187,7 +187,7 @@ angular.module('idlecars')
   MyOwnerService.get().then(function (me) {
     if (me.bank_account_state == 'Add now') {
       $scope.label = 'Your car has been added. Before we post your listing, we need to connect\
-        your bank account. Then you can receive payments directly into your account.';
+        your bank account. Then you can receive direct deposit payments for your rental';
 
       $scope.buttons = [{
         value: 'Enter bank details',
