@@ -32,6 +32,7 @@ angular.module('idlecars')
   ];
 
   service.requiredDocs = {
+    shift: {dislike: '', state: 'cars.add.shift'},
     weekly_rent: {dislike: '', state: 'cars.add.rent'},
     deposit: {dislike: '', state: 'cars.add.deposit'},
     min_lease: {dislike: '_00_unknown', state: 'cars.add.minimum'},
