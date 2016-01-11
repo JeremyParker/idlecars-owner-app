@@ -81,6 +81,17 @@ angular.module('idlecars')
 })
 
 .controller('cars.add.rent.controller', function ($scope, NavbarService) {
+  $scope.$watch('user', function () {
+    if ($scope.user.weekly_rent) {
+      $scope.fields = [{
+        label: 'Please enter the weekly rent. (We suggest the amount shown)',
+        name: 'weekly_rent',
+        type: 'text',
+        pattern: '^[0-9]+$',
+        autoFocus: true,
+      }];
+    };
+  })
   $scope.fields = [{
     label: 'Please enter the weekly rent (in dollars)',
     name: 'weekly_rent',
