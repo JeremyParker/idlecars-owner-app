@@ -38,6 +38,10 @@ angular.module('idlecars')
           CarService.patch($scope.car.id, {insurance: 'rejected'})
           .then(function (car) { $scope.car = car } )
         }
+        else if (key == 'ReturnConfirm') {
+          CarService.patch($scope.car.id, {return_confirmation: ''})
+          .then(function (car) { $scope.car = car } )
+        }
       }
     }
   }
