@@ -8,3 +8,5 @@
     ng-repeat='button in car.state_buttons',
     ng-click='go(button.function_key)'
   ) {{button.label}}
+
+ic-loading(ng-show='isBusy')
