@@ -1,11 +1,11 @@
 .cars-wrapper
-  h1(hidden) My cars
+  h1(hidden) My shifts
 
   section
     welcome-cars-modal
 
   section.add
-    a(ui-sref="plate") + Add a new car
+    a(ui-sref="plate") + Add a new shift
 
   section.cars
     a.car(ng-repeat="car in cars", ng-click="carDetail(car)")
