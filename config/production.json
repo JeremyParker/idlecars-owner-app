@@ -2,6 +2,6 @@
   "config": {
     "env": "production",
     "landing_page_url": "http://www.alltaxi.com/",
-    "api_base_url": "https://alltaxi.heroku.com/api/"
+    "api_base_url": "http://alltaxi.heroku.com/api/"
   }
 }
