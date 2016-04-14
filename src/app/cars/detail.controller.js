@@ -23,8 +23,8 @@ angular.module('idlecars')
     {title: 'Min rental', link: getLink('minimum'), content: 'min_lease_display'},
     {title: 'Available', link: getLink('available'), content: 'available_date_display'},
     {title: 'Mileage', link: getLink('mileage'), content: 'last_known_mileage'},
-    {title: 'Exterior color', link: getLink('exterior'), content: 'exterior_color'},
-    {title: 'Interior color', link: getLink('interior'), content: 'interior_color'},
+    // {title: 'Exterior color', link: getLink('exterior'), content: 'exterior_color'},
+    // {title: 'Interior color', link: getLink('interior'), content: 'interior_color'},
   ];
 
   var errorDisplay = function () {
@@ -62,7 +62,7 @@ angular.module('idlecars')
     CarService.patch($scope.car.id, {owner: null})
     .then(function (car) {
       $scope.car = car;
-      var message = "You've successfully deleted your " + car.name + " " + car.plate;
+      var message = "You have deleted that shift on your " + car.name + " " + car.plate;
       AppNotificationService.push({success: message});
       $state.go('^');
     })

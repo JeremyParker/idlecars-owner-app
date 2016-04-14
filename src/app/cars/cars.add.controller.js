@@ -164,7 +164,7 @@ angular.module('idlecars')
     choices: CarService.minimum_lease,
   }
 
-  $scope.nextState = '^.exterior';
+  $scope.nextState = '^.success'; // used to be exterior
 })
 
 .controller('cars.add.exterior.controller', function ($scope, $rootScope, CarService) {
@@ -192,17 +192,16 @@ angular.module('idlecars')
 })
 
 .controller('cars.add.success.controller', function ($scope, $state, MyOwnerService) {
-  var linkBankAccount = function () { $state.go('ownerAccount.bankLink') }
+  var goToListings = function () { $state.go('cars') }
   var myCars = function () { $state.go('cars') }
 
   MyOwnerService.get().then(function (me) {
     if (me.bank_account_state == 'Add now') {
-      $scope.label = 'Your car has been added. Before we post your listing, we need to connect\
-        your bank account. Then you can receive direct deposit payments for your rental';
+      $scope.label = 'Your shift has been added to the All Taxi listings.';
 
       $scope.buttons = [{
-        value: 'Enter bank details',
-        click: linkBankAccount,
+        value: 'OK',
+        click: goToListings,
       }]
     }
   })
@@ -210,7 +209,7 @@ angular.module('idlecars')
   $scope.label = 'Your car has been added to your account!';
 
   $scope.buttons = [{
-    value: 'My cars',
+    value: 'My listings',
     click: myCars,
   }]
 })

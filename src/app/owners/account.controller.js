@@ -15,7 +15,7 @@ angular.module('idlecars')
   $scope.ownerInfo = [
     {title: 'Company Name', link: '.update.company', content: 'company_name'},
     {title: 'Zip Code', link: '.update.zipcode', content: 'zipcode'},
-    {title: 'Bank Account', link: '.bankLink', content: 'bank_account_state'}
+    // {title: 'Bank Account', link: '.bankLink', content: 'bank_account_state'}
   ];
 
   UserService.get().then(function (user) {

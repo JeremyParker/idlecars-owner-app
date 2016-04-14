@@ -5,7 +5,7 @@ angular.module('idlecars')
   $scope.user = {};
 
   $scope.fields = [{
-    label: 'To add a car, please enter the car\'s TLC plate.',
+    label: 'To list an available shift, please enter the car\'s TLC plate.',
     name: 'plate',
     type: 'text',
     autoFocus: true,

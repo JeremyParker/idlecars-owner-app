@@ -36,8 +36,8 @@ angular.module('idlecars')
     weekly_rent: {dislike: '', state: 'cars.add.rent'},
     deposit: {dislike: '', state: 'cars.add.deposit'},
     min_lease: {dislike: '_00_unknown', state: 'cars.add.minimum'},
-    exterior_color: {dislike: '', state: 'cars.add.exterior'},
-    interior_color: {dislike: '', state: 'cars.add.interior'},
+    // exterior_color: {dislike: '', state: 'cars.add.exterior'},
+    // interior_color: {dislike: '', state: 'cars.add.interior'},
   }
 
   service.get = function (carId) {
