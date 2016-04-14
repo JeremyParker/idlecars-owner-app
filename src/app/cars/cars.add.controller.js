@@ -84,7 +84,7 @@ angular.module('idlecars')
   $scope.$watch('user', function () {
     if ($scope.user.weekly_rent) {
       $scope.fields = [{
-        label: 'Please enter the weekly rent. (We suggest the amount shown)',
+        label: 'Please enter the weekly rent.',
         name: 'weekly_rent',
         type: 'text',
         pattern: '^[0-9]+$',
@@ -143,7 +143,7 @@ angular.module('idlecars')
 
 .controller('cars.add.deposit.controller', function ($scope, NavbarService) {
   $scope.fields = [{
-    label: 'What is the required deposit? (We suggest the amount shown)',
+    label: 'What is the required deposit?',
     name: 'deposit',
     type: 'text',
     pattern: '^[0-9]+$',
