@@ -80,10 +80,10 @@ angular.module('idlecars')
   $scope.nextState = '^.description';
 })
 
-.controller('cars.add.description.controller', function ($scope, NavbarService) {
+.controller('cars.add.description.controller', function ($scope, $rootScope) {
   $scope.fields = [{
     label: 'More details for your shift?(optional)',
-    name: 'description',
+    name: 'shift_details',
     type: 'text',
     autoFocus: true,
   }];

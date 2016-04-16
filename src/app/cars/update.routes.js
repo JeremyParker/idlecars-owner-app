@@ -23,6 +23,13 @@ angular.module('idlecars')
       controller: 'cars.update.shift.controller',
     })
 
+    .state('cars.update.description', {
+      url: '/description',
+      data: {navbarInfo: {title: 'Descrition', enableBack: true, enableSave: true}},
+      templateUrl: 'shared/users/form.html',
+      controller: 'cars.update.description.controller',
+    })
+
     .state('cars.update.rent', {
       url: '/rent',
       data: {navbarInfo: {title: 'Weekly rent', enableBack: true, enableSave: true}},
