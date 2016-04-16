@@ -20,7 +20,7 @@ angular.module('idlecars')
     {title: 'Shift', link: getLink('shift'), content: 'shift_display'},
     {title: 'Weekly rent', link: getLink('rent'), content: 'weekly_rent'},
     {title: 'Deposit', link: getLink('deposit'), content: 'deposit'},
-    {title: 'Min rental', link: getLink('minimum'), content: 'min_lease_display'},
+    // {title: 'Min rental', link: getLink('minimum'), content: 'min_lease_display'},
     {title: 'Available', link: getLink('available'), content: 'available_date_display'},
     {title: 'Mileage', link: getLink('mileage'), content: 'last_known_mileage'},
     // {title: 'Exterior color', link: getLink('exterior'), content: 'exterior_color'},
