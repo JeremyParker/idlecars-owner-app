@@ -30,6 +30,13 @@ angular.module('idlecars')
       controller: 'cars.add.shift.controller',
     })
 
+    .state('cars.add.description', {
+      url: '/description',
+      data: {navbarInfo: {title: '', enableBack: true, enableNext: true}},
+      templateUrl: 'shared/users/form.html',
+      controller: 'cars.add.description.controller',
+    })
+
     .state('cars.add.rent', {
       url: '/rent',
       data: {navbarInfo: {title: 'Weekly rent', enableBack: true, enableNext: true}},

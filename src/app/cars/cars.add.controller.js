@@ -77,7 +77,20 @@ angular.module('idlecars')
     choices: CarService.shift,
   }
 
+  $scope.nextState = '^.description';
+})
+
+.controller('cars.add.description.controller', function ($scope, NavbarService) {
+  $scope.fields = [{
+    label: 'More details for your shift?(optional)',
+    name: 'description',
+    type: 'text',
+    autoFocus: true,
+  }];
+
   $scope.nextState = '^.rent';
+
+  $rootScope.navNextEnabled = true;
 })
 
 .controller('cars.add.rent.controller', function ($scope, NavbarService) {
