@@ -130,7 +130,7 @@ angular.module('idlecars')
     }]
   }
 
-  $scope.nextState = '^.minimum';
+  $scope.nextState = '^.success'; // used to be minimum
   $rootScope.navNextEnabled = true;
   $scope.$watch('user', loadContent)
   $scope.label = 'When is the car next available?';
