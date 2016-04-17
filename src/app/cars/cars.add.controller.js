@@ -82,7 +82,7 @@ angular.module('idlecars')
 
 .controller('cars.add.description.controller', function ($scope, $rootScope) {
   $scope.fields = [{
-    label: 'More details for your shift?(optional)',
+    label: 'Shift details (for example "Weeknights 6pm - 6am")',
     name: 'shift_details',
     type: 'text',
     autoFocus: true,
