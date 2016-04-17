@@ -35,6 +35,16 @@ angular.module('idlecars')
   }
 })
 
+.controller('cars.update.description.controller', function ($scope, $rootScope) {
+  $scope.fields = [{
+    label: 'More details for your shift?(optional)',
+    name: 'shift_details',
+    type: 'text',
+    required: false,
+    autoFocus: true,
+  }];
+})
+
 .controller('cars.update.rent.controller', function ($scope) {
   $scope.fields = [{
     label: 'Please enter the weekly rent (in dollars)',
