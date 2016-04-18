@@ -31,6 +31,13 @@ angular.module('idlecars')
       }
     })
 
+    .state('ownerAccount.onboarding.social', {
+      url: '/social',
+      data: {navbarInfo: {title: 'Last 4 of SSN', enableBack: true, enableNext: true}},
+      templateUrl: 'shared/users/form.html',
+      controller: 'owner.onboarding.social.controller',
+    })
+
     .state('ownerAccount.onboarding.company', {
       url: '/company',
       data: {navbarInfo: {title: 'Company name', enableBack: true, enableNext: true}},
@@ -54,6 +61,13 @@ angular.module('idlecars')
           controller: 'owner.update.controller',
         }
       }
+    })
+
+    .state('ownerAccount.update.social', {
+      url: '/social',
+      data: {navbarInfo: {title: 'Last 4 of SSN', enableBack: true, enableSave: true}},
+      templateUrl: 'shared/users/form.html',
+      controller: 'owner.update.social.controller',
     })
 
     .state('ownerAccount.update.company', {

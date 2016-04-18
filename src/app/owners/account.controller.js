@@ -13,6 +13,7 @@ angular.module('idlecars')
   ];
 
   $scope.ownerInfo = [
+    {title: 'Last 4 of SSN', link: '.update.social', content: 'social'},
     {title: 'Company Name', link: '.update.company', content: 'company_name'},
     {title: 'Zip Code', link: '.update.zipcode', content: 'zipcode'},
     // {title: 'Bank Account', link: '.bankLink', content: 'bank_account_state'}

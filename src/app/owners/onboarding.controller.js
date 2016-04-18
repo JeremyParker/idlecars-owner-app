@@ -19,6 +19,21 @@ angular.module('idlecars')
   }
 })
 
+.controller('owner.onboarding.social.controller', function ($scope, NavbarService) {
+  $scope.fields = [{
+    label: 'Enter the last 4 digits of your Social Security Number',
+    name: 'social',
+    type: 'text',
+    maxlength: '4',
+    autoFocus: true,
+    required: true,
+  }];
+
+  $scope.nextState = '^.company';
+
+  NavbarService.validateInit($scope);
+})
+
 .controller('owner.onboarding.company.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'Enter your company name (optional)',
@@ -44,7 +59,7 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  $scope.nextState = 'plate';
+  $scope.nextState = 'cars';
 
   NavbarService.validateInit($scope);
 })
