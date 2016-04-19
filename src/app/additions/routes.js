@@ -13,10 +13,10 @@ angular.module('idlecars')
           templateUrl: 'components/navbar/navbar_main.html',
           controller: 'navbarMain.controller',
         },
-        'content': {
-          templateUrl: 'app/additions/additions.html',
-          controller: 'additions.controller',
-        },
+        // 'content': {
+        //   templateUrl: 'app/additions/additions.html',
+        //   controller: 'additions.controller',
+        // },
       },
     })
 
