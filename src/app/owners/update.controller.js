@@ -23,6 +23,7 @@ angular.module('idlecars')
     name: 'social',
     type: 'text',
     maxlength: '4',
+    pattern: '^\\d{4}$',
     autoFocus: true,
     required: true,
   }];
