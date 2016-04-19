@@ -17,6 +17,17 @@ angular.module('idlecars')
   }
 })
 
+.controller('owner.update.social.controller', function ($scope) {
+  $scope.fields = [{
+    label: 'Enter the last 4 digits of your Social Security Number',
+    name: 'social',
+    type: 'text',
+    maxlength: '4',
+    autoFocus: true,
+    required: true,
+  }];
+})
+
 .controller('owner.update.company.controller', function ($scope) {
   $scope.fields = [{
     label: 'Enter your company name (optional)',

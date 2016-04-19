@@ -13,7 +13,7 @@ angular.module('idlecars')
   }
 
   service.lastnameEntered = function () {
-    $state.go('ownerAccount.onboarding.company');
+    $state.go('ownerAccount.onboarding.social');
   }
 
   service.userUpdated = function () {

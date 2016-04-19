@@ -26,6 +26,7 @@ angular.module('idlecars')
   }
 
   service.requiredDocs = {
+    social: {dislike: '', state: 'ownerAccount.onboarding.social'},
     zipcode: {dislike: '', state: 'ownerAccount.onboarding.zipcode'},
   }
 
