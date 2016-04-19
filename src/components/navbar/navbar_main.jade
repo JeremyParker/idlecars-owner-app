@@ -12,5 +12,6 @@
 
 .menu(ng-show="menuOpen")
   a(ng-show='isLoggedIn', ui-sref='cars', ng-click='menuOpen = false') My listings
+  a(ng-show='isLoggedIn', ui-sref='medallion', ng-click='menuOpen = false') Add a Driver
   a(ng-show='isLoggedIn', ui-sref='ownerAccount', ng-click='menuOpen = false') My account
   //- a(ui-sref='faq', ng-click='menuOpen = false') Questions
