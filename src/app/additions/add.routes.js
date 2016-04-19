@@ -44,7 +44,31 @@ angular.module('idlecars')
       controller: 'additions.add.last_name.controller',
     })
 
-    .state('additions.add.success', {
+    .state('additions.add.uploadDriverLicense', {
+      url: '/driver-license',
+      templateUrl: 'app/additions/upload.html',
+      controller: 'additions.add.driverlicense.controller',
+    })
+
+    .state('additions.add.uploadFhvLicense', {
+      url: '/fhv-license',
+      templateUrl: 'app/additions/upload.html',
+      controller: 'additions.add.fhvlicense.controller',
+    })
+
+    .state('additions.add.uploadDefensiveCert', {
+      url: '/defensive-driving-certificate',
+      templateUrl: 'app/additions/upload.html',
+      controller: 'additions.add.defensivedriving.controller',
+    })
+
+    .state('additions.add.uploadAddressProof', {
+      url: '/proof-of-address',
+      templateUrl: 'app/additions/upload.html',
+      controller: 'additions.add.proofaddress.controller',
+    })
+
+      .state('additions.add.success', {
       url: '/success',
       data: {navbarInfo: {title: 'Success', enableMenu: true}},
       templateUrl: 'shared/users/notice.html',

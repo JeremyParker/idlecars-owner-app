@@ -5,6 +5,7 @@ angular.module('idlecars')
   // this predefine is very important,
   // otherwise angular won't assign the receiving addition to the correct medallion
   $scope.user = {};
+  $scope.showSkipLink = false;
 
   // TODO: this user is actually the addition object, we need to rename user --> object in form.jade
   AdditionService.get($stateParams.additionId).then(function (addition) {
@@ -74,15 +75,40 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  $scope.nextState = '^.success';
+  $scope.nextState = '^.uploadDriverLicense';
 
   $rootScope.navNextEnabled = true;
+})
+
+.controller('additions.add.driverlicense.controller', function ($scope) {
+  $scope.fieldName = 'driver_license_image';
+  $scope.uploadTitle = 'your Drivers License';
+})
+
+.controller('additions.add.fhvlicense.controller', function ($scope) {
+  $scope.fieldName = 'fhv_license_image';
+  $scope.uploadTitle = 'your Hack License';
+})
+
+.controller('additions.add.defensivedriving.controller', function ($scope) {
+  $scope.fieldName = 'defensive_cert_image';
+  $scope.uploadTitle = 'your Social Security Card';
+})
+
+.controller('additions.add.proofaddress.controller', function ($scope, $state, DocRouterService) {
+  $scope.fieldName = 'address_proof_image';
+  $scope.uploadTitle = 'your Motor Vehicle Record (optional)';
+
+  $scope.skipOptionalDoc = function () {
+    // TODO - make some server call to mark that this request should be complete
+    $state.go('driverAccount.onboarding.success');
+  }
 })
 
 .controller('additions.add.success.controller', function ($scope, $state) {
   var myCars = function () { $state.go('cars') }
 
-    $scope.label = 'Your request to add a driver has been sent to All Taxi.';
+  $scope.label = 'Your request to add a driver has been sent to All Taxi.';
 
   $scope.buttons = [{
     value: 'OK',
