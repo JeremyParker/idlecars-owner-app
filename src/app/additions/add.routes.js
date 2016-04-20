@@ -44,6 +44,13 @@ angular.module('idlecars')
       controller: 'additions.add.last_name.controller',
     })
 
+    .state('additions.add.ssn', {
+      url: '/ssn',
+      data: {navbarInfo: {title: 'SSN', enableBack: true, enableNext: true}},
+      templateUrl: 'shared/users/form.html',
+      controller: 'additions.add.ssn.controller',
+    })
+
     .state('additions.add.uploadDriverLicense', {
       url: '/driver-license',
       templateUrl: 'app/additions/upload.html',
@@ -54,12 +61,6 @@ angular.module('idlecars')
       url: '/fhv-license',
       templateUrl: 'app/additions/upload.html',
       controller: 'additions.add.fhvlicense.controller',
-    })
-
-    .state('additions.add.uploadDefensiveCert', {
-      url: '/defensive-driving-certificate',
-      templateUrl: 'app/additions/upload.html',
-      controller: 'additions.add.defensivedriving.controller',
     })
 
     .state('additions.add.uploadAddressProof', {

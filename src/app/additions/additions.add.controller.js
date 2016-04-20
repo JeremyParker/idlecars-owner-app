@@ -98,6 +98,21 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
+  $scope.nextState = '^.ssn';
+  NavbarService.validateInit($scope);
+})
+
+.controller('additions.add.ssn.controller', function ($scope, NavbarService) {
+  $scope.fields = [{
+    label: 'Please enter the driver\'s social security number',
+    placeholder: 'ssn',
+    name: 'ssn',
+    type: 'text',
+    maxlength: '9',
+    pattern: '^\\d{9}$',
+    autoFocus: true,
+  }];
+
   $scope.nextState = '^.uploadDriverLicense';
   NavbarService.validateInit($scope);
 })
@@ -114,14 +129,6 @@ angular.module('idlecars')
   $scope.fieldName = 'fhv_license_image';
   $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.uploadTitle = 'your Hack License';
-  $scope.afterUploadSref = '^.uploadDefensiveCert';
-  $scope.setImageUrl();
-})
-
-.controller('additions.add.defensivedriving.controller', function ($scope) {
-  $scope.fieldName = 'defensive_cert_image';
-  $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
-  $scope.uploadTitle = 'your Social Security Card';
   $scope.afterUploadSref = '^.uploadAddressProof';
   $scope.setImageUrl();
 })
