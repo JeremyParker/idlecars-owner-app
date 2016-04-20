@@ -30,7 +30,7 @@ angular.module('idlecars')
     required: true,
   }];
 
-  $scope.nextState = '^.company';
+  $scope.nextState = '^.zipcode';
 
   NavbarService.validateInit($scope);
 })

@@ -29,7 +29,7 @@ angular.module('idlecars')
 
 .controller('cars.add.confirm.controller', function ($scope, $state, $stateParams, CarService) {
   var confirm = function () {
-    $state.go('^.shift');
+    $state.go('^.description');
   }
 
   var decline = function () {
@@ -42,14 +42,14 @@ angular.module('idlecars')
 
   var loadContent = function () {
     $scope.contents = [{
-      title: 'Plate',
+      title: 'Medallion',
       content: $scope.user.plate,
     },
     {
       content: $scope.user.name,
     },
     {
-      title: 'Base',
+      title: 'Agent',
       content: $scope.user.base,
     }];
   }
@@ -82,7 +82,7 @@ angular.module('idlecars')
 
 .controller('cars.add.description.controller', function ($scope, $rootScope) {
   $scope.fields = [{
-    label: 'Shift details (for example "Weeknights 6pm - 6am")',
+    label: 'Listing details (for example "Night Shift: Weeknights 6pm-6am")',
     name: 'shift_details',
     type: 'text',
     autoFocus: true,
@@ -97,7 +97,7 @@ angular.module('idlecars')
   $scope.$watch('user', function () {
     if ($scope.user.weekly_rent) {
       $scope.fields = [{
-        label: 'Please enter the weekly rent.',
+        label: 'Please enter the rent per shift.',
         name: 'weekly_rent',
         type: 'text',
         pattern: '^[0-9]+$',
@@ -156,7 +156,7 @@ angular.module('idlecars')
 
 .controller('cars.add.deposit.controller', function ($scope, NavbarService) {
   $scope.fields = [{
-    label: 'What is the required deposit?',
+    label: 'What is the required deposit? ($0 for none)',
     name: 'deposit',
     type: 'text',
     pattern: '^[0-9]+$',
