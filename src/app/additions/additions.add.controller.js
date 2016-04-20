@@ -126,7 +126,7 @@ angular.module('idlecars')
   $scope.setImageUrl();
 })
 
-.controller('additions.add.proofaddress.controller', function ($scope, $state, DocRouterService) {
+.controller('additions.add.proofaddress.controller', function ($scope, $state, $stateParams, AdditionService) {
   $scope.fieldName = 'address_proof_image';
   $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.uploadTitle = 'your Motor Vehicle Record (optional)';
@@ -134,8 +134,10 @@ angular.module('idlecars')
   $scope.setImageUrl();
 
   $scope.skipOptionalDoc = function () {
-    // TODO - make some server call to mark that this request should be complete
-    $state.go('driverAccount.onboarding.success');
+    var patchData = {'mvr_authorized': ''};
+    AdditionService.patch($stateParams.additionId, patchData).then(function () {
+      $state.go('additions.add.success');
+    })
   }
 })
 
