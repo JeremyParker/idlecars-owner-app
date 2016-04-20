@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.factory('AdditionService', function (Restangular) {
+.factory('AdditionService', function ($stateParams, Restangular) {
   var service = {};
 
   service.addition = {};
@@ -36,6 +36,10 @@ angular.module('idlecars')
     service.additions = null;
     service.addition[additionId] = Restangular.one('additions', additionId).patch(params);
     return service.addition[additionId];
+  }
+
+  service.currentDriverID = function () {
+    return $stateParams.additionId;
   }
 
   service.clearCache = function () {

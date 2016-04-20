@@ -1,0 +1,10 @@
+.upload-wrapper
+  .upload-container
+    .title
+      div Please upload a photo of
+      .upload-title {{uploadTitle}}
+
+    ic-upload(field-name="{{fieldName}}", after-upload-sref="{{afterUploadSref}}")
+
+    .skip-link
+      a(ng-if='skipOptionalDoc', ng-click="skipOptionalDoc()") I accept the charge for All Taxi to get an MVR
