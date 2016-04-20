@@ -44,56 +44,62 @@ angular.module('idlecars')
   }
 })
 
-.controller('additions.add.phone_number.controller', function ($scope, $rootScope) {
+.controller('additions.add.phone_number.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'Please enter the driver\'s phone number',
     name: 'phone_number',
-    type: 'text',
+    placeholder: '(555) 555-5555',
+    type: 'tel',
+    formatInput: 'tel',
+    pattern: '[^\\d]*\\d{3}[^\\d]*\\d{3}[^\\d]*\\d{4}$',
+    maxlength: '14',
     autoFocus: true,
   }];
 
   $scope.nextState = '^.email';
-
-  $rootScope.navNextEnabled = true;
+  NavbarService.validateInit($scope);
 })
 
-.controller('additions.add.email.controller', function ($scope, $rootScope) {
+.controller('additions.add.email.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'Please enter the driver\'s email address',
+    placeholder: 'email@address.com',
     name: 'email',
-    type: 'text',
+    type: 'email',
+    maxlength: '254',
     autoFocus: true,
   }];
 
   $scope.nextState = '^.first_name';
-
-  $rootScope.navNextEnabled = true;
+  NavbarService.validateInit($scope);
 })
 
-.controller('additions.add.first_name.controller', function ($scope, $rootScope) {
+.controller('additions.add.first_name.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'Please enter the driver\'s first name',
+    placeholder: 'First name',
     name: 'first_name',
     type: 'text',
+    maxlength: '30',
     autoFocus: true,
   }];
 
   $scope.nextState = '^.last_name';
-
-  $rootScope.navNextEnabled = true;
+  NavbarService.validateInit($scope);
 })
 
-.controller('additions.add.last_name.controller', function ($scope, $rootScope) {
+.controller('additions.add.last_name.controller', function ($scope, NavbarService) {
   $scope.fields = [{
     label: 'Please enter the driver\'s last name',
+    placeholder: 'Last name',
     name: 'last_name',
     type: 'text',
+    maxlength: '30',
     autoFocus: true,
   }];
 
   $scope.nextState = '^.uploadDriverLicense';
-
-  $rootScope.navNextEnabled = true;
+  NavbarService.validateInit($scope);
 })
 
 .controller('additions.add.driverlicense.controller', function ($scope) {
