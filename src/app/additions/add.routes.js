@@ -68,7 +68,7 @@ angular.module('idlecars')
       controller: 'additions.add.proofaddress.controller',
     })
 
-      .state('additions.add.success', {
+    .state('additions.add.success', {
       url: '/success',
       data: {navbarInfo: {title: 'Success', enableMenu: true}},
       templateUrl: 'shared/users/notice.html',

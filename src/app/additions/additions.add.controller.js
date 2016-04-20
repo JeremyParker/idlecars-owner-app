@@ -11,6 +11,7 @@ angular.module('idlecars')
   AdditionService.get($stateParams.additionId).then(function (addition) {
     $scope.user = addition;
     $scope.validateForm();
+    $scope.setImageUrl();
   })
   // TODO: catch error
 
@@ -25,6 +26,21 @@ angular.module('idlecars')
       $scope.user = angular.copy(addition);
       $state.go($scope.$$childHead.nextState);
     })
+  }
+
+  $scope.setImageUrl = function () {
+    if (!$scope.user[$scope.$$childHead.fieldName]) { return; }
+    $scope.$$childHead.fileUrl = $scope.user[$scope.$$childHead.fieldName];
+  }
+
+  $scope.associateToUser = function (fileUrl) {
+    var patchData = {};
+    patchData[$scope.$$childHead.fieldName] = fileUrl;
+    return AdditionService.patch($stateParams.additionId, patchData);
+  };
+
+  $scope.afterUpload = function () {
+    $state.go($scope.$$childHead.afterUploadSref);
   }
 })
 
@@ -82,26 +98,34 @@ angular.module('idlecars')
 
 .controller('additions.add.driverlicense.controller', function ($scope) {
   $scope.fieldName = 'driver_license_image';
+  $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.uploadTitle = 'your Drivers License';
   $scope.afterUploadSref = '^.uploadFhvLicense';
+  $scope.setImageUrl();
 })
 
 .controller('additions.add.fhvlicense.controller', function ($scope) {
   $scope.fieldName = 'fhv_license_image';
+  $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.uploadTitle = 'your Hack License';
   $scope.afterUploadSref = '^.uploadDefensiveCert';
+  $scope.setImageUrl();
 })
 
 .controller('additions.add.defensivedriving.controller', function ($scope) {
   $scope.fieldName = 'defensive_cert_image';
+  $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.uploadTitle = 'your Social Security Card';
   $scope.afterUploadSref = '^.uploadAddressProof';
+  $scope.setImageUrl();
 })
 
 .controller('additions.add.proofaddress.controller', function ($scope, $state, DocRouterService) {
   $scope.fieldName = 'address_proof_image';
+  $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.uploadTitle = 'your Motor Vehicle Record (optional)';
   $scope.afterUploadSref = '^.success';
+  $scope.setImageUrl();
 
   $scope.skipOptionalDoc = function () {
     // TODO - make some server call to mark that this request should be complete
