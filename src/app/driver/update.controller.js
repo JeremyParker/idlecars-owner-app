@@ -21,4 +21,13 @@ angular.module('idlecars')
     HistoryService.goPreviousState();
     AppNotificationService.push({success: 'you have already approved the driver.'});
   }
+
+  $scope.skipOptionalDoc = function () {
+    var patchData = {'authorize_mvr': $stateParams.driverId};
+    MyOwnerService.patch(patchData).then(function () {
+      CarService.clearCache()
+      HistoryService.goPreviousState();
+      AppNotificationService.push({success: 'you have already approved the driver and we have sent an notification to all taxi!'});
+    })
+  }
 })
