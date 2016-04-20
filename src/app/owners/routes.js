@@ -52,6 +52,17 @@ angular.module('idlecars')
       controller: 'owner.onboarding.zipcode.controller',
     })
 
+    .state('ownerAccount.choice', {
+      url: '/choice',
+      data: {navbarInfo: {title: 'List Shift or Add Driver', enableMenu: true}},
+      views: {
+        'content@': {
+          templateUrl: 'app/owners/choice.html',
+          controller: 'owner.choice.controller',
+        }
+      }
+    })
+
     .state('ownerAccount.update', {
       abstract: true,
       url: '/update',

@@ -60,7 +60,7 @@ angular.module('idlecars')
     autoFocus: true,
   }];
 
-  $scope.nextState = 'cars';
+  $scope.nextState = 'ownerAccount.choice';
 
   NavbarService.validateInit($scope);
 })
