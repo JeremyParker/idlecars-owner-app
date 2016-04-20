@@ -46,6 +46,10 @@ angular.module('idlecars')
           .then(function (car) { $scope.car = car } )
           .finally(function () { $scope.isBusy = false })
         }
+        else if (key == 'ApproveAndUploadMVR') {
+          $state.go('driver.update.uploadAddressProof', {driverId: $scope.car.requested_driver[0]});
+          $scope.isBusy = false;
+        }
         else if (key == 'ReturnConfirm') {
           CarService.patch($scope.car.id, {return_confirmation: ''})
           .then(function (car) { $scope.car = car } )
