@@ -31,11 +31,4 @@ angular.module('idlecars')
       templateUrl: 'app/additions/upload.html',
       controller: 'driver.update.proofaddress.controller',
     })
-
-    // .state('driver.update.success', {
-    //   url: '/success',
-    //   data: {navbarInfo: {title: 'Success', enableMenu: true}},
-    //   templateUrl: 'shared/users/notice.html',
-    //   controller: 'driver.update.success.controller',
-    // })
 })

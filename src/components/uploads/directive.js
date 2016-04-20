@@ -6,8 +6,9 @@ angular.module('idlecars')
     templateUrl: 'components/uploads/upload.html',
     controller: 'upload.controller',
     scope: {
-      fieldName: "@",
-      afterUploadSref: "@"
+      fileUrl: "@",
+      afterUpload: "=",
+      associateToUser: "=",
     },
   };
 });
