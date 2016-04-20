@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('idlecars')
-.controller('driver.update.proofaddress.controller', function ($scope, $state, $stateParams, HistoryService, MyOwnerService, CarService) {
+.controller('driver.update.proofaddress.controller', function ($scope, $state, $stateParams, HistoryService, MyOwnerService, CarService, AppNotificationService) {
   $scope.fileUrl = '/assets/images/address_proof_image.png';
   $scope.uploadTitle = 'your Motor Vehicle Record (optional)';
   $scope.associateToUser = function (fileUrl) {
@@ -19,6 +19,7 @@ angular.module('idlecars')
     // either go back to car detail page or go to home page.
     CarService.clearCache()
     HistoryService.goPreviousState();
+    AppNotificationService.push({success: 'you have already approved the driver.'});
   }
 
   $scope.skipOptionalDoc = function () {
