@@ -83,21 +83,25 @@ angular.module('idlecars')
 .controller('additions.add.driverlicense.controller', function ($scope) {
   $scope.fieldName = 'driver_license_image';
   $scope.uploadTitle = 'your Drivers License';
+  $scope.afterUploadSref = '^.uploadFhvLicense';
 })
 
 .controller('additions.add.fhvlicense.controller', function ($scope) {
   $scope.fieldName = 'fhv_license_image';
   $scope.uploadTitle = 'your Hack License';
+  $scope.afterUploadSref = '^.uploadDefensiveCert';
 })
 
 .controller('additions.add.defensivedriving.controller', function ($scope) {
   $scope.fieldName = 'defensive_cert_image';
   $scope.uploadTitle = 'your Social Security Card';
+  $scope.afterUploadSref = '^.uploadAddressProof';
 })
 
 .controller('additions.add.proofaddress.controller', function ($scope, $state, DocRouterService) {
   $scope.fieldName = 'address_proof_image';
   $scope.uploadTitle = 'your Motor Vehicle Record (optional)';
+  $scope.afterUploadSref = '^.success';
 
   $scope.skipOptionalDoc = function () {
     // TODO - make some server call to mark that this request should be complete
