@@ -21,9 +21,4 @@ angular.module('idlecars')
     HistoryService.goPreviousState();
     AppNotificationService.push({success: 'you have already approved the driver.'});
   }
-
-  $scope.skipOptionalDoc = function () {
-    // TODO - make some server call to mark that this request should be complete
-    $state.go('^.success');
-  }
 })
