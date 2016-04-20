@@ -17,8 +17,8 @@ angular.module('idlecars')
   }
 
   $scope.carDetail = [
-    {title: 'Shift', link: getLink('shift'), content: 'shift_display'},
-    {title: 'Description', link: getLink('description'), content: 'shift_details'},
+    // {title: 'Shift', link: getLink('shift'), content: 'shift_display'},
+    {title: 'Shift description', link: getLink('description'), content: 'shift_details'},
     {title: 'Weekly rent', link: getLink('rent'), content: 'weekly_rent'},
     {title: 'Deposit', link: getLink('deposit'), content: 'deposit'},
     // {title: 'Min rental', link: getLink('minimum'), content: 'min_lease_display'},

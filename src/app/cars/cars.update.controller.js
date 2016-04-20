@@ -37,7 +37,7 @@ angular.module('idlecars')
 
 .controller('cars.update.description.controller', function ($scope, $rootScope) {
   $scope.fields = [{
-    label: 'Shift details',
+    label: 'Shift description',
     name: 'shift_details',
     type: 'text',
     required: false,
