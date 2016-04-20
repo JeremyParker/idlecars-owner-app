@@ -5,17 +5,17 @@ angular.module('idlecars')
   // TODO: this component is not a component at all.. it needs to be generified
   $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
   $scope.isBusy = false;
+  $scope.driverID = AdditionService.currentDriverID();
 
-  AdditionService.get().then(function(me) {
+  AdditionService.get($scope.driverID).then(function(me) {
     if (!me[$scope.fieldName]) { return; }
     $scope.fileUrl = me[$scope.fieldName];
   });
-
   var _uploadDidComplete = function(fileUrl) {
     $timeout(function() {
       _associateToAddition(fileUrl).then(function () {
         $scope.isBusy = false;
-        return $scope.afterUploadSref;
+        return $state.go($scope.afterUploadSref);
       })
     });
   };
@@ -95,6 +95,6 @@ angular.module('idlecars')
   var _associateToAddition = function(fileUrl) {
     var patchData = {};
     patchData[$scope.fieldName] = fileUrl;
-    return AdditionService.patch(patchData);
+    return AdditionService.patch($scope.driverID, patchData);
   };
 });
