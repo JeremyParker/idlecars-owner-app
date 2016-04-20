@@ -32,7 +32,7 @@ angular.module('idlecars')
 
     .state('plate', {
       url: '/plate',
-      data: {navbarInfo: {title: 'TLC plate', enableBack: true, enableNext: true}},
+      data: {navbarInfo: {title: 'Medallion', enableBack: true, enableNext: true}},
       views: {
         'navbar': {
           templateUrl: 'components/navbar/navbar_main.html',
