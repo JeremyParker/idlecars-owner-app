@@ -5,9 +5,9 @@ angular.module('idlecars')
 
   $stateProvider
 
-    .state('additions', {
+    .state('removals', {
       data: {requireAuth: true},
-      url: '/',
+      url: '/removals',
       views: {
         'navbar': {
           templateUrl: 'components/navbar/navbar_main.html',
@@ -16,9 +16,9 @@ angular.module('idlecars')
       },
     })
 
-    .state('medallion', {
-      url: '/medallion',
-      data: {navbarInfo: {title: 'Medallion', enableBack: true, enableNext: true}},
+    .state('hackLicense', {
+      url: '/hack_license',
+      data: {navbarInfo: {title: 'Hack License', enableBack: true, enableNext: true}},
       views: {
         'navbar': {
           templateUrl: 'components/navbar/navbar_main.html',
@@ -26,7 +26,7 @@ angular.module('idlecars')
         },
         'content@': {
           templateUrl: 'shared/users/form.html',
-          controller: 'medallion.controller',
+          controller: 'hackLicense.controller',
         },
       },
     })
