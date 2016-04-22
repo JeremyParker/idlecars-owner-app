@@ -47,7 +47,7 @@ angular.module('idlecars')
 
 .controller('cars.update.rent.controller', function ($scope) {
   $scope.fields = [{
-    label: 'Please enter the weekly rent (in dollars)',
+    label: 'Please enter the daily rent (in dollars)',
     name: 'weekly_rent',
     type: 'text',
     pattern: '^[0-9]+$',

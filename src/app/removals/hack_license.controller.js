@@ -8,8 +8,13 @@ angular.module('idlecars')
     label: 'To remove a driver, enter the driver\'s hack license number.',
     name: 'hack_license_number',
     type: 'text',
+    maxlength: '7',
+    // pattern: '^\\d{7}$',
     autoFocus: true,
   }];
+
+
+
 
   $rootScope.navGoNext = function() {
     $scope.isBusy = true;

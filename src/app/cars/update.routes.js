@@ -32,7 +32,7 @@ angular.module('idlecars')
 
     .state('cars.update.rent', {
       url: '/rent',
-      data: {navbarInfo: {title: 'Weekly rent', enableBack: true, enableSave: true}},
+      data: {navbarInfo: {title: 'Rent per day', enableBack: true, enableSave: true}},
       templateUrl: 'shared/users/form.html',
       controller: 'cars.update.rent.controller',
     })

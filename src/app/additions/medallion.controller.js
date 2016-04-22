@@ -8,6 +8,8 @@ angular.module('idlecars')
     label: 'To add a driver to a medallion, please enter the medallion number.',
     name: 'plate',
     type: 'text',
+    maxlength: '10',
+    placeholder: 'Medallion',
     autoFocus: true,
   }];
 

@@ -106,7 +106,7 @@ angular.module('idlecars')
     };
   })
   $scope.fields = [{
-    label: 'Please enter the weekly rent (in dollars)',
+    label: 'Please enter the daily rent (in dollars)',
     name: 'weekly_rent',
     type: 'text',
     pattern: '^[0-9]+$',
@@ -156,7 +156,7 @@ angular.module('idlecars')
 
 .controller('cars.add.deposit.controller', function ($scope, NavbarService) {
   $scope.fields = [{
-    label: 'What is the required deposit? ($0 for none)',
+    label: 'What is the required deposit? (enter 0 if no deposit)',
     name: 'deposit',
     type: 'text',
     pattern: '^[0-9]+$',
