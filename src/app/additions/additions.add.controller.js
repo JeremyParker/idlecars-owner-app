@@ -62,11 +62,12 @@ angular.module('idlecars')
 
 .controller('additions.add.email.controller', function ($scope, NavbarService) {
   $scope.fields = [{
-    label: 'Please enter the driver\'s email address',
+    label: 'Please enter the driver\'s email address (optional)',
     placeholder: 'email@address.com',
     name: 'email',
-    type: 'email',
+    type: 'text',
     maxlength: '254',
+    required: false,
     autoFocus: true,
   }];
 
@@ -120,7 +121,7 @@ angular.module('idlecars')
 .controller('additions.add.driverlicense.controller', function ($scope) {
   $scope.fieldName = 'driver_license_image';
   $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
-  $scope.uploadTitle = 'your Drivers License';
+  $scope.uploadTitle = 'The driver\'s  Drivers License';
   $scope.afterUploadSref = '^.uploadFhvLicense';
   $scope.setImageUrl();
 })
@@ -128,7 +129,7 @@ angular.module('idlecars')
 .controller('additions.add.fhvlicense.controller', function ($scope) {
   $scope.fieldName = 'fhv_license_image';
   $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
-  $scope.uploadTitle = 'your Hack License';
+  $scope.uploadTitle = 'The driver\'s Hack License';
   $scope.afterUploadSref = '^.uploadAddressProof';
   $scope.setImageUrl();
 })
@@ -136,7 +137,7 @@ angular.module('idlecars')
 .controller('additions.add.proofaddress.controller', function ($scope, $state, $stateParams, AdditionService) {
   $scope.fieldName = 'address_proof_image';
   $scope.fileUrl = '/assets/images/' + $scope.fieldName + '.png';
-  $scope.uploadTitle = 'your Motor Vehicle Record (optional)';
+  $scope.uploadTitle = 'The driver\'s Motor Vehicle Record (optional)';
   $scope.afterUploadSref = '^.success';
   $scope.setImageUrl();
 
