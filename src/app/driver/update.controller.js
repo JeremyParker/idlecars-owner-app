@@ -3,7 +3,7 @@
 angular.module('idlecars')
 .controller('driver.update.proofaddress.controller', function ($scope, $state, $stateParams, HistoryService, MyOwnerService, CarService, AppNotificationService) {
   $scope.fileUrl = '/assets/images/address_proof_image.png';
-  $scope.uploadTitle = 'your Motor Vehicle Record (optional)';
+  $scope.uploadTitle = 'the driver\'s Motor Vehicle Record (optional)';
   $scope.associateToUser = function (fileUrl) {
     var patchData = {};
     patchData['upload_driver_doc'] = {
@@ -19,7 +19,7 @@ angular.module('idlecars')
     // either go back to car detail page or go to home page.
     CarService.clearCache()
     HistoryService.goPreviousState();
-    AppNotificationService.push({success: 'you have already approved the driver.'});
+    AppNotificationService.push({success: 'you have approved the driver.'});
   }
 
   $scope.skipOptionalDoc = function () {
@@ -27,7 +27,7 @@ angular.module('idlecars')
     MyOwnerService.patch(patchData).then(function () {
       CarService.clearCache()
       HistoryService.goPreviousState();
-      AppNotificationService.push({success: 'you have already approved the driver and we have sent an notification to all taxi!'});
+      AppNotificationService.push({success: 'you have approved the driver and we have sent an notification to all taxi!'});
     })
   }
 })
