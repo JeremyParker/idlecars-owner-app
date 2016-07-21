@@ -5,7 +5,14 @@
     welcome-cars-modal
 
   section.add
-    a(ui-sref="plate") + Add a new shift
+    a(ui-sref="plate") Add a new shift
+    a(ui-sref='medallion') Add a driver
+    a(ui-sref='hackLicense') Remove a driver
+    a(ui-sref='ownerAccount') See my account
+    a(href='http://www.alltaxi.com/for-drivers/check-your-balance/',
+      target='new',
+      ng-click='menuOpen = false'
+      ) See my balance
 
   section.cars
     a.car(ng-repeat="car in cars", ng-click="carDetail(car)")
