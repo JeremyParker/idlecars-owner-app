@@ -1,3 +1,5 @@
+For a demo of the entire system, see https://www.youtube.com/watch?v=dQi7ZiM23jg
+
 # idlecars owner-app client
 An angularjs single page application
 ```
